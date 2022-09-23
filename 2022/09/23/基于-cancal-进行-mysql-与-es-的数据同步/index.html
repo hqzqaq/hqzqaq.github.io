@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="基于 cancal 进行 mysql 与 elasticsearch 的数据同步  1、mysql 安装 2、建库、建表 3、elasticsearch 安装 4、canal-server 安装 5、联合测试  mysql 安装123456789101112131415161718192021# 安装 mysql 5.7.36docker pull 5.7.36docker run --name">
+  <meta name="description" content="基于 cancal 进行 mysql 与 elasticsearch 的数据同步  1、mysql 安装 2、建库、建表 3、elasticsearch 安装 4、canal-server 安装 5、联合测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于 cancal 进行 mysql 与 es 的数据同步">
 <meta property="og:url" content="https://hqzqaq.github.io/2022/09/23/%E5%9F%BA%E4%BA%8E-cancal-%E8%BF%9B%E8%A1%8C-mysql-%E4%B8%8E-es-%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/index.html">
 <meta property="og:site_name" content="hqz的博客">
-<meta property="og:description" content="基于 cancal 进行 mysql 与 elasticsearch 的数据同步  1、mysql 安装 2、建库、建表 3、elasticsearch 安装 4、canal-server 安装 5、联合测试  mysql 安装123456789101112131415161718192021# 安装 mysql 5.7.36docker pull 5.7.36docker run --name">
+<meta property="og:description" content="基于 cancal 进行 mysql 与 elasticsearch 的数据同步  1、mysql 安装 2、建库、建表 3、elasticsearch 安装 4、canal-server 安装 5、联合测试">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-23T06:10:12.000Z">
-<meta property="article:modified_time" content="2022-09-23T06:10:46.256Z">
+<meta property="article:modified_time" content="2022-09-23T09:05:29.851Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="mysql">
@@ -285,6 +285,8 @@
 <p>4、canal-server 安装</p>
 <p>5、联合测试</p>
 </blockquote>
+<span id="more"></span>
+
 <h1 id="mysql-安装"><a href="#mysql-安装" class="headerlink" title="mysql 安装"></a>mysql 安装</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 mysql 5.7.36</span></span><br><span class="line">docker pull 5.7.36</span><br><span class="line">docker run --name mysql5736 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7.36</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将配置文件拷出，进行修改</span></span><br><span class="line">docker <span class="built_in">cp</span> docker <span class="built_in">cp</span> mysql5736:/etc/mysql/mysql.conf.d/mysqld.cnf /docker/mysql5736/config</span><br><span class="line"></span><br><span class="line"><span class="comment">#修改配置文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># binlog setting</span></span><br><span class="line"><span class="comment"># 开启 logbin</span></span><br><span class="line">log-bin=mysql-bin</span><br><span class="line"><span class="comment"># binlog 日志格式</span></span><br><span class="line">binlog-format=ROW</span><br><span class="line"><span class="comment"># mysql 主从备份 serverId,canal 中不能与此相同</span></span><br><span class="line">server-id=1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行配置文件的挂载</span></span><br><span class="line">docker run --name mysql5736 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -v /docker/mysql5736/config/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf -v /docker/mysql5736/data:/var/lib/mysql -d mysql:5.7.36</span><br><span class="line"></span><br><span class="line">docker <span class="built_in">exec</span> -it mysql5736 /bin/bash</span><br></pre></td></tr></table></figure>
 
 
@@ -684,19 +686,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">搜索引擎</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cesium</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,11 +710,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+                <a href="javascript:void(0)" class="js-tag color5">搜索引擎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,10 +790,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型，泛型擦除</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
@@ -800,11 +798,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">注解</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型，泛型擦除</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -832,6 +834,18 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -852,19 +866,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -880,7 +886,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高级</a>
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,14 +899,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,18 +914,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -936,7 +926,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">文件存储系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jar包导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -949,14 +959,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据同步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jar包导入</a>
               </li>
              
               <li class="article-tag-list-item">

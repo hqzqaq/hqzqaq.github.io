@@ -18,7 +18,7 @@
 <meta property="og:description" content="Cesium四大核心类Viewer查看器类 展示三维要素内容的主要窗口 1234567const viewer &#x3D; new Cesium.Viewer(&quot;cesiumContainer&quot;, &amp;#123;    scene3DOnly: true,    selectionIndicator: true,    baseLayerPicker: false,    animati">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-23T05:09:52.000Z">
-<meta property="article:modified_time" content="2022-09-23T05:10:35.166Z">
+<meta property="article:modified_time" content="2022-09-23T09:05:43.846Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="cesium">
 <meta name="twitter:card" content="summary">
@@ -276,7 +276,7 @@
     <h1 id="Cesium"><a href="#Cesium" class="headerlink" title="Cesium"></a>Cesium</h1><h2 id="四大核心类"><a href="#四大核心类" class="headerlink" title="四大核心类"></a>四大核心类</h2><h3 id="Viewer"><a href="#Viewer" class="headerlink" title="Viewer"></a>Viewer</h3><p>查看器类 展示三维要素内容的主要窗口</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> viewer = <span class="keyword">new</span> <span class="title class_">Cesium</span>.<span class="title class_">Viewer</span>(<span class="string">&quot;cesiumContainer&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">scene3DOnly</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">selectionIndicator</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">baseLayerPicker</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">animation</span>:<span class="literal">false</span>,</span><br><span class="line">    <span class="attr">timeline</span>:<span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-
+<span id="more"></span>
 
 <h3 id="Scene"><a href="#Scene" class="headerlink" title="Scene"></a>Scene</h3><p>场景类 是所有3D对象的容器，是在 viewer 内部隐式创建的 scene 可以对整个场景环境进行修改，如地球的显示隐藏、光照强度、地球的图层样式、地形数据、绘制几何体点线面、场景的交互，如鼠标对场景的控制</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 加载图层</span></span><br><span class="line">   <span class="comment">// viewer.imageryLayers.remove(viewer.imageryLayers.get(0))</span></span><br><span class="line">   <span class="comment">// viewer.imageryLayers.addImageryProvider(new Cesium.IonImageryProvider(&#123;assetId:3954&#125;))</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">// 加载地形</span></span><br><span class="line">   viewer.<span class="property">terrainProvider</span> = <span class="title class_">Cesium</span>.<span class="title function_">createWorldTerrain</span>(&#123;</span><br><span class="line">       <span class="attr">requestWaterMask</span>:<span class="literal">true</span>,</span><br><span class="line">       <span class="attr">requestVertexNormals</span>:<span class="literal">true</span></span><br><span class="line">   &#125;)</span><br><span class="line">   viewer.<span class="property">scene</span>.<span class="property">globe</span>.<span class="property">depthTestAgainstTerrain</span> = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 激活太阳光照射</span></span><br><span class="line">   <span class="comment">// viewer.scene.globe.enableLighting = true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置相机视角</span></span><br><span class="line">   <span class="comment">// Create an initial camera view</span></span><br><span class="line">   <span class="keyword">var</span> initialPosition = <span class="keyword">new</span> <span class="title class_">Cesium</span>.<span class="property">Cartesian3</span>.<span class="title function_">fromDegrees</span>(-<span class="number">73.998114468289017509</span>, <span class="number">40.674512895646692812</span>, <span class="number">2631.082799425431</span>);</span><br><span class="line">   <span class="keyword">var</span> initialOrientation = <span class="keyword">new</span> <span class="title class_">Cesium</span>.<span class="property">HeadingPitchRoll</span>.<span class="title function_">fromDegrees</span>(<span class="number">7.1077496389876024807</span>, -<span class="number">31.987223091598949054</span>, <span class="number">0.025883251314954971306</span>);</span><br><span class="line">   <span class="keyword">var</span> homeCameraView = &#123;</span><br><span class="line">       destination : initialPosition,</span><br><span class="line">       orientation : &#123;</span><br><span class="line">           heading : initialOrientation.<span class="property">heading</span>,</span><br><span class="line">           pitch : initialOrientation.<span class="property">pitch</span>,</span><br><span class="line">           roll : initialOrientation.<span class="property">roll</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="comment">// Set the initial view</span></span><br><span class="line">   viewer.<span class="property">scene</span>.<span class="property">camera</span>.<span class="title function_">setView</span>(homeCameraView);</span><br></pre></td></tr></table></figure>
@@ -669,19 +669,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">搜索引擎</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cesium</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -697,11 +693,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+                <a href="javascript:void(0)" class="js-tag color5">搜索引擎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -773,10 +773,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型，泛型擦除</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
@@ -785,11 +781,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">注解</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型，泛型擦除</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,6 +817,18 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -837,19 +849,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -865,7 +869,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高级</a>
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -874,14 +882,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -897,18 +897,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -921,7 +909,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">文件存储系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jar包导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -934,14 +942,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据同步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jar包导入</a>
               </li>
              
               <li class="article-tag-list-item">

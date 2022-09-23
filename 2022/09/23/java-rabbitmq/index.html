@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="RabbitMQ简介​	消息队列（Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入,通常是来自用户。消息队列提供了异步的通信协议,每一个贮列中的纪录包含详细说明的数据,包含发生的时间,输入设备的种类,以及特定的输入参数,也就是说:消息的发送者和接收者不需要同时与消息队列互交。消息会保存在队列中,直到接收者取回它。 实现​	消息队列常常保存">
+  <meta name="description" content="RabbitMQ简介消息队列（Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入,通常是来自用户。消息队列提供了异步的通信协议,每一个贮列中的纪录包含详细说明的数据,包含发生的时间,输入设备的种类,以及特定的输入参数,也就是说:消息的发送者和接收者不需要同时与消息队列互交。消息会保存在队列中,直到接收者取回它。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java rabbitmq">
 <meta property="og:url" content="https://hqzqaq.github.io/2022/09/23/java-rabbitmq/index.html">
 <meta property="og:site_name" content="hqz的博客">
-<meta property="og:description" content="RabbitMQ简介​	消息队列（Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入,通常是来自用户。消息队列提供了异步的通信协议,每一个贮列中的纪录包含详细说明的数据,包含发生的时间,输入设备的种类,以及特定的输入参数,也就是说:消息的发送者和接收者不需要同时与消息队列互交。消息会保存在队列中,直到接收者取回它。 实现​	消息队列常常保存">
+<meta property="og:description" content="RabbitMQ简介消息队列（Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入,通常是来自用户。消息队列提供了异步的通信协议,每一个贮列中的纪录包含详细说明的数据,包含发生的时间,输入设备的种类,以及特定的输入参数,也就是说:消息的发送者和接收者不需要同时与消息队列互交。消息会保存在队列中,直到接收者取回它。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/u=2829723742,2399361864&fm=253.png">
 <meta property="og:image" content="https://i.loli.net/2021/09/15/WFaQngHzqOCDVIL.png">
@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/09/28/xNg8adZIUb1nX9m.png">
 <meta property="og:image" content="https://i.loli.net/2021/09/28/j3iGZ1ErXPT457D.png">
 <meta property="article:published_time" content="2022-09-23T05:55:22.000Z">
-<meta property="article:modified_time" content="2022-09-23T05:56:03.032Z">
+<meta property="article:modified_time" content="2022-09-23T09:08:37.709Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="rabbitmq">
@@ -285,19 +285,21 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​	消息队列（Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入,通常是来自用户。消息队列提供了异步的通信协议,每一个贮列中的纪录包含详细说明的数据,包含发生的时间,输入设备的种类,以及特定的输入参数,也就是说:消息的发送者和接收者不需要同时与消息队列互交。消息会保存在队列中,直到接收者取回它。</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>​	消息队列常常保存在链表结构中。拥有权限的进程可以向消息队列中写入或读取消息。</p>
+    <h1 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>消息队列（Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入,通常是来自用户。消息队列提供了异步的通信协议,每一个贮列中的纪录包含详细说明的数据,包含发生的时间,输入设备的种类,以及特定的输入参数,也就是说:消息的发送者和接收者不需要同时与消息队列互交。消息会保存在队列中,直到接收者取回它。</p>
+<span id="more"></span>
+
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>消息队列常常保存在链表结构中。拥有权限的进程可以向消息队列中写入或读取消息。</p>
 <p>目前,有很多消息队列有很多开源的实现,包括 <code>JBoss Messaging</code>、<code>JORAM</code>、 <code>Apache ActiveMQ</code>、<code> Sun open Message Queue</code>、<code>IBM MQ</code>、 <code>Apache Qpid</code> 和 <code>HttpSQS</code>。</p>
-<p>​	当前使用较多的消息队列有 <code>RabbitMQ</code>、 <code>RocketMQ</code>、 <code>ActiveMQ</code>、 <code>Kafka</code>、<code>zeroMQ</code>、 <code>MetaMQ</code>等,而部分数据库如 <code>Redis</code>、<code>Mysql</code>以及 <code>phxsql </code>也可实现消息队列的功能。</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>​	MQ是消费者生产者模型的一个典型的代表,端往消息队列中不断写入消息,而另一端则可以读取或者订阅队列中的消息。</p>
-<p>MQ和JMS类似,但不同的是JMS是SUN JAVA消息中间件服务的一个标准和API定义,而MQ则是遵循了AMQP协议的具体实现和产品。<br>    <font color="red">注意：</font><br>1.<code>AMQP</code>,即 Advanced Message Queuing Protocol,一个提供统一消息服务的应用层标准高级消息队列协议,是应用层协议的一个开放标准，为面向消息的中间件设计。基于此协议的客户端与消息中间件可传递消息,并不受客户端&#x2F;中间件不同产品,不同的开发语言等条件的限制。<br>2.<code>JMS</code>,Java消息服务（Java Message Service）应用程序接口,是个 java 平台中关于面向消息中间件的 API,用于在两个应用程序之间,或分布式系统中发送消息,进行异步通信。Java 消息服务是一个与具体平台无关的API,绝大多数 MOM 提供商都对 JMS 提供支持。常见的消息队列,大部分都实现了 JMS API,如 <code>ActiveMQ</code>, <code>Redis</code> 以及 <code>Rabbit MQ</code> 等。</p>
+<p>当前使用较多的消息队列有 <code>RabbitMQ</code>、 <code>RocketMQ</code>、 <code>ActiveMQ</code>、 <code>Kafka</code>、<code>zeroMQ</code>、 <code>MetaMQ</code>等,而部分数据库如 <code>Redis</code>、<code>Mysql</code>以及 <code>phxsql </code>也可实现消息队列的功能。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>MQ是消费者生产者模型的一个典型的代表,端往消息队列中不断写入消息,而另一端则可以读取或者订阅队列中的消息。</p>
+<p>MQ和JMS类似,但不同的是JMS是SUN JAVA消息中间件服务的一个标准和API定义,而MQ则是遵循了AMQP协议的具体实现和产品。<br><font color="red">注意：</font><br>1.<code>AMQP</code>,即 Advanced Message Queuing Protocol,一个提供统一消息服务的应用层标准高级消息队列协议,是应用层协议的一个开放标准，为面向消息的中间件设计。基于此协议的客户端与消息中间件可传递消息,并不受客户端&#x2F;中间件不同产品,不同的开发语言等条件的限制。<br>2.<code>JMS</code>,Java消息服务（Java Message Service）应用程序接口,是个 java 平台中关于面向消息中间件的 API,用于在两个应用程序之间,或分布式系统中发送消息,进行异步通信。Java 消息服务是一个与具体平台无关的API,绝大多数 MOM 提供商都对 JMS 提供支持。常见的消息队列,大部分都实现了 JMS API,如 <code>ActiveMQ</code>, <code>Redis</code> 以及 <code>Rabbit MQ</code> 等。</p>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><blockquote>
 <p>解耦：将消息写入消息队列，需要消息的系统自己从消息队列中订阅，从而原系统不需要做任何修改。</p>
 <p>异步：把非必要的业务逻辑写入消息队列，需要消息的系统自己从消息队列中订阅，提高网站的响应效率。</p>
 <p>流量削峰：系统 A 慢慢的按照数据库能处理的并发量，从消息队列中慢慢拉取消息。在生产中，这个短暂的高峰期积压是允许的。</p>
 </blockquote>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>​	<font color="orange">当不需要立即获得结果，但是并发量又需要进行控制的时候，差不多就是需要使用消息队列的时候</font></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>​	安装 Rabbit MQ 之前，先安装 erlang ，两者之间版本要对应。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p><font color="orange">当不需要立即获得结果，但是并发量又需要进行控制的时候，差不多就是需要使用消息队列的时候</font></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装 Rabbit MQ 之前，先安装 erlang ，两者之间版本要对应。</p>
 <blockquote>
 <p>rabbitmq-plugins enable rabbitmq_management  启动插件</p>
 </blockquote>
@@ -305,7 +307,7 @@
 
 
 
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>​	在 <code>Admin </code>中创建用户，在 <code>Virtual Hosts</code> 中创建 <code>virtual host</code> ，并为用户分配权限</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>在 <code>Admin </code>中创建用户，在 <code>Virtual Hosts</code> 中创建 <code>virtual host</code> ，并为用户分配权限</p>
 <h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><h3 id="Direct-Exchange"><a href="#Direct-Exchange" class="headerlink" title="Direct Exchange"></a>Direct Exchange</h3><p>直连型交换机，根据消息携带的路由键将消息投递给对应队列。</p>
 <p>大致流程，有一个队列绑定到一个直连交换机上，同时赋予一个路由键 routing key 。<br>然后当一个消息携带着路由值为X，这个消息通过生产者发送给交换机时，交换机就会根据这个路由值X去寻找绑定值也是X的队列。</p>
 <h3 id="Fanout-Exchange"><a href="#Fanout-Exchange" class="headerlink" title="Fanout Exchange"></a>Fanout Exchange</h3><p>扇型交换机，这个交换机没有路由键概念，就算你绑了路由键也是无视的。 这个交换机在接收到消息后，会直接转发到绑定到它上面的所有队列。</p>
@@ -319,7 +321,7 @@
 <p>队列Q2绑定键为  TT.#<br>如果一条消息携带的路由键为 A.TT.B，那么队列Q1将会收到；<br>如果一条消息携带的路由键为TT.AA.BB，那么队列Q2将会收到；</p>
 <p>主题交换机是非常强大的<br>当一个队列的绑定键为 “#”（井号） 的时候，这个队列将会无视消息的路由键，接收所有的消息。<br>当 * (星号) 和 # (井号) 这两个特殊字符都未在绑定键中出现的时候，此时主题交换机就拥有的直连交换机的行为。<br>所以主题交换机也就实现了扇形交换机的功能，和直连交换机的功能。</p>
 <p>另外还有 Header Exchange 头交换机 ，Default Exchange 默认交换机，Dead Letter Exchange 死信交换机，这几个该篇暂不做讲述。</p>
-<h2 id="简单队列"><a href="#简单队列" class="headerlink" title="简单队列"></a>简单队列</h2><p>​	有一个消费者和生产者，消费者生产消息，消费者消费消息，同时监听队列。</p>
+<h2 id="简单队列"><a href="#简单队列" class="headerlink" title="简单队列"></a>简单队列</h2><p>有一个消费者和生产者，消费者生产消息，消费者消费消息，同时监听队列。</p>
 <p><font color="yellow">不适用于生产环境</font></p>
 <h2 id="工作队列"><a href="#工作队列" class="headerlink" title="工作队列"></a>工作队列</h2><h3 id="轮询模式"><a href="#轮询模式" class="headerlink" title="轮询模式"></a>轮询模式</h3><h3 id="公平模式"><a href="#公平模式" class="headerlink" title="公平模式"></a>公平模式</h3><p>公平分发，能者多劳</p>
 <ol>
@@ -401,7 +403,7 @@
 <li>原队列存在消息过期设置，消息到达超时时间未被消费</li>
 </ol>
 <p>队列绑定死信交换机：</p>
-<p>​	给队列设置参数：<code>x-dead-letter-exchange</code> 和 <code>x-dead-letter-routing-key</code></p>
+<p>给队列设置参数：<code>x-dead-letter-exchange</code> 和 <code>x-dead-letter-routing-key</code></p>
 <p><img src="https://i.loli.net/2021/09/28/BKpwEfjc1mXkPgZ.png" alt="image-20210928141301129"></p>
 <ul>
 <li>死信交换机和死信队列和普通的交换机和队列没有区别</li>
@@ -421,8 +423,8 @@
 <p><img src="https://i.loli.net/2021/09/28/iAdl8pYUKVzPjL3.png" alt="image-20210928145131461"></p>
 <p>rabbitmq 并没有直接提供延迟队列的功能，但可以通过 <font color="orange">TTL + 死信队列</font> 组合实现延迟队列的效果。</p>
 <p><img src="https://i.loli.net/2021/09/28/JeZHnKkjS7r25YR.png" alt="image-20210928151823342"></p>
-<h2 id="日志与监控"><a href="#日志与监控" class="headerlink" title="日志与监控"></a>日志与监控</h2><h2 id="消息可靠性分析与追踪"><a href="#消息可靠性分析与追踪" class="headerlink" title="消息可靠性分析与追踪"></a>消息可靠性分析与追踪</h2><p>​	<code>Firehose </code>：消息追踪，通过 rabbitmqctl trace_on &#x2F; rabbitmqctl_off 开启和关闭。</p>
-<p>​	<code>rabbitme_tracing</code> : 插件</p>
+<h2 id="日志与监控"><a href="#日志与监控" class="headerlink" title="日志与监控"></a>日志与监控</h2><h2 id="消息可靠性分析与追踪"><a href="#消息可靠性分析与追踪" class="headerlink" title="消息可靠性分析与追踪"></a>消息可靠性分析与追踪</h2><p><code>Firehose </code>：消息追踪，通过 rabbitmqctl trace_on &#x2F; rabbitmqctl_off 开启和关闭。</p>
+<p><code>rabbitme_tracing</code> : 插件</p>
 <h2 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h2><h2 id="消息可靠性保障"><a href="#消息可靠性保障" class="headerlink" title="消息可靠性保障"></a>消息可靠性保障</h2><ul>
 <li>消息补偿机制</li>
 </ul>
@@ -734,19 +736,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">搜索引擎</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cesium</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -762,11 +760,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+                <a href="javascript:void(0)" class="js-tag color5">搜索引擎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -838,10 +840,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型，泛型擦除</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
@@ -850,11 +848,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">注解</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型，泛型擦除</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -882,6 +884,18 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -902,19 +916,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -930,7 +936,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高级</a>
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -939,14 +949,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -962,18 +964,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -986,7 +976,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">文件存储系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jar包导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -999,14 +1009,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据同步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jar包导入</a>
               </li>
              
               <li class="article-tag-list-item">
