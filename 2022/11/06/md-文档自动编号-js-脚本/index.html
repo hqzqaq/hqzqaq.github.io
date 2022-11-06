@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221106101046605.png">
 <meta property="og:image" content="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221106101249420.png">
 <meta property="article:published_time" content="2022-11-06T04:43:46.000Z">
-<meta property="article:modified_time" content="2022-11-06T04:44:43.836Z">
+<meta property="article:modified_time" content="2022-11-06T06:46:04.714Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="js 脚本">
 <meta property="article:tag" content="markdown">
@@ -291,6 +291,8 @@
     
     <h1 id="md-文档自动编号-js-脚本"><a href="#md-文档自动编号-js-脚本" class="headerlink" title=".md 文档自动编号 js 脚本"></a>.md 文档自动编号 js 脚本</h1><h2 id="1、契机"><a href="#1、契机" class="headerlink" title="1、契机"></a>1、契机</h2><p>在使用 typora 的时候，没有自动编号，每一级标题要手动编号，比较累。之前有找过修改主题的 css 来实现自动编号的，但是只是个样式而已，没有真正的编号，而且导出的 pdf 中是没有编号的。这次找的脚本是直接修改 md 文档的，根据行首的 <code>#</code> 来判断是不是标题。</p>
 <p>md 文档一共有六级标题，不对一级标题编号，二级、三级、四级、五级、六级标题进行级联编号。</p>
+<span id="more"></span>
+
 <p>根据这篇文章的 java 代码修改而来，并做了一点小小的改进，用 java 感觉有点重，最近喜欢用 js 写点脚本，比如一些字符串处理的，挺方便的。</p>
 <p>文章链接：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/oneby1314/article/details/107311743">https://blog.csdn.net/oneby1314/article/details/107311743</a></p>
@@ -619,18 +621,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ENVI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">遥感</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -643,6 +633,18 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ENVI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">遥感</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
@@ -652,10 +654,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">GIS热点前沿</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,6 +670,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docker-maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,14 +705,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">lambda</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">stream</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rabbitmq</a>
               </li>
              
@@ -724,6 +718,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lambda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">stream</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -831,15 +833,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -891,18 +893,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据融合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">概念</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cancal</a>
               </li>
              
@@ -915,6 +905,26 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">概念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据融合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jar包导入</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">油猴</a>
               </li>
              
@@ -924,14 +934,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">自动化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jar包导入</a>
               </li>
              
               <li class="article-tag-list-item">
