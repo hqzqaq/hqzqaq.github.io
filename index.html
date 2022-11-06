@@ -237,6 +237,517 @@
             
 
   
+    <article id="post-md-文档自动编号-js-脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/11/06/md-%E6%96%87%E6%A1%A3%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7-js-%E8%84%9A%E6%9C%AC/" target="_blank">.md 文档自动编号 js 脚本</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/11/06/md-%E6%96%87%E6%A1%A3%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7-js-%E8%84%9A%E6%9C%AC/" class="archive-article-date">
+        <time datetime="2022-11-06T04:43:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="md-文档自动编号-js-脚本"><a href="#md-文档自动编号-js-脚本" class="headerlink" title=".md 文档自动编号 js 脚本"></a>.md 文档自动编号 js 脚本</h1><h2 id="1、契机"><a href="#1、契机" class="headerlink" title="1、契机"></a>1、契机</h2><p>在使用 typora 的时候，没有自动编号，每一级标题要手动编号，比较累。之前有找过修改主题的 css 来实现自动编号的，但是只是个样式而已，没有真正的编号，而且导出的 pdf 中是没有编号的。这次找的脚本是直接修改 md 文档的，根据行首的 <code>#</code> 来判断是不是标题。</p>
+<p>md 文档一共有六级标题，不对一级标题编号，二级、三级、四级、五级、六级标题进行级联编号。</p>
+<p>根据这篇文章的 java 代码修改而来，并做了一点小小的改进，用 java 感觉有点重，最近喜欢用 js 写点脚本，比如一些字符串处理的，挺方便的。</p>
+<p>文章链接：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/oneby1314/article/details/107311743">https://blog.csdn.net/oneby1314/article/details/107311743</a></p>
+<h2 id="2、脚本代码"><a href="#2、脚本代码" class="headerlink" title="2、脚本代码"></a>2、脚本代码</h2><p>js 代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> readline = <span class="built_in">require</span>(<span class="string">&#x27;readline&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;once&#125; = <span class="built_in">require</span>(<span class="string">&#x27;node:events&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> ncp = <span class="built_in">require</span>(<span class="string">&quot;copy-paste&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 执行标题自动编号</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> destMdFilePath MD 文件路径</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">doTitleAutoNumbering</span>(<span class="params">destMdFilePath</span>) &#123;</span><br><span class="line">    <span class="comment">// 获取标题自动编号的MD文件内容</span></span><br><span class="line">    <span class="keyword">const</span> mdFileContent = <span class="title function_">getAutoTitledMdContent</span>(destMdFilePath);</span><br><span class="line">    mdFileContent.<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 执行保存（覆盖原文件）</span></span><br><span class="line">        <span class="title function_">saveMdContentToFile</span>(destMdFilePath, res);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取标题自动编号的MD文件内容</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> destMdFilePath MD 文件路径</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">getAutoTitledMdContent</span>(<span class="params">destMdFilePath</span>) &#123;</span><br><span class="line">    <span class="comment">// 标题编号</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        标题编号规则：</span></span><br><span class="line"><span class="comment">        - 一级标题为文章的题目，不对一级标题编号</span></span><br><span class="line"><span class="comment">        - 二级、三级、四级、五级、六级标题需要级联编号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">let</span> titleNumber = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">    <span class="comment">// 存储md文件内容</span></span><br><span class="line">    <span class="keyword">let</span> mdContent = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> md = readline.<span class="title function_">createInterface</span>(&#123;</span><br><span class="line">        <span class="attr">input</span>: fs.<span class="title function_">createReadStream</span>(destMdFilePath),</span><br><span class="line">        <span class="attr">output</span>: process.<span class="property">stdout</span>,</span><br><span class="line">        <span class="attr">terminal</span>: <span class="literal">false</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一行一行读取数据</span></span><br><span class="line">    md.<span class="title function_">on</span>(<span class="string">&#x27;line&#x27;</span>, <span class="function">(<span class="params">line</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 判断是否为标题行，如果是标题，是几级标题</span></span><br><span class="line">        <span class="keyword">const</span> curTitleLevel = <span class="title function_">calcTitleLevel</span>(line);</span><br><span class="line">        <span class="keyword">if</span> (curTitleLevel !== -<span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 插入标题序号</span></span><br><span class="line">            line = <span class="title function_">insertTitleNumber</span>(line, titleNumber);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 重新计算标题计数器</span></span><br><span class="line">            <span class="title function_">reCalcTitleCounter</span>(curTitleLevel, titleNumber);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        mdContent = mdContent.<span class="title function_">concat</span>(line, <span class="string">&#x27;\r\n&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 等待监听事件完成</span></span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">once</span>(md, <span class="string">&#x27;close&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> mdContent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 计算当前标题等级</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> curLine 当前行的内容</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> -1 ：非标题行；大于等于 2 的正数：当前行的标题等级</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">calcTitleLevel</span>(<span class="params">curLine</span>) &#123;</span><br><span class="line">    <span class="comment">// 由于一级标题无需编号，所以从二级标题开始判断</span></span><br><span class="line">    <span class="keyword">let</span> isTitle = curLine.<span class="title function_">startsWith</span>(<span class="string">&quot;##&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!isTitle) &#123;</span><br><span class="line">        <span class="comment">// 返回 -1 表示非标题行</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 现在来看看是几级标题</span></span><br><span class="line">    <span class="keyword">return</span> curLine.<span class="title function_">indexOf</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 向标题行中插入标题序号</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> curLine     当前行内容</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> titleNumber 标题计数器</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTitleNumber</span>(<span class="params">curLine, titleNumber</span>) &#123;</span><br><span class="line">    <span class="comment">// 标题等级（以空格分隔的前提是 Typora 开启严格模式）</span></span><br><span class="line">    <span class="keyword">let</span> titleLevel = curLine.<span class="title function_">indexOf</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">    <span class="comment">// 标题等级部分</span></span><br><span class="line">    <span class="keyword">let</span> titleLevelStr = curLine.<span class="title function_">substring</span>(<span class="number">0</span>, titleLevel);</span><br><span class="line">    <span class="comment">// 标题内容部分</span></span><br><span class="line">    <span class="keyword">let</span> titleContent = curLine.<span class="title function_">substring</span>(titleLevel + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 先去除之前的编号</span></span><br><span class="line">    titleContent = <span class="title function_">removePreviousTitleNumber</span>(titleContent);</span><br><span class="line">    <span class="comment">// 标题等级递增</span></span><br><span class="line">    <span class="keyword">let</span> titleIndex = titleLevel - <span class="number">2</span>;</span><br><span class="line">    titleNumber[titleIndex] += <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 标题序号</span></span><br><span class="line">    <span class="keyword">let</span> titleNumberStr = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">switch</span> (titleLevel) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            titleNumberStr = <span class="string">`<span class="subst">$&#123;titleNumber[<span class="number">0</span>]&#125;</span>`</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            titleNumberStr = <span class="string">`<span class="subst">$&#123;titleNumber[<span class="number">0</span>]&#125;</span>.<span class="subst">$&#123;titleNumber[<span class="number">1</span>]&#125;</span>`</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            titleNumberStr = <span class="string">`<span class="subst">$&#123;titleNumber[<span class="number">0</span>]&#125;</span>.<span class="subst">$&#123;titleNumber[<span class="number">1</span>]&#125;</span>.<span class="subst">$&#123;titleNumber[<span class="number">2</span>]&#125;</span>`</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">            titleNumberStr = <span class="string">`<span class="subst">$&#123;titleNumber[<span class="number">0</span>]&#125;</span>.<span class="subst">$&#123;titleNumber[<span class="number">1</span>]&#125;</span>.<span class="subst">$&#123;titleNumber[<span class="number">2</span>]&#125;</span>.<span class="subst">$&#123;titleNumber[<span class="number">3</span>]&#125;</span>`</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">            titleNumberStr = <span class="string">`<span class="subst">$&#123;titleNumber[<span class="number">0</span>]&#125;</span>.<span class="subst">$&#123;titleNumber[<span class="number">1</span>]&#125;</span>.<span class="subst">$&#123;titleNumber[<span class="number">2</span>]&#125;</span>.<span class="subst">$&#123;titleNumber[<span class="number">3</span>]&#125;</span>.<span class="subst">$&#123;titleNumber[<span class="number">4</span>]&#125;</span>`</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    titleNumberStr += <span class="string">&quot;、&quot;</span>;</span><br><span class="line">    <span class="comment">// 插入标题序号</span></span><br><span class="line">    titleContent = titleNumberStr + titleContent;</span><br><span class="line">    <span class="comment">// 返回带序号的标题</span></span><br><span class="line">    curLine = titleLevelStr + <span class="string">&quot; &quot;</span> + titleContent;</span><br><span class="line">    <span class="keyword">return</span> curLine;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 去除之前标题的编号</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> titleContent 标题内容</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 去除标题编号之后的标题内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">removePreviousTitleNumber</span>(<span class="params">titleContent</span>) &#123;</span><br><span class="line">    <span class="comment">// 寻找标题中的 、 字符</span></span><br><span class="line">    <span class="keyword">let</span> index = titleContent.<span class="title function_">indexOf</span>(<span class="string">&quot;、&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (index &gt; <span class="number">0</span> &amp;&amp; index &lt; <span class="number">10</span>) &#123;</span><br><span class="line">        <span class="comment">// 之前已经进行过标号</span></span><br><span class="line">        <span class="keyword">return</span> titleContent.<span class="title function_">substring</span>(index + <span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 之前未进行过标号，直接返回</span></span><br><span class="line">        <span class="keyword">return</span> titleContent;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  重新计算标题计数器的值</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> titleLevel  当前行的标题等级</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> titleNumber 标题计数器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">reCalcTitleCounter</span>(<span class="params">titleLevel, titleNumber</span>) &#123;</span><br><span class="line">    <span class="comment">// 二级标题更新时，三级及三级以下的标题序号重置为 0</span></span><br><span class="line">    <span class="keyword">let</span> startIndex = titleLevel - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = startIndex; i &lt; titleNumber.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        titleNumber[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 保存MD文件</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> destMdFilePath MD文件路径</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> mdFileContent  MD文件内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">saveMdContentToFile</span>(<span class="params">destMdFilePath, mdFileContent</span>) &#123;</span><br><span class="line">    <span class="comment">// 不保存空文件</span></span><br><span class="line">    <span class="keyword">if</span> (mdFileContent == <span class="literal">null</span> || mdFileContent === <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 执行保存</span></span><br><span class="line">    fs.<span class="title function_">writeFile</span>(destMdFilePath, mdFileContent, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据写入成功！&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getNcpPath</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        ncp.<span class="title function_">paste</span>(<span class="function">(<span class="params">err, p</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                <span class="title function_">reject</span>(err)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> p === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">                    <span class="title function_">resolve</span>(p)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable language_">arguments</span> = process.<span class="property">argv</span>;</span><br><span class="line">    <span class="keyword">let</span> mdPath = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="comment">// 可以使用循环迭代所有的命令行参数（包括node路径和文件路径）</span></span><br><span class="line">    <span class="comment">// 命令行输入参数的情况</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">arguments</span>.<span class="property">length</span> &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="comment">// 解决路径带空格的情况</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">2</span>; i &lt; <span class="variable language_">arguments</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            mdPath = mdPath.<span class="title function_">concat</span>(<span class="variable language_">arguments</span>[i], <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        mdPath = mdPath.<span class="title function_">trim</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 没有输入参数的情况，则去粘贴板寻找是否有文件路径</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">arguments</span>.<span class="property">length</span> &lt; <span class="number">3</span>) &#123;</span><br><span class="line">        mdPath = <span class="keyword">await</span> <span class="title function_">getNcpPath</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> stat = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 路径带空格，需要输入双引号</span></span><br><span class="line">        stat = fs.<span class="title function_">lstatSync</span>(mdPath)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;参数错误，文件不存在&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (stat.<span class="title function_">isFile</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!mdPath.<span class="title function_">endsWith</span>(<span class="string">&#x27;.md&#x27;</span>)) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;参数错误，请输入md文件的路径&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 执行标题自动编号</span></span><br><span class="line">        <span class="title function_">doTitleAutoNumbering</span>(mdPath)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (stat.<span class="title function_">isDirectory</span>()) &#123;</span><br><span class="line">        <span class="keyword">let</span> dirFiles = fs.<span class="title function_">readdirSync</span>(mdPath);</span><br><span class="line">        dirFiles.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> filePath = path.<span class="title function_">join</span>(mdPath, item)</span><br><span class="line">            <span class="keyword">if</span> (filePath.<span class="title function_">endsWith</span>(<span class="string">&#x27;.md&#x27;</span>)) &#123;</span><br><span class="line">                <span class="comment">// 执行标题自动编号</span></span><br><span class="line">                <span class="title function_">doTitleAutoNumbering</span>(filePath)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、使用说明"><a href="#3、使用说明" class="headerlink" title="3、使用说明"></a>3、使用说明</h2><h3 id="3-1、环境"><a href="#3-1、环境" class="headerlink" title="3.1、环境"></a>3.1、环境</h3><ol>
+<li><p>需要本机安装了 node js，最好配置了国内镜像源</p>
+</li>
+<li><p>代码拷贝到 js 文件中，执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">忘了是不是这个命令初始化了</span></span><br><span class="line">npm init</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装依赖</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-2、运行"><a href="#3-2、运行" class="headerlink" title="3.2、运行"></a>3.2、运行</h3><h4 id="3-2-1、命令行方式"><a href="#3-2-1、命令行方式" class="headerlink" title="3.2.1、命令行方式"></a>3.2.1、命令行方式</h4><h5 id="3-2-1-1、传入文件参数"><a href="#3-2-1-1、传入文件参数" class="headerlink" title="3.2.1.1、传入文件参数"></a>3.2.1.1、传入文件参数</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node autoNumMd.js ./test.md</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221106100955421.png" alt="传入文件参数"></p>
+<p>编号效果：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221106101046605.png" alt="编号效果"></p>
+<h5 id="3-2-1-2、传入文件夹参数"><a href="#3-2-1-2、传入文件夹参数" class="headerlink" title="3.2.1.2、传入文件夹参数"></a>3.2.1.2、传入文件夹参数</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">是文件夹的话，就将文件夹下的 md 文档全部编号</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">但是不会递归子文件夹</span></span><br><span class="line">node autoNumMd.js C:\...\_posts</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221106101249420.png" alt="image-20221106101249420"></p>
+<h5 id="3-2-1-3、无参数的情况"><a href="#3-2-1-3、无参数的情况" class="headerlink" title="3.2.1.3、无参数的情况"></a>3.2.1.3、无参数的情况</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">没有传入参数,则会去粘贴板查看是否有复制路径</span></span><br><span class="line">node autoNumMd.js</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2、bat-脚本"><a href="#3-2-2、bat-脚本" class="headerlink" title="3.2.2、bat 脚本"></a>3.2.2、bat 脚本</h4><p>新建 .bat 文件，写入以下内容,注意 <code>node Absolute path 需要替换为本机 node 的绝对路径，js 文件也是</code>，输入文件夹、文件路径或者直接回车（读取粘贴板路径）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setlocal EnableDelayedExpansion</span><br><span class="line"><span class="built_in">set</span> /p val=Please enter the .md file path or folder path:</span><br><span class="line"><span class="built_in">echo</span> %val%</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%val%&quot;</span> == <span class="string">&quot;&quot;</span> (</span><br><span class="line">node Absolute path <span class="string">&quot;autoNumMd.js Absolute path&quot;</span></span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">node Absolute path <span class="string">&quot;autoNumMd.js Absolute path&quot;</span> %val%</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、md-编写说明"><a href="#4、md-编写说明" class="headerlink" title="4、md 编写说明"></a>4、md 编写说明</h2><ol>
+<li>分级标题要连续，按照二三四五六来，不要二级标题后接四五六级标题</li>
+<li># 后面要接空格</li>
+</ol>
+<h2 id="5、总结"><a href="#5、总结" class="headerlink" title="5、总结"></a>5、总结</h2><ol>
+<li>js 的异步编程把我真是烦透了，很多的操作都是要同步的。。。，异步转同步改了我好久阿，心累</li>
+<li>bat 脚本也画了挺长时间的，这语法太怪了</li>
+<li>此文档的编号使用脚本生成</li>
+</ol>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js 脚本</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">typora</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/other//" class="article-tag-list-link color1">other</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/11/06/md-%E6%96%87%E6%A1%A3%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7-js-%E8%84%9A%E6%9C%AC/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基于深度学习的时空间数据融合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/11/06/%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%97%B6%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E8%9E%8D%E5%90%88/" target="_blank">基于深度学习的时空间数据融合</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/11/06/%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%97%B6%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E8%9E%8D%E5%90%88/" class="archive-article-date">
+        <time datetime="2022-11-06T04:39:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="基于深度学习的时空间数据融合"><a href="#基于深度学习的时空间数据融合" class="headerlink" title="基于深度学习的时空间数据融合"></a>基于深度学习的时空间数据融合</h1><p>以 Landsat-Sentinel NDVI 数据为例，测试利用深度学习进行时空间数据融合的可行性</p>
+<h2 id="1、待解决的问题"><a href="#1、待解决的问题" class="headerlink" title="1、待解决的问题"></a>1、待解决的问题</h2><ol>
+<li><p>融合方法</p>
+<p>深度学习 VS 传统方法</p>
+<p>哪种方法更好</p>
+</li>
+<li><p>融合策略</p>
+<p>Blending-then-Index（BI） VS   Index-then-Blending（IB）</p>
+<p>先融合再计算 NDVI 还是先计算 NDVI 再融合</p>
+</li>
+<li><p>重要性</p>
+<p>融合方法 VS 融合策略</p>
+<p>哪种更重要</p>
+</li>
+</ol>
+<h2 id="2、Pytorch-深度学习环境配置"><a href="#2、Pytorch-深度学习环境配置" class="headerlink" title="2、Pytorch 深度学习环境配置"></a>2、Pytorch 深度学习环境配置</h2><p>CUDA + CUDNN + Anaconda + Pytorch 安装</p>
+<p><font color="red">CUDA, CUDNN和pytorch 版本需要一一对应，否则无法运行</font></p>
+<p>这里统一选择 10.1 的版本</p>
+<h3 id="2-1、CUDA-安装"><a href="#2-1、CUDA-安装" class="headerlink" title="2.1、CUDA 安装"></a>2.1、CUDA 安装</h3><p>CUDA(ComputeUnified Device Architecture)，是显卡厂商NVIDIA推出的运算平台。 CUDA是一种由NVIDIA推出的通用并行计算架构，该架构使GPU能够解决复杂的计算问题。</p>
+<ol>
+<li><p>下载地址</p>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221101140805414.png" alt="CUDA 版本"></p>
+</li>
+<li><p>我这里选择 CUDA Toolkit 10.1 update2 Archive 版本</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221101141001828.png" alt="CUDA 安装选择"></p>
+<p> 从官网上下载比较困难，需要挂梯子，最好能找到国内镜像。</p>
+</li>
+<li><p>安装</p>
+<ul>
+<li>双击下载好的 <code>cuda_10.1.243_426.00_win10.exe</code> 执行安装程序</li>
+<li>选择自定义安装，也可以选精简安装，我是为了能自定义安装路径（记住自定义的路径），我的驱动程序组件的勾选如下：</li>
+</ul>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221101190627025.png" alt="CUDA 自定义安装选项"></p>
+<ul>
+<li>其它默认</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-2、CUDNN-下载"><a href="#2-2、CUDNN-下载" class="headerlink" title="2.2、CUDNN 下载"></a>2.2、CUDNN 下载</h3><ol>
+<li><p>下载地址</p>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive">https://developer.nvidia.com/rdp/cudnn-archive</a></p>
+</li>
+<li><p>需要注册、登录，我选择了 cuDNN v7.6.5 这版</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221101145519182.png" alt="cuDNN 下载"></p>
+</li>
+<li><p>解压，将其中的 bin、include、lib 文件夹复制到 CUDA 安装目录下，直接复制就可以，不会有覆盖的内容</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221101190923877.png" alt="cuDNN 复制到 CUDA"></p>
+</li>
+</ol>
+<h3 id="2-3、安装-Anaconda"><a href="#2-3、安装-Anaconda" class="headerlink" title="2.3、安装 Anaconda"></a>2.3、安装 Anaconda</h3><ol>
+<li><p>下载</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive</a></p>
+<p>可选择最新的</p>
+</li>
+<li><p>安装</p>
+<p>可 for all user 安装，修改安装路径 无法勾选配置系统环境变量的话，后续可自行配置</p>
+</li>
+<li><p>验证安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-4、配置国内镜像"><a href="#2-4、配置国内镜像" class="headerlink" title="2.4、配置国内镜像"></a>2.4、配置国内镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加清华anaconda镜像，为 http 的方式，https 方式可能会出现验证问题：</span></span><br><span class="line">conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Conda 附加库:</span></span><br><span class="line">conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line"></span><br><span class="line">conda config --show-sources #查看当前使用源</span><br><span class="line">conda config --remove channels 源名称或链接 #删除指定源</span><br><span class="line">conda config --add channels 源名称或链接 #添加指定源</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5、构建虚拟环境"><a href="#2-5、构建虚拟环境" class="headerlink" title="2.5、构建虚拟环境"></a>2.5、构建虚拟环境</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开 Anaconda Prompt 这一步很重要，不要在命令行操作，在命令行操作可以是 conda init cmd.exe</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建虚拟环境</span></span><br><span class="line">conda create -n dl python=3.8</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">也可以指定创建路径的命令，但是这种方法没有环境名称，只能用路径来代替环境名称</span></span><br><span class="line">conda create -p C:\\Users\\Admin\\Desktop\\deeplearing-work\\dl python=3.8</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看Python环境</span></span><br><span class="line">conda info --env</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">激活环境</span></span><br><span class="line">activate dl # 或者</span><br><span class="line">activate C:\\Users\\Admin\\Desktop\\deeplearing-work\\dl</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令行中</span></span><br><span class="line">conda activate dl # 或者</span><br><span class="line">conda activate C:\\Users\\Admin\\Desktop\\deeplearing-work\\dl</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">退出环境</span> </span><br><span class="line">deactivate</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除环境</span></span><br><span class="line">conda remove -n python35 --all # 或者</span><br><span class="line">conda remove -p C:\\Users\\Admin\\Desktop\\deeplearing-work\\dl --all</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 pytorch CPU 版</span></span><br><span class="line">pip3 install torch torchvision torchaudio</span><br><span class="line">pip install scipy pandas scikit-image scikit-learn termcolor</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6、安装-GDAL-环境"><a href="#2-6、安装-GDAL-环境" class="headerlink" title="2.6、安装 GDAL 环境"></a>2.6、安装 GDAL 环境</h3><ol>
+<li><p>下载安装包</p>
+<p>由于老师 ppt 上的 GDAL 安装包下载路径失效，从别的网站上找到了安装包，但是版本略有差异</p>
+<p><a target="_blank" rel="noopener" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/">https://www.lfd.uci.edu/~gohlke/pythonlibs/</a></p>
+<p>我下载的版本为 <code>GDAL-3.4.3-cp38-cp38-win_amd64.whl</code> 最好保存在英文路径下，我存放在 C:\Users\Admin\Desktop\deeplearing-work 路径下</p>
+</li>
+<li><p>安装 GDAL 软件包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install C:\\Users\\Admin\\Desktop\\deeplearing-work\\GDAL-3.4.3-cp38-cp38-win_amd64.whl</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221101133456371.png" alt="GDAL 安装成功"></p>
+</li>
+</ol>
+<h3 id="2-7、Pytorch-安装"><a href="#2-7、Pytorch-安装" class="headerlink" title="2.7、Pytorch 安装"></a>2.7、Pytorch 安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision cudatoolkit=10.1</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、实验内容与步骤"><a href="#3、实验内容与步骤" class="headerlink" title="3、实验内容与步骤"></a>3、实验内容与步骤</h2><h3 id="3-1、实验内容"><a href="#3-1、实验内容" class="headerlink" title="3.1、实验内容"></a>3.1、实验内容</h3><ol>
+<li><p>数据准备</p>
+<p>选取农田、森林作为典型研究区，各研究区准备三个时相的 Landsat-Sentinel 影像对</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221101203916886.png" alt="Landsat-Sentinel 影像对"></p>
+</li>
+<li><p>数据预处理</p>
+<ul>
+<li>部分像元缺失，需要插值</li>
+<li>Landsat 与 Sentinel 影像存在较大几何偏差，需要人工几何校正</li>
+</ul>
+</li>
+<li><p>融合流程</p>
+<ul>
+<li>BI：先融合NIR-RGB数据，再计算NDVI</li>
+<li>IB：先计算NDVI，再融合NDVI数据</li>
+</ul>
+</li>
+<li><p>精度验证</p>
+<ul>
+<li>决定系数：$\large R^2 &#x3D; 1 - \frac{\sum\limits^n_{i&#x3D;1}(y_i - p_i)^2}{\sum\limits^n_{i&#x3D;1}(y_i - \bar{y}_i)^2}$</li>
+<li>均方根误差：$\large RMSE &#x3D; \sqrt{\frac{\sum\limits^n_{i&#x3D;1}(y_i - p_i)^2}{n}}$</li>
+<li>结构相似性：$\large SSIM &#x3D; \frac{(2\bar{y}*\bar{p}+C_1)(2\sigma_{yp}+C_2)}{(\bar{y}^2+\bar{p}^2+C_1)(\sigma^2_y+\sigma^2_p+C_2)}$</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-2、实验步骤"><a href="#3-2、实验步骤" class="headerlink" title="3.2、实验步骤"></a>3.2、实验步骤</h3><blockquote>
+<p>数据准备：</p>
+</blockquote>
+<ul>
+<li>分别打开cropland 和forest文件夹，可以看到三个时相的Landsat-Sentinel 影像对，数据已经过异常值去除、配准等预处理。其中，第一、第三时相数据用于深度学习模型训练，第一、第二时相数据用于模型预测。</li>
+<li>影像共包含四个波段，分别为B-G-R-NIR, 反射率值范围为0~10000，在ArcGIS或Envi中使用波段计算器生成NDVI数据备用</li>
+</ul>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102111043610.png" alt="时相数据"></p>
+<ol>
+<li>原始数据 NDVI 计算</li>
+</ol>
+<p>计算公式：$\large NDVI &#x3D; \frac{(NIR - R)}{NIR + R}$，NIR 表示近红外波段，R 表示红外波段</p>
+<p>ArcGIS 10.8 安装教程：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Augenstern_QXL/article/details/123781664">https://blog.csdn.net/Augenstern_QXL/article/details/123781664</a></p>
+<p>以 ArcGIS 10.8 计算 LB_144.tif 的 NDVI 为例，<code>不保证操作的正确性，因为我已经忘完了我的专业知识了</code></p>
+<ul>
+<li><p>加载数据</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102104856507.png" alt="数据加载"></p>
+</li>
+<li><p>打开影像分析</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102104929109.png" alt="影像分析"></p>
+</li>
+<li><p>设置影像分析选项</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102111111170.png" alt="NDVI波段设置"></p>
+</li>
+<li><p>进行 NDVI 计算</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102105248732.png" alt="开始计算"></p>
+</li>
+<li><p>得到 NDVI 计算的结果</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102112012101.png" alt="NDVI计算结果"></p>
+</li>
+<li><p>设置已分类显示影像</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102112040868.png" alt="影像分类显示"></p>
+</li>
+<li><p>最终显示效果</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102112115410.png" alt="NDVI分类显示效果"></p>
+<p>也不知道算没算对</p>
+</li>
+</ul>
+<ol start="2">
+<li>代码文件</li>
+</ol>
+<ul>
+<li>SRCNN 文件夹中包含三个文件<ul>
+<li>utils.py：实现了数据处理所需的函数，包含基于 GDAL 库的 geotiff 的读写、日志的输出、统计各 batch 的loss、模型参数的保存和读取、数据增强（旋转、镜像）、NDVA 计算、读取影像、归一化、预处理等</li>
+<li>srcnn.py：是训练的主要代码</li>
+<li>assess.py：精度验证的代码</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><p>开始训练</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">运行深度学习代码</span></span><br><span class="line">python srcnn.py --train --test --mode BI --area cropland</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其中，mode 参数为融合策略，可选BI和IB，</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">area 参数为研究区，可选 cropland 或 forest 相对路径</span></span><br></pre></td></tr></table></figure>
+
+<p>开始训练：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102175515912.png" alt="开始训练"></p>
+<p>loss 随着训练时间的增加而迅速减小</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102190621940.png" alt="训练完成"></p>
+<p>在漫长的等待中，终于训练完成了顶级的电脑性能，是老师电脑训练时间的十几倍。。。</p>
+<p>最终 cropland 在 BI 策略下，训练的精度验证的结果为：R<sup>2</sup>&#x3D;0.833378,RMSE&#x3D;0.08739,SSIM&#x3D;0.813840；比传统的方法是要好很多的。</p>
+<p>在目录下生成两个 tif 文件，一个是 refer_cropland.tif（应该是第二时相 NDVI 的计算结果），一个是 SRCNN_cropland_BI.tif（模型预测 NDVI 的结果）</p>
+<p>在 ArcMap 中加载如下所示：</p>
+<ul>
+<li><p>refer_cropland.tif</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102192909704.png" alt="refer_cropland.tif"></p>
+</li>
+<li><p>SRCNN_cropland_BI.tif</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102192951003.png" alt="SRCNN_cropland_BI.tif"></p>
+<p>预测结果和真实结果还是有些差异的</p>
+</li>
+</ul>
+</li>
+<li><p>再训练一个 IB 策略的模型</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python srcnn.py --train --test --mode IB --area cropland</span><br></pre></td></tr></table></figure>
+
+<p>最终训练的结果如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102202750150.png" alt="IB训练完成"></p>
+<p>生成 SRCNN_cropland_IB.tif 影像，加载到 ArcMap 中，显示如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102202917527.png" alt="SRCNN_cropland_IB.tif"></p>
+</li>
+<li><p>对比 BI 策略预测生成的影像、 IB 策略预测生成的影像、根据波段计算的 NDVI 影像、第二时相的真实影像，看是 BI 策略的影像效果更好还是 IB 策略的影像效果好</p>
+<p>我觉得是 BI 的好，我比较眼拙，好难分辨</p>
+</li>
+<li><p>使用 STARFM 方法，BI 模式</p>
+<p>ENVI 5.6 安装：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/564116451">https://zhuanlan.zhihu.com/p/564116451</a></p>
+<ul>
+<li><p>spatiotemporalblending.sav 安装：</p>
+<p><a target="_blank" rel="noopener" href="http://www.chen-lab.club/?post_type=products&amp;page_id=18952">http://www.chen-lab.club/?post_type=products&amp;page_id=18952</a></p>
+</li>
+<li><p>打开 ENVI + IDL</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102212704324.png" alt="ENVI+IDL"></p>
+</li>
+<li><p>BI 模式使用 T1 时刻的 Sentinel-Landsat 影像对，和 T2 时刻的 Landsat 影像进行融合。在 IDL 命令行输入 <code>spatiotemporalblending </code> 打开数据融合工具</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102212824909.png" alt="打开数据融合工具"></p>
+</li>
+<li><p>然后，点击Import Coarse Images, 选择 T1 和 T2 时刻的 Landsat 影像；然后<strong>选中</strong> T1 时刻的 Landsat 影像，点击 Add Fine Image，选择 T1 时刻的 Sentinel 影像</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102212423792.png" alt="数据融合设置"></p>
+</li>
+<li><p>几分钟后，生成ENVI格式的影像文件，打开影像观察融合结果，使用栅格计算器计算NDVI</p>
+<ul>
+<li>将融合的影像加载进 ENVI</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221103092122896.png" alt="加载融合后的图像"></p>
+<ul>
+<li><p>计算 NDVI</p>
+<p>打开 NDVI 计算工具</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102215225169.png" alt="计算NDVI"></p>
+<p>输入波段开始计算</p>
+</li>
+</ul>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221102215149174.png" alt="开始计算"></p>
+</li>
+</ol>
+<p>然后在 ENVI 或者 ArcGIS 中计算 NDVI，融合后的图像貌似波段混乱了，依据 band4 为 NIR band3 为 R 算出来不对劲，然后选了个能算的波段，发现效果挺差的。</p>
+<ol start="7">
+<li><p>使用 STARFM 方法，IB 模式</p>
+<p>IB 模式使用T1时刻的Sentinel-Landsat  NDVI pairs，和T2时刻的Landsat NDVI进行融合。</p>
+<ul>
+<li><p>首先计算 T1、T2 时刻的 Landsat 图像的 NDVI 和 T1 时刻的 Sentinel 图像的 NDVI</p>
+</li>
+<li><p>参考步骤 6 对计算出来的 NDVI 图像进行融合，点击Import Coarse Images, 选择T1和T2时刻的Landsat NDVI；然后选中T1时刻的Landsat NDVI ，点击Add Fine Image，选择T1 时刻的Sentinel影像；注意设置合适的Min Value和 Max Value。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221103095717420.png" alt="IB模式融合设置"></p>
+</li>
+<li><p>融合的图像结果如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221103095849275.png" alt="融合结果"></p>
+</li>
+<li><p>在 ArcGIS 中显示的效果如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20221103100035553.png" alt="分类显示"></p>
+<p>如果我的实验步骤没有错误的话，我认为在使用 STARFM 方法下，IB 模式的效果要比 BI 模式的效果好很多</p>
+</li>
+</ul>
+</li>
+<li><p>剩下的 ESTARFM 方法和 FSDAF 方法应该都差不多，也就不再进行了</p>
+</li>
+</ol>
+<h2 id="4、实验结果与总结"><a href="#4、实验结果与总结" class="headerlink" title="4、实验结果与总结"></a>4、实验结果与总结</h2><h3 id="4-1、问题"><a href="#4-1、问题" class="headerlink" title="4.1、问题"></a>4.1、问题</h3><ol>
+<li><p>深度学习 VS 传统方法的优劣？各算法生成的图像有什么特征？主要错误&#x2F;误差发生在哪些区域？可能的原因？</p>
+<ul>
+<li>总的来说深度学习的方法是要优于传统方法的</li>
+<li>传统方法生成的图像圆润一点吧，连续一点，深度学习的话有许多散点的情况</li>
+<li>说不上来。。。</li>
+</ul>
+</li>
+<li><p>BI VS IB 哪种策略更适合NDVI融合？</p>
+<ul>
+<li>深度学习方法中，可能是 BI 策略好</li>
+<li>传统方法中，可能是 IB 策略好</li>
+</ul>
+</li>
+<li><p>融合方法 VS 融合策略哪个对融合精度的提升哪个更大？</p>
+<p>融合方法吧</p>
+</li>
+</ol>
+<h3 id="4-2、思考"><a href="#4-2、思考" class="headerlink" title="4.2、思考"></a>4.2、思考</h3><ol>
+<li>上述结论是否适用于其它传感器&#x2F;其它植被指数的时空间融合？有哪些潜在的应用方向？</li>
+<li>尝试调整模型结构、训练参数、优化器、LOSS函数，对比融合精度。</li>
+<li>你认为SRCNN方法存在哪些不足？如何改进这些不足？</li>
+</ol>
+<h2 id="5、总结"><a href="#5、总结" class="headerlink" title="5、总结"></a>5、总结</h2><ol>
+<li>很久没有用过专业软件了，感觉有个两年多了，这个做到后面都没耐心了，这图都看不懂……退化严重，工作时候也就是用QGIS看看矢量文件，连一下PG库，GIS的专业软件都太重了，电脑不想装，这一次作业可把这三大件都凑齐了，QGIS最新版、ArcGIS 10.8、ENVI 5.6，啧啧啧，还好是研习室的电脑，想开了，然后又补了一个VS 2022，2022版好用很多阿，巨硬进步很大。</li>
+<li>第一次跑遥感方面的深度学习代码，代码不能说完全看不懂，略懂，感叹很神奇，一行代码定义的网络和卷积能跑出这样的效果，牛。</li>
+<li>这代码训练一次，在老师的电脑两百多秒，研习室电脑是他的接近二十倍，纯性能差距，这就是配的8k的电脑的性能:happy:</li>
+<li>总算也是干了点专业稍相关的事情了，几大软件都用上了，轮番上阵，hhh。。。</li>
+</ol>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据融合</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/gis//" class="article-tag-list-link color4">gis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/11/06/%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%97%B6%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E8%9E%8D%E5%90%88/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的第一个油猴脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1113,213 +1624,6 @@
 
 
   
-    <article id="post-机器学习入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/" target="_blank">机器学习入门</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/" class="archive-article-date">
-        <time datetime="2022-09-23T06:09:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><p>机器学习是一种功能、方法，或者更具体的说是一种算法，它能够赋予<code>机器进行学习</code>的能力，从而使机器完成一些通过编程无法直接实现的功能。</p>
-<p>机器学习是利用大量数据训练出一个<code>最优模型</code>，然后再利用此模型预测出其他数据的一种方法。</p>
-    
-    <a class="article-more-a" href="/2022/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/machineLearning//" class="article-tag-list-link color1">machineLearning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java8-GDAL环境构建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/09/23/java8-GDAL%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/" target="_blank">java8 GDAL环境构建</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/09/23/java8-GDAL%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/" class="archive-article-date">
-        <time datetime="2022-09-23T06:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="构建java8-GDAL-环境"><a href="#构建java8-GDAL-环境" class="headerlink" title="构建java8 GDAL 环境"></a>构建java8 GDAL 环境</h1><h2 id="1、拉取-ubuntu-镜像"><a href="#1、拉取-ubuntu-镜像" class="headerlink" title="1、拉取 ubuntu 镜像"></a>1、拉取 ubuntu 镜像</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ubuntu</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/09/23/java8-GDAL%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">GDAL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/09/23/java8-GDAL%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1533,11 +1837,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1557,11 +1861,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+                <a href="javascript:void(0)" class="js-tag color5">hive</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1573,11 +1877,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型，泛型擦除</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型，泛型擦除</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1593,7 +1897,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js 脚本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1605,15 +1921,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1637,14 +1957,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">高级</a>
               </li>
              
@@ -1661,10 +1973,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
@@ -1673,11 +1981,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1689,19 +1997,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排版</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1722,6 +2030,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">文件存储系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据融合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">概念</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1757,7 +2077,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">概念</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1766,10 +2086,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
             
             <div class="clearfix"></div>
