@@ -18,7 +18,7 @@
 <meta property="og:description" content="Electron开发 技术架构 Chromium：支持最新特性的浏览器 Node.js：JavaScript 运行时，可实现文件读写等 Native APIs：提供统一的原生界面能力">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-23T05:21:23.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:06:27.654Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.156Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="electron">
 <meta property="article:tag" content="桌面开发">
@@ -264,7 +264,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">810字</span>
+      <span class="post-count">820字</span>
     </span>
   </span>
 
@@ -292,16 +292,16 @@
 </ul>
 <span id="more"></span>
 
-<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><h2 id="主进程"><a href="#主进程" class="headerlink" title="主进程"></a>主进程</h2><ul>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><h2 id="1、主进程"><a href="#1、主进程" class="headerlink" title="1、主进程"></a>1、主进程</h2><ul>
 <li>可以看作是 package.json 中 main 属性对应的文件</li>
 <li>一个应用只会有一个主进程</li>
 <li>只有主进程可以进行 GUI 的 API 操作</li>
 </ul>
-<h2 id="渲染进程"><a href="#渲染进程" class="headerlink" title="渲染进程"></a>渲染进程</h2><ul>
+<h2 id="2、渲染进程"><a href="#2、渲染进程" class="headerlink" title="2、渲染进程"></a>2、渲染进程</h2><ul>
 <li>Windows 中展示的界面通过渲染进程表现</li>
 <li>一个应用可以有多个渲染进程</li>
 </ul>
-<h1 id="Electron-生命周期"><a href="#Electron-生命周期" class="headerlink" title="Electron 生命周期"></a>Electron 生命周期</h1><h2 id="生命周期事件"><a href="#生命周期事件" class="headerlink" title="生命周期事件"></a>生命周期事件</h2><ul>
+<h1 id="Electron-生命周期"><a href="#Electron-生命周期" class="headerlink" title="Electron 生命周期"></a>Electron 生命周期</h1><h2 id="3、生命周期事件"><a href="#3、生命周期事件" class="headerlink" title="3、生命周期事件"></a>3、生命周期事件</h2><ul>
 <li>ready：app 初始化完成</li>
 <li>dom-ready：一个窗口中的文本加载完成</li>
 <li>did-finsh-load：导航完成时触发</li>
@@ -311,16 +311,16 @@
 <li>quit：所有窗口被关闭时触发</li>
 <li>closed：当窗口被关闭时触发，此时应删除窗口引用</li>
 </ul>
-<h1 id="主进程与渲染进程通信"><a href="#主进程与渲染进程通信" class="headerlink" title="主进程与渲染进程通信"></a>主进程与渲染进程通信</h1><h2 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> ipcRenderer.<span class="title function_">send</span>(<span class="string">&#x27;msg&#x27;</span>,<span class="string">&#x27;当前是来自渲染进程的一条异步消息&#x27;</span>)</span><br><span class="line"> <span class="title class_">BrowserWindow</span>.<span class="title function_">getFocusedWindow</span>().<span class="property">webContents</span>.<span class="title function_">send</span>(<span class="string">&#x27;mtp&#x27;</span>,<span class="string">&#x27;来自主进程菜单的消息&#x27;</span>)</span><br><span class="line"> <span class="comment">// 渲染进程接收消息</span></span><br><span class="line"> ipcRenderer.<span class="title function_">on</span>(<span class="string">&#x27;msg1&#x27;</span>,<span class="function">(<span class="params">ev,data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line"> &#125;)</span><br><span class="line"><span class="comment">// 主进程接收消息操作</span></span><br><span class="line">ipcMain.<span class="title function_">on</span>(<span class="string">&#x27;msg&#x27;</span>,<span class="function">(<span class="params">ev,data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line">    ev.<span class="property">sender</span>.<span class="title function_">send</span>(<span class="string">&#x27;msg1&#x27;</span>,<span class="string">&#x27;这是一条来自主进程的异步消息&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="主进程与渲染进程通信"><a href="#主进程与渲染进程通信" class="headerlink" title="主进程与渲染进程通信"></a>主进程与渲染进程通信</h1><h2 id="4、异步通信"><a href="#4、异步通信" class="headerlink" title="4、异步通信"></a>4、异步通信</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> ipcRenderer.<span class="title function_">send</span>(<span class="string">&#x27;msg&#x27;</span>,<span class="string">&#x27;当前是来自渲染进程的一条异步消息&#x27;</span>)</span><br><span class="line"> <span class="title class_">BrowserWindow</span>.<span class="title function_">getFocusedWindow</span>().<span class="property">webContents</span>.<span class="title function_">send</span>(<span class="string">&#x27;mtp&#x27;</span>,<span class="string">&#x27;来自主进程菜单的消息&#x27;</span>)</span><br><span class="line"> <span class="comment">// 渲染进程接收消息</span></span><br><span class="line"> ipcRenderer.<span class="title function_">on</span>(<span class="string">&#x27;msg1&#x27;</span>,<span class="function">(<span class="params">ev,data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line"> &#125;)</span><br><span class="line"><span class="comment">// 主进程接收消息操作</span></span><br><span class="line">ipcMain.<span class="title function_">on</span>(<span class="string">&#x27;msg&#x27;</span>,<span class="function">(<span class="params">ev,data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line">    ev.<span class="property">sender</span>.<span class="title function_">send</span>(<span class="string">&#x27;msg1&#x27;</span>,<span class="string">&#x27;这是一条来自主进程的异步消息&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> sendSync = ipcRenderer.<span class="title function_">sendSync</span>(<span class="string">&#x27;msgSync&#x27;</span>,<span class="string">&#x27;当前是来自渲染进程的一条同步消息&#x27;</span>);</span><br><span class="line">ipcMain.<span class="title function_">on</span>(<span class="string">&#x27;msgSync&#x27;</span>,<span class="function">(<span class="params">ev,data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line">    ev.<span class="property">returnValue</span> = <span class="string">&#x27;来自主进程的同步消息&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="5、同步通信"><a href="#5、同步通信" class="headerlink" title="5、同步通信"></a>5、同步通信</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> sendSync = ipcRenderer.<span class="title function_">sendSync</span>(<span class="string">&#x27;msgSync&#x27;</span>,<span class="string">&#x27;当前是来自渲染进程的一条同步消息&#x27;</span>);</span><br><span class="line">ipcMain.<span class="title function_">on</span>(<span class="string">&#x27;msgSync&#x27;</span>,<span class="function">(<span class="params">ev,data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line">    ev.<span class="property">returnValue</span> = <span class="string">&#x27;来自主进程的同步消息&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="渲染进程之间通信"><a href="#渲染进程之间通信" class="headerlink" title="渲染进程之间通信"></a>渲染进程之间通信</h1><h2 id="通过主进程"><a href="#通过主进程" class="headerlink" title="通过主进程"></a>通过主进程</h2><p>通过 ipcRenderer 实现，以主进程作为中转</p>
-<h2 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;renderCommunicate&#x27;</span>,<span class="string">&#x27;渲染进程通信&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> item = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;renderCommunicate&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="渲染进程之间通信"><a href="#渲染进程之间通信" class="headerlink" title="渲染进程之间通信"></a>渲染进程之间通信</h1><h2 id="6、通过主进程"><a href="#6、通过主进程" class="headerlink" title="6、通过主进程"></a>6、通过主进程</h2><p>通过 ipcRenderer 实现，以主进程作为中转</p>
+<h2 id="7、localStorage"><a href="#7、localStorage" class="headerlink" title="7、localStorage"></a>7、localStorage</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;renderCommunicate&#x27;</span>,<span class="string">&#x27;渲染进程通信&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> item = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;renderCommunicate&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 
 
@@ -328,8 +328,8 @@
 
 
 
-<h1 id="shell-与-iframe"><a href="#shell-与-iframe" class="headerlink" title="shell 与 iframe"></a>shell 与 iframe</h1><h2 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h2><p>打开目录或者 url</p>
-<h2 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h2><p>替代 <webview></webview></p>
+<h1 id="shell-与-iframe"><a href="#shell-与-iframe" class="headerlink" title="shell 与 iframe"></a>shell 与 iframe</h1><h2 id="8、shell"><a href="#8、shell" class="headerlink" title="8、shell"></a>8、shell</h2><p>打开目录或者 url</p>
+<h2 id="9、iframe"><a href="#9、iframe" class="headerlink" title="9、iframe"></a>9、iframe</h2><p>替代 <webview></webview></p>
 <h1 id="消息通知"><a href="#消息通知" class="headerlink" title="消息通知"></a>消息通知</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> option = &#123;</span><br><span class="line">            <span class="attr">title</span>: <span class="string">&#x27;消息通知&#x27;</span>,</span><br><span class="line">            <span class="attr">body</span>: <span class="string">&#x27;此为一条消息通知，往周知&#x27;</span>,</span><br><span class="line">            <span class="attr">icon</span>: <span class="string">&#x27;./msg.png&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> notification = <span class="keyword">new</span> <span class="variable language_">window</span>.<span class="title class_">Notification</span>(option.<span class="property">title</span>, option)</span><br><span class="line">        notification.<span class="property">onclick</span> = <span class="function">(<span class="params">ev</span>)=&gt;</span>&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(ev)</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -346,7 +346,7 @@
 
 
 
-<h1 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h1><h2 id="electron-store"><a href="#electron-store" class="headerlink" title="electron-store"></a>electron-store</h2><p>如果在渲染进程中使用，需要执行 Store.initRenderer()</p>
+<h1 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h1><h2 id="10、electron-store"><a href="#10、electron-store" class="headerlink" title="10、electron-store"></a>10、electron-store</h2><p>如果在渲染进程中使用，需要执行 Store.initRenderer()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Store</span> = <span class="built_in">require</span>(<span class="string">&#x27;electron-store&#x27;</span>)</span><br><span class="line"><span class="comment">// 渲染进程使用需要初始化</span></span><br><span class="line"><span class="title class_">Store</span>.<span class="title function_">initRenderer</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> <span class="title class_">Store</span>()</span><br><span class="line">store.<span class="title function_">set</span>(key,value)</span><br><span class="line">l</span><br></pre></td></tr></table></figure>
 
 
@@ -660,14 +660,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -677,6 +669,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -716,19 +716,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,6 +745,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,10 +784,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -797,6 +793,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,15 +852,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -880,19 +880,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

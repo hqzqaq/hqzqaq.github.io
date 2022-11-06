@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/11/02/rLwKxduJzcM5oPC.jpg">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1461409/201811/1461409-20181119181300094-111601832.png">
 <meta property="article:published_time" content="2022-09-23T05:50:47.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:29:55.499Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.157Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="数据库">
 <meta property="article:tag" content="mysql">
@@ -270,7 +270,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">5.4k字</span>
+      <span class="post-count">5.5k字</span>
     </span>
   </span>
 
@@ -315,7 +315,7 @@
 <li>容灾备份</li>
 <li>sql 编程</li>
 </ol>
-<h2 id="mysql-文件目录"><a href="#mysql-文件目录" class="headerlink" title="mysql 文件目录"></a>mysql 文件目录</h2><table>
+<h2 id="1、mysql-文件目录"><a href="#1、mysql-文件目录" class="headerlink" title="1、mysql 文件目录"></a>1、mysql 文件目录</h2><table>
 <thead>
 <tr>
 <th>路径</th>
@@ -344,26 +344,26 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># windows 上为 my.ini 文件</span></span><br><span class="line">vim /etc/my.cnf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置字符编码</span></span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">character_set_server=utf8</span><br><span class="line">character_set_client=utf8</span><br><span class="line">collation-server=utf8_general_ci</span><br><span class="line"></span><br><span class="line"><span class="comment"># 索引缓冲大小</span></span><br><span class="line">sort_buffer_size =</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2、修改配置文件"><a href="#2、修改配置文件" class="headerlink" title="2、修改配置文件"></a>2、修改配置文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># windows 上为 my.ini 文件</span></span><br><span class="line">vim /etc/my.cnf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置字符编码</span></span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">character_set_server=utf8</span><br><span class="line">character_set_client=utf8</span><br><span class="line">collation-server=utf8_general_ci</span><br><span class="line"></span><br><span class="line"><span class="comment"># 索引缓冲大小</span></span><br><span class="line">sort_buffer_size =</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主从复制</span></span><br><span class="line">log-bin=[path]</span><br><span class="line">log-err=[path]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认是关闭的，记录严重的警告和错误信息，每次启动和关闭的详细信息等</span></span><br><span class="line">log-error=[path]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询日志，默认关闭，记录查询的 sql 语句，如果开启会降低 mysql 的整体性能，因为记录日志也是需要消耗系统资源的</span></span><br><span class="line"><span class="built_in">log</span>=</span><br></pre></td></tr></table></figure>
+<h2 id="3、日志文件"><a href="#3、日志文件" class="headerlink" title="3、日志文件"></a>3、日志文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主从复制</span></span><br><span class="line">log-bin=[path]</span><br><span class="line">log-err=[path]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认是关闭的，记录严重的警告和错误信息，每次启动和关闭的详细信息等</span></span><br><span class="line">log-error=[path]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询日志，默认关闭，记录查询的 sql 语句，如果开启会降低 mysql 的整体性能，因为记录日志也是需要消耗系统资源的</span></span><br><span class="line"><span class="built_in">log</span>=</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a>数据文件</h2><ul>
+<h2 id="4、数据文件"><a href="#4、数据文件" class="headerlink" title="4、数据文件"></a>4、数据文件</h2><ul>
 <li>frm 文件：存放表结构</li>
 <li>myd 文件：存放表数据</li>
 <li>myi 文件：存放表索引</li>
 </ul>
 <h1 id="mysql-架构"><a href="#mysql-架构" class="headerlink" title="mysql 架构"></a>mysql 架构</h1><p>MySQL 可以在多种不同场景中应用并发挥良好作用，主要体现在<code>存储引擎的架构</code>上，<code>插件式的存储引擎架构</code>将<font color="orange">查询处理</font>和<font color="orange">其它的系统任务</font>以及<font color="orange">数据的存储提取</font><code>相分离</code>，这种架构可以<font color="yellow">根据业务的需求和实际需要</font><code>选择合适的存储引擎</code>。</p>
 <p><img src="https://i.loli.net/2021/10/26/dcQIJUusMONipeh.png" alt="MySQL 架构"></p>
-<h2 id="连接层"><a href="#连接层" class="headerlink" title="连接层"></a>连接层</h2><p>最上层是一些客户端和连接服务，包含本地 sock 通信和大多数基于客户端&#x2F;服务端工具实现的类似于 <code>tcp/ip</code> 的通信。主要完成一些类似于<code>连接处理</code>、<code>授权认证</code>及相关的<code>安全方案</code>。在该层上引入了<code>线程池</code>的概念，为通过认证安全接入的客户端提供线程。同样在该层上可以实现基于 <code>SSL</code> 的安全链接。服务器也会安全接入的每个客户端验证它所具有的操作权限。</p>
-<h2 id="服务层"><a href="#服务层" class="headerlink" title="服务层"></a>服务层</h2><p>第二层架构主要完成大多数的核心服务功能，如 <code>SQL 接口</code>，并完成<code>缓存的查询</code>，<code>SQL 的分析和优化</code>及<code>部分内置函数的执行</code>。所有<code>跨存储引擎</code>的功能也在这一层实现，如过程、函数等。在该层，服务器会解析查询并创建相应的<code>内部解析树</code>，并对其完成相应的<font color="yellow">优化</font>，如确定查询表的顺序，是否利用索引等，最后生成相应的执行操作。如果是 select 语句，服务器还会<code>查询内部的缓存</code>。如果缓存空间足够大，这样在解决大量读操作的环境中能够很好的提升系统的性能。</p>
-<h2 id="引擎层"><a href="#引擎层" class="headerlink" title="引擎层"></a>引擎层</h2><p>存储引擎层，存储引擎真正的负责了 MySQL 中<code>数据的存储和提取</code>，服务器通过<code>API</code>与<code>存储引擎</code>进行<font color="yellow">通信</font>。不同的存储引擎具有的功能不同，这样我们<font color="yellow">可以根据自己的实际需要进行选取</font>。</p>
-<h2 id="存储层"><a href="#存储层" class="headerlink" title="存储层"></a>存储层</h2><p>数据存储层，主要是将数据存储在运行于裸设备的文件系统之上，并完成与存储引擎的交互</p>
-<h2 id="MyISAM-和-InnoDB-引擎对比"><a href="#MyISAM-和-InnoDB-引擎对比" class="headerlink" title="MyISAM 和 InnoDB 引擎对比"></a>MyISAM 和 InnoDB 引擎对比</h2><table>
+<h2 id="5、连接层"><a href="#5、连接层" class="headerlink" title="5、连接层"></a>5、连接层</h2><p>最上层是一些客户端和连接服务，包含本地 sock 通信和大多数基于客户端&#x2F;服务端工具实现的类似于 <code>tcp/ip</code> 的通信。主要完成一些类似于<code>连接处理</code>、<code>授权认证</code>及相关的<code>安全方案</code>。在该层上引入了<code>线程池</code>的概念，为通过认证安全接入的客户端提供线程。同样在该层上可以实现基于 <code>SSL</code> 的安全链接。服务器也会安全接入的每个客户端验证它所具有的操作权限。</p>
+<h2 id="6、服务层"><a href="#6、服务层" class="headerlink" title="6、服务层"></a>6、服务层</h2><p>第二层架构主要完成大多数的核心服务功能，如 <code>SQL 接口</code>，并完成<code>缓存的查询</code>，<code>SQL 的分析和优化</code>及<code>部分内置函数的执行</code>。所有<code>跨存储引擎</code>的功能也在这一层实现，如过程、函数等。在该层，服务器会解析查询并创建相应的<code>内部解析树</code>，并对其完成相应的<font color="yellow">优化</font>，如确定查询表的顺序，是否利用索引等，最后生成相应的执行操作。如果是 select 语句，服务器还会<code>查询内部的缓存</code>。如果缓存空间足够大，这样在解决大量读操作的环境中能够很好的提升系统的性能。</p>
+<h2 id="7、引擎层"><a href="#7、引擎层" class="headerlink" title="7、引擎层"></a>7、引擎层</h2><p>存储引擎层，存储引擎真正的负责了 MySQL 中<code>数据的存储和提取</code>，服务器通过<code>API</code>与<code>存储引擎</code>进行<font color="yellow">通信</font>。不同的存储引擎具有的功能不同，这样我们<font color="yellow">可以根据自己的实际需要进行选取</font>。</p>
+<h2 id="8、存储层"><a href="#8、存储层" class="headerlink" title="8、存储层"></a>8、存储层</h2><p>数据存储层，主要是将数据存储在运行于裸设备的文件系统之上，并完成与存储引擎的交互</p>
+<h2 id="9、MyISAM-和-InnoDB-引擎对比"><a href="#9、MyISAM-和-InnoDB-引擎对比" class="headerlink" title="9、MyISAM 和 InnoDB 引擎对比"></a>9、MyISAM 和 InnoDB 引擎对比</h2><table>
 <thead>
 <tr>
 <th>对比项</th>
@@ -407,88 +407,88 @@
 <td>YES</td>
 </tr>
 </tbody></table>
-<h1 id="索引优化分析"><a href="#索引优化分析" class="headerlink" title="索引优化分析"></a>索引优化分析</h1><h2 id="sql-执行慢的原因"><a href="#sql-执行慢的原因" class="headerlink" title="sql 执行慢的原因"></a>sql 执行慢的原因</h2><h3 id="单值索引"><a href="#单值索引" class="headerlink" title="单值索引"></a>单值索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> name <span class="operator">=</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">and</span> email <span class="operator">=</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 在 user 表中的 name 字段上建立索引</span></span><br><span class="line"><span class="keyword">create</span> index idx_user_name <span class="keyword">on</span> <span class="keyword">user</span>(name);</span><br></pre></td></tr></table></figure>
+<h1 id="索引优化分析"><a href="#索引优化分析" class="headerlink" title="索引优化分析"></a>索引优化分析</h1><h2 id="10、sql-执行慢的原因"><a href="#10、sql-执行慢的原因" class="headerlink" title="10、sql 执行慢的原因"></a>10、sql 执行慢的原因</h2><h3 id="10-1、单值索引"><a href="#10-1、单值索引" class="headerlink" title="10.1、单值索引"></a>10.1、单值索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> name <span class="operator">=</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">and</span> email <span class="operator">=</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 在 user 表中的 name 字段上建立索引</span></span><br><span class="line"><span class="keyword">create</span> index idx_user_name <span class="keyword">on</span> <span class="keyword">user</span>(name);</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="复合索引"><a href="#复合索引" class="headerlink" title="复合索引"></a>复合索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 在 user 表中的 name 和 email 字段上建立索引</span></span><br><span class="line"><span class="keyword">create</span> index idx_user_nameEmail <span class="keyword">on</span> <span class="keyword">user</span>(name,email);</span><br></pre></td></tr></table></figure>
+<h3 id="10-2、复合索引"><a href="#10-2、复合索引" class="headerlink" title="10.2、复合索引"></a>10.2、复合索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 在 user 表中的 name 和 email 字段上建立索引</span></span><br><span class="line"><span class="keyword">create</span> index idx_user_nameEmail <span class="keyword">on</span> <span class="keyword">user</span>(name,email);</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="关联查询太多-join"><a href="#关联查询太多-join" class="headerlink" title="关联查询太多 join"></a>关联查询太多 join</h3><h3 id="服务器调优及各个参数的设置（缓冲、线程数）"><a href="#服务器调优及各个参数的设置（缓冲、线程数）" class="headerlink" title="服务器调优及各个参数的设置（缓冲、线程数）"></a>服务器调优及各个参数的设置（缓冲、线程数）</h3><h2 id="常见的通用的-join-查询"><a href="#常见的通用的-join-查询" class="headerlink" title="常见的通用的 join 查询"></a>常见的通用的 join 查询</h2><h3 id="SQL-执行顺序"><a href="#SQL-执行顺序" class="headerlink" title="SQL 执行顺序"></a>SQL 执行顺序</h3><h4 id="手写"><a href="#手写" class="headerlink" title="手写"></a>手写</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span></span><br><span class="line">	<span class="operator">&lt;</span>select_list<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">	<span class="operator">&lt;</span>left_table<span class="operator">&gt;</span> <span class="operator">&lt;</span>join_type<span class="operator">&gt;</span></span><br><span class="line"> <span class="keyword">JOIN</span> <span class="operator">&lt;</span>right_table<span class="operator">&gt;</span> <span class="keyword">On</span> <span class="operator">&lt;</span>join_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="operator">&lt;</span>where_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>group_by_list<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="operator">&lt;</span>having_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>order_by_condition<span class="operator">&gt;</span></span><br><span class="line">LIMIT <span class="operator">&lt;</span>limit_number<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="10-3、关联查询太多-join"><a href="#10-3、关联查询太多-join" class="headerlink" title="10.3、关联查询太多 join"></a>10.3、关联查询太多 join</h3><h3 id="10-4、服务器调优及各个参数的设置（缓冲、线程数）"><a href="#10-4、服务器调优及各个参数的设置（缓冲、线程数）" class="headerlink" title="10.4、服务器调优及各个参数的设置（缓冲、线程数）"></a>10.4、服务器调优及各个参数的设置（缓冲、线程数）</h3><h2 id="11、常见的通用的-join-查询"><a href="#11、常见的通用的-join-查询" class="headerlink" title="11、常见的通用的 join 查询"></a>11、常见的通用的 join 查询</h2><h3 id="11-1、SQL-执行顺序"><a href="#11-1、SQL-执行顺序" class="headerlink" title="11.1、SQL 执行顺序"></a>11.1、SQL 执行顺序</h3><h4 id="11-1-1、手写"><a href="#11-1-1、手写" class="headerlink" title="11.1.1、手写"></a>11.1.1、手写</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span></span><br><span class="line">	<span class="operator">&lt;</span>select_list<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">	<span class="operator">&lt;</span>left_table<span class="operator">&gt;</span> <span class="operator">&lt;</span>join_type<span class="operator">&gt;</span></span><br><span class="line"> <span class="keyword">JOIN</span> <span class="operator">&lt;</span>right_table<span class="operator">&gt;</span> <span class="keyword">On</span> <span class="operator">&lt;</span>join_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="operator">&lt;</span>where_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>group_by_list<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="operator">&lt;</span>having_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>order_by_condition<span class="operator">&gt;</span></span><br><span class="line">LIMIT <span class="operator">&lt;</span>limit_number<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="机读"><a href="#机读" class="headerlink" title="机读"></a>机读</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> <span class="operator">&lt;</span>left_table<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">On</span> <span class="operator">&lt;</span>join_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="operator">&lt;</span>join_type<span class="operator">&gt;</span> <span class="keyword">JOIN</span> <span class="operator">&lt;</span>right_table<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="operator">&lt;</span>where_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>group_by_list<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="operator">&lt;</span>having_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">DISTINCT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>order_by_condition<span class="operator">&gt;</span></span><br><span class="line">LIMIT <span class="operator">&lt;</span>limit_number<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="11-1-2、机读"><a href="#11-1-2、机读" class="headerlink" title="11.1.2、机读"></a>11.1.2、机读</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> <span class="operator">&lt;</span>left_table<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">On</span> <span class="operator">&lt;</span>join_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="operator">&lt;</span>join_type<span class="operator">&gt;</span> <span class="keyword">JOIN</span> <span class="operator">&lt;</span>right_table<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="operator">&lt;</span>where_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>group_by_list<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="operator">&lt;</span>having_condition<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">DISTINCT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>order_by_condition<span class="operator">&gt;</span></span><br><span class="line">LIMIT <span class="operator">&lt;</span>limit_number<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h3 id="7-中-join"><a href="#7-中-join" class="headerlink" title="7 中 join"></a>7 中 join</h3><img src="https://i.loli.net/2021/11/03/VcAqBDeKNPpbofk.jpg" alt="sqljoin_clear" style="zoom: 33%;">
+<h3 id="11-2、7-中-join"><a href="#11-2、7-中-join" class="headerlink" title="11.2、7 中 join"></a>11.2、7 中 join</h3><img src="https://i.loli.net/2021/11/03/VcAqBDeKNPpbofk.jpg" alt="sqljoin_clear" style="zoom: 33%;">
 
 
 
-<h4 id="INNER-JOIN-内连接"><a href="#INNER-JOIN-内连接" class="headerlink" title="INNER JOIN 内连接"></a>INNER JOIN 内连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- A、B 表的共有</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">INNER</span> <span class="keyword">JOIN</span> <span class="keyword">TABLE</span> B B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br></pre></td></tr></table></figure>
+<h4 id="11-2-1、INNER-JOIN-内连接"><a href="#11-2-1、INNER-JOIN-内连接" class="headerlink" title="11.2.1、INNER JOIN 内连接"></a>11.2.1、INNER JOIN 内连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- A、B 表的共有</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">INNER</span> <span class="keyword">JOIN</span> <span class="keyword">TABLE</span> B B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="LEFT-JOIN-左连接"><a href="#LEFT-JOIN-左连接" class="headerlink" title="LEFT JOIN 左连接"></a>LEFT JOIN 左连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- A 表的独有 加 A、B 表的共有</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br></pre></td></tr></table></figure>
+<h4 id="11-2-2、LEFT-JOIN-左连接"><a href="#11-2-2、LEFT-JOIN-左连接" class="headerlink" title="11.2.2、LEFT JOIN 左连接"></a>11.2.2、LEFT JOIN 左连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- A 表的独有 加 A、B 表的共有</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="RIGHT-JOIN-右连接"><a href="#RIGHT-JOIN-右连接" class="headerlink" title="RIGHT JOIN 右连接"></a>RIGHT JOIN 右连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- B 表的独有 加 A、B 表的共有</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br></pre></td></tr></table></figure>
+<h4 id="11-2-3、RIGHT-JOIN-右连接"><a href="#11-2-3、RIGHT-JOIN-右连接" class="headerlink" title="11.2.3、RIGHT JOIN 右连接"></a>11.2.3、RIGHT JOIN 右连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- B 表的独有 加 A、B 表的共有</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="左外部连接"><a href="#左外部连接" class="headerlink" title="左外部连接"></a>左外部连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- A 表的独有</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key <span class="keyword">WHERE</span> B.key <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="11-2-4、左外部连接"><a href="#11-2-4、左外部连接" class="headerlink" title="11.2.4、左外部连接"></a>11.2.4、左外部连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- A 表的独有</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key <span class="keyword">WHERE</span> B.key <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="右外部连接"><a href="#右外部连接" class="headerlink" title="右外部连接"></a>右外部连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- B 表的独有</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key <span class="keyword">WHERE</span> A.key <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="11-2-5、右外部连接"><a href="#11-2-5、右外部连接" class="headerlink" title="11.2.5、右外部连接"></a>11.2.5、右外部连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- B 表的独有</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key <span class="keyword">WHERE</span> A.key <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- A、B 的合并</span></span><br><span class="line"><span class="comment">-- MySQL 中无法体现</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> <span class="keyword">TABLE</span> B B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br><span class="line"><span class="comment">-- 使用 union</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br><span class="line"><span class="keyword">union</span> <span class="comment">-- 自带去重</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br></pre></td></tr></table></figure>
+<h4 id="11-2-6、全连接"><a href="#11-2-6、全连接" class="headerlink" title="11.2.6、全连接"></a>11.2.6、全连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- A、B 的合并</span></span><br><span class="line"><span class="comment">-- MySQL 中无法体现</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> <span class="keyword">TABLE</span> B B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br><span class="line"><span class="comment">-- 使用 union</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br><span class="line"><span class="keyword">union</span> <span class="comment">-- 自带去重</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key;</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="全外部连接"><a href="#全外部连接" class="headerlink" title="全外部连接"></a>全外部连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- A 的独有 + B 的独有</span></span><br><span class="line"><span class="comment">-- MySQL 中无法体现</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> <span class="keyword">TABLE</span> B B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key <span class="keyword">WHERE</span> A.Key I <span class="keyword">NULL</span> <span class="keyword">OR</span> B.Key <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key <span class="keyword">WHERE</span> B.key <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key <span class="keyword">WHERE</span> A.key <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="11-2-7、全外部连接"><a href="#11-2-7、全外部连接" class="headerlink" title="11.2.7、全外部连接"></a>11.2.7、全外部连接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- A 的独有 + B 的独有</span></span><br><span class="line"><span class="comment">-- MySQL 中无法体现</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> <span class="keyword">TABLE</span> B B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key <span class="keyword">WHERE</span> A.Key I <span class="keyword">NULL</span> <span class="keyword">OR</span> B.Key <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key <span class="keyword">WHERE</span> B.key <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>select_list<span class="operator">&gt;</span> <span class="keyword">FROM</span> TableA A <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> TableB B <span class="keyword">ON</span> A.Key <span class="operator">=</span> B.Key <span class="keyword">WHERE</span> A.key <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h2 id="12、概述"><a href="#12、概述" class="headerlink" title="12、概述"></a>12、概述</h2><blockquote>
 <p>索引（Index）：是帮助 MySQL 高效获取数据的数据结构。索引的目的在于提高查询效率，可以类比字典。</p>
 <p>索引是一种数据结构。可以理解为 排好序的快速查找数据结构。</p>
 <p>索引会影响 where 查询的条件 和 order by 的排序。</p>
 <p>数据本身之外，数据库还维护着一个满足<strong>特定查找算法</strong>的数据结构，这些数据结构以某种方式指向数据，这样就可以在这些数据结构的基础上实现<strong>高级查找算法</strong>，这种数据结构就是索引（B树）</p>
 </blockquote>
 <p>一般索引本身也很大，不可能全部存储在内存中，因此索引往往以索引文件的形式<strong>存储在磁盘上</strong>。</p>
-<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ol>
+<h2 id="13、优势"><a href="#13、优势" class="headerlink" title="13、优势"></a>13、优势</h2><ol>
 <li>类似大学图书馆建书目索引，提高数据检索的效率，降低数据库的 IO 成本</li>
 <li>通过索引列对数据进行了<font color="yellow">排序</font>，降低数据排序的成本，降低了 CPU 的消耗</li>
 </ol>
-<h2 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h2><ol>
+<h2 id="14、劣势"><a href="#14、劣势" class="headerlink" title="14、劣势"></a>14、劣势</h2><ol>
 <li>实际上索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录，所以索引列也是要占用空间的</li>
 <li>虽然索引大大提高了查询速度，同时却<font color="orange">会降低更新表的速度</font>，如对表进行 INSERT、UPDATE 和 DELETE。因为更新表时，MySQL 不仅要保存数据，还要保存一下索引文件每次更新添加了索引列的字段，都会调整因为更新所带来的键值变化后的索引信息。</li>
 </ol>
-<h2 id="mysql-索引分类"><a href="#mysql-索引分类" class="headerlink" title="mysql 索引分类"></a>mysql 索引分类</h2><p><font color="red">一张表的索引最好不要超过 5 个<br></font></p>
-<h3 id="单值索引-1"><a href="#单值索引-1" class="headerlink" title="单值索引"></a>单值索引</h3><p><strong>即一个索引只包含单个列，一个表可以有多个单列</strong></p>
-<h3 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h3><p>索引列的值必须唯一，但允许有空值</p>
-<h3 id="复合索引-1"><a href="#复合索引-1" class="headerlink" title="复合索引"></a>复合索引</h3><p>即一个索引包含多个列，<font color="orange">复合索引一般优于单值索引</font></p>
-<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 增加</span></span><br><span class="line"><span class="keyword">CREATE</span> [<span class="keyword">UNIQUE</span>] INDEX indexName <span class="keyword">ON</span> myTable(columnName(length));</span><br><span class="line"><span class="keyword">ALTER</span> myTable <span class="keyword">ADD</span> [<span class="keyword">UNIQUE</span>] INDEX [indexName] <span class="keyword">ON</span> (columnName(length));</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除</span></span><br><span class="line"><span class="keyword">DROP</span> INDEX [indexName] <span class="keyword">ON</span> myTable;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看</span></span><br><span class="line"><span class="keyword">SHOW</span> INDEX <span class="keyword">FROM</span> myTable;</span><br></pre></td></tr></table></figure>
+<h2 id="15、mysql-索引分类"><a href="#15、mysql-索引分类" class="headerlink" title="15、mysql 索引分类"></a>15、mysql 索引分类</h2><p><font color="red">一张表的索引最好不要超过 5 个<br></font></p>
+<h3 id="15-1、单值索引"><a href="#15-1、单值索引" class="headerlink" title="15.1、单值索引"></a>15.1、单值索引</h3><p><strong>即一个索引只包含单个列，一个表可以有多个单列</strong></p>
+<h3 id="15-2、唯一索引"><a href="#15-2、唯一索引" class="headerlink" title="15.2、唯一索引"></a>15.2、唯一索引</h3><p>索引列的值必须唯一，但允许有空值</p>
+<h3 id="15-3、复合索引"><a href="#15-3、复合索引" class="headerlink" title="15.3、复合索引"></a>15.3、复合索引</h3><p>即一个索引包含多个列，<font color="orange">复合索引一般优于单值索引</font></p>
+<h3 id="15-4、基本语法"><a href="#15-4、基本语法" class="headerlink" title="15.4、基本语法"></a>15.4、基本语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 增加</span></span><br><span class="line"><span class="keyword">CREATE</span> [<span class="keyword">UNIQUE</span>] INDEX indexName <span class="keyword">ON</span> myTable(columnName(length));</span><br><span class="line"><span class="keyword">ALTER</span> myTable <span class="keyword">ADD</span> [<span class="keyword">UNIQUE</span>] INDEX [indexName] <span class="keyword">ON</span> (columnName(length));</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除</span></span><br><span class="line"><span class="keyword">DROP</span> INDEX [indexName] <span class="keyword">ON</span> myTable;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看</span></span><br><span class="line"><span class="keyword">SHOW</span> INDEX <span class="keyword">FROM</span> myTable;</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h2 id="mysql-索引结构"><a href="#mysql-索引结构" class="headerlink" title="mysql 索引结构"></a>mysql 索引结构</h2><h3 id="BTree-索引"><a href="#BTree-索引" class="headerlink" title="BTree 索引"></a><font color="red">BTree 索引</font></h3><img src="https://i.loli.net/2021/11/02/rLwKxduJzcM5oPC.jpg" style="width:80%" alt="b树索引原理">
+<h2 id="16、mysql-索引结构"><a href="#16、mysql-索引结构" class="headerlink" title="16、mysql 索引结构"></a>16、mysql 索引结构</h2><h3 id="16-1、BTree-索引"><a href="#16-1、BTree-索引" class="headerlink" title="16.1、BTree 索引"></a>16.1、<font color="red">BTree 索引</font></h3><img src="https://i.loli.net/2021/11/02/rLwKxduJzcM5oPC.jpg" style="width:80%" alt="b树索引原理">
 
 
 
 <p><font color="red">真实数据存在于叶子节点</font>，即 2、4、8、10、14、17、28、29、40、63、75、79</p>
 <p><font color="red">非叶子节点不存储真实的数据，只存储指引搜索方向的数据项</font>，如16、34 并不真实存在于数据表中。</p>
-<h3 id="Hash-索引"><a href="#Hash-索引" class="headerlink" title="Hash 索引"></a>Hash 索引</h3><h3 id="full-text-全文索引"><a href="#full-text-全文索引" class="headerlink" title="full-text 全文索引"></a>full-text 全文索引</h3><h3 id="R-Tree-索引"><a href="#R-Tree-索引" class="headerlink" title="R-Tree 索引"></a>R-Tree 索引</h3><h2 id="哪些情况需要创建索引"><a href="#哪些情况需要创建索引" class="headerlink" title="哪些情况需要创建索引"></a>哪些情况需要创建索引</h2><ol>
+<h3 id="16-2、Hash-索引"><a href="#16-2、Hash-索引" class="headerlink" title="16.2、Hash 索引"></a>16.2、Hash 索引</h3><h3 id="16-3、full-text-全文索引"><a href="#16-3、full-text-全文索引" class="headerlink" title="16.3、full-text 全文索引"></a>16.3、full-text 全文索引</h3><h3 id="16-4、R-Tree-索引"><a href="#16-4、R-Tree-索引" class="headerlink" title="16.4、R-Tree 索引"></a>16.4、R-Tree 索引</h3><h2 id="17、哪些情况需要创建索引"><a href="#17、哪些情况需要创建索引" class="headerlink" title="17、哪些情况需要创建索引"></a>17、哪些情况需要创建索引</h2><ol>
 <li><p>逐渐自动建立唯一索引</p>
 </li>
 <li><p>频繁作为查询条件的字段应该创建索引</p>
@@ -504,7 +504,7 @@
 <li><p>查询中<code>排序</code>的字段，排序字段若通过索引去访问将大大提高排序速度</p>
 </li>
 </ol>
-<h2 id="哪些情况不需要创建索引"><a href="#哪些情况不需要创建索引" class="headerlink" title="哪些情况不需要创建索引"></a>哪些情况不需要创建索引</h2><ol>
+<h2 id="18、哪些情况不需要创建索引"><a href="#18、哪些情况不需要创建索引" class="headerlink" title="18、哪些情况不需要创建索引"></a>18、哪些情况不需要创建索引</h2><ol>
 <li><p>表的记录太少（三百万左右性能开始下降）</p>
 </li>
 <li><p>经常增删改的表</p>
@@ -512,13 +512,13 @@
 <li><p>数据重复且分布平均的表字段，因此应该只为最经常查询和最经常排序的数据列建立索引（如果某个数据列包含许多重复的内容，为它建立索引就没有太大的实际效果）</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表中不重复的数据/表中总数据 = 索引的选择性，这个值越接近于 1，这个索引的效率就高</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h1 id="查询截取分析"><a href="#查询截取分析" class="headerlink" title="查询截取分析"></a>查询截取分析</h1><h2 id="MySql-Query-Optimizer"><a href="#MySql-Query-Optimizer" class="headerlink" title="MySql Query Optimizer"></a>MySql Query Optimizer</h2><p>MySQL 中专门负责优化 <code>SELECT</code> 语句的<font color="orange">优化器模块</font>，主要功能：通过计算分析系统中收集到的统计信息，为客户端请求的 <code>Query </code>提供他认为最优的执行计划。</p>
-<h2 id="MySQL-常见瓶颈"><a href="#MySQL-常见瓶颈" class="headerlink" title="MySQL 常见瓶颈"></a>MySQL 常见瓶颈</h2><ol>
+<h1 id="查询截取分析"><a href="#查询截取分析" class="headerlink" title="查询截取分析"></a>查询截取分析</h1><h2 id="19、MySql-Query-Optimizer"><a href="#19、MySql-Query-Optimizer" class="headerlink" title="19、MySql Query Optimizer"></a>19、MySql Query Optimizer</h2><p>MySQL 中专门负责优化 <code>SELECT</code> 语句的<font color="orange">优化器模块</font>，主要功能：通过计算分析系统中收集到的统计信息，为客户端请求的 <code>Query </code>提供他认为最优的执行计划。</p>
+<h2 id="20、MySQL-常见瓶颈"><a href="#20、MySQL-常见瓶颈" class="headerlink" title="20、MySQL 常见瓶颈"></a>20、MySQL 常见瓶颈</h2><ol>
 <li>CPU：CPU 在饱和的时候一般发生在数据装入内存或从磁盘上读取数据的时候</li>
 <li>IO：磁盘 I&#x2F;O 瓶颈发生在装入数据远大于内存容量的时候</li>
 <li>服务器硬件的性能瓶颈：top，free，iostat 和 vmstat 来查看系统的性能状态</li>
 </ol>
-<h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p><font style="color:;font-size:30px">能干嘛：</font></p>
+<h2 id="21、Explain"><a href="#21、Explain" class="headerlink" title="21、Explain"></a>21、Explain</h2><p><font style="color:;font-size:30px">能干嘛：</font></p>
 <ul>
 <li>表的读取顺序</li>
 <li>数据读取操作的操作类型</li>
@@ -570,20 +570,20 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h2><h3 id="单表"><a href="#单表" class="headerlink" title="单表"></a>单表</h3><ul>
+<h2 id="22、索引优化"><a href="#22、索引优化" class="headerlink" title="22、索引优化"></a>22、索引优化</h2><h3 id="22-1、单表"><a href="#22-1、单表" class="headerlink" title="22.1、单表"></a>22.1、单表</h3><ul>
 <li>范围会导致索引失效，组合索引中的字段不要涉及到范围</li>
 </ul>
-<h3 id="两表"><a href="#两表" class="headerlink" title="两表"></a>两表</h3><ul>
+<h3 id="22-2、两表"><a href="#22-2、两表" class="headerlink" title="22.2、两表"></a>22.2、两表</h3><ul>
 <li>LEFT JOIN 建立右表索引，LEFT JOIN 条件用于确定如何从右表搜索行，左边一定都有，           所以右边是关键点，一定要建立索引。（右连接类似）</li>
 </ul>
-<h3 id="三表"><a href="#三表" class="headerlink" title="三表"></a>三表</h3><ul>
+<h3 id="22-3、三表"><a href="#22-3、三表" class="headerlink" title="22.3、三表"></a>22.3、三表</h3><ul>
 <li>索引最好设置在需要经常查询的字段中</li>
 <li>尽可能减少 join 语句中的 NestedLoop 的循环总次数：“永远用小结果集驱动大的结果集”</li>
 <li>优先优化 Nested Loop 的内层循环</li>
 <li>保证 Join 语句中被驱动表上 join 条件字段已经被索引</li>
 <li>当无法保证被驱动表的 join 条件字段被索引且内存资源充足的前提下， 不要太吝惜 joinbuffer 的使用</li>
 </ul>
-<h3 id="索引失效"><a href="#索引失效" class="headerlink" title="索引失效"></a>索引失效</h3><ol>
+<h3 id="22-4、索引失效"><a href="#22-4、索引失效" class="headerlink" title="22.4、索引失效"></a>22.4、索引失效</h3><ol>
 <li>全值匹配我最爱</li>
 <li>最佳左前缀法则：如果索引了多列，要遵守最佳左前缀法则，指的是查询从索引的<code>最左前列开始（开头大哥不能死）</code>并且<code>不跳过索引中的列（中间兄弟不能断）</code></li>
 <li>不在索引列上做任何的操作（计算、函数、（自动 or 手动）类型转换），会导致索引失效而转向全表扫描</li>
@@ -595,19 +595,19 @@
 <li><code>字符串不加单引号</code>索引失效</li>
 <li>少用 or，用它连接时会索引失效</li>
 </ol>
-<h3 id="一般性建议"><a href="#一般性建议" class="headerlink" title="一般性建议"></a>一般性建议</h3><ol>
+<h3 id="22-5、一般性建议"><a href="#22-5、一般性建议" class="headerlink" title="22.5、一般性建议"></a>22.5、一般性建议</h3><ol>
 <li>对于单键索引，尽量选择针对当前 <code>query </code>过滤性更好的索引</li>
 <li>在选择组合索引的时候，当前 <code>query </code>中过滤性最好的字段在索引字段顺序中， 位置越靠前越好</li>
 <li>在选择组合索引的时候，尽量选择可以能够包含当前 <code>query </code>中的 <code>where </code>字句中更多字段的索引</li>
 <li>尽可能通过分析统计信息和调整 <code>query </code>的写法来达到选择合适索引的目的</li>
 </ol>
-<h1 id="查询优化"><a href="#查询优化" class="headerlink" title="查询优化"></a>查询优化</h1><h2 id="一般操作"><a href="#一般操作" class="headerlink" title="一般操作"></a>一般操作</h2><ol>
+<h1 id="查询优化"><a href="#查询优化" class="headerlink" title="查询优化"></a>查询优化</h1><h2 id="23、一般操作"><a href="#23、一般操作" class="headerlink" title="23、一般操作"></a>23、一般操作</h2><ol>
 <li>慢查询的开启并捕获</li>
 <li>explain + 慢 sql 分析</li>
 <li>show profile 查询 sql 在 mysql 服务器里面的执行细节和生命周期情况</li>
 <li>sql 数据库服务器的参数调优</li>
 </ol>
-<h2 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a>优化策略</h2><ol>
+<h2 id="24、优化策略"><a href="#24、优化策略" class="headerlink" title="24、优化策略"></a>24、优化策略</h2><ol>
 <li><font color="orange">永远小表驱动大表</font></li>
 <li>exists or in 的使用，看子查询与主查询谁的数据量更小</li>
 <li>order by 关键字优化<ul>
@@ -641,7 +641,7 @@
 
 
 <h1 id="MySql-锁机制"><a href="#MySql-锁机制" class="headerlink" title="MySql 锁机制"></a>MySql 锁机制</h1><p>锁是计算机协调多个进程或线程并发访问某一资源的机制，在数据库中，除传统的计算资源（如 CPU、RAM、I&#x2F;O）的争用以外，数据也是一种供许多用户共享的资源。如何保证数据并发访问的一致性、有效性是所有数据库必须解决的一个问题，锁冲突也是影响数据库并发访问性能的一个重要因素。从这个角度来说，锁对数据库而言显得尤其重要，也更加复杂。</p>
-<h2 id="锁的分类"><a href="#锁的分类" class="headerlink" title="锁的分类"></a>锁的分类</h2><ol>
+<h2 id="25、锁的分类"><a href="#25、锁的分类" class="headerlink" title="25、锁的分类"></a>25、锁的分类</h2><ol>
 <li><p>从对数据的操作类型分：</p>
 <ul>
 <li>读锁（共享锁）：针对同一份数据，多个读操作可以同时进行而不会互相影响</li>
@@ -691,7 +691,7 @@
 </ul>
 </li>
 </ol>
-<h1 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h1><h2 id="复制原理"><a href="#复制原理" class="headerlink" title="复制原理"></a>复制原理</h2><img src="https://img2018.cnblogs.com/blog/1461409/201811/1461409-20181119181300094-111601832.png" style="width:60%">
+<h1 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h1><h2 id="26、复制原理"><a href="#26、复制原理" class="headerlink" title="26、复制原理"></a>26、复制原理</h2><img src="https://img2018.cnblogs.com/blog/1461409/201811/1461409-20181119181300094-111601832.png" style="width:60%">
 
 
 
@@ -701,13 +701,13 @@
 <li>slave 将 master 的 binary log events 拷贝到它的中继日志（relay log）</li>
 <li>slave 重做中继日志中的事件，将改变应用到自己的数据库中，MySQL 复制是异步的且串行化的</li>
 </ol>
-<h2 id="复制的基本原则"><a href="#复制的基本原则" class="headerlink" title="复制的基本原则"></a>复制的基本原则</h2><ol>
+<h2 id="27、复制的基本原则"><a href="#27、复制的基本原则" class="headerlink" title="27、复制的基本原则"></a>27、复制的基本原则</h2><ol>
 <li>每个 slave 只有一个 master</li>
 <li>每个 slave 只能有一个唯一的服务器 ID</li>
 <li>每个 master 可以有多个 salve</li>
 </ol>
-<h2 id="最大问题"><a href="#最大问题" class="headerlink" title="最大问题"></a>最大问题</h2><p>网络延时</p>
-<h2 id="常见配置"><a href="#常见配置" class="headerlink" title="常见配置"></a>常见配置</h2><ol>
+<h2 id="28、最大问题"><a href="#28、最大问题" class="headerlink" title="28、最大问题"></a>28、最大问题</h2><p>网络延时</p>
+<h2 id="29、常见配置"><a href="#29、常见配置" class="headerlink" title="29、常见配置"></a>29、常见配置</h2><ol>
 <li><p>mysql 版本一致且后台以服务运行</p>
 </li>
 <li><p>主从都配置在【mysqlId】结点下，都是小写</p>
@@ -1062,14 +1062,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1079,6 +1071,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1118,19 +1118,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1155,6 +1147,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1186,10 +1186,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -1199,6 +1195,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1254,15 +1254,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1282,19 +1282,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

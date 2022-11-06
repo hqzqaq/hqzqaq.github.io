@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="ENVI笔记遥感图像预处理图像几何校正(Geometric Correction)消除非系统性的几何变形(由地球曲率及空气折射的变化以及地形的变化)">
+  <meta name="description" content="ENVI笔记1、遥感图像预处理2、图像几何校正(Geometric Correction)消除非系统性的几何变形(由地球曲率及空气折射的变化以及地形的变化)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ENVI操作笔记">
 <meta property="og:url" content="https://hqzqaq.github.io/2022/09/23/ENVI%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="hqz的博客">
-<meta property="og:description" content="ENVI笔记遥感图像预处理图像几何校正(Geometric Correction)消除非系统性的几何变形(由地球曲率及空气折射的变化以及地形的变化)">
+<meta property="og:description" content="ENVI笔记1、遥感图像预处理2、图像几何校正(Geometric Correction)消除非系统性的几何变形(由地球曲率及空气折射的变化以及地形的变化)">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2021/01/19/RGA1LHuSzN29bjU.jpg">
 <meta property="og:image" content="https://i.loli.net/2021/01/19/WoiuU4CDtXGMlBd.jpg">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/01/31/rEw2qUJTYIgxlLe.jpg">
 <meta property="og:image" content="https://i.loli.net/2021/01/31/mkTewjJhCOMEq4g.jpg">
 <meta property="article:published_time" content="2022-09-23T05:23:34.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:06:38.047Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.156Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="ENVI">
 <meta property="article:tag" content="遥感">
@@ -272,7 +272,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">9.4k字</span>
+      <span class="post-count">9.8k字</span>
     </span>
   </span>
 
@@ -281,7 +281,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">34分</span>
+      <span class="post-count">37分</span>
     </span>
   </span>
 </div>
@@ -292,10 +292,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="ENVI笔记"><a href="#ENVI笔记" class="headerlink" title="ENVI笔记"></a>ENVI笔记</h1><h2 id="遥感图像预处理"><a href="#遥感图像预处理" class="headerlink" title="遥感图像预处理"></a>遥感图像预处理</h2><h2 id="图像几何校正-Geometric-Correction"><a href="#图像几何校正-Geometric-Correction" class="headerlink" title="图像几何校正(Geometric Correction)"></a>图像几何校正(Geometric Correction)</h2><p>消除非系统性的几何变形(由地球曲率及空气折射的变化以及地形的变化)</p>
+    <h1 id="ENVI笔记"><a href="#ENVI笔记" class="headerlink" title="ENVI笔记"></a>ENVI笔记</h1><h2 id="1、遥感图像预处理"><a href="#1、遥感图像预处理" class="headerlink" title="1、遥感图像预处理"></a>1、遥感图像预处理</h2><h2 id="2、图像几何校正-Geometric-Correction"><a href="#2、图像几何校正-Geometric-Correction" class="headerlink" title="2、图像几何校正(Geometric Correction)"></a>2、图像几何校正(Geometric Correction)</h2><p>消除非系统性的几何变形(由地球曲率及空气折射的变化以及地形的变化)</p>
 <span id="more"></span>
 
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<h3 id="2-1、概述"><a href="#2-1、概述" class="headerlink" title="2.1、概述"></a>2.1、概述</h3><ul>
 <li>几何校正方法<ul>
 <li>利用卫星自带地理定位文件进行几何校正</li>
 <li>Image to Image 几何校正</li>
@@ -319,8 +319,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="基于自带定位信息几何校正"><a href="#基于自带定位信息几何校正" class="headerlink" title="基于自带定位信息几何校正"></a>基于自带定位信息几何校正</h3><p>​	选择工具 Geometric Correction&#x2F;Georeference by Sensor&#x2F;Georeference MODIS 工具</p>
-<h3 id="基于GLT的FY-3气象卫星几何校正"><a href="#基于GLT的FY-3气象卫星几何校正" class="headerlink" title="基于GLT的FY-3气象卫星几何校正"></a>基于GLT的FY-3气象卫星几何校正</h3><ul>
+<h3 id="2-2、基于自带定位信息几何校正"><a href="#2-2、基于自带定位信息几何校正" class="headerlink" title="2.2、基于自带定位信息几何校正"></a>2.2、基于自带定位信息几何校正</h3><p>​	选择工具 Geometric Correction&#x2F;Georeference by Sensor&#x2F;Georeference MODIS 工具</p>
+<h3 id="2-3、基于GLT的FY-3气象卫星几何校正"><a href="#2-3、基于GLT的FY-3气象卫星几何校正" class="headerlink" title="2.3、基于GLT的FY-3气象卫星几何校正"></a>2.3、基于GLT的FY-3气象卫星几何校正</h3><ul>
 <li><p>利用输入的几何文件生成一个地理位置查找表(geographic lookup table, GLT)文件</p>
 </li>
 <li><p>生成GLT文件 选择工具 Geometric Correction&#x2F;Build GLT 工具</p>
@@ -328,7 +328,7 @@
 <li><p>利用GLT文件几何校正图像 选择工具 Geometric Correction&#x2F;Georeference from GLT 工具</p>
 </li>
 </ul>
-<h3 id="Image-to-Image-几何校正"><a href="#Image-to-Image-几何校正" class="headerlink" title="Image to Image 几何校正"></a>Image to Image 几何校正</h3><ul>
+<h3 id="2-4、Image-to-Image-几何校正"><a href="#2-4、Image-to-Image-几何校正" class="headerlink" title="2.4、Image to Image 几何校正"></a>2.4、Image to Image 几何校正</h3><ul>
 <li><p>具有地理参考</p>
 </li>
 <li><p>流程</p>
@@ -344,35 +344,35 @@
 <li><p>选择 Geometric Correction&#x2F;Registration&#x2F;Registration: Image to Map 工具</p>
 </li>
 </ul>
-<h3 id="Image-to-Image-图像自动配准"><a href="#Image-to-Image-图像自动配准" class="headerlink" title="Image to Image 图像自动配准"></a>Image to Image 图像自动配准</h3><ul>
+<h3 id="2-5、Image-to-Image-图像自动配准"><a href="#2-5、Image-to-Image-图像自动配准" class="headerlink" title="2.5、Image to Image 图像自动配准"></a>2.5、Image to Image 图像自动配准</h3><ul>
 <li>由于几何校正误差的原因，同一地区的图像或者相邻地区的重叠区域的相同地物不能重叠</li>
 <li>选择 Geometric Correction&#x2F;Registration&#x2F;Registration: Image to Image 工具</li>
 </ul>
-<h3 id="Image-Registration-Workflow-流程化工具"><a href="#Image-Registration-Workflow-流程化工具" class="headerlink" title="Image Registration Workflow 流程化工具"></a>Image Registration Workflow 流程化工具</h3><ul>
+<h3 id="2-6、Image-Registration-Workflow-流程化工具"><a href="#2-6、Image-Registration-Workflow-流程化工具" class="headerlink" title="2.6、Image Registration Workflow 流程化工具"></a>2.6、Image Registration Workflow 流程化工具</h3><ul>
 <li><p>将繁杂的参数设置步骤集成到统一的面板中，将具有不同坐标系、不同地理位置的图像配置到同一坐标系下</p>
 </li>
 <li><p>选择 Geometric Correction&#x2F;Registration&#x2F;Image Registration Workflow 工具</p>
 </li>
 </ul>
-<h2 id="图像增强"><a href="#图像增强" class="headerlink" title="图像增强"></a>图像增强</h2><h3 id="图像融合-Image-Sharpening"><a href="#图像融合-Image-Sharpening" class="headerlink" title="图像融合(Image Sharpening)"></a>图像融合(Image Sharpening)</h3><ol>
+<h2 id="3、图像增强"><a href="#3、图像增强" class="headerlink" title="3、图像增强"></a>3、图像增强</h2><h3 id="3-1、图像融合-Image-Sharpening"><a href="#3-1、图像融合-Image-Sharpening" class="headerlink" title="3.1、图像融合(Image Sharpening)"></a>3.1、图像融合(Image Sharpening)</h3><ol>
 <li><p>定义</p>
 <p>图像融合是将低空间分辨率的多光谱图像或高光谱数据与高空间分辨率的单波段图像重采样生成一幅高分辨率多光谱图像的遥感图像处理技术，使得处理后的图像既有较高的空间分辨率，又具有多光谱特征。</p>
 </li>
 <li><p>融合方法</p>
 </li>
 </ol>
-<h4 id="Hsv变换"><a href="#Hsv变换" class="headerlink" title="Hsv变换"></a>Hsv变换</h4><ul>
+<h4 id="3-1-1、Hsv变换"><a href="#3-1-1、Hsv变换" class="headerlink" title="3.1.1、Hsv变换"></a>3.1.1、Hsv变换</h4><ul>
 <li>要求数据具有地理参考或者具有相同的尺寸大小，RGB输入波段数据类型必须为字节类型(Byte)</li>
 <li>纹理改善，空间保持较好。光谱信息损失较大，受波段限制</li>
 </ul>
-<h4 id="Brovey变换"><a href="#Brovey变换" class="headerlink" title="Brovey变换"></a>Brovey变换</h4><ul>
+<h4 id="3-1-2、Brovey变换"><a href="#3-1-2、Brovey变换" class="headerlink" title="3.1.2、Brovey变换"></a>3.1.2、Brovey变换</h4><ul>
 <li>同HSV变换的数据要求</li>
 <li>光谱信息保持较好，受波段限制</li>
 </ul>
-<h4 id="乘积运算-CN"><a href="#乘积运算-CN" class="headerlink" title="乘积运算(CN)"></a>乘积运算(CN)</h4><p>对大的地貌类型效果好，同时可用于多光谱与高光谱图像的融合</p>
-<h4 id="主成分-PC-变换"><a href="#主成分-PC-变换" class="headerlink" title="主成分(PC)变换"></a>主成分(PC)变换</h4><p>无波段限制，光谱保持好。第一主成分信息高度集中，色调发生较大变化</p>
-<h4 id="Gram-Schmidt-Pan-Sharpening-GS"><a href="#Gram-Schmidt-Pan-Sharpening-GS" class="headerlink" title="Gram - Schmidt Pan Sharpening(GS)"></a>Gram - Schmidt Pan Sharpening(GS)</h4><p>改进 PCA 中信息过分集中的问题，不受波段限制，较好的保持空间纹理信息，尤其能高保真保持光谱特征。专为最新高空间分辨率图像设计，能较好保持图像的纹理和光谱信息</p>
-<h3 id="图像镶嵌-Mosaicking"><a href="#图像镶嵌-Mosaicking" class="headerlink" title="图像镶嵌(Mosaicking)"></a>图像镶嵌(Mosaicking)</h3><ol>
+<h4 id="3-1-3、乘积运算-CN"><a href="#3-1-3、乘积运算-CN" class="headerlink" title="3.1.3、乘积运算(CN)"></a>3.1.3、乘积运算(CN)</h4><p>对大的地貌类型效果好，同时可用于多光谱与高光谱图像的融合</p>
+<h4 id="3-1-4、主成分-PC-变换"><a href="#3-1-4、主成分-PC-变换" class="headerlink" title="3.1.4、主成分(PC)变换"></a>3.1.4、主成分(PC)变换</h4><p>无波段限制，光谱保持好。第一主成分信息高度集中，色调发生较大变化</p>
+<h4 id="3-1-5、Gram-Schmidt-Pan-Sharpening-GS"><a href="#3-1-5、Gram-Schmidt-Pan-Sharpening-GS" class="headerlink" title="3.1.5、Gram - Schmidt Pan Sharpening(GS)"></a>3.1.5、Gram - Schmidt Pan Sharpening(GS)</h4><p>改进 PCA 中信息过分集中的问题，不受波段限制，较好的保持空间纹理信息，尤其能高保真保持光谱特征。专为最新高空间分辨率图像设计，能较好保持图像的纹理和光谱信息</p>
+<h3 id="3-2、图像镶嵌-Mosaicking"><a href="#3-2、图像镶嵌-Mosaicking" class="headerlink" title="3.2、图像镶嵌(Mosaicking)"></a>3.2、图像镶嵌(Mosaicking)</h3><ol>
 <li><p>定义</p>
 <p>图像镶嵌是指在一定数学基础控制下，把多景相邻遥感图像拼接成一个大范围、无缝的图像的过程。</p>
 </li>
@@ -404,7 +404,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="图像裁剪-Subset"><a href="#图像裁剪-Subset" class="headerlink" title="图像裁剪(Subset)"></a>图像裁剪(Subset)</h3><ol>
+<h3 id="3-3、图像裁剪-Subset"><a href="#3-3、图像裁剪-Subset" class="headerlink" title="3.3、图像裁剪(Subset)"></a>3.3、图像裁剪(Subset)</h3><ol>
 <li><p>目的</p>
 <p>将研究之外的区域去除</p>
 </li>
@@ -413,9 +413,9 @@
 <li><p>不规则裁剪(Subset Data from ROIs)</p>
 </li>
 </ol>
-<h3 id="图像增强-Filter"><a href="#图像增强-Filter" class="headerlink" title="图像增强(Filter)"></a>图像增强(Filter)</h3><p>​	提高图像的目视效果，方便人工目视解译、图像分类中样本的选取等。主要目的是增强图像，以便处理结果图像比原始图像更适合于特定的应用要求</p>
-<h4 id="空间域增强处理"><a href="#空间域增强处理" class="headerlink" title="空间域增强处理"></a>空间域增强处理</h4><p>通过直接改变图像中的单个像元及相邻像元的灰度值来增强图像。如增强图像中的线状物体细部部分或者主干部分</p>
-<h4 id="卷积滤波-Convolutions-and-Morphology"><a href="#卷积滤波-Convolutions-and-Morphology" class="headerlink" title="卷积滤波(Convolutions and Morphology)"></a>卷积滤波(Convolutions and Morphology)</h4><p>通过消除特定的空间频率来使图像增强。</p>
+<h3 id="3-4、图像增强-Filter"><a href="#3-4、图像增强-Filter" class="headerlink" title="3.4、图像增强(Filter)"></a>3.4、图像增强(Filter)</h3><p>​	提高图像的目视效果，方便人工目视解译、图像分类中样本的选取等。主要目的是增强图像，以便处理结果图像比原始图像更适合于特定的应用要求</p>
+<h4 id="3-4-1、空间域增强处理"><a href="#3-4-1、空间域增强处理" class="headerlink" title="3.4.1、空间域增强处理"></a>3.4.1、空间域增强处理</h4><p>通过直接改变图像中的单个像元及相邻像元的灰度值来增强图像。如增强图像中的线状物体细部部分或者主干部分</p>
+<h4 id="3-4-2、卷积滤波-Convolutions-and-Morphology"><a href="#3-4-2、卷积滤波-Convolutions-and-Morphology" class="headerlink" title="3.4.2、卷积滤波(Convolutions and Morphology)"></a>3.4.2、卷积滤波(Convolutions and Morphology)</h4><p>通过消除特定的空间频率来使图像增强。</p>
 <p>滤波类型</p>
 <ol>
 <li>高通滤波器(High Pass)</li>
@@ -429,40 +429,40 @@
 <li>Roberts</li>
 <li>自定义卷积核(User Defined)</li>
 </ol>
-<h4 id="数学形态学滤波"><a href="#数学形态学滤波" class="headerlink" title="数学形态学滤波"></a>数学形态学滤波</h4><p>类型：</p>
+<h4 id="3-4-3、数学形态学滤波"><a href="#3-4-3、数学形态学滤波" class="headerlink" title="3.4.3、数学形态学滤波"></a>3.4.3、数学形态学滤波</h4><p>类型：</p>
 <ol>
 <li>膨胀(Dilate)</li>
 <li>腐蚀(Erode)</li>
 <li>开运算(Opening)</li>
 <li>闭运算(Closing)</li>
 </ol>
-<h4 id="纹理分析"><a href="#纹理分析" class="headerlink" title="纹理分析"></a>纹理分析</h4><p>纹理滤波：</p>
+<h4 id="3-4-4、纹理分析"><a href="#3-4-4、纹理分析" class="headerlink" title="3.4.4、纹理分析"></a>3.4.4、纹理分析</h4><p>纹理滤波：</p>
 <ol>
 <li>基于概率统计的滤波(Occurrence meausres)</li>
 <li>基于二阶概率统计的滤波(Co-occurrence measures)</li>
 </ol>
-<h3 id="辐射增强处理"><a href="#辐射增强处理" class="headerlink" title="辐射增强处理"></a>辐射增强处理</h3><p>对单个像元的灰度值进行变换处理来增强处理，如直方图匹配、直方图拉伸、去除条带噪声处理</p>
-<h4 id="交互式直方图拉伸-Custom-Stretch"><a href="#交互式直方图拉伸-Custom-Stretch" class="headerlink" title="交互式直方图拉伸(Custom Stretch)"></a>交互式直方图拉伸(Custom Stretch)</h4><ol>
+<h3 id="3-5、辐射增强处理"><a href="#3-5、辐射增强处理" class="headerlink" title="3.5、辐射增强处理"></a>3.5、辐射增强处理</h3><p>对单个像元的灰度值进行变换处理来增强处理，如直方图匹配、直方图拉伸、去除条带噪声处理</p>
+<h4 id="3-5-1、交互式直方图拉伸-Custom-Stretch"><a href="#3-5-1、交互式直方图拉伸-Custom-Stretch" class="headerlink" title="3.5.1、交互式直方图拉伸(Custom Stretch)"></a>3.5.1、交互式直方图拉伸(Custom Stretch)</h4><ol>
 <li>Linear(线性拉伸)</li>
 <li>Equalization(直方图均衡化拉伸)</li>
 <li>Gaussian(高斯拉伸)</li>
 <li>Square Root(平方根拉伸)</li>
 <li>Logarithmic(对数拉伸)</li>
 </ol>
-<h4 id="坏道填补-Replace-Bad-Lines"><a href="#坏道填补-Replace-Bad-Lines" class="headerlink" title="坏道填补(Replace Bad Lines)"></a>坏道填补(Replace Bad Lines)</h4><p>图像数据中具有坏数据行，找出坏道用其它值填充</p>
-<h4 id="去条带处理-Destripe-Data"><a href="#去条带处理-Destripe-Data" class="headerlink" title="去条带处理(Destripe Data)"></a>去条带处理(Destripe Data)</h4><p>消除图像数据中的周期性扫描行条带</p>
-<h3 id="光谱增强处理"><a href="#光谱增强处理" class="headerlink" title="光谱增强处理"></a>光谱增强处理</h3><p>基于多光谱数据对波段进行变换达到图像增强处理</p>
-<h4 id="波段比的计算-Band-Ratios"><a href="#波段比的计算-Band-Ratios" class="headerlink" title="波段比的计算(Band Ratios )"></a>波段比的计算(Band Ratios )</h4><p>增强波段间的波普差异，减少地形的影响,选择一个“分子”波段和一个“分母”波段相比</p>
-<h4 id="主成分分析-PCA-PCA-Rotation"><a href="#主成分分析-PCA-PCA-Rotation" class="headerlink" title="主成分分析(PCA)(PCA Rotation)"></a>主成分分析(PCA)(PCA Rotation)</h4><p>去除波段之间的多余信息、将多波段的图像信息压缩到比原波段更有效的少数几个转换波段的方法</p>
+<h4 id="3-5-2、坏道填补-Replace-Bad-Lines"><a href="#3-5-2、坏道填补-Replace-Bad-Lines" class="headerlink" title="3.5.2、坏道填补(Replace Bad Lines)"></a>3.5.2、坏道填补(Replace Bad Lines)</h4><p>图像数据中具有坏数据行，找出坏道用其它值填充</p>
+<h4 id="3-5-3、去条带处理-Destripe-Data"><a href="#3-5-3、去条带处理-Destripe-Data" class="headerlink" title="3.5.3、去条带处理(Destripe Data)"></a>3.5.3、去条带处理(Destripe Data)</h4><p>消除图像数据中的周期性扫描行条带</p>
+<h3 id="3-6、光谱增强处理"><a href="#3-6、光谱增强处理" class="headerlink" title="3.6、光谱增强处理"></a>3.6、光谱增强处理</h3><p>基于多光谱数据对波段进行变换达到图像增强处理</p>
+<h4 id="3-6-1、波段比的计算-Band-Ratios"><a href="#3-6-1、波段比的计算-Band-Ratios" class="headerlink" title="3.6.1、波段比的计算(Band Ratios )"></a>3.6.1、波段比的计算(Band Ratios )</h4><p>增强波段间的波普差异，减少地形的影响,选择一个“分子”波段和一个“分母”波段相比</p>
+<h4 id="3-6-2、主成分分析-PCA-PCA-Rotation"><a href="#3-6-2、主成分分析-PCA-PCA-Rotation" class="headerlink" title="3.6.2、主成分分析(PCA)(PCA Rotation)"></a>3.6.2、主成分分析(PCA)(PCA Rotation)</h4><p>去除波段之间的多余信息、将多波段的图像信息压缩到比原波段更有效的少数几个转换波段的方法</p>
 <p>主成分正变换(Forward PCA Rotation New Statistics and Rotate)</p>
 <p>主成分逆变换(Inverse PCA Rotation)</p>
-<h4 id="独立主成分分析-ICA-ICA-Rotation"><a href="#独立主成分分析-ICA-ICA-Rotation" class="headerlink" title="独立主成分分析(ICA)(ICA Rotation)"></a>独立主成分分析(ICA)(ICA Rotation)</h4><p>将多光谱或者高光谱数据转换成相互独立的部分(去相关)，可以用来发现和分离图像中的噪声、降维、异常检测、分类和波谱端元提取以及数据融合</p>
+<h4 id="3-6-3、独立主成分分析-ICA-ICA-Rotation"><a href="#3-6-3、独立主成分分析-ICA-ICA-Rotation" class="headerlink" title="3.6.3、独立主成分分析(ICA)(ICA Rotation)"></a>3.6.3、独立主成分分析(ICA)(ICA Rotation)</h4><p>将多光谱或者高光谱数据转换成相互独立的部分(去相关)，可以用来发现和分离图像中的噪声、降维、异常检测、分类和波谱端元提取以及数据融合</p>
 <ol>
 <li>独立主成分正变换(Forward ICA Rotation New Statistics and Rotate)</li>
 <li>独立主成分逆变换(Inverse ICA Rotation)</li>
 </ol>
-<h4 id="色彩空间变换-Color-Transforms"><a href="#色彩空间变换-Color-Transforms" class="headerlink" title="色彩空间变换(Color Transforms)"></a>色彩空间变换(Color Transforms)</h4><p>将三波段红、绿、蓝(RGB)图像变换到一个特定的彩色空间，并且能从所选彩色空间变换回RGB</p>
-<h4 id="色彩拉伸"><a href="#色彩拉伸" class="headerlink" title="色彩拉伸"></a>色彩拉伸</h4><ol>
+<h4 id="3-6-4、色彩空间变换-Color-Transforms"><a href="#3-6-4、色彩空间变换-Color-Transforms" class="headerlink" title="3.6.4、色彩空间变换(Color Transforms)"></a>3.6.4、色彩空间变换(Color Transforms)</h4><p>将三波段红、绿、蓝(RGB)图像变换到一个特定的彩色空间，并且能从所选彩色空间变换回RGB</p>
+<h4 id="3-6-5、色彩拉伸"><a href="#3-6-5、色彩拉伸" class="headerlink" title="3.6.5、色彩拉伸"></a>3.6.5、色彩拉伸</h4><ol>
 <li><p>去相关拉伸(Decorrelation Stretch)</p>
 <p>消除多光谱数据中各波段间的高度相关性，从而生成一幅色彩亮丽的彩色合成图像</p>
 </li>
@@ -473,19 +473,19 @@
 <p>对输入的波段进行彩色增强，生成具有较高颜色饱和度的波段</p>
 </li>
 </ol>
-<h4 id="NDVI计算-NDVI"><a href="#NDVI计算-NDVI" class="headerlink" title="NDVI计算(NDVI)"></a>NDVI计算(NDVI)</h4><h4 id="缨帽变换-Tasseled-Cap"><a href="#缨帽变换-Tasseled-Cap" class="headerlink" title="缨帽变换(Tasseled Cap)"></a>缨帽变换(Tasseled Cap)</h4><h3 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h3><p>​	将图像从空间域转换到频率域,主要用于消除周期性噪声，和传感器异常引起的周期性错误</p>
-<h4 id="快速傅里叶变换-FFT-FFT-Forward"><a href="#快速傅里叶变换-FFT-FFT-Forward" class="headerlink" title="快速傅里叶变换(FFT)(FFT(Forward))"></a>快速傅里叶变换(FFT)(FFT(Forward))</h4><h4 id="定义FFT滤波器-FFT-Filter-Definition"><a href="#定义FFT滤波器-FFT-Filter-Definition" class="headerlink" title="定义FFT滤波器(FFT Filter Definition)"></a>定义FFT滤波器(FFT Filter Definition)</h4><p>​	频率率的增强处理</p>
-<h4 id="反向FFT变换-FFT-Inverse"><a href="#反向FFT变换-FFT-Inverse" class="headerlink" title="反向FFT变换(FFT(Inverse))"></a>反向FFT变换(FFT(Inverse))</h4><p>​	将FFT图像反变换回空间域数据</p>
-<h3 id="波段组合图像增强"><a href="#波段组合图像增强" class="headerlink" title="波段组合图像增强"></a>波段组合图像增强</h3><h4 id="RGB合成显示"><a href="#RGB合成显示" class="headerlink" title="RGB合成显示"></a>RGB合成显示</h4><p>​	Load True Color 自然真彩色</p>
+<h4 id="3-6-6、NDVI计算-NDVI"><a href="#3-6-6、NDVI计算-NDVI" class="headerlink" title="3.6.6、NDVI计算(NDVI)"></a>3.6.6、NDVI计算(NDVI)</h4><h4 id="3-6-7、缨帽变换-Tasseled-Cap"><a href="#3-6-7、缨帽变换-Tasseled-Cap" class="headerlink" title="3.6.7、缨帽变换(Tasseled Cap)"></a>3.6.7、缨帽变换(Tasseled Cap)</h4><h3 id="3-7、傅里叶变换"><a href="#3-7、傅里叶变换" class="headerlink" title="3.7、傅里叶变换"></a>3.7、傅里叶变换</h3><p>​	将图像从空间域转换到频率域,主要用于消除周期性噪声，和传感器异常引起的周期性错误</p>
+<h4 id="3-7-1、快速傅里叶变换-FFT-FFT-Forward"><a href="#3-7-1、快速傅里叶变换-FFT-FFT-Forward" class="headerlink" title="3.7.1、快速傅里叶变换(FFT)(FFT(Forward))"></a>3.7.1、快速傅里叶变换(FFT)(FFT(Forward))</h4><h4 id="3-7-2、定义FFT滤波器-FFT-Filter-Definition"><a href="#3-7-2、定义FFT滤波器-FFT-Filter-Definition" class="headerlink" title="3.7.2、定义FFT滤波器(FFT Filter Definition)"></a>3.7.2、定义FFT滤波器(FFT Filter Definition)</h4><p>​	频率率的增强处理</p>
+<h4 id="3-7-3、反向FFT变换-FFT-Inverse"><a href="#3-7-3、反向FFT变换-FFT-Inverse" class="headerlink" title="3.7.3、反向FFT变换(FFT(Inverse))"></a>3.7.3、反向FFT变换(FFT(Inverse))</h4><p>​	将FFT图像反变换回空间域数据</p>
+<h3 id="3-8、波段组合图像增强"><a href="#3-8、波段组合图像增强" class="headerlink" title="3.8、波段组合图像增强"></a>3.8、波段组合图像增强</h3><h4 id="3-8-1、RGB合成显示"><a href="#3-8-1、RGB合成显示" class="headerlink" title="3.8.1、RGB合成显示"></a>3.8.1、RGB合成显示</h4><p>​	Load True Color 自然真彩色</p>
 <p>​	Load CIR 标准假彩</p>
 <p><img src="https://i.loli.net/2021/01/19/RGA1LHuSzN29bjU.jpg" alt="Landsat TM波段合成说明"></p>
 <p><img src="https://i.loli.net/2021/01/19/WoiuU4CDtXGMlBd.jpg" alt="Landsat TM波段合成说明续表"></p>
 <p><img src="https://i.loli.net/2021/01/19/IDH9muQe4SAhsvy.jpg" alt="OLI波段合成的简单说明"></p>
-<h4 id="基于波段组合的假彩色合成"><a href="#基于波段组合的假彩色合成" class="headerlink" title="基于波段组合的假彩色合成"></a>基于波段组合的假彩色合成</h4><p>​	为了让特定地物与背景形成很大的反差，可以加入其它信息作为RGB中的分量，如植被指数、矿物指数</p>
+<h4 id="3-8-2、基于波段组合的假彩色合成"><a href="#3-8-2、基于波段组合的假彩色合成" class="headerlink" title="3.8.2、基于波段组合的假彩色合成"></a>3.8.2、基于波段组合的假彩色合成</h4><p>​	为了让特定地物与背景形成很大的反差，可以加入其它信息作为RGB中的分量，如植被指数、矿物指数</p>
 <p><img src="https://i.loli.net/2021/01/19/9f3JsVt7vQeircP.jpg" alt="图像彩色增强"></p>
-<h2 id="图像分类"><a href="#图像分类" class="headerlink" title="图像分类"></a>图像分类</h2><p>​	通过模式识别理论，分析图像中反映同类地物的光谱、空间相似性和异类地物的差异，进而将遥感图像自动分成若干地物类别。图像分类可包括基于像素分类和基于对象分类</p>
-<h3 id="灰度分割-Raster-Color-Slices"><a href="#灰度分割-Raster-Color-Slices" class="headerlink" title="灰度分割(Raster Color Slices)"></a>灰度分割(Raster Color Slices)</h3><p>​	通常又称密度分割或彩色分割，应用于单波段灰度图像的分类方法，可用于如植被指数、地表温度、地形等数据的分类</p>
-<h3 id="监督分类"><a href="#监督分类" class="headerlink" title="监督分类"></a>监督分类</h3><p>​	又称“训练分类法”，用被确认类别的样本像元去识别其他未知类别像元的过程。</p>
+<h2 id="4、图像分类"><a href="#4、图像分类" class="headerlink" title="4、图像分类"></a>4、图像分类</h2><p>​	通过模式识别理论，分析图像中反映同类地物的光谱、空间相似性和异类地物的差异，进而将遥感图像自动分成若干地物类别。图像分类可包括基于像素分类和基于对象分类</p>
+<h3 id="4-1、灰度分割-Raster-Color-Slices"><a href="#4-1、灰度分割-Raster-Color-Slices" class="headerlink" title="4.1、灰度分割(Raster Color Slices)"></a>4.1、灰度分割(Raster Color Slices)</h3><p>​	通常又称密度分割或彩色分割，应用于单波段灰度图像的分类方法，可用于如植被指数、地表温度、地形等数据的分类</p>
+<h3 id="4-2、监督分类"><a href="#4-2、监督分类" class="headerlink" title="4.2、监督分类"></a>4.2、监督分类</h3><p>​	又称“训练分类法”，用被确认类别的样本像元去识别其他未知类别像元的过程。</p>
 <ol>
 <li><p>定义训练样本(ROI Tool)</p>
 <p>评价训练样本(Compute ROI Separability)</p>
@@ -524,18 +524,18 @@
 <li><p>分类后处理</p>
 </li>
 </ol>
-<h3 id="非监督分类"><a href="#非监督分类" class="headerlink" title="非监督分类"></a>非监督分类</h3><p>​	也称“聚类分析”或“点群分类”。在多光谱图像中搜寻、定义其自然相似光谱集群的过程</p>
-<h4 id="ISODATA-Iterative-Self-Orgnizing-Data-Analysize-Technique-IsoData-Classification"><a href="#ISODATA-Iterative-Self-Orgnizing-Data-Analysize-Technique-IsoData-Classification" class="headerlink" title="ISODATA(Iterative Self-Orgnizing Data Analysize Technique)(IsoData Classification)"></a>ISODATA(Iterative Self-Orgnizing Data Analysize Technique)(IsoData Classification)</h4><p>​	重复自组织数据分析技术，计算数据空间中均匀分布的类均值，然后用最小距离技术将剩余像元进行迭代聚合，每次迭代都重新计算均值，且根据所得的新均值，对像元进行再分类</p>
-<h4 id="K-Mean-K-Means-Classification"><a href="#K-Mean-K-Means-Classification" class="headerlink" title="K-Mean(K-Means Classification)"></a>K-Mean(K-Means Classification)</h4><p>​	使用聚类分析方法，随机地查找聚类簇的聚类相似度相近，即中心位置，是利用各聚类中对象的均值所获得的一个“中心对象”(引力中心)来进行计算的，然后迭代地重新配置他们，完成分类过程</p>
-<h4 id="非监督分类过程"><a href="#非监督分类过程" class="headerlink" title="非监督分类过程"></a>非监督分类过程</h4><pre><code>1. 执行非监督分类(Unsupervised Classification)
+<h3 id="4-3、非监督分类"><a href="#4-3、非监督分类" class="headerlink" title="4.3、非监督分类"></a>4.3、非监督分类</h3><p>​	也称“聚类分析”或“点群分类”。在多光谱图像中搜寻、定义其自然相似光谱集群的过程</p>
+<h4 id="4-3-1、ISODATA-Iterative-Self-Orgnizing-Data-Analysize-Technique-IsoData-Classification"><a href="#4-3-1、ISODATA-Iterative-Self-Orgnizing-Data-Analysize-Technique-IsoData-Classification" class="headerlink" title="4.3.1、ISODATA(Iterative Self-Orgnizing Data Analysize Technique)(IsoData Classification)"></a>4.3.1、ISODATA(Iterative Self-Orgnizing Data Analysize Technique)(IsoData Classification)</h4><p>​	重复自组织数据分析技术，计算数据空间中均匀分布的类均值，然后用最小距离技术将剩余像元进行迭代聚合，每次迭代都重新计算均值，且根据所得的新均值，对像元进行再分类</p>
+<h4 id="4-3-2、K-Mean-K-Means-Classification"><a href="#4-3-2、K-Mean-K-Means-Classification" class="headerlink" title="4.3.2、K-Mean(K-Means Classification)"></a>4.3.2、K-Mean(K-Means Classification)</h4><p>​	使用聚类分析方法，随机地查找聚类簇的聚类相似度相近，即中心位置，是利用各聚类中对象的均值所获得的一个“中心对象”(引力中心)来进行计算的，然后迭代地重新配置他们，完成分类过程</p>
+<h4 id="4-3-3、非监督分类过程"><a href="#4-3-3、非监督分类过程" class="headerlink" title="4.3.3、非监督分类过程"></a>4.3.3、非监督分类过程</h4><pre><code>1. 执行非监督分类(Unsupervised Classification)
 2. 类别定义(Edit ENVI Header)
 3. 合并子类(Combine Classes)
 4. 评价分类结果
 </code></pre>
-<h3 id="基于专家知识的决策树分类"><a href="#基于专家知识的决策树分类" class="headerlink" title="基于专家知识的决策树分类"></a>基于专家知识的决策树分类</h3><p>​	基于遥感图像数据和其他空间数据，通过专家经验总结、简单的数学统计和归纳方法等，获得分类规则并进行遥感分类</p>
+<h3 id="4-4、基于专家知识的决策树分类"><a href="#4-4、基于专家知识的决策树分类" class="headerlink" title="4.4、基于专家知识的决策树分类"></a>4.4、基于专家知识的决策树分类</h3><p>​	基于遥感图像数据和其他空间数据，通过专家经验总结、简单的数学统计和归纳方法等，获得分类规则并进行遥感分类</p>
 <p>定义分类规则</p>
 <p>规则表达式</p>
-<h4 id="表：IDL数组操作函数和运算符"><a href="#表：IDL数组操作函数和运算符" class="headerlink" title="表：IDL数组操作函数和运算符"></a>表：IDL数组操作函数和运算符</h4><table>
+<h4 id="4-4-1、表：IDL数组操作函数和运算符"><a href="#4-4-1、表：IDL数组操作函数和运算符" class="headerlink" title="4.4.1、表：IDL数组操作函数和运算符"></a>4.4.1、表：IDL数组操作函数和运算符</h4><table>
 <thead>
 <tr>
 <th>种类</th>
@@ -595,7 +595,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h4 id="表：运算符优先级"><a href="#表：运算符优先级" class="headerlink" title="表：运算符优先级"></a>表：运算符优先级</h4><table>
+<h4 id="4-4-2、表：运算符优先级"><a href="#4-4-2、表：运算符优先级" class="headerlink" title="4.4.2、表：运算符优先级"></a>4.4.2、表：运算符优先级</h4><table>
 <thead>
 <tr>
 <th>优先级顺序</th>
@@ -709,7 +709,7 @@
 <td>条件表达式（在波段运算中很少使用）</td>
 </tr>
 </tbody></table>
-<h4 id="表：特定变量"><a href="#表：特定变量" class="headerlink" title="表：特定变量"></a>表：特定变量</h4><table>
+<h4 id="4-4-3、表：特定变量"><a href="#4-4-3、表：特定变量" class="headerlink" title="4.4.3、表：特定变量"></a>4.4.3、表：特定变量</h4><table>
 <thead>
 <tr>
 <th>变量</th>
@@ -773,7 +773,7 @@
 <td>波段n的局部最大、最小值</td>
 </tr>
 </tbody></table>
-<h4 id="表：数据类型及说明"><a href="#表：数据类型及说明" class="headerlink" title="表：数据类型及说明"></a>表：数据类型及说明</h4><table>
+<h4 id="4-4-4、表：数据类型及说明"><a href="#4-4-4、表：数据类型及说明" class="headerlink" title="4.4.4、表：数据类型及说明"></a>4.4.4、表：数据类型及说明</h4><table>
 <thead>
 <tr>
 <th>数据类型</th>
@@ -863,7 +863,7 @@
 </tbody></table>
 <p>创建决策树(New Decision Tree)</p>
 <p>执行决策树</p>
-<h3 id="分类后处理"><a href="#分类后处理" class="headerlink" title="分类后处理"></a>分类后处理</h3><ol>
+<h3 id="4-5、分类后处理"><a href="#4-5、分类后处理" class="headerlink" title="4.5、分类后处理"></a>4.5、分类后处理</h3><ol>
 <li><p>更改分类颜色(Edit ENVI Header)</p>
 </li>
 <li><p>Majority&#x2F;Minority分析(Majority&#x2F;Minority Analysis)</p>
@@ -884,20 +884,20 @@
 <li><p>分类结果转矢量(Classification to Vector)</p>
 </li>
 </ol>
-<h3 id="流程化图像分类工具-Classification-Workflow"><a href="#流程化图像分类工具-Classification-Workflow" class="headerlink" title="流程化图像分类工具(Classification Workflow)"></a>流程化图像分类工具(Classification Workflow)</h3><p>​	将监督分类和非监督分类的操作集中到一个操作面板中，包括样本选择、图像分类、分类后处理、矢量&#x2F;栅格分	类结果输出</p>
+<h3 id="4-6、流程化图像分类工具-Classification-Workflow"><a href="#4-6、流程化图像分类工具-Classification-Workflow" class="headerlink" title="4.6、流程化图像分类工具(Classification Workflow)"></a>4.6、流程化图像分类工具(Classification Workflow)</h3><p>​	将监督分类和非监督分类的操作集中到一个操作面板中，包括样本选择、图像分类、分类后处理、矢量&#x2F;栅格分	类结果输出</p>
 <p>​	平滑(Enable Smoothing)</p>
 <p>​		主要去除椒盐噪声</p>
 <p>​	聚类(Enable Aggregation)</p>
 <p>​		主要去除小区域“小碎块”</p>
-<h2 id="制图"><a href="#制图" class="headerlink" title="制图"></a>制图</h2><h3 id="快速制图-New-QuickMap"><a href="#快速制图-New-QuickMap" class="headerlink" title="快速制图(New QuickMap)"></a>快速制图(New QuickMap)</h3><p>​	ENVI Classic中，在打开的display-&gt;file&gt;Quick Map</p>
+<h2 id="5、制图"><a href="#5、制图" class="headerlink" title="5、制图"></a>5、制图</h2><h3 id="5-1、快速制图-New-QuickMap"><a href="#5-1、快速制图-New-QuickMap" class="headerlink" title="5.1、快速制图(New QuickMap)"></a>5.1、快速制图(New QuickMap)</h3><p>​	ENVI Classic中，在打开的display-&gt;file&gt;Quick Map</p>
 <p>​	页面长和宽的计算公式:</p>
 <p>​	WIdth &#x3D; 图像实际宽度&#x2F;比例尺 + 系数</p>
 <p>​	Length &#x3D; 图像实际长度&#x2F;比例尺 + 系数</p>
-<h2 id="正射校正"><a href="#正射校正" class="headerlink" title="正射校正"></a>正射校正</h2><p>​	是对图像空间和几何畸变进行校正生成多中心投影平面正射图像的处理过程，能消除系统因素和地形引起的几何畸变。</p>
+<h2 id="6、正射校正"><a href="#6、正射校正" class="headerlink" title="6、正射校正"></a>6、正射校正</h2><p>​	是对图像空间和几何畸变进行校正生成多中心投影平面正射图像的处理过程，能消除系统因素和地形引起的几何畸变。</p>
 <p>envi 支持正射校正的两种模型：</p>
 <p>严格轨道模型(Pushbroom Sensor)</p>
 <p>有理多项式系数(Rational Polynomial Coefficient，RPC)</p>
-<h3 id="卫星图像的正射校正"><a href="#卫星图像的正射校正" class="headerlink" title="卫星图像的正射校正"></a>卫星图像的正射校正</h3><p>步骤：</p>
+<h3 id="6-1、卫星图像的正射校正"><a href="#6-1、卫星图像的正射校正" class="headerlink" title="6.1、卫星图像的正射校正"></a>6.1、卫星图像的正射校正</h3><p>步骤：</p>
 <ol>
 <li><p>打开数据文件</p>
 </li>
@@ -912,17 +912,17 @@
 </li>
 </ol>
 <p>在 ENVI Classic 中</p>
-<h4 id="无控制点的正射校正-Orthorectify-QuickBird"><a href="#无控制点的正射校正-Orthorectify-QuickBird" class="headerlink" title="无控制点的正射校正(Orthorectify QuickBird)"></a>无控制点的正射校正(Orthorectify QuickBird)</h4><p>主要依靠RPC文件和DEM数据定位和几何纠正图像，校正精度取决于所提供的RPC文件的定位精度和DEM分辨率</p>
-<h4 id="有控制点的正射校正-Orthorectify-QuickBird-With-Ground-Control"><a href="#有控制点的正射校正-Orthorectify-QuickBird-With-Ground-Control" class="headerlink" title="有控制点的正射校正(Orthorectify QuickBird With Ground Control)"></a>有控制点的正射校正(Orthorectify QuickBird With Ground Control)</h4><p>利用地面控制点参与正射校正可以提高校正精度</p>
-<h4 id="正射校正流程化工具-RPC-Orthorectification-Workflow"><a href="#正射校正流程化工具-RPC-Orthorectification-Workflow" class="headerlink" title="正射校正流程化工具(RPC Orthorectification Workflow)"></a>正射校正流程化工具(RPC Orthorectification Workflow)</h4><p>在ENVI中，默认带有全球900m空间分辨率DEM数据(GMTED2010.jp2)</p>
-<h3 id="自定义RPC正射校正"><a href="#自定义RPC正射校正" class="headerlink" title="自定义RPC正射校正"></a>自定义RPC正射校正</h3><p>航空图像(框幅式和数码像片)和丢失RPC参数卫星图像数据，可以根据相机参数、传感器参数、外方位元素和地面控制点构建严格的物理校正模型，从而实现正射校正</p>
+<h4 id="6-1-1、无控制点的正射校正-Orthorectify-QuickBird"><a href="#6-1-1、无控制点的正射校正-Orthorectify-QuickBird" class="headerlink" title="6.1.1、无控制点的正射校正(Orthorectify QuickBird)"></a>6.1.1、无控制点的正射校正(Orthorectify QuickBird)</h4><p>主要依靠RPC文件和DEM数据定位和几何纠正图像，校正精度取决于所提供的RPC文件的定位精度和DEM分辨率</p>
+<h4 id="6-1-2、有控制点的正射校正-Orthorectify-QuickBird-With-Ground-Control"><a href="#6-1-2、有控制点的正射校正-Orthorectify-QuickBird-With-Ground-Control" class="headerlink" title="6.1.2、有控制点的正射校正(Orthorectify QuickBird With Ground Control)"></a>6.1.2、有控制点的正射校正(Orthorectify QuickBird With Ground Control)</h4><p>利用地面控制点参与正射校正可以提高校正精度</p>
+<h4 id="6-1-3、正射校正流程化工具-RPC-Orthorectification-Workflow"><a href="#6-1-3、正射校正流程化工具-RPC-Orthorectification-Workflow" class="headerlink" title="6.1.3、正射校正流程化工具(RPC Orthorectification Workflow)"></a>6.1.3、正射校正流程化工具(RPC Orthorectification Workflow)</h4><p>在ENVI中，默认带有全球900m空间分辨率DEM数据(GMTED2010.jp2)</p>
+<h3 id="6-2、自定义RPC正射校正"><a href="#6-2、自定义RPC正射校正" class="headerlink" title="6.2、自定义RPC正射校正"></a>6.2、自定义RPC正射校正</h3><p>航空图像(框幅式和数码像片)和丢失RPC参数卫星图像数据，可以根据相机参数、传感器参数、外方位元素和地面控制点构建严格的物理校正模型，从而实现正射校正</p>
 <p>自定义RPC正射校正一般步骤如下：</p>
 <ol>
 <li>进行内定向(Interior Orientation；只针对航空像片而言)：内定向将建立相机参数和航空像片之间的关系</li>
 <li>进行外定向(Exterior Orientation)：外定向将航空像片或者卫星像片上的地物点同实际已知的地面位置(地理坐标)和高程联系起来</li>
 <li>使用数字高程模型(DEM)进行正射校正：这一步将对航空像片和卫星像片进行真正的正射校正。校正过程中将使用定向文件、卫星位置参数以及共线方程(Collinearity Equation)</li>
 </ol>
-<h4 id="建立RPCs"><a href="#建立RPCs" class="headerlink" title="建立RPCs"></a>建立RPCs</h4><h2 id="面向对象图像特征提取-ENVI-Feature-Extraction"><a href="#面向对象图像特征提取-ENVI-Feature-Extraction" class="headerlink" title="面向对象图像特征提取(ENVI Feature Extraction)"></a>面向对象图像特征提取(ENVI Feature Extraction)</h2><p>集合临近像元为对象用来识别感兴趣的光谱元素，充分利用高分辨率的全色和多光谱数据的空间、纹理和光谱信息来分割和分类，以高精度的分类结果或者矢量输出</p>
+<h4 id="6-2-1、建立RPCs"><a href="#6-2-1、建立RPCs" class="headerlink" title="6.2.1、建立RPCs"></a>6.2.1、建立RPCs</h4><h2 id="7、面向对象图像特征提取-ENVI-Feature-Extraction"><a href="#7、面向对象图像特征提取-ENVI-Feature-Extraction" class="headerlink" title="7、面向对象图像特征提取(ENVI Feature Extraction)"></a>7、面向对象图像特征提取(ENVI Feature Extraction)</h2><p>集合临近像元为对象用来识别感兴趣的光谱元素，充分利用高分辨率的全色和多光谱数据的空间、纹理和光谱信息来分割和分类，以高精度的分类结果或者矢量输出</p>
 <p>可应用于：</p>
 <ul>
 <li><p>从影像中尤其是大幅影像中查找和提取特征</p>
@@ -934,7 +934,7 @@
 <li><p>替代手工数字化过程</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">subgraph ide1 [发现对象]</span><br><span class="line">A[合并分块] </span><br><span class="line">I[图像分割]</span><br><span class="line">end</span><br><span class="line">	A --&gt;B&#123;输出对象为矢量文件?&#125;</span><br><span class="line">	I --&gt;B</span><br><span class="line">	B --&gt; |否| E</span><br><span class="line">	B --&gt; |是| G</span><br><span class="line">	subgraph 特征提取</span><br><span class="line">	subgraph ide2 [ ]</span><br><span class="line">	E[定义要素] --&gt;C[规则分类]</span><br><span class="line">	E --&gt;D[监督分类]</span><br><span class="line">	end</span><br><span class="line">	C --&gt;F[导出要素]</span><br><span class="line">	D --&gt;F</span><br><span class="line">	</span><br><span class="line">	F --&gt;G[查看报告和统计]</span><br><span class="line">	</span><br><span class="line">	G --&gt;H[完成]</span><br><span class="line">	end</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="基于规则的面向对象信息提取-Rule-Based-Feature-Extraction-Workflow"><a href="#基于规则的面向对象信息提取-Rule-Based-Feature-Extraction-Workflow" class="headerlink" title="基于规则的面向对象信息提取(Rule Based Feature Extraction Workflow)"></a>基于规则的面向对象信息提取(Rule Based Feature Extraction Workflow)</h3><ol>
+<h3 id="7-1、基于规则的面向对象信息提取-Rule-Based-Feature-Extraction-Workflow"><a href="#7-1、基于规则的面向对象信息提取-Rule-Based-Feature-Extraction-Workflow" class="headerlink" title="7.1、基于规则的面向对象信息提取(Rule Based Feature Extraction Workflow)"></a>7.1、基于规则的面向对象信息提取(Rule Based Feature Extraction Workflow)</h3><ol>
 <li><p>数据预处理</p>
 <ul>
 <li>空间分辨率的调整：数据分辨率高、覆盖范围大、提取特征地物面积大，可使用 Resize Data 降低空间分辨率</li>
@@ -948,12 +948,12 @@
 <p><img src="https://i.loli.net/2021/01/31/mkTewjJhCOMEq4g.jpg" alt="Spatial属性描述接上"></p>
 </li>
 </ol>
-<h3 id="基于样本的面向对象信息提取-Example-Based-Feature-Extraction-Workflow"><a href="#基于样本的面向对象信息提取-Example-Based-Feature-Extraction-Workflow" class="headerlink" title="基于样本的面向对象信息提取(Example Based Feature Extraction Workflow)"></a>基于样本的面向对象信息提取(Example Based Feature Extraction Workflow)</h3><p>基于样本进行图像分类，即监督分类，是利用训练样本数据去识别其它未知对象，包括定义样本，分类方法选择和输出结果</p>
+<h3 id="7-2、基于样本的面向对象信息提取-Example-Based-Feature-Extraction-Workflow"><a href="#7-2、基于样本的面向对象信息提取-Example-Based-Feature-Extraction-Workflow" class="headerlink" title="7.2、基于样本的面向对象信息提取(Example Based Feature Extraction Workflow)"></a>7.2、基于样本的面向对象信息提取(Example Based Feature Extraction Workflow)</h3><p>基于样本进行图像分类，即监督分类，是利用训练样本数据去识别其它未知对象，包括定义样本，分类方法选择和输出结果</p>
 <p>面向对象监督分类的样本由对象组成，除了利用光谱信息外，还可以利用空间和纹理信息</p>
-<h3 id="面向对象图像分隔-Segment-Only-Feature-Extraction-Workflow"><a href="#面向对象图像分隔-Segment-Only-Feature-Extraction-Workflow" class="headerlink" title="面向对象图像分隔(Segment Only Feature Extraction Workflow)"></a>面向对象图像分隔(Segment Only Feature Extraction Workflow)</h3><h3 id="Segmention-Image-工具"><a href="#Segmention-Image-工具" class="headerlink" title="Segmention Image 工具"></a>Segmention Image 工具</h3><p>可以将输入波段分割成许多连通区域或像元图斑(包含在同一类别或具有相似灰度特征)</p>
+<h3 id="7-3、面向对象图像分隔-Segment-Only-Feature-Extraction-Workflow"><a href="#7-3、面向对象图像分隔-Segment-Only-Feature-Extraction-Workflow" class="headerlink" title="7.3、面向对象图像分隔(Segment Only Feature Extraction Workflow)"></a>7.3、面向对象图像分隔(Segment Only Feature Extraction Workflow)</h3><h3 id="7-4、Segmention-Image-工具"><a href="#7-4、Segmention-Image-工具" class="headerlink" title="7.4、Segmention Image 工具"></a>7.4、Segmention Image 工具</h3><p>可以将输入波段分割成许多连通区域或像元图斑(包含在同一类别或具有相似灰度特征)</p>
 <p>输入数据必须为分类结果图像或者单波段图像</p>
 <p>输出结果中每一个分割斑块具有唯一的 DN 值</p>
-<h2 id="地形分析与可视化"><a href="#地形分析与可视化" class="headerlink" title="地形分析与可视化"></a>地形分析与可视化</h2><h3 id="立体像对DEM自动提取"><a href="#立体像对DEM自动提取" class="headerlink" title="立体像对DEM自动提取"></a>立体像对DEM自动提取</h3><h4 id="DEM-Extraction-模块"><a href="#DEM-Extraction-模块" class="headerlink" title="DEM Extraction 模块"></a>DEM Extraction 模块</h4><p>能够简单、快速地从多种数据源创建 DEM，要求立体图像包含 RPC 文件，RPC 文件用来产生 tie 点和计算立体图像之间的关系</p>
+<h2 id="8、地形分析与可视化"><a href="#8、地形分析与可视化" class="headerlink" title="8、地形分析与可视化"></a>8、地形分析与可视化</h2><h3 id="8-1、立体像对DEM自动提取"><a href="#8-1、立体像对DEM自动提取" class="headerlink" title="8.1、立体像对DEM自动提取"></a>8.1、立体像对DEM自动提取</h3><h4 id="8-1-1、DEM-Extraction-模块"><a href="#8-1-1、DEM-Extraction-模块" class="headerlink" title="8.1.1、DEM Extraction 模块"></a>8.1.1、DEM Extraction 模块</h4><p>能够简单、快速地从多种数据源创建 DEM，要求立体图像包含 RPC 文件，RPC 文件用来产生 tie 点和计算立体图像之间的关系</p>
 <p>DEM 自动提取向导(DEM Extraction Wizard)</p>
 <p>DEM 编辑工具(Edit DEM Result)</p>
 <p>立体 3D 量测工具(Stereo 3D Measurement)：从立体像对中量测一个点的高程信息</p>
@@ -961,17 +961,17 @@
 <p>DEM Extraction 模块可以输出两种 DEM</p>
 <p>绝对 DEM (包含地面高程点信息)</p>
 <p>相对 DEM (不包含地面高程点信息)</p>
-<h4 id="DEM-自动提取向导-DEM-Extraction-Wizard"><a href="#DEM-自动提取向导-DEM-Extraction-Wizard" class="headerlink" title="DEM 自动提取向导(DEM Extraction Wizard)"></a>DEM 自动提取向导(DEM Extraction Wizard)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[输入立体像对图像] --&gt;B[定义地面控制点]</span><br><span class="line">B --&gt;C[定义连接点]</span><br><span class="line">C --&gt;D[设定输出参数]</span><br><span class="line">D --&gt;E[输出DEM及检查结果]</span><br><span class="line">E --&gt;F[编辑DEM ]</span><br></pre></td></tr></table></figure>
+<h4 id="8-1-2、DEM-自动提取向导-DEM-Extraction-Wizard"><a href="#8-1-2、DEM-自动提取向导-DEM-Extraction-Wizard" class="headerlink" title="8.1.2、DEM 自动提取向导(DEM Extraction Wizard)"></a>8.1.2、DEM 自动提取向导(DEM Extraction Wizard)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[输入立体像对图像] --&gt;B[定义地面控制点]</span><br><span class="line">B --&gt;C[定义连接点]</span><br><span class="line">C --&gt;D[设定输出参数]</span><br><span class="line">D --&gt;E[输出DEM及检查结果]</span><br><span class="line">E --&gt;F[编辑DEM ]</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h3 id="插值生成-DEM"><a href="#插值生成-DEM" class="headerlink" title="插值生成 DEM"></a>插值生成 DEM</h3><h4 id="矢量等高线插值-DEM-Convert-Contours-to-DEM"><a href="#矢量等高线插值-DEM-Convert-Contours-to-DEM" class="headerlink" title="矢量等高线插值 DEM(Convert Contours to DEM)"></a>矢量等高线插值 DEM(Convert Contours to DEM)</h4><p>在矢量等高线的基础上，经过插值得到三维地表面是一种常见的 DEM 生成途径</p>
+<h3 id="8-2、插值生成-DEM"><a href="#8-2、插值生成-DEM" class="headerlink" title="8.2、插值生成 DEM"></a>8.2、插值生成 DEM</h3><h4 id="8-2-1、矢量等高线插值-DEM-Convert-Contours-to-DEM"><a href="#8-2-1、矢量等高线插值-DEM-Convert-Contours-to-DEM" class="headerlink" title="8.2.1、矢量等高线插值 DEM(Convert Contours to DEM)"></a>8.2.1、矢量等高线插值 DEM(Convert Contours to DEM)</h4><p>在矢量等高线的基础上，经过插值得到三维地表面是一种常见的 DEM 生成途径</p>
 <p>ENVI 矢量格式数据(.evf)必须包含用于指定每个矢量等高线的高程的属性</p>
-<h4 id="高程点文件插值-DEM-Rasterize-Point-Data"><a href="#高程点文件插值-DEM-Rasterize-Point-Data" class="headerlink" title="高程点文件插值 DEM(Rasterize Point Data)"></a>高程点文件插值 DEM(Rasterize Point Data)</h4><h3 id="地形模型计算和特征提取"><a href="#地形模型计算和特征提取" class="headerlink" title="地形模型计算和特征提取"></a>地形模型计算和特征提取</h3><h4 id="地形模型计算-Topographic-Modeling"><a href="#地形模型计算-Topographic-Modeling" class="headerlink" title="地形模型计算(Topographic Modeling)"></a>地形模型计算(Topographic Modeling)</h4><p>坡度(Slope)、坡向(Aspect)、阴影地貌图像(Shaded Relief)、剖面曲率(Profile Convexity)、水平曲率(Plan Convexity)、纵向曲率(Longitudnal Convexity)、横向曲率(Cross Sectional Convexity)、最小曲率(Minimum Curvature)、最大曲率(Maximum Curvation)以及均方根误差(RMS Error)</p>
-<h4 id="地形特征提取-Topographic-Features"><a href="#地形特征提取-Topographic-Features" class="headerlink" title="地形特征提取(Topographic Features)"></a>地形特征提取(Topographic Features)</h4><p>山顶(Peak)、山脊(Ridge)、平原(Pass)、水平面(Plane)、山沟(Channel)、凹谷(Pit)</p>
-<h4 id="可视域分析工具-Viewshed-Analysis-Workflow"><a href="#可视域分析工具-Viewshed-Analysis-Workflow" class="headerlink" title="可视域分析工具(Viewshed Analysis Workflow)"></a>可视域分析工具(Viewshed Analysis Workflow)</h4><h4 id="三维地形可视化-3D-SurfaceView"><a href="#三维地形可视化-3D-SurfaceView" class="headerlink" title="三维地形可视化(3D SurfaceView)"></a>三维地形可视化(3D SurfaceView)</h4><h2 id="遥感动态监测"><a href="#遥感动态监测" class="headerlink" title="遥感动态监测"></a>遥感动态监测</h2><h3 id="遥感动态监测技术"><a href="#遥感动态监测技术" class="headerlink" title="遥感动态监测技术"></a>遥感动态监测技术</h3><p>从不同时间或在不同条件获取同一地区的遥感图像中，识别和量化地表变化的类型、空间分布情况和变化量</p>
+<h4 id="8-2-2、高程点文件插值-DEM-Rasterize-Point-Data"><a href="#8-2-2、高程点文件插值-DEM-Rasterize-Point-Data" class="headerlink" title="8.2.2、高程点文件插值 DEM(Rasterize Point Data)"></a>8.2.2、高程点文件插值 DEM(Rasterize Point Data)</h4><h3 id="8-3、地形模型计算和特征提取"><a href="#8-3、地形模型计算和特征提取" class="headerlink" title="8.3、地形模型计算和特征提取"></a>8.3、地形模型计算和特征提取</h3><h4 id="8-3-1、地形模型计算-Topographic-Modeling"><a href="#8-3-1、地形模型计算-Topographic-Modeling" class="headerlink" title="8.3.1、地形模型计算(Topographic Modeling)"></a>8.3.1、地形模型计算(Topographic Modeling)</h4><p>坡度(Slope)、坡向(Aspect)、阴影地貌图像(Shaded Relief)、剖面曲率(Profile Convexity)、水平曲率(Plan Convexity)、纵向曲率(Longitudnal Convexity)、横向曲率(Cross Sectional Convexity)、最小曲率(Minimum Curvature)、最大曲率(Maximum Curvation)以及均方根误差(RMS Error)</p>
+<h4 id="8-3-2、地形特征提取-Topographic-Features"><a href="#8-3-2、地形特征提取-Topographic-Features" class="headerlink" title="8.3.2、地形特征提取(Topographic Features)"></a>8.3.2、地形特征提取(Topographic Features)</h4><p>山顶(Peak)、山脊(Ridge)、平原(Pass)、水平面(Plane)、山沟(Channel)、凹谷(Pit)</p>
+<h4 id="8-3-3、可视域分析工具-Viewshed-Analysis-Workflow"><a href="#8-3-3、可视域分析工具-Viewshed-Analysis-Workflow" class="headerlink" title="8.3.3、可视域分析工具(Viewshed Analysis Workflow)"></a>8.3.3、可视域分析工具(Viewshed Analysis Workflow)</h4><h4 id="8-3-4、三维地形可视化-3D-SurfaceView"><a href="#8-3-4、三维地形可视化-3D-SurfaceView" class="headerlink" title="8.3.4、三维地形可视化(3D SurfaceView)"></a>8.3.4、三维地形可视化(3D SurfaceView)</h4><h2 id="9、遥感动态监测"><a href="#9、遥感动态监测" class="headerlink" title="9、遥感动态监测"></a>9、遥感动态监测</h2><h3 id="9-1、遥感动态监测技术"><a href="#9-1、遥感动态监测技术" class="headerlink" title="9.1、遥感动态监测技术"></a>9.1、遥感动态监测技术</h3><p>从不同时间或在不同条件获取同一地区的遥感图像中，识别和量化地表变化的类型、空间分布情况和变化量</p>
 <p>地表变化信息可分为两种：</p>
 <p>转化(conversion)(绝对变化)——土地从一种土地覆盖类型向另一种类型的转化，如草地变为农田</p>
 <p>改变(modification)(相对变化)——某种土地覆盖类型内部条件(结构和功能)的变化，如森林由密变疏</p>
@@ -1030,49 +1030,49 @@
 </ul>
 </li>
 </ol>
-<h3 id="图像直接比较法工具"><a href="#图像直接比较法工具" class="headerlink" title="图像直接比较法工具"></a>图像直接比较法工具</h3><h4 id="Change-Detection-Difference-工具"><a href="#Change-Detection-Difference-工具" class="headerlink" title="Change Detection Difference 工具"></a>Change Detection Difference 工具</h4><p>适合获取地表相对变化信息</p>
-<h4 id="Image-Change-Workflow-工具"><a href="#Image-Change-Workflow-工具" class="headerlink" title="Image Change Workflow 工具"></a>Image Change Workflow 工具</h4><p>适合获取地表的绝对变化信息</p>
-<h3 id="分类后比较法工具"><a href="#分类后比较法工具" class="headerlink" title="分类后比较法工具"></a>分类后比较法工具</h3><h4 id="Change-Detection-Statistics-工具"><a href="#Change-Detection-Statistics-工具" class="headerlink" title="Change Detection Statistics 工具"></a>Change Detection Statistics 工具</h4><p>土地利用转移矩阵是不同时间段内同一区域内土地利用类型的相互转换关系，一般用二维表来表达，从二维表中可以快速查看各个地类间相互转化的具体情况</p>
-<h4 id="Thematic-Change-Workflow-工具"><a href="#Thematic-Change-Workflow-工具" class="headerlink" title="Thematic Change Workflow 工具"></a>Thematic Change Workflow 工具</h4><p>可以从相同区域、不同时间的两幅分类结果图像中识别变化信息，可以应用于分析土地利用&#x2F;覆盖变化、森林砍伐、城市化、农业扩张和水体的变化</p>
-<h2 id="辐射定标与大气校正"><a href="#辐射定标与大气校正" class="headerlink" title="辐射定标与大气校正"></a>辐射定标与大气校正</h2><p>辐射定标可以实现DN值与辐射亮度值、反射率值和温度值等物理量的转化</p>
+<h3 id="9-2、图像直接比较法工具"><a href="#9-2、图像直接比较法工具" class="headerlink" title="9.2、图像直接比较法工具"></a>9.2、图像直接比较法工具</h3><h4 id="9-2-1、Change-Detection-Difference-工具"><a href="#9-2-1、Change-Detection-Difference-工具" class="headerlink" title="9.2.1、Change Detection Difference 工具"></a>9.2.1、Change Detection Difference 工具</h4><p>适合获取地表相对变化信息</p>
+<h4 id="9-2-2、Image-Change-Workflow-工具"><a href="#9-2-2、Image-Change-Workflow-工具" class="headerlink" title="9.2.2、Image Change Workflow 工具"></a>9.2.2、Image Change Workflow 工具</h4><p>适合获取地表的绝对变化信息</p>
+<h3 id="9-3、分类后比较法工具"><a href="#9-3、分类后比较法工具" class="headerlink" title="9.3、分类后比较法工具"></a>9.3、分类后比较法工具</h3><h4 id="9-3-1、Change-Detection-Statistics-工具"><a href="#9-3-1、Change-Detection-Statistics-工具" class="headerlink" title="9.3.1、Change Detection Statistics 工具"></a>9.3.1、Change Detection Statistics 工具</h4><p>土地利用转移矩阵是不同时间段内同一区域内土地利用类型的相互转换关系，一般用二维表来表达，从二维表中可以快速查看各个地类间相互转化的具体情况</p>
+<h4 id="9-3-2、Thematic-Change-Workflow-工具"><a href="#9-3-2、Thematic-Change-Workflow-工具" class="headerlink" title="9.3.2、Thematic Change Workflow 工具"></a>9.3.2、Thematic Change Workflow 工具</h4><p>可以从相同区域、不同时间的两幅分类结果图像中识别变化信息，可以应用于分析土地利用&#x2F;覆盖变化、森林砍伐、城市化、农业扩张和水体的变化</p>
+<h2 id="10、辐射定标与大气校正"><a href="#10、辐射定标与大气校正" class="headerlink" title="10、辐射定标与大气校正"></a>10、辐射定标与大气校正</h2><p>辐射定标可以实现DN值与辐射亮度值、反射率值和温度值等物理量的转化</p>
 <p>大气校正能减少或消除大气对遥感图像的影响，得到真实的地表反射信息</p>
-<h3 id="辐射定标"><a href="#辐射定标" class="headerlink" title="辐射定标"></a>辐射定标</h3><p>将传感器记录的电压或数字量化值转换为绝对辐射亮度值(辐射率)的过程，或者转换为与地表(表观)反射率、表面(表观)温度的物理量有关的相对值的处理过程。</p>
+<h3 id="10-1、辐射定标"><a href="#10-1、辐射定标" class="headerlink" title="10.1、辐射定标"></a>10.1、辐射定标</h3><p>将传感器记录的电压或数字量化值转换为绝对辐射亮度值(辐射率)的过程，或者转换为与地表(表观)反射率、表面(表观)温度的物理量有关的相对值的处理过程。</p>
 <p>绝对定标：通过各种标准辐射源，建立辐射亮度值与数字量化值之间的定量关系</p>
 <p>相对定标：确定场景中各像元值之间、各探测器之间、各波普段之间以及不同时间测得的辐射度量的相对值</p>
-<h4 id="图像辐射定标-Radiometric-Calibration"><a href="#图像辐射定标-Radiometric-Calibration" class="headerlink" title="图像辐射定标(Radiometric Calibration)"></a>图像辐射定标(Radiometric Calibration)</h4><h4 id="热红外数据定标-Calibrate-TIMS"><a href="#热红外数据定标-Calibrate-TIMS" class="headerlink" title="热红外数据定标(Calibrate TIMS)"></a>热红外数据定标(Calibrate TIMS)</h4><p>输入的文件每行必须包含参考信息的60个字节</p>
+<h4 id="10-1-1、图像辐射定标-Radiometric-Calibration"><a href="#10-1-1、图像辐射定标-Radiometric-Calibration" class="headerlink" title="10.1.1、图像辐射定标(Radiometric Calibration)"></a>10.1.1、图像辐射定标(Radiometric Calibration)</h4><h4 id="10-1-2、热红外数据定标-Calibrate-TIMS"><a href="#10-1-2、热红外数据定标-Calibrate-TIMS" class="headerlink" title="10.1.2、热红外数据定标(Calibrate TIMS)"></a>10.1.2、热红外数据定标(Calibrate TIMS)</h4><p>输入的文件每行必须包含参考信息的60个字节</p>
 <p><code>Emissivity Reference Channel</code> 和 <code>Emissivity Normalization</code> 方法可以得到发射率和温度</p>
 <p><code>Emissivity Alpha Residuals</code> 方法只能获取发射率</p>
-<h4 id="AVHRR-数据定标"><a href="#AVHRR-数据定标" class="headerlink" title="AVHRR 数据定标"></a>AVHRR 数据定标</h4><p>在地理坐标定位之前先进行辐射定标和海面温度计算</p>
-<h5 id="辐射定标-Calibrate-AVHRR"><a href="#辐射定标-Calibrate-AVHRR" class="headerlink" title="辐射定标(Calibrate AVHRR)"></a>辐射定标(Calibrate AVHRR)</h5><h5 id="海面温度-SST-计算-Compute-Sea-Surface-Temperature"><a href="#海面温度-SST-计算-Compute-Sea-Surface-Temperature" class="headerlink" title="海面温度(SST)计算(Compute Sea Surface Temperature)"></a>海面温度(SST)计算(Compute Sea Surface Temperature)</h5><h3 id="大气校正"><a href="#大气校正" class="headerlink" title="大气校正"></a>大气校正</h3><p>目的是消除大气和光照等因素对地物反射的影响，获得地物反射率、辐射率、地表温度等真实物理模型参数，用来消除大气中水蒸气、氧气、二氧化碳、甲烷、和臭氧等对地物反射的影响，消除大气分子和气溶胶散射的影响。大多数情况下，大气校正同时也是反演地物真实反射率的过程</p>
+<h4 id="10-1-3、AVHRR-数据定标"><a href="#10-1-3、AVHRR-数据定标" class="headerlink" title="10.1.3、AVHRR 数据定标"></a>10.1.3、AVHRR 数据定标</h4><p>在地理坐标定位之前先进行辐射定标和海面温度计算</p>
+<h5 id="10-1-3-1、辐射定标-Calibrate-AVHRR"><a href="#10-1-3-1、辐射定标-Calibrate-AVHRR" class="headerlink" title="10.1.3.1、辐射定标(Calibrate AVHRR)"></a>10.1.3.1、辐射定标(Calibrate AVHRR)</h5><h5 id="10-1-3-2、海面温度-SST-计算-Compute-Sea-Surface-Temperature"><a href="#10-1-3-2、海面温度-SST-计算-Compute-Sea-Surface-Temperature" class="headerlink" title="10.1.3.2、海面温度(SST)计算(Compute Sea Surface Temperature)"></a>10.1.3.2、海面温度(SST)计算(Compute Sea Surface Temperature)</h5><h3 id="10-2、大气校正"><a href="#10-2、大气校正" class="headerlink" title="10.2、大气校正"></a>10.2、大气校正</h3><p>目的是消除大气和光照等因素对地物反射的影响，获得地物反射率、辐射率、地表温度等真实物理模型参数，用来消除大气中水蒸气、氧气、二氧化碳、甲烷、和臭氧等对地物反射的影响，消除大气分子和气溶胶散射的影响。大多数情况下，大气校正同时也是反演地物真实反射率的过程</p>
 <p>绝对大气校正：将遥感图像的 DN 值转换为地表反射率、地表辐射率和地表温度等的方法</p>
 <p>相对大气校正：校正后得到的图像上相同的 DN 值表示相同的地物反射率，其结果不考虑地物的实际反射率。</p>
-<h4 id="简化黑暗像元法大气校正-Dark-Subtraction"><a href="#简化黑暗像元法大气校正-Dark-Subtraction" class="headerlink" title="简化黑暗像元法大气校正(Dark Subtraction)"></a>简化黑暗像元法大气校正(Dark Subtraction)</h4><p>将其它像元减去黑暗像元的像元值，就能减少大气(主要是大气散射)对整幅图像的影响，达到大气校正的目的。关键是寻找黑暗像元以及黑暗像元增加的像元值。</p>
-<h4 id="基于统计学模型的反射率反演"><a href="#基于统计学模型的反射率反演" class="headerlink" title="基于统计学模型的反射率反演"></a>基于统计学模型的反射率反演</h4><h5 id="平场域法-Flat-Field-Calibration"><a href="#平场域法-Flat-Field-Calibration" class="headerlink" title="平场域法(Flat Field Calibration)"></a>平场域法(Flat Field Calibration)</h5><p>将每个像元的 DN 值除以选择区域的平均光谱值得到相对反射率</p>
-<h5 id="对数残差法-Log-Resiiduals-Calibration"><a href="#对数残差法-Log-Resiiduals-Calibration" class="headerlink" title="对数残差法(Log Resiiduals Calibration)"></a>对数残差法(Log Resiiduals Calibration)</h5><p>将数据除以波段几何均值，再除以像元几何均值</p>
-<h5 id="内部平均法-IAR-Reflectance-Calibration"><a href="#内部平均法-IAR-Reflectance-Calibration" class="headerlink" title="内部平均法(IAR Reflectance Calibration)"></a>内部平均法(IAR Reflectance Calibration)</h5><p>把图像的 DN 值与整幅图像的平均辐射光谱值相除</p>
-<h5 id="经验线性法-Empirical-Line-Compute-Factors-Calibrate-Using-Existing-Factors"><a href="#经验线性法-Empirical-Line-Compute-Factors-Calibrate-Using-Existing-Factors" class="headerlink" title="经验线性法(Empirical Line Compute Factors)(Calibrate Using Existing Factors)"></a>经验线性法(Empirical Line Compute Factors)(Calibrate Using Existing Factors)</h5><p>利用两个已知点的地面反射光谱值，再计算图像上对应像元点的平均 DN 值，然后利用线性回归求出增益和偏移值，建立 DN 值与反射率之间的相互关系式，进行反射率的定标。</p>
-<h4 id="不变目标法相对大气校正"><a href="#不变目标法相对大气校正" class="headerlink" title="不变目标法相对大气校正"></a>不变目标法相对大气校正</h4><p>相对大气校正按照数学基础可以分为两种：</p>
+<h4 id="10-2-1、简化黑暗像元法大气校正-Dark-Subtraction"><a href="#10-2-1、简化黑暗像元法大气校正-Dark-Subtraction" class="headerlink" title="10.2.1、简化黑暗像元法大气校正(Dark Subtraction)"></a>10.2.1、简化黑暗像元法大气校正(Dark Subtraction)</h4><p>将其它像元减去黑暗像元的像元值，就能减少大气(主要是大气散射)对整幅图像的影响，达到大气校正的目的。关键是寻找黑暗像元以及黑暗像元增加的像元值。</p>
+<h4 id="10-2-2、基于统计学模型的反射率反演"><a href="#10-2-2、基于统计学模型的反射率反演" class="headerlink" title="10.2.2、基于统计学模型的反射率反演"></a>10.2.2、基于统计学模型的反射率反演</h4><h5 id="10-2-2-1、平场域法-Flat-Field-Calibration"><a href="#10-2-2-1、平场域法-Flat-Field-Calibration" class="headerlink" title="10.2.2.1、平场域法(Flat Field Calibration)"></a>10.2.2.1、平场域法(Flat Field Calibration)</h5><p>将每个像元的 DN 值除以选择区域的平均光谱值得到相对反射率</p>
+<h5 id="10-2-2-2、对数残差法-Log-Resiiduals-Calibration"><a href="#10-2-2-2、对数残差法-Log-Resiiduals-Calibration" class="headerlink" title="10.2.2.2、对数残差法(Log Resiiduals Calibration)"></a>10.2.2.2、对数残差法(Log Resiiduals Calibration)</h5><p>将数据除以波段几何均值，再除以像元几何均值</p>
+<h5 id="10-2-2-3、内部平均法-IAR-Reflectance-Calibration"><a href="#10-2-2-3、内部平均法-IAR-Reflectance-Calibration" class="headerlink" title="10.2.2.3、内部平均法(IAR Reflectance Calibration)"></a>10.2.2.3、内部平均法(IAR Reflectance Calibration)</h5><p>把图像的 DN 值与整幅图像的平均辐射光谱值相除</p>
+<h5 id="10-2-2-4、经验线性法-Empirical-Line-Compute-Factors-Calibrate-Using-Existing-Factors"><a href="#10-2-2-4、经验线性法-Empirical-Line-Compute-Factors-Calibrate-Using-Existing-Factors" class="headerlink" title="10.2.2.4、经验线性法(Empirical Line Compute Factors)(Calibrate Using Existing Factors)"></a>10.2.2.4、经验线性法(Empirical Line Compute Factors)(Calibrate Using Existing Factors)</h5><p>利用两个已知点的地面反射光谱值，再计算图像上对应像元点的平均 DN 值，然后利用线性回归求出增益和偏移值，建立 DN 值与反射率之间的相互关系式，进行反射率的定标。</p>
+<h4 id="10-2-3、不变目标法相对大气校正"><a href="#10-2-3、不变目标法相对大气校正" class="headerlink" title="10.2.3、不变目标法相对大气校正"></a>10.2.3、不变目标法相对大气校正</h4><p>相对大气校正按照数学基础可以分为两种：</p>
 <p>非线性校正法：将校正图像的直方图与参考图像的直方图进行匹配，使两幅图像具有相同或相近的灰度值概率分布，达到两幅图像上同名地物具有相同灰度值的目的</p>
 <p>线性校正法(Apply Gain and Offset&#x2F;Band Math)：根据两个时相光谱性质相对稳定地物样本点的 DN 值，利用线性回归的方法求得公式(y&#x3D;a * x + b)中的参数a，b；然后利用公式对图像的各波段 DN 值进行线性变换</p>
-<h4 id="热红外大气校正"><a href="#热红外大气校正" class="headerlink" title="热红外大气校正"></a>热红外大气校正</h4><p>Thermal Atm Correction 工具可近似去除热红外辐射数据中的大气影响，进行大气校正前，必须将热红外数据定标为比辐射率数据(TIMS的热红外数据必须被转化为辐射亮度数据)，并且待校正数据波长为 8~14 μm</p>
-<h3 id="大气校正模块-Atmospheric-Correction"><a href="#大气校正模块-Atmospheric-Correction" class="headerlink" title="大气校正模块(Atmospheric Correction)"></a>大气校正模块(Atmospheric Correction)</h3><h4 id="FLAASH-大气校正工具"><a href="#FLAASH-大气校正工具" class="headerlink" title="FLAASH 大气校正工具"></a>FLAASH 大气校正工具</h4><p>可以有效的去除水蒸气&#x2F;气溶胶散射的效应，同时基于像素级的校正，校正目标像元和临近像元交叉辐射的“临近效应”</p>
+<h4 id="10-2-4、热红外大气校正"><a href="#10-2-4、热红外大气校正" class="headerlink" title="10.2.4、热红外大气校正"></a>10.2.4、热红外大气校正</h4><p>Thermal Atm Correction 工具可近似去除热红外辐射数据中的大气影响，进行大气校正前，必须将热红外数据定标为比辐射率数据(TIMS的热红外数据必须被转化为辐射亮度数据)，并且待校正数据波长为 8~14 μm</p>
+<h3 id="10-3、大气校正模块-Atmospheric-Correction"><a href="#10-3、大气校正模块-Atmospheric-Correction" class="headerlink" title="10.3、大气校正模块(Atmospheric Correction)"></a>10.3、大气校正模块(Atmospheric Correction)</h3><h4 id="10-3-1、FLAASH-大气校正工具"><a href="#10-3-1、FLAASH-大气校正工具" class="headerlink" title="10.3.1、FLAASH 大气校正工具"></a>10.3.1、FLAASH 大气校正工具</h4><p>可以有效的去除水蒸气&#x2F;气溶胶散射的效应，同时基于像素级的校正，校正目标像元和临近像元交叉辐射的“临近效应”</p>
 <p>对由于人为抑制而导致波谱噪声进行光谱平滑处理</p>
-<h4 id="QUick-Atmospheric-Correction-QUAC"><a href="#QUick-Atmospheric-Correction-QUAC" class="headerlink" title="QUick Atmospheric Correction(QUAC)"></a>QUick Atmospheric Correction(QUAC)</h4><h2 id="高光谱与光谱分析技术"><a href="#高光谱与光谱分析技术" class="headerlink" title="高光谱与光谱分析技术"></a>高光谱与光谱分析技术</h2><p>高光谱分辨率遥感(hyperspectral remote sensing)是用很窄而连续的波谱通道对地物持续遥感成像的技术。高光谱遥感又通常被称为“成像波谱(imaging spectrometry)”</p>
-<h3 id="地物波谱与波谱库"><a href="#地物波谱与波谱库" class="headerlink" title="地物波谱与波谱库"></a>地物波谱与波谱库</h3><p>一切地物，由于其种类和环境条件不同，反射和辐射电磁波的特征随波长而变化。</p>
+<h4 id="10-3-2、QUick-Atmospheric-Correction-QUAC"><a href="#10-3-2、QUick-Atmospheric-Correction-QUAC" class="headerlink" title="10.3.2、QUick Atmospheric Correction(QUAC)"></a>10.3.2、QUick Atmospheric Correction(QUAC)</h4><h2 id="11、高光谱与光谱分析技术"><a href="#11、高光谱与光谱分析技术" class="headerlink" title="11、高光谱与光谱分析技术"></a>11、高光谱与光谱分析技术</h2><p>高光谱分辨率遥感(hyperspectral remote sensing)是用很窄而连续的波谱通道对地物持续遥感成像的技术。高光谱遥感又通常被称为“成像波谱(imaging spectrometry)”</p>
+<h3 id="11-1、地物波谱与波谱库"><a href="#11-1、地物波谱与波谱库" class="headerlink" title="11.1、地物波谱与波谱库"></a>11.1、地物波谱与波谱库</h3><p>一切地物，由于其种类和环境条件不同，反射和辐射电磁波的特征随波长而变化。</p>
 <p>Display -&gt; Spectral Library Viewer 可以查看波谱库</p>
-<h4 id="波谱库的创建-Spectral-Library-Builder"><a href="#波谱库的创建-Spectral-Library-Builder" class="headerlink" title="波谱库的创建(Spectral Library Builder)"></a>波谱库的创建(Spectral Library Builder)</h4><p>可以从 ASCLL 文件、由 ASD 波谱仪获取的波谱文件，标准波谱库、感兴趣均值、波谱剖面和曲线</p>
-<h4 id="波谱重采样-Spectral-Library-Reasmpling"><a href="#波谱重采样-Spectral-Library-Reasmpling" class="headerlink" title="波谱重采样(Spectral Library Reasmpling)"></a>波谱重采样(Spectral Library Reasmpling)</h4><p>对波谱库进行重采样，使其与其它波谱或者波谱源相匹配</p>
-<h4 id="图像波谱分割-Spectral-Slices"><a href="#图像波谱分割-Spectral-Slices" class="headerlink" title="图像波谱分割(Spectral Slices)"></a>图像波谱分割(Spectral Slices)</h4><p>可以从一幅多波段图像提取一个方向上的波谱剖面</p>
-<h3 id="端元波谱提取技术"><a href="#端元波谱提取技术" class="headerlink" title="端元波谱提取技术"></a>端元波谱提取技术</h3><p>端元波谱作为高光谱分类、地物识别和混合像元分解等过程中的参考波谱，与监督分类中的分类样本有类似的作用，直接影响波谱识别和混合像元分解结果的精度</p>
-<h4 id="最小噪声分离-Minimum-Noise-Fraction"><a href="#最小噪声分离-Minimum-Noise-Fraction" class="headerlink" title="最小噪声分离(Minimum Noise Fraction)"></a>最小噪声分离(Minimum Noise Fraction)</h4><h4 id="纯净像元指数-PPI"><a href="#纯净像元指数-PPI" class="headerlink" title="纯净像元指数(PPI)"></a>纯净像元指数(PPI)</h4><h4 id="n维可视化-n-D-Visualizer"><a href="#n维可视化-n-D-Visualizer" class="headerlink" title="n维可视化(n - D Visualizer)"></a>n维可视化(n - D Visualizer)</h4><h4 id="波谱分析工具-Spectral-Analyst"><a href="#波谱分析工具-Spectral-Analyst" class="headerlink" title="波谱分析工具(Spectral Analyst)"></a>波谱分析工具(Spectral Analyst)</h4><h4 id="基于几何顶点的端元提取"><a href="#基于几何顶点的端元提取" class="headerlink" title="基于几何顶点的端元提取"></a>基于几何顶点的端元提取</h4><h4 id="基于PPI的端元提取"><a href="#基于PPI的端元提取" class="headerlink" title="基于PPI的端元提取"></a>基于PPI的端元提取</h4><h4 id="基于-SMACC-的端元提取"><a href="#基于-SMACC-的端元提取" class="headerlink" title="基于 SMACC 的端元提取"></a>基于 SMACC 的端元提取</h4><h3 id="高光谱图像分类与分析技术"><a href="#高光谱图像分类与分析技术" class="headerlink" title="高光谱图像分类与分析技术"></a>高光谱图像分类与分析技术</h3><p>也称 “高光谱物质制图”(Mapping) 利用反映地物物理光学性质的波谱曲线来识别地物，即利用一种匹配方法，分析已知的波谱曲线(端元波谱)和高光谱图像每个像素波谱曲线(波谱剖面)匹配程度对图像进行分类</p>
-<h4 id="波谱角填图-Spectral-Angle-Mapper"><a href="#波谱角填图-Spectral-Angle-Mapper" class="headerlink" title="波谱角填图(Spectral Angle Mapper)"></a>波谱角填图(Spectral Angle Mapper)</h4><p>该算法用于反射率数据时，对照度和反照率对结果的影响不明显，同样适用于辐射亮度值数据</p>
-<h4 id="二进制编码-Binary-Encoding"><a href="#二进制编码-Binary-Encoding" class="headerlink" title="二进制编码(Binary Encoding)"></a>二进制编码(Binary Encoding)</h4><h4 id="波谱信息散度-Spectral-Information-Divergence"><a href="#波谱信息散度-Spectral-Information-Divergence" class="headerlink" title="波谱信息散度(Spectral Information Divergence)"></a>波谱信息散度(Spectral Information Divergence)</h4><h3 id="高级高光谱分析"><a href="#高级高光谱分析" class="headerlink" title="高级高光谱分析"></a>高级高光谱分析</h3><h4 id="最小二乘法拟合"><a href="#最小二乘法拟合" class="headerlink" title="最小二乘法拟合"></a>最小二乘法拟合</h4><h4 id="包络线去除"><a href="#包络线去除" class="headerlink" title="包络线去除"></a>包络线去除</h4><h4 id="线性波谱分离"><a href="#线性波谱分离" class="headerlink" title="线性波谱分离"></a>线性波谱分离</h4><h4 id="匹配滤波"><a href="#匹配滤波" class="headerlink" title="匹配滤波"></a>匹配滤波</h4><h4 id="混合调谐匹配滤波"><a href="#混合调谐匹配滤波" class="headerlink" title="混合调谐匹配滤波"></a>混合调谐匹配滤波</h4><h4 id="最小能量约束"><a href="#最小能量约束" class="headerlink" title="最小能量约束"></a>最小能量约束</h4><h4 id="自适应一致估计"><a href="#自适应一致估计" class="headerlink" title="自适应一致估计"></a>自适应一致估计</h4><h4 id="正交子空间投影"><a href="#正交子空间投影" class="headerlink" title="正交子空间投影"></a>正交子空间投影</h4><h4 id="波谱特征拟合"><a href="#波谱特征拟合" class="headerlink" title="波谱特征拟合"></a>波谱特征拟合</h4><h4 id="多范围波谱特征拟合"><a href="#多范围波谱特征拟合" class="headerlink" title="多范围波谱特征拟合"></a>多范围波谱特征拟合</h4><h3 id="地物识别与目标探测"><a href="#地物识别与目标探测" class="headerlink" title="地物识别与目标探测"></a>地物识别与目标探测</h3><p>从高光谱图像的每个像元均可以获取一条连续的波谱曲线，就可以考虑用已知的波谱曲线去识别图像中的地物，这也是高光谱遥感的最大优点。</p>
+<h4 id="11-1-1、波谱库的创建-Spectral-Library-Builder"><a href="#11-1-1、波谱库的创建-Spectral-Library-Builder" class="headerlink" title="11.1.1、波谱库的创建(Spectral Library Builder)"></a>11.1.1、波谱库的创建(Spectral Library Builder)</h4><p>可以从 ASCLL 文件、由 ASD 波谱仪获取的波谱文件，标准波谱库、感兴趣均值、波谱剖面和曲线</p>
+<h4 id="11-1-2、波谱重采样-Spectral-Library-Reasmpling"><a href="#11-1-2、波谱重采样-Spectral-Library-Reasmpling" class="headerlink" title="11.1.2、波谱重采样(Spectral Library Reasmpling)"></a>11.1.2、波谱重采样(Spectral Library Reasmpling)</h4><p>对波谱库进行重采样，使其与其它波谱或者波谱源相匹配</p>
+<h4 id="11-1-3、图像波谱分割-Spectral-Slices"><a href="#11-1-3、图像波谱分割-Spectral-Slices" class="headerlink" title="11.1.3、图像波谱分割(Spectral Slices)"></a>11.1.3、图像波谱分割(Spectral Slices)</h4><p>可以从一幅多波段图像提取一个方向上的波谱剖面</p>
+<h3 id="11-2、端元波谱提取技术"><a href="#11-2、端元波谱提取技术" class="headerlink" title="11.2、端元波谱提取技术"></a>11.2、端元波谱提取技术</h3><p>端元波谱作为高光谱分类、地物识别和混合像元分解等过程中的参考波谱，与监督分类中的分类样本有类似的作用，直接影响波谱识别和混合像元分解结果的精度</p>
+<h4 id="11-2-1、最小噪声分离-Minimum-Noise-Fraction"><a href="#11-2-1、最小噪声分离-Minimum-Noise-Fraction" class="headerlink" title="11.2.1、最小噪声分离(Minimum Noise Fraction)"></a>11.2.1、最小噪声分离(Minimum Noise Fraction)</h4><h4 id="11-2-2、纯净像元指数-PPI"><a href="#11-2-2、纯净像元指数-PPI" class="headerlink" title="11.2.2、纯净像元指数(PPI)"></a>11.2.2、纯净像元指数(PPI)</h4><h4 id="11-2-3、n维可视化-n-D-Visualizer"><a href="#11-2-3、n维可视化-n-D-Visualizer" class="headerlink" title="11.2.3、n维可视化(n - D Visualizer)"></a>11.2.3、n维可视化(n - D Visualizer)</h4><h4 id="11-2-4、波谱分析工具-Spectral-Analyst"><a href="#11-2-4、波谱分析工具-Spectral-Analyst" class="headerlink" title="11.2.4、波谱分析工具(Spectral Analyst)"></a>11.2.4、波谱分析工具(Spectral Analyst)</h4><h4 id="11-2-5、基于几何顶点的端元提取"><a href="#11-2-5、基于几何顶点的端元提取" class="headerlink" title="11.2.5、基于几何顶点的端元提取"></a>11.2.5、基于几何顶点的端元提取</h4><h4 id="11-2-6、基于PPI的端元提取"><a href="#11-2-6、基于PPI的端元提取" class="headerlink" title="11.2.6、基于PPI的端元提取"></a>11.2.6、基于PPI的端元提取</h4><h4 id="11-2-7、基于-SMACC-的端元提取"><a href="#11-2-7、基于-SMACC-的端元提取" class="headerlink" title="11.2.7、基于 SMACC 的端元提取"></a>11.2.7、基于 SMACC 的端元提取</h4><h3 id="11-3、高光谱图像分类与分析技术"><a href="#11-3、高光谱图像分类与分析技术" class="headerlink" title="11.3、高光谱图像分类与分析技术"></a>11.3、高光谱图像分类与分析技术</h3><p>也称 “高光谱物质制图”(Mapping) 利用反映地物物理光学性质的波谱曲线来识别地物，即利用一种匹配方法，分析已知的波谱曲线(端元波谱)和高光谱图像每个像素波谱曲线(波谱剖面)匹配程度对图像进行分类</p>
+<h4 id="11-3-1、波谱角填图-Spectral-Angle-Mapper"><a href="#11-3-1、波谱角填图-Spectral-Angle-Mapper" class="headerlink" title="11.3.1、波谱角填图(Spectral Angle Mapper)"></a>11.3.1、波谱角填图(Spectral Angle Mapper)</h4><p>该算法用于反射率数据时，对照度和反照率对结果的影响不明显，同样适用于辐射亮度值数据</p>
+<h4 id="11-3-2、二进制编码-Binary-Encoding"><a href="#11-3-2、二进制编码-Binary-Encoding" class="headerlink" title="11.3.2、二进制编码(Binary Encoding)"></a>11.3.2、二进制编码(Binary Encoding)</h4><h4 id="11-3-3、波谱信息散度-Spectral-Information-Divergence"><a href="#11-3-3、波谱信息散度-Spectral-Information-Divergence" class="headerlink" title="11.3.3、波谱信息散度(Spectral Information Divergence)"></a>11.3.3、波谱信息散度(Spectral Information Divergence)</h4><h3 id="11-4、高级高光谱分析"><a href="#11-4、高级高光谱分析" class="headerlink" title="11.4、高级高光谱分析"></a>11.4、高级高光谱分析</h3><h4 id="11-4-1、最小二乘法拟合"><a href="#11-4-1、最小二乘法拟合" class="headerlink" title="11.4.1、最小二乘法拟合"></a>11.4.1、最小二乘法拟合</h4><h4 id="11-4-2、包络线去除"><a href="#11-4-2、包络线去除" class="headerlink" title="11.4.2、包络线去除"></a>11.4.2、包络线去除</h4><h4 id="11-4-3、线性波谱分离"><a href="#11-4-3、线性波谱分离" class="headerlink" title="11.4.3、线性波谱分离"></a>11.4.3、线性波谱分离</h4><h4 id="11-4-4、匹配滤波"><a href="#11-4-4、匹配滤波" class="headerlink" title="11.4.4、匹配滤波"></a>11.4.4、匹配滤波</h4><h4 id="11-4-5、混合调谐匹配滤波"><a href="#11-4-5、混合调谐匹配滤波" class="headerlink" title="11.4.5、混合调谐匹配滤波"></a>11.4.5、混合调谐匹配滤波</h4><h4 id="11-4-6、最小能量约束"><a href="#11-4-6、最小能量约束" class="headerlink" title="11.4.6、最小能量约束"></a>11.4.6、最小能量约束</h4><h4 id="11-4-7、自适应一致估计"><a href="#11-4-7、自适应一致估计" class="headerlink" title="11.4.7、自适应一致估计"></a>11.4.7、自适应一致估计</h4><h4 id="11-4-8、正交子空间投影"><a href="#11-4-8、正交子空间投影" class="headerlink" title="11.4.8、正交子空间投影"></a>11.4.8、正交子空间投影</h4><h4 id="11-4-9、波谱特征拟合"><a href="#11-4-9、波谱特征拟合" class="headerlink" title="11.4.9、波谱特征拟合"></a>11.4.9、波谱特征拟合</h4><h4 id="11-4-10、多范围波谱特征拟合"><a href="#11-4-10、多范围波谱特征拟合" class="headerlink" title="11.4.10、多范围波谱特征拟合"></a>11.4.10、多范围波谱特征拟合</h4><h3 id="11-5、地物识别与目标探测"><a href="#11-5、地物识别与目标探测" class="headerlink" title="11.5、地物识别与目标探测"></a>11.5、地物识别与目标探测</h3><p>从高光谱图像的每个像元均可以获取一条连续的波谱曲线，就可以考虑用已知的波谱曲线去识别图像中的地物，这也是高光谱遥感的最大优点。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[图像文件] ==&gt;B[MNF变换]</span><br><span class="line">B ==&gt; C[数据维数判断]</span><br><span class="line">C ==&gt; D&#123;从图像提取端元波谱?&#125;</span><br><span class="line">D ==是==&gt; E[计算纯净像元指数]</span><br><span class="line">E ==&gt; F[N维可视化和端元选择]</span><br><span class="line">F ==&gt; G&#123;输入外部端元波谱?&#125;</span><br><span class="line">G ==否==&gt; H[波谱识别]</span><br><span class="line">H ==&gt; I[结果分析]</span><br><span class="line">I ==&gt; J[最终结果]</span><br><span class="line">D ==否==&gt;M[输入外部端元波谱]</span><br><span class="line">M ==&gt; N[端元波谱]</span><br><span class="line">N ==&gt; H</span><br><span class="line">G ==是==&gt;N</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="波谱沙漏工具-Spectral-Hourglass-Wizard"><a href="#波谱沙漏工具-Spectral-Hourglass-Wizard" class="headerlink" title="波谱沙漏工具(Spectral Hourglass Wizard)"></a>波谱沙漏工具(Spectral Hourglass Wizard)</h4><h4 id="去伪装目标探测-Target-Detection-Wizard"><a href="#去伪装目标探测-Target-Detection-Wizard" class="headerlink" title="去伪装目标探测(Target Detection Wizard)"></a>去伪装目标探测(Target Detection Wizard)</h4><p>利用高光谱图像的地物识别能力，从图像上探测遮掩或者伪装的目标</p>
-<h3 id="植被分析"><a href="#植被分析" class="headerlink" title="植被分析"></a>植被分析</h3><p>​	植被可分为三个部分：植物叶片(plant foliage)、植被冠层(plant canopies)、和非光合作用植被(non-phptpsynthetic vegetation)</p>
-<h4 id="植被指数"><a href="#植被指数" class="headerlink" title="植被指数"></a>植被指数</h4><p>​	两个或多个波长范围内的地物反射率的组合运算，以增强植被某一特性或者细节</p>
-<h5 id="宽带绿度"><a href="#宽带绿度" class="headerlink" title="宽带绿度"></a>宽带绿度</h5><p>​	可以简单度量绿色植被的数量和生长状况，常用于植被物候发育的研究、土地利用和气候影响评估以及植被生产力建模等</p>
+<h4 id="11-5-1、波谱沙漏工具-Spectral-Hourglass-Wizard"><a href="#11-5-1、波谱沙漏工具-Spectral-Hourglass-Wizard" class="headerlink" title="11.5.1、波谱沙漏工具(Spectral Hourglass Wizard)"></a>11.5.1、波谱沙漏工具(Spectral Hourglass Wizard)</h4><h4 id="11-5-2、去伪装目标探测-Target-Detection-Wizard"><a href="#11-5-2、去伪装目标探测-Target-Detection-Wizard" class="headerlink" title="11.5.2、去伪装目标探测(Target Detection Wizard)"></a>11.5.2、去伪装目标探测(Target Detection Wizard)</h4><p>利用高光谱图像的地物识别能力，从图像上探测遮掩或者伪装的目标</p>
+<h3 id="11-6、植被分析"><a href="#11-6、植被分析" class="headerlink" title="11.6、植被分析"></a>11.6、植被分析</h3><p>​	植被可分为三个部分：植物叶片(plant foliage)、植被冠层(plant canopies)、和非光合作用植被(non-phptpsynthetic vegetation)</p>
+<h4 id="11-6-1、植被指数"><a href="#11-6-1、植被指数" class="headerlink" title="11.6.1、植被指数"></a>11.6.1、植被指数</h4><p>​	两个或多个波长范围内的地物反射率的组合运算，以增强植被某一特性或者细节</p>
+<h5 id="11-6-1-1、宽带绿度"><a href="#11-6-1-1、宽带绿度" class="headerlink" title="11.6.1.1、宽带绿度"></a>11.6.1.1、宽带绿度</h5><p>​	可以简单度量绿色植被的数量和生长状况，常用于植被物候发育的研究、土地利用和气候影响评估以及植被生产力建模等</p>
 <p>归一化植被指数(NDVI)</p>
 <p>​	增加在近红外波段范围绿叶的散射与红色波段范围叶绿素吸收的差异</p>
 <p>比值植被指数(SR)</p>
@@ -1083,7 +1083,7 @@
 <p>​	增强NDVI，更好地解决大气散射的影响</p>
 <p>绿波段总和指数(SG)</p>
 <p>​	绿色波段范围的整体光散射</p>
-<h5 id="窄带绿度"><a href="#窄带绿度" class="headerlink" title="窄带绿度"></a>窄带绿度</h5><p>​	窄带绿度指数(Narrowband Greenness Index)对叶绿素含量、叶片表面冠层、叶聚丛和冠层结构非常敏感。比宽度绿度指数更加灵敏，特别是对于茂密植被 </p>
+<h5 id="11-6-1-2、窄带绿度"><a href="#11-6-1-2、窄带绿度" class="headerlink" title="11.6.1.2、窄带绿度"></a>11.6.1.2、窄带绿度</h5><p>​	窄带绿度指数(Narrowband Greenness Index)对叶绿素含量、叶片表面冠层、叶聚丛和冠层结构非常敏感。比宽度绿度指数更加灵敏，特别是对于茂密植被 </p>
 <p>红边归一化植被指数(NDVI<sub>705</sub>)</p>
 <p>​	可用于精细农业、森林监测和植被胁迫性探测</p>
 <p>改进红边比值植被指数(mSR<sub>705</sub>)</p>
@@ -1098,27 +1098,27 @@
 <p>​	植被物候变化研究、精细农业和植被生产力建模</p>
 <p>红边位置指数(REP)</p>
 <p>​	常用于农作物监测和估产、生态系统干扰探测、光合作用模型和由气候或其它因素产生的冠层胁迫性</p>
-<h5 id="光利用指数"><a href="#光利用指数" class="headerlink" title="光利用指数"></a>光利用指数</h5><p>​	光利用指数(LIght Use Efficiency Index)用来度量植被在光合作用中对入射光的利用效率</p>
+<h5 id="11-6-1-3、光利用指数"><a href="#11-6-1-3、光利用指数" class="headerlink" title="11.6.1.3、光利用指数"></a>11.6.1.3、光利用指数</h5><p>​	光利用指数(LIght Use Efficiency Index)用来度量植被在光合作用中对入射光的利用效率</p>
 <p>光化学植被指数(PRI)</p>
 <p>结构不敏感色素指数(SIPI)</p>
 <p>红绿比值指数(RG)</p>
-<h5 id="冠层氮"><a href="#冠层氮" class="headerlink" title="冠层氮"></a>冠层氮</h5><p>​	冠层氮指数(Canopy Nitrogen Index)提供一种用遥感度量氮浓度的方法</p>
+<h5 id="11-6-1-4、冠层氮"><a href="#11-6-1-4、冠层氮" class="headerlink" title="11.6.1.4、冠层氮"></a>11.6.1.4、冠层氮</h5><p>​	冠层氮指数(Canopy Nitrogen Index)提供一种用遥感度量氮浓度的方法</p>
 <p>归一化氮指数(NDNI)用于估算植被冠层中氮的相对含量</p>
-<h5 id="干旱或碳衰减"><a href="#干旱或碳衰减" class="headerlink" title="干旱或碳衰减"></a>干旱或碳衰减</h5><p>归一化木质素指数(NDLI)</p>
+<h5 id="11-6-1-5、干旱或碳衰减"><a href="#11-6-1-5、干旱或碳衰减" class="headerlink" title="11.6.1.5、干旱或碳衰减"></a>11.6.1.5、干旱或碳衰减</h5><p>归一化木质素指数(NDLI)</p>
 <p>纤维素吸收指数(CAI)</p>
 <p>植被衰减指数(PSRI)</p>
-<h5 id="叶绿素"><a href="#叶绿素" class="headerlink" title="叶绿素"></a>叶绿素</h5><p>​	叶绿素指数(Leaf Pigments Index)用于度量植被中与胁迫性相关的色素</p>
+<h5 id="11-6-1-6、叶绿素"><a href="#11-6-1-6、叶绿素" class="headerlink" title="11.6.1.6、叶绿素"></a>11.6.1.6、叶绿素</h5><p>​	叶绿素指数(Leaf Pigments Index)用于度量植被中与胁迫性相关的色素</p>
 <p>类胡萝卜素反射指数1(CRI1)</p>
 <p>类胡萝卜素反射指数1(CRI2)</p>
 <p>花青素反射指数1</p>
 <p>花青素反射指数2</p>
-<h5 id="冠层含水量"><a href="#冠层含水量" class="headerlink" title="冠层含水量"></a>冠层含水量</h5><p>​	冠层含水量指数(Canopy Water Content Index)用于度量植被冠层中的含水量</p>
+<h5 id="11-6-1-7、冠层含水量"><a href="#11-6-1-7、冠层含水量" class="headerlink" title="11.6.1.7、冠层含水量"></a>11.6.1.7、冠层含水量</h5><p>​	冠层含水量指数(Canopy Water Content Index)用于度量植被冠层中的含水量</p>
 <p>水波段指数(WBI)</p>
 <p>归一化水指数(NDWI)</p>
 <p>水分胁迫指数(MSI)</p>
 <p>归一化红外指数(NDII)</p>
-<h4 id="植被指数计算器-Vegetation-Index-Calculator"><a href="#植被指数计算器-Vegetation-Index-Calculator" class="headerlink" title="植被指数计算器(Vegetation Index Calculator)"></a>植被指数计算器(Vegetation Index Calculator)</h4><p>ENVI提供植被指数计算器，它可以根据输入图像波段情况，自动从27种植被中选出能用于计算的植被指数，并提供生物物理学交叉检验功能，能够提高植被指数的计算精度。</p>
-<h5 id="农作物胁迫分析-Agricultural-Stress-Vegetation-Analysis"><a href="#农作物胁迫分析-Agricultural-Stress-Vegetation-Analysis" class="headerlink" title="农作物胁迫分析(Agricultural Stress Vegetation Analysis)"></a>农作物胁迫分析(Agricultural Stress Vegetation Analysis)</h5><p>干旱或濒临死亡的农作物不能有效地利用氮和光能，表现为胁迫较高；而健康生长的作物表现为较低的胁迫</p>
+<h4 id="11-6-2、植被指数计算器-Vegetation-Index-Calculator"><a href="#11-6-2、植被指数计算器-Vegetation-Index-Calculator" class="headerlink" title="11.6.2、植被指数计算器(Vegetation Index Calculator)"></a>11.6.2、植被指数计算器(Vegetation Index Calculator)</h4><p>ENVI提供植被指数计算器，它可以根据输入图像波段情况，自动从27种植被中选出能用于计算的植被指数，并提供生物物理学交叉检验功能，能够提高植被指数的计算精度。</p>
+<h5 id="11-6-2-1、农作物胁迫分析-Agricultural-Stress-Vegetation-Analysis"><a href="#11-6-2-1、农作物胁迫分析-Agricultural-Stress-Vegetation-Analysis" class="headerlink" title="11.6.2.1、农作物胁迫分析(Agricultural Stress Vegetation Analysis)"></a>11.6.2.1、农作物胁迫分析(Agricultural Stress Vegetation Analysis)</h5><p>干旱或濒临死亡的农作物不能有效地利用氮和光能，表现为胁迫较高；而健康生长的作物表现为较低的胁迫</p>
 <ul>
 <li>绿度指数：标识闲置农田、虚弱的植被和健康的作物</li>
 <li>光利用指数：标识植被生长率</li>
@@ -1126,20 +1126,20 @@
 <li>叶绿素指数：突出植被胁迫</li>
 <li>冠层含水量指数：标识水胁迫的层次</li>
 </ul>
-<h5 id="植被易燃性分布分析-Fire-Fuel-Vegetation-Analysis"><a href="#植被易燃性分布分析-Fire-Fuel-Vegetation-Analysis" class="headerlink" title="植被易燃性分布分析(Fire Fuel Vegetation Analysis)"></a>植被易燃性分布分析(Fire Fuel Vegetation Analysis)</h5><ul>
+<h5 id="11-6-2-2、植被易燃性分布分析-Fire-Fuel-Vegetation-Analysis"><a href="#11-6-2-2、植被易燃性分布分析-Fire-Fuel-Vegetation-Analysis" class="headerlink" title="11.6.2.2、植被易燃性分布分析(Fire Fuel Vegetation Analysis)"></a>11.6.2.2、植被易燃性分布分析(Fire Fuel Vegetation Analysis)</h5><ul>
 <li>绿度指数</li>
 <li>冠层含水量指数</li>
 <li>干旱或碳衰减指数</li>
 </ul>
-<h5 id="森林健康分析-Forest-Health-Vegetation-Analysis"><a href="#森林健康分析-Forest-Health-Vegetation-Analysis" class="headerlink" title="森林健康分析(Forest Health Vegetation Analysis)"></a>森林健康分析(Forest Health Vegetation Analysis)</h5><ul>
+<h5 id="11-6-2-3、森林健康分析-Forest-Health-Vegetation-Analysis"><a href="#11-6-2-3、森林健康分析-Forest-Health-Vegetation-Analysis" class="headerlink" title="11.6.2.3、森林健康分析(Forest Health Vegetation Analysis)"></a>11.6.2.3、森林健康分析(Forest Health Vegetation Analysis)</h5><ul>
 <li>绿度指数</li>
 <li>叶绿素指数</li>
 <li>冠层含水量指数</li>
 <li>光利用指数</li>
 </ul>
-<h5 id="植被抑制工具-Vegetation-Suppression"><a href="#植被抑制工具-Vegetation-Suppression" class="headerlink" title="植被抑制工具(Vegetation Suppression)"></a>植被抑制工具(Vegetation Suppression)</h5><p>利用图像的红光波段和近红外波段，从多光谱和高光谱图像中移除或减少植被光谱信息，对图像进行植被变换。</p>
-<h3 id="光谱分析与水体水色参数反演"><a href="#光谱分析与水体水色参数反演" class="headerlink" title="光谱分析与水体水色参数反演"></a>光谱分析与水体水色参数反演</h3><p>遥感反演是根据观测信息和模型，求解或推算描述地面实况的应用参数</p>
-<h2 id="波段运算与波谱运算"><a href="#波段运算与波谱运算" class="headerlink" title="波段运算与波谱运算"></a>波段运算与波谱运算</h2><p>​	图像可以看做是一个矩阵，矩阵中的任一元素对应于图像中的一个点，而相应的值对应于该点的像素值，图像之间的运算就是矩阵运算。</p>
+<h5 id="11-6-2-4、植被抑制工具-Vegetation-Suppression"><a href="#11-6-2-4、植被抑制工具-Vegetation-Suppression" class="headerlink" title="11.6.2.4、植被抑制工具(Vegetation Suppression)"></a>11.6.2.4、植被抑制工具(Vegetation Suppression)</h5><p>利用图像的红光波段和近红外波段，从多光谱和高光谱图像中移除或减少植被光谱信息，对图像进行植被变换。</p>
+<h3 id="11-7、光谱分析与水体水色参数反演"><a href="#11-7、光谱分析与水体水色参数反演" class="headerlink" title="11.7、光谱分析与水体水色参数反演"></a>11.7、光谱分析与水体水色参数反演</h3><p>遥感反演是根据观测信息和模型，求解或推算描述地面实况的应用参数</p>
+<h2 id="12、波段运算与波谱运算"><a href="#12、波段运算与波谱运算" class="headerlink" title="12、波段运算与波谱运算"></a>12、波段运算与波谱运算</h2><p>​	图像可以看做是一个矩阵，矩阵中的任一元素对应于图像中的一个点，而相应的值对应于该点的像素值，图像之间的运算就是矩阵运算。</p>
 <p><code>Band Math</code> 可以自定义处理算法、自定义简单或复杂的处理程序</p>
 <p>波段运算的实质是对每个像素点对应的像素值进行数学运算</p>
 <p><code>Spectral Math</code></p>
@@ -1458,14 +1458,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1475,6 +1467,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1514,19 +1514,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1551,6 +1543,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1582,10 +1582,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -1595,6 +1591,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1650,15 +1650,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1678,19 +1678,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

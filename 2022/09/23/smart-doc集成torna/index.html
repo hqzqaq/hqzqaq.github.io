@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220218111010251.png">
 <meta property="og:image" content="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220218111451227.png">
 <meta property="article:published_time" content="2022-09-23T05:58:36.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:30:07.234Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.157Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="smart-doc">
 <meta property="article:tag" content="torna">
@@ -309,16 +309,16 @@
 </blockquote>
 <span id="more"></span>
 
-<h1 id="使用-docker-compose-搭建-torna-环境"><a href="#使用-docker-compose-搭建-torna-环境" class="headerlink" title="使用 docker-compose 搭建 torna 环境"></a>使用 docker-compose 搭建 torna 环境</h1><h2 id="torna-介绍"><a href="#torna-介绍" class="headerlink" title="torna 介绍"></a>torna 介绍</h2><p>项目地址：</p>
+<h1 id="使用-docker-compose-搭建-torna-环境"><a href="#使用-docker-compose-搭建-torna-环境" class="headerlink" title="使用 docker-compose 搭建 torna 环境"></a>使用 docker-compose 搭建 torna 环境</h1><h2 id="1、torna-介绍"><a href="#1、torna-介绍" class="headerlink" title="1、torna 介绍"></a>1、torna 介绍</h2><p>项目地址：</p>
 <p><code>https://gitee.com/durcframework/torna</code></p>
 <p>torna 是一个企业接口文档解决方案，目标是让文档管理变得更加方便、快捷。Torna采用团队协作的方式管理和维护项目API文档，将不同形式的文档纳入进来，形成一个统一的维护方式。Torna弥补了传统文档生成工具（如swagger）的不如之处，在保持原有功能的前提下丰富并增强了一些实用的功能。</p>
 <img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/arc2.png" style="width:40%;height:50%">
 
 
 
-<h2 id="smart-doc-介绍"><a href="#smart-doc-介绍" class="headerlink" title="smart-doc 介绍"></a>smart-doc 介绍</h2><p><code>smart-doc</code> 是一个彻底无侵入的 <code>java Rest Api</code> 文档生成工具。让用户的代码保持整洁一直是 <code>smart-doc</code> 的核心理念。使用过 <code>swagger </code>的人就知道，为了生成文档，一个接口上要写上许许多多的注解，不仅繁杂，而且侵入式程度很高，对 <code>swagger </code>有很强的依赖，而 <code>smart-doc </code>则是要简洁许多，不需要写注解，不想用了，去掉依赖即可，非常方便。</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h3><p>准备一台 linux 虚拟机，安装 docker 环境以及 docker-compose，也使用 windows 电脑上的 wsl 环境，去 docker 的官网安装 win 版 docker，本文使用的环境为 win 版docker。</p>
-<h3 id="拉取项目"><a href="#拉取项目" class="headerlink" title="拉取项目"></a>拉取项目</h3><p><font color="orange">项目地址：</font></p>
+<h2 id="2、smart-doc-介绍"><a href="#2、smart-doc-介绍" class="headerlink" title="2、smart-doc 介绍"></a>2、smart-doc 介绍</h2><p><code>smart-doc</code> 是一个彻底无侵入的 <code>java Rest Api</code> 文档生成工具。让用户的代码保持整洁一直是 <code>smart-doc</code> 的核心理念。使用过 <code>swagger </code>的人就知道，为了生成文档，一个接口上要写上许许多多的注解，不仅繁杂，而且侵入式程度很高，对 <code>swagger </code>有很强的依赖，而 <code>smart-doc </code>则是要简洁许多，不需要写注解，不想用了，去掉依赖即可，非常方便。</p>
+<h2 id="3、准备工作"><a href="#3、准备工作" class="headerlink" title="3、准备工作"></a>3、准备工作</h2><h3 id="3-1、准备环境"><a href="#3-1、准备环境" class="headerlink" title="3.1、准备环境"></a>3.1、准备环境</h3><p>准备一台 linux 虚拟机，安装 docker 环境以及 docker-compose，也使用 windows 电脑上的 wsl 环境，去 docker 的官网安装 win 版 docker，本文使用的环境为 win 版docker。</p>
+<h3 id="3-2、拉取项目"><a href="#3-2、拉取项目" class="headerlink" title="3.2、拉取项目"></a>3.2、拉取项目</h3><p><font color="orange">项目地址：</font></p>
 <p><code>https://gitee.com/durcframework/torna/tree/master/torna-docker-compose</code></p>
 <p><font color="orange">git地址：</font></p>
 <p><code>https://gitee.com/durcframework/torna.git</code></p>
@@ -331,7 +331,7 @@
 
 
 
-<h3 id="配置文件内容介绍"><a href="#配置文件内容介绍" class="headerlink" title="配置文件内容介绍"></a>配置文件内容介绍</h3><blockquote>
+<h3 id="3-3、配置文件内容介绍"><a href="#3-3、配置文件内容介绍" class="headerlink" title="3.3、配置文件内容介绍"></a>3.3、配置文件内容介绍</h3><blockquote>
 <p>docker-compose.yml</p>
 </blockquote>
 <p>总共是编排了两个容器，一个是 <code>mysql</code>，一个是 <code>torna </code>，与源文件相比，我开放了 <code>3306 </code>端口，并且设置了 <code>mysql </code>的数据目录挂载。</p>
@@ -365,7 +365,7 @@
 <p>mysql.sql</p>
 </blockquote>
 <p><code>torna </code>项目的建库建表 <code>sql</code>，这里不做赘述。</p>
-<h2 id="构建项目"><a href="#构建项目" class="headerlink" title="构建项目"></a>构建项目</h2><h3 id="拉取所需镜像"><a href="#拉取所需镜像" class="headerlink" title="拉取所需镜像"></a>拉取所需镜像</h3><blockquote>
+<h2 id="4、构建项目"><a href="#4、构建项目" class="headerlink" title="4、构建项目"></a>4、构建项目</h2><h3 id="4-1、拉取所需镜像"><a href="#4-1、拉取所需镜像" class="headerlink" title="4.1、拉取所需镜像"></a>4.1、拉取所需镜像</h3><blockquote>
 <p>mysql</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
@@ -379,7 +379,7 @@
 
 
 
-<h3 id="编排容器"><a href="#编排容器" class="headerlink" title="编排容器"></a>编排容器</h3><p> 在 docker-compose.yml 文件的路径下执行：</p>
+<h3 id="4-2、编排容器"><a href="#4-2、编排容器" class="headerlink" title="4.2、编排容器"></a>4.2、编排容器</h3><p> 在 docker-compose.yml 文件的路径下执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编排容器</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看编排容器运行情况</span></span><br><span class="line">docker-compose ps</span><br></pre></td></tr></table></figure>
 
 
@@ -389,14 +389,14 @@
 
 
 <p>可以看到两个项目都已成功运行。</p>
-<h3 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h3><p>若是有容器一直处于 <code>restart </code>的状态或是访问 <code>torna </code>页面失败，则可以使用命令：</p>
+<h3 id="4-3、可能遇到的问题"><a href="#4-3、可能遇到的问题" class="headerlink" title="4.3、可能遇到的问题"></a>4.3、可能遇到的问题</h3><p>若是有容器一直处于 <code>restart </code>的状态或是访问 <code>torna </code>页面失败，则可以使用命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f mysql </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者</span></span><br><span class="line">docker logs -f torna</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看具体的问题</span></span><br></pre></td></tr></table></figure>
 
 
 
 <p>我遇到的问题是，<code>docker-compose up -d</code> 命令编排之后，<code>mysql </code>容器并未自动执行 <code>mysql.sql</code> 建表 <code>sql</code>，导致 <code>torna </code>启动失败，错误为 <code>mysql</code> 中没有找到 <code>torna </code>数据库。</p>
 <p>我随即使用数据库连接工具连接 <code>mysql</code>，手动建立 <code>torna </code>数据库，并执行 <code>mysql.sql </code>文件。再使用 <code>docker restart torna</code> 重启 <code>torna </code>容器。</p>
-<h3 id="访问-torna"><a href="#访问-torna" class="headerlink" title="访问 torna"></a>访问 torna</h3><p>部署在本机的话，在浏览器输入：<code>127.0.0.1:7700</code> ，即可访问项目，初始账户为： <code>admin@torna.cn</code> 密码为：<code>123456</code></p>
+<h3 id="4-4、访问-torna"><a href="#4-4、访问-torna" class="headerlink" title="4.4、访问 torna"></a>4.4、访问 torna</h3><p>部署在本机的话，在浏览器输入：<code>127.0.0.1:7700</code> ，即可访问项目，初始账户为： <code>admin@torna.cn</code> 密码为：<code>123456</code></p>
 <img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220218102558851.png" style="width:60%">
 
 
@@ -415,18 +415,18 @@
 
 
 
-<h2 id="smart-doc-与-springboot-结合"><a href="#smart-doc-与-springboot-结合" class="headerlink" title="smart-doc 与 springboot 结合"></a>smart-doc 与 springboot 结合</h2><h3 id="maven-引入依赖"><a href="#maven-引入依赖" class="headerlink" title="maven 引入依赖"></a>maven 引入依赖</h3><p><font color="orange">仔细阅读每个配置项的注释，然后根据自己项目情况去配置</font></p>
+<h2 id="5、smart-doc-与-springboot-结合"><a href="#5、smart-doc-与-springboot-结合" class="headerlink" title="5、smart-doc 与 springboot 结合"></a>5、smart-doc 与 springboot 结合</h2><h3 id="5-1、maven-引入依赖"><a href="#5-1、maven-引入依赖" class="headerlink" title="5.1、maven 引入依赖"></a>5.1、maven 引入依赖</h3><p><font color="orange">仔细阅读每个配置项的注释，然后根据自己项目情况去配置</font></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.shalousun<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>smart-doc-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>[最新版本]<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--指定生成文档的使用的配置文件,配置文件放在自己的项目中--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configFile</span>&gt;</span>./src/main/resources/smart-doc.json<span class="tag">&lt;/<span class="name">configFile</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--指定项目名称--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">projectName</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">projectName</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--smart-doc实现自动分析依赖树加载第三方依赖的源码，如果一些框架依赖库加载不到导致报错，这时请使用excludes排除掉--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--格式为：groupId:artifactId;参考如下--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--也可以支持正则式如：com.alibaba:.* --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>com.alibaba:fastjson<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--includes配置用于配置加载外部依赖源码,配置后插件会按照配置项加载外部源代码而不是自动加载所有，因此使用时需要注意--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--smart-doc能自动分析依赖树加载所有依赖源码，原则上会影响文档构建效率，因此你可以使用includes来让插件加载你配置的组件--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--格式为：groupId:artifactId;参考如下--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--也可以支持正则式如：com.alibaba:.* --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">include</span>&gt;</span>com.alibaba:fastjson<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--如果不需要在执行编译时启动smart-doc，则将phase注释掉--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--smart-doc提供了html、openapi、markdown等goal，可按需配置--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>html<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="smart-doc-json"><a href="#smart-doc-json" class="headerlink" title="smart-doc.json"></a>smart-doc.json</h3><p>在 resource 目录下新建 smart-doc.json 文件，具体的配置请访问：<a target="_blank" rel="noopener" href="https://smart-doc-group.github.io/#/zh-cn/diy/config">https://smart-doc-group.github.io/#/zh-cn/diy/config</a></p>
+<h3 id="5-2、smart-doc-json"><a href="#5-2、smart-doc-json" class="headerlink" title="5.2、smart-doc.json"></a>5.2、smart-doc.json</h3><p>在 resource 目录下新建 smart-doc.json 文件，具体的配置请访问：<a target="_blank" rel="noopener" href="https://smart-doc-group.github.io/#/zh-cn/diy/config">https://smart-doc-group.github.io/#/zh-cn/diy/config</a></p>
 <p>我的配置如下：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;serverUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://127.0.0.1:3333/workflow&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;isStrict&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;allInOne&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;outPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;src/main/resources/static/doc&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;coverOld&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;createDebugPage&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;style&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xt256&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;packageFilters&quot;</span><span class="punctuation">:</span> <span class="string">&quot;com.product6.controller.*&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;appToken&quot;</span><span class="punctuation">:</span> <span class="string">&quot;08a91f662cae459a91238fafaa6e371c&quot;</span><span class="punctuation">,</span> <span class="comment">// 注意 appToken 为 OpenAPI 中的 token</span></span><br><span class="line">  <span class="attr">&quot;openUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://127.0.0.1:7700/api&quot;</span><span class="punctuation">,</span> <span class="comment">// openUrl 为 OpenAPI 中的请求路径</span></span><br><span class="line">  <span class="attr">&quot;md5EncryptedHtmlName&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;projectName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;workflow&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;debugEnvName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;测试环境&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;replace&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;debugEnvUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://127.0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;tornaDebug&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;inlineEnum&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;skipTransientField&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;errorCodeDictionaries&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;title&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;enumClassName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;com.product6.result.CommonCode&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;codeField&quot;</span><span class="punctuation">:</span> <span class="string">&quot;code&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;descField&quot;</span><span class="punctuation">:</span> <span class="string">&quot;message&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="执行推送"><a href="#执行推送" class="headerlink" title="执行推送"></a>执行推送</h3><p>使用 <code>smart-doc</code> 插件进行推送</p>
+<h3 id="5-3、执行推送"><a href="#5-3、执行推送" class="headerlink" title="5.3、执行推送"></a>5.3、执行推送</h3><p>使用 <code>smart-doc</code> 插件进行推送</p>
 <img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220218110503181.png" style="width:30%">
 
 
@@ -438,12 +438,12 @@
 
 
 
-<h3 id="可能遇到的问题-1"><a href="#可能遇到的问题-1" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h3><p>推送中遇到 <code>Data too long for column &#39;example&#39; at row 1 ....</code>，定位到是 mysql 中 doc_param 表中 example 字段长度太短，原来为 varchar(1024)，我将其修改为 text 类型</p>
+<h3 id="5-4、可能遇到的问题"><a href="#5-4、可能遇到的问题" class="headerlink" title="5.4、可能遇到的问题"></a>5.4、可能遇到的问题</h3><p>推送中遇到 <code>Data too long for column &#39;example&#39; at row 1 ....</code>，定位到是 mysql 中 doc_param 表中 example 字段长度太短，原来为 varchar(1024)，我将其修改为 text 类型</p>
 <img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220218111451227.png" style="width:80%">
 
 
 
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<h2 id="6、总结"><a href="#6、总结" class="headerlink" title="6、总结"></a>6、总结</h2><ol>
 <li><p>依赖于网上的教程，不注意去看官网</p>
 <p>网上的教程有一定时效性，像是 <code>torna </code>新版本只需要 <code>appToken </code>认证即可，旧的版本则需要 <code>appKey</code>,<code>appToken</code>,<code>secret </code>三个值，依据网上的教程，我死活找不到 开放用户的选项，也就无法获取 <code>appKey</code>,&#96;&#96;appToken<code>,</code>secret&#96; 这三个值，最后求助于官方群，也感谢作者的耐心解答。</p>
 <p><font color="orange">一般官网上的教程都是最新的，优先去查阅官网。</font></p>
@@ -768,14 +768,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -785,6 +777,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -824,19 +824,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -861,6 +853,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -892,10 +892,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -905,6 +901,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -960,15 +960,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -988,19 +988,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

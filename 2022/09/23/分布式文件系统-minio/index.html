@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="分布式文件存储系统 Minio Minio简介Minio 是一个基于 Apache License v2.0 开源协议的对象存储服务，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。 Minio 是一个非常轻量的服务，可以很简单的和其它应用结合，类似 NodeJS，Redis 或者 MySQ">
+  <meta name="description" content="分布式文件存储系统 Minio Minio1、简介Minio 是一个基于 Apache License v2.0 开源协议的对象存储服务，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。 Minio 是一个非常轻量的服务，可以很简单的和其它应用结合，类似 NodeJS，Redis 或者 My">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式文件系统 minio">
 <meta property="og:url" content="https://hqzqaq.github.io/2022/09/23/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-minio/index.html">
 <meta property="og:site_name" content="hqz的博客">
-<meta property="og:description" content="分布式文件存储系统 Minio Minio简介Minio 是一个基于 Apache License v2.0 开源协议的对象存储服务，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。 Minio 是一个非常轻量的服务，可以很简单的和其它应用结合，类似 NodeJS，Redis 或者 MySQ">
+<meta property="og:description" content="分布式文件存储系统 Minio Minio1、简介Minio 是一个基于 Apache License v2.0 开源协议的对象存储服务，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。 Minio 是一个非常轻量的服务，可以很简单的和其它应用结合，类似 NodeJS，Redis 或者 My">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-23T06:06:23.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:05:13.430Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.157Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="分布式">
 <meta property="article:tag" content="minio">
@@ -265,7 +265,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.8k字</span>
+      <span class="post-count">1.9k字</span>
     </span>
   </span>
 
@@ -286,18 +286,18 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p><font style="color:#30dda0;font-size:50px">分布式文件存储系统 Minio</font></p>
-<h1 id="Minio"><a href="#Minio" class="headerlink" title="Minio"></a>Minio</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Minio 是一个基于 Apache License v2.0 开源协议的对象存储服务，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。</p>
+<h1 id="Minio"><a href="#Minio" class="headerlink" title="Minio"></a>Minio</h1><h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p>Minio 是一个基于 Apache License v2.0 开源协议的对象存储服务，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。</p>
 <p>Minio 是一个非常轻量的服务，可以很简单的和其它应用结合，类似 NodeJS，Redis 或者 MySQL</p>
 <span id="more"></span>
 
-<h2 id="Minio-优点"><a href="#Minio-优点" class="headerlink" title="Minio 优点"></a>Minio 优点</h2><ul>
+<h2 id="2、Minio-优点"><a href="#2、Minio-优点" class="headerlink" title="2、Minio 优点"></a>2、Minio 优点</h2><ul>
 <li>部署简单：一个 single 二进制文件即是一切，还可支持各种平台</li>
 <li>minio 支持海量存储，可按 zone 扩展（原 zone 不受影响），支持单个对象最大 5TB</li>
 <li>兼容 Amazon S3 接口，充分考虑开发人员的需求和体验</li>
 <li>低冗余且磁盘损坏高容忍，标准且最高的数据冗余系数为2（即存储一个 1M 的数据对象，实际占用磁盘空间为 2M），但在任意 n&#x2F;2 块的 disk 损坏的情况下依然可以读出数据（n 为一个纠删码集合（Erasure Coding Set）中的 disk 数量）并且这种损坏恢复是基于单个对象的，而不是基于整个存储卷的</li>
 <li>读写性能优异</li>
 </ul>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<h2 id="3、基本概念"><a href="#3、基本概念" class="headerlink" title="3、基本概念"></a>3、基本概念</h2><ul>
 <li><strong>Object</strong>：存储到 Minio 的基本对象，如文件、字节流、Anything …</li>
 <li><strong>Bucket</strong>：用来存储 Object 的逻辑空间，每个 Bucket 之间的数据是相互隔离的，对于客户端而言，就相当于一个存放文件的顶层文件夹</li>
 <li><strong>Drive</strong>：即存储数据的磁盘，在 Minio 启动时，以参数的方式传入，Minio 中所有的对象数据都会存储在 Drive 里</li>
@@ -309,12 +309,12 @@
 </ul>
 </li>
 </ul>
-<h2 id="纠删码-EC（Erasure-Code）"><a href="#纠删码-EC（Erasure-Code）" class="headerlink" title="纠删码 EC（Erasure Code）"></a>纠删码 EC（Erasure Code）</h2><p>Minio 使用纠删码来保证高可靠性，使用 highwayhash 来处理数据损坏（Bit Rot Protection）</p>
+<h2 id="4、纠删码-EC（Erasure-Code）"><a href="#4、纠删码-EC（Erasure-Code）" class="headerlink" title="4、纠删码 EC（Erasure Code）"></a>4、纠删码 EC（Erasure Code）</h2><p>Minio 使用纠删码来保证高可靠性，使用 highwayhash 来处理数据损坏（Bit Rot Protection）</p>
 <blockquote>
 <p>纠删码：是一种恢复丢失和损坏数据的算法，Minio 采用 Reed-Solomon code 将对象拆分成 N&#x2F;2 数据和 N&#x2F;2 奇偶校验块。通过数学计算，把丢失的数据进行还原，可以将 n 份原始数据，增加 m 份数据，并通过 n + m 份中的任意 n 份数据，还原为原始数据，即如果有任意小于等于 m 份的数据失效，仍然能通过剩下的数据还原出来</p>
 </blockquote>
-<h2 id="存储形式"><a href="#存储形式" class="headerlink" title="存储形式"></a>存储形式</h2><p>文件对象上传到 Minio，会在对应的数据存储磁盘中，以 Bucket 名称为目录，文件名称为下一级目录，文件名下时 part.1 和 xl.meta，前者是编码数据块，后者是元数据文件</p>
-<h2 id="docker-部署"><a href="#docker-部署" class="headerlink" title="docker 部署"></a>docker 部署</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单盘启动</span></span><br><span class="line">docker run -d \</span><br><span class="line">  -p 9000:9000 \</span><br><span class="line">  -p 9003:9003 \</span><br><span class="line">  --name minio\</span><br><span class="line">  -v /docker/minio/data:/data \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_USER=minio&quot;</span> \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_PASSWORD=minio&quot;</span> \</span><br><span class="line">  minio/minio server /data --console-address <span class="string">&quot;:9003&quot;</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 多盘启动</span></span><br><span class="line">docker run -d \</span><br><span class="line">  -p 9000:9000 \</span><br><span class="line">  -p 9003:9003 \</span><br><span class="line">  --name minio\</span><br><span class="line">  -v /docker/minio/data1:/data1 \</span><br><span class="line">  -v /docker/minio/data2:/data2 \</span><br><span class="line">  -v /docker/minio/data3:/data3 \</span><br><span class="line">  -v /docker/minio/data4:/data4 \</span><br><span class="line">  -v /docker/minio/data5:/data5 \</span><br><span class="line">  -v /docker/minio/data6:/data6 \</span><br><span class="line">  -v /docker/minio/data7:/data7 \</span><br><span class="line">  -v /docker/minio/data8:/data8 \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_USER=minio&quot;</span> \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_PASSWORD=minio&quot;</span> \</span><br><span class="line">  minio/minio server /data&#123;1...8&#125; --console-address <span class="string">&quot;:9003&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="5、存储形式"><a href="#5、存储形式" class="headerlink" title="5、存储形式"></a>5、存储形式</h2><p>文件对象上传到 Minio，会在对应的数据存储磁盘中，以 Bucket 名称为目录，文件名称为下一级目录，文件名下时 part.1 和 xl.meta，前者是编码数据块，后者是元数据文件</p>
+<h2 id="6、docker-部署"><a href="#6、docker-部署" class="headerlink" title="6、docker 部署"></a>6、docker 部署</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单盘启动</span></span><br><span class="line">docker run -d \</span><br><span class="line">  -p 9000:9000 \</span><br><span class="line">  -p 9003:9003 \</span><br><span class="line">  --name minio\</span><br><span class="line">  -v /docker/minio/data:/data \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_USER=minio&quot;</span> \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_PASSWORD=minio&quot;</span> \</span><br><span class="line">  minio/minio server /data --console-address <span class="string">&quot;:9003&quot;</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 多盘启动</span></span><br><span class="line">docker run -d \</span><br><span class="line">  -p 9000:9000 \</span><br><span class="line">  -p 9003:9003 \</span><br><span class="line">  --name minio\</span><br><span class="line">  -v /docker/minio/data1:/data1 \</span><br><span class="line">  -v /docker/minio/data2:/data2 \</span><br><span class="line">  -v /docker/minio/data3:/data3 \</span><br><span class="line">  -v /docker/minio/data4:/data4 \</span><br><span class="line">  -v /docker/minio/data5:/data5 \</span><br><span class="line">  -v /docker/minio/data6:/data6 \</span><br><span class="line">  -v /docker/minio/data7:/data7 \</span><br><span class="line">  -v /docker/minio/data8:/data8 \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_USER=minio&quot;</span> \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_PASSWORD=minio&quot;</span> \</span><br><span class="line">  minio/minio server /data&#123;1...8&#125; --console-address <span class="string">&quot;:9003&quot;</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -325,29 +325,29 @@
 
 
 
-<h2 id="分布式集群"><a href="#分布式集群" class="headerlink" title="分布式集群"></a>分布式集群</h2><p>分布式 Minio 可以将多块硬盘（甚至在不同机器上）组成一个对象存储服务，由于硬盘分布在不同的节点上，分布式 Minio 避免了单点故障</p>
+<h2 id="7、分布式集群"><a href="#7、分布式集群" class="headerlink" title="7、分布式集群"></a>7、分布式集群</h2><p>分布式 Minio 可以将多块硬盘（甚至在不同机器上）组成一个对象存储服务，由于硬盘分布在不同的节点上，分布式 Minio 避免了单点故障</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minio server http://host&#123;1...n&#125;/export&#123;1...m&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="分布式存储可靠性常用方法"><a href="#分布式存储可靠性常用方法" class="headerlink" title="分布式存储可靠性常用方法"></a>分布式存储可靠性常用方法</h2><p>分布式存储，关键的点在于数据的可靠性，即保证数据的完整、不丢失、不损坏。只有在可靠性实现的前提下，才有了追求一致性、高可用、高性能的基础。</p>
-<h3 id="冗余"><a href="#冗余" class="headerlink" title="冗余"></a>冗余</h3><p>冗余法是最简单最直接的方法，即对存储的数据进行副本备份，当数据出现丢失、损坏，即可使用备份内容进行恢复，而副本备份的多少，决定了数据库可靠性的高低。这其中会有成本的考量，副本数据越多，数据越可靠，但需要的设备就越多，成本就越高。可靠性是允许丢失其中一份数据。</p>
-<h3 id="校验"><a href="#校验" class="headerlink" title="校验"></a>校验</h3><p>校验法即通过校验码的数学计算的方式，对出现丢失、损坏的数据进行校验、还原。</p>
+<h2 id="8、分布式存储可靠性常用方法"><a href="#8、分布式存储可靠性常用方法" class="headerlink" title="8、分布式存储可靠性常用方法"></a>8、分布式存储可靠性常用方法</h2><p>分布式存储，关键的点在于数据的可靠性，即保证数据的完整、不丢失、不损坏。只有在可靠性实现的前提下，才有了追求一致性、高可用、高性能的基础。</p>
+<h3 id="8-1、冗余"><a href="#8-1、冗余" class="headerlink" title="8.1、冗余"></a>8.1、冗余</h3><p>冗余法是最简单最直接的方法，即对存储的数据进行副本备份，当数据出现丢失、损坏，即可使用备份内容进行恢复，而副本备份的多少，决定了数据库可靠性的高低。这其中会有成本的考量，副本数据越多，数据越可靠，但需要的设备就越多，成本就越高。可靠性是允许丢失其中一份数据。</p>
+<h3 id="8-2、校验"><a href="#8-2、校验" class="headerlink" title="8.2、校验"></a>8.2、校验</h3><p>校验法即通过校验码的数学计算的方式，对出现丢失、损坏的数据进行校验、还原。</p>
 <ol>
 <li>校验：通过对数据进行校验和计算，可以检查数据是否完整，有无损坏或更改，在数据传输和保存时经常用到，如 TCP 协议</li>
 <li>恢复还原：通过对数据的校验码进行数据计算，还原丢失或损坏的数据，可以在保证数据可靠的前提下，降低冗余，如单机硬盘存储中的 RAID 技术，纠删码（Erasure Code）技术等</li>
 </ol>
-<h2 id="分布式-Minio-的优势"><a href="#分布式-Minio-的优势" class="headerlink" title="分布式 Minio 的优势"></a>分布式 Minio 的优势</h2><h3 id="数据保护"><a href="#数据保护" class="headerlink" title="数据保护"></a>数据保护</h3><ul>
+<h2 id="9、分布式-Minio-的优势"><a href="#9、分布式-Minio-的优势" class="headerlink" title="9、分布式 Minio 的优势"></a>9、分布式 Minio 的优势</h2><h3 id="9-1、数据保护"><a href="#9-1、数据保护" class="headerlink" title="9.1、数据保护"></a>9.1、数据保护</h3><ul>
 <li>分布式 Minio 采用纠删码来防范多个节点宕机和位衰减 bit rot</li>
 <li>分布式 Minio 至少需要 4 个硬盘，使用分布式 Minio 自动引入纠删码功能</li>
 </ul>
-<h3 id="高可用"><a href="#高可用" class="headerlink" title="高可用"></a>高可用</h3><ul>
+<h3 id="9-2、高可用"><a href="#9-2、高可用" class="headerlink" title="9.2、高可用"></a>9.2、高可用</h3><ul>
 <li>单机 Minio 服务存在单点故障，相反，如果是一个有 N 块硬盘的分布式 Minio，只要有 N&#x2F;2 硬盘在线，数据就是安全的，不过，至少需要有 N&#x2F;2 + 1 个硬盘来创建新的对象</li>
 </ul>
-<h3 id="一致性"><a href="#一致性" class="headerlink" title="一致性"></a>一致性</h3><ul>
+<h3 id="9-3、一致性"><a href="#9-3、一致性" class="headerlink" title="9.3、一致性"></a>9.3、一致性</h3><ul>
 <li>Minio 在分布式和单机模式下，所有读写操作都严格遵守 read-after-write 一致性模型</li>
 </ul>
-<h2 id="分布式-Minio"><a href="#分布式-Minio" class="headerlink" title="分布式 Minio"></a>分布式 Minio</h2><p>启动一个分布式 Minio 实例，只需要把硬盘位置作为参数传给 minio server 命令即可，然后需要在所有其它节点运行同样的命令。</p>
+<h2 id="10、分布式-Minio"><a href="#10、分布式-Minio" class="headerlink" title="10、分布式 Minio"></a>10、分布式 Minio</h2><p>启动一个分布式 Minio 实例，只需要把硬盘位置作为参数传给 minio server 命令即可，然后需要在所有其它节点运行同样的命令。</p>
 <ul>
 <li>分布式 Minio 里所有的节点需要有<font color="orange">同样的 access 密钥和 secret 密钥</font>，这样这些节点才能建立联接，为了实现这个，需要在 minio server 命令之前，先将 access 密钥和 secret 密钥 export 为环境变量</li>
 <li>分布式 Minio 使用的磁盘必须是干净的，里面没有数据</li>
@@ -670,14 +670,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -687,6 +679,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -726,19 +726,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -763,6 +755,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -794,10 +794,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -807,6 +803,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -862,15 +862,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -890,19 +890,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

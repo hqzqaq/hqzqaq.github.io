@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="mongoDB插入123456789db.getCollection(&quot;collection&quot;).insert()db.collection.insert(&amp;#123;title:&amp;#x27;mongodb&amp;#x27;,desc:&amp;#x27;插入信息&amp;#x27;&amp;#125;)db.getCollection(&quot;collection&quot;).insertMany(">
+  <meta name="description" content="mongoDB1、插入123456789db.getCollection(&quot;collection&quot;).insert()db.collection.insert(&amp;#123;title:&amp;#x27;mongodb&amp;#x27;,desc:&amp;#x27;插入信息&amp;#x27;&amp;#125;)db.getCollection(&quot;collection&quot;).insertMan">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mongoDB">
 <meta property="og:url" content="https://hqzqaq.github.io/2022/09/23/mongoDB/index.html">
 <meta property="og:site_name" content="hqz的博客">
-<meta property="og:description" content="mongoDB插入123456789db.getCollection(&quot;collection&quot;).insert()db.collection.insert(&amp;#123;title:&amp;#x27;mongodb&amp;#x27;,desc:&amp;#x27;插入信息&amp;#x27;&amp;#125;)db.getCollection(&quot;collection&quot;).insertMany(">
+<meta property="og:description" content="mongoDB1、插入123456789db.getCollection(&quot;collection&quot;).insert()db.collection.insert(&amp;#123;title:&amp;#x27;mongodb&amp;#x27;,desc:&amp;#x27;插入信息&amp;#x27;&amp;#125;)db.getCollection(&quot;collection&quot;).insertMan">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-23T05:48:30.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:29:27.214Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.157Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="mongoDB">
 <meta property="article:tag" content="数据库">
@@ -264,7 +264,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">7.3k字</span>
+      <span class="post-count">7.4k字</span>
     </span>
   </span>
 
@@ -284,19 +284,19 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="mongoDB"><a href="#mongoDB" class="headerlink" title="mongoDB"></a>mongoDB</h1><h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="title function_">getCollection</span>(<span class="string">&quot;collection&quot;</span>).<span class="title function_">insert</span>()</span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">insert</span>(&#123;</span><br><span class="line"><span class="attr">title</span>:<span class="string">&#x27;mongodb&#x27;</span>,</span><br><span class="line"><span class="attr">desc</span>:<span class="string">&#x27;插入信息&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">db.<span class="title function_">getCollection</span>(<span class="string">&quot;collection&quot;</span>).<span class="title function_">insertMany</span>([&#123;</span><br><span class="line"> 	.......                                     </span><br><span class="line"> &#125;]))</span><br></pre></td></tr></table></figure>
+    <h1 id="mongoDB"><a href="#mongoDB" class="headerlink" title="mongoDB"></a>mongoDB</h1><h2 id="1、插入"><a href="#1、插入" class="headerlink" title="1、插入"></a>1、插入</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="title function_">getCollection</span>(<span class="string">&quot;collection&quot;</span>).<span class="title function_">insert</span>()</span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">insert</span>(&#123;</span><br><span class="line"><span class="attr">title</span>:<span class="string">&#x27;mongodb&#x27;</span>,</span><br><span class="line"><span class="attr">desc</span>:<span class="string">&#x27;插入信息&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">db.<span class="title function_">getCollection</span>(<span class="string">&quot;collection&quot;</span>).<span class="title function_">insertMany</span>([&#123;</span><br><span class="line"> 	.......                                     </span><br><span class="line"> &#125;]))</span><br></pre></td></tr></table></figure>
 
 <span id="more"></span>
 
-<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">a</span>:<span class="string">&#x27;abc&#x27;</span>&#125;)</span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">findOne</span>(&#123;<span class="attr">a</span>:<span class="string">&#x27;abc&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">-- 投影查询，只显示部分字段</span><br><span class="line">-- 第二个参数中 <span class="number">1</span>代表查询该字段，<span class="number">0</span>代表不查询该字段</span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">a</span>:<span class="string">&#x27;abc&#x27;</span>&#125;,&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">_id</span>:<span class="number">0</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="2、查询"><a href="#2、查询" class="headerlink" title="2、查询"></a>2、查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">a</span>:<span class="string">&#x27;abc&#x27;</span>&#125;)</span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">findOne</span>(&#123;<span class="attr">a</span>:<span class="string">&#x27;abc&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">-- 投影查询，只显示部分字段</span><br><span class="line">-- 第二个参数中 <span class="number">1</span>代表查询该字段，<span class="number">0</span>代表不查询该字段</span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">a</span>:<span class="string">&#x27;abc&#x27;</span>&#125;,&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">_id</span>:<span class="number">0</span>&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="try-catch"><a href="#try-catch" class="headerlink" title="try-catch"></a>try-catch</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	db.<span class="title function_">getCollection</span>(<span class="string">&quot;collection&quot;</span>).<span class="title function_">insertMany</span>([&#123;&#125;]))</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(e)&#123;</span><br><span class="line">	<span class="title function_">print</span>(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3、try-catch"><a href="#3、try-catch" class="headerlink" title="3、try-catch"></a>3、try-catch</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	db.<span class="title function_">getCollection</span>(<span class="string">&quot;collection&quot;</span>).<span class="title function_">insertMany</span>([&#123;&#125;]))</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(e)&#123;</span><br><span class="line">	<span class="title function_">print</span>(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><blockquote>
+<h2 id="4、更新"><a href="#4、更新" class="headerlink" title="4、更新"></a>4、更新</h2><blockquote>
 <p>覆盖的修改</p>
 </blockquote>
 <blockquote>
@@ -306,61 +306,61 @@
 
 
 
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="property">collection</span>.<span class="title function_">remove</span>(&#123;<span class="attr">_id</span>:<span class="title class_">ObjectId</span>(<span class="string">&quot;60967aeaf54b0000920026c2&quot;</span>)&#125;)</span><br><span class="line"><span class="comment">// 删除所有</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">remove</span>(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="5、删除"><a href="#5、删除" class="headerlink" title="5、删除"></a>5、删除</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="property">collection</span>.<span class="title function_">remove</span>(&#123;<span class="attr">_id</span>:<span class="title class_">ObjectId</span>(<span class="string">&quot;60967aeaf54b0000920026c2&quot;</span>)&#125;)</span><br><span class="line"><span class="comment">// 删除所有</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">remove</span>(&#123;&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="统计查询"><a href="#统计查询" class="headerlink" title="统计查询"></a>统计查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询总数</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">count</span>()</span><br><span class="line"><span class="comment">// 待条件查询</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">count</span>(&#123;<span class="attr">title</span>:<span class="string">&#x27;mongodb&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="6、统计查询"><a href="#6、统计查询" class="headerlink" title="6、统计查询"></a>6、统计查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询总数</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">count</span>()</span><br><span class="line"><span class="comment">// 待条件查询</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">count</span>(&#123;<span class="attr">title</span>:<span class="string">&#x27;mongodb&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// limit 每页数量 skip 起算位置</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>().<span class="title function_">limit</span>(<span class="number">2</span>).<span class="title function_">skip</span>(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="7、分页查询"><a href="#7、分页查询" class="headerlink" title="7、分页查询"></a>7、分页查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// limit 每页数量 skip 起算位置</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>().<span class="title function_">limit</span>(<span class="number">2</span>).<span class="title function_">skip</span>(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1 为升序 -1 为降序</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>().<span class="title function_">sort</span>(&#123;<span class="attr">a</span>:-<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="8、排序查询"><a href="#8、排序查询" class="headerlink" title="8、排序查询"></a>8、排序查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1 为升序 -1 为降序</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>().<span class="title function_">sort</span>(&#123;<span class="attr">a</span>:-<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>当sort()、skip()、limit() 放在一起时<code>先执行 sort() 再执行 skip() 最后执行 limit()</code></p>
-<h2 id="正则的复杂条件查询"><a href="#正则的复杂条件查询" class="headerlink" title="正则的复杂条件查询"></a>正则的复杂条件查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询 title字段中包含 mo 的记录</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">title</span>:<span class="regexp">/mo/</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="9、正则的复杂条件查询"><a href="#9、正则的复杂条件查询" class="headerlink" title="9、正则的复杂条件查询"></a>9、正则的复杂条件查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询 title字段中包含 mo 的记录</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">title</span>:<span class="regexp">/mo/</span>&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="比较查询"><a href="#比较查询" class="headerlink" title="比较查询"></a>比较查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.集合名称.<span class="title function_">find</span>(&#123;<span class="string">&quot;field&quot;</span>:&#123;<span class="attr">$gt</span>:value&#125;&#125;) <span class="comment">// 大于</span></span><br><span class="line">db.集合名称.<span class="title function_">find</span>(&#123;<span class="string">&quot;field&quot;</span>:&#123;<span class="attr">$lt</span>:value&#125;&#125;) <span class="comment">// 小于</span></span><br><span class="line">db.集合名称.<span class="title function_">find</span>(&#123;<span class="string">&quot;field&quot;</span>:&#123;<span class="attr">$gte</span>:value&#125;&#125;) <span class="comment">// 大于等于</span></span><br><span class="line">db.集合名称.<span class="title function_">find</span>(&#123;<span class="string">&quot;field&quot;</span>:&#123;<span class="attr">$lte</span>:value&#125;&#125;) <span class="comment">// 小于等于</span></span><br><span class="line">db.集合名称.<span class="title function_">find</span>(&#123;<span class="string">&quot;field&quot;</span>:&#123;<span class="attr">$ne</span>:value&#125;&#125;) <span class="comment">// 不等于</span></span><br><span class="line"></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">likeNum</span>:&#123;<span class="attr">$gt</span>:<span class="title class_">NumberInt</span>(<span class="number">700</span>)&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="10、比较查询"><a href="#10、比较查询" class="headerlink" title="10、比较查询"></a>10、比较查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.集合名称.<span class="title function_">find</span>(&#123;<span class="string">&quot;field&quot;</span>:&#123;<span class="attr">$gt</span>:value&#125;&#125;) <span class="comment">// 大于</span></span><br><span class="line">db.集合名称.<span class="title function_">find</span>(&#123;<span class="string">&quot;field&quot;</span>:&#123;<span class="attr">$lt</span>:value&#125;&#125;) <span class="comment">// 小于</span></span><br><span class="line">db.集合名称.<span class="title function_">find</span>(&#123;<span class="string">&quot;field&quot;</span>:&#123;<span class="attr">$gte</span>:value&#125;&#125;) <span class="comment">// 大于等于</span></span><br><span class="line">db.集合名称.<span class="title function_">find</span>(&#123;<span class="string">&quot;field&quot;</span>:&#123;<span class="attr">$lte</span>:value&#125;&#125;) <span class="comment">// 小于等于</span></span><br><span class="line">db.集合名称.<span class="title function_">find</span>(&#123;<span class="string">&quot;field&quot;</span>:&#123;<span class="attr">$ne</span>:value&#125;&#125;) <span class="comment">// 不等于</span></span><br><span class="line"></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">likeNum</span>:&#123;<span class="attr">$gt</span>:<span class="title class_">NumberInt</span>(<span class="number">700</span>)&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="包含查询"><a href="#包含查询" class="headerlink" title="包含查询"></a>包含查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 包含</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">title</span>:&#123;<span class="attr">$in</span>:[<span class="string">&quot;mongodb&quot;</span>]&#125;&#125;)</span><br><span class="line"><span class="comment">// 不包含</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">title</span>:&#123;<span class="attr">$nin</span>:[<span class="string">&quot;mongodb&quot;</span>]&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="11、包含查询"><a href="#11、包含查询" class="headerlink" title="11、包含查询"></a>11、包含查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 包含</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">title</span>:&#123;<span class="attr">$in</span>:[<span class="string">&quot;mongodb&quot;</span>]&#125;&#125;)</span><br><span class="line"><span class="comment">// 不包含</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(&#123;<span class="attr">title</span>:&#123;<span class="attr">$nin</span>:[<span class="string">&quot;mongodb&quot;</span>]&#125;&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="条件连接查询"><a href="#条件连接查询" class="headerlink" title="条件连接查询"></a>条件连接查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">$and</span>:[&#123;...&#125;,&#123;...&#125;,&#123;...&#125;]</span><br><span class="line"><span class="attr">$or</span>:[&#123;...&#125;,&#123;...&#125;,&#123;...&#125;]</span><br></pre></td></tr></table></figure>
+<h2 id="12、条件连接查询"><a href="#12、条件连接查询" class="headerlink" title="12、条件连接查询"></a>12、条件连接查询</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">$and</span>:[&#123;...&#125;,&#123;...&#125;,&#123;...&#125;]</span><br><span class="line"><span class="attr">$or</span>:[&#123;...&#125;,&#123;...&#125;,&#123;...&#125;]</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="单字段索引"><a href="#单字段索引" class="headerlink" title="单字段索引"></a>单字段索引</h3><p>Mongodb支持在文档的单个字段上创建用户定义的升序&#x2F;降序索引，称为单字段索引</p>
+<h2 id="13、索引"><a href="#13、索引" class="headerlink" title="13、索引"></a>13、索引</h2><h3 id="13-1、单字段索引"><a href="#13-1、单字段索引" class="headerlink" title="13.1、单字段索引"></a>13.1、单字段索引</h3><p>Mongodb支持在文档的单个字段上创建用户定义的升序&#x2F;降序索引，称为单字段索引</p>
 <p>对于单个字段索引和排序操作，索引键的排序顺序（即升序和降序）并不重要，因为MongoDB可以在任何方向上遍历索引。</p>
-<h3 id="复合索引"><a href="#复合索引" class="headerlink" title="复合索引"></a>复合索引</h3><p>MongoDB还支持多个字段的用户定义索引。</p>
+<h3 id="13-2、复合索引"><a href="#13-2、复合索引" class="headerlink" title="13.2、复合索引"></a>13.2、复合索引</h3><p>MongoDB还支持多个字段的用户定义索引。</p>
 <p>复合索引中列出的字段顺序具有重要的意义。例如，如果复合索引由{userid:1,score:-1}组成，则索引首先按userid正序排序，然后在每个userid的值内，再按score倒序排序。</p>
-<h3 id="其它索引"><a href="#其它索引" class="headerlink" title="其它索引"></a>其它索引</h3><p>地理空间索引、文本索引、哈希索引</p>
-<h3 id="索引的查看"><a href="#索引的查看" class="headerlink" title="索引的查看"></a>索引的查看</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看数据库索引</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">getIndexes</span>()</span><br></pre></td></tr></table></figure>
+<h3 id="13-3、其它索引"><a href="#13-3、其它索引" class="headerlink" title="13.3、其它索引"></a>13.3、其它索引</h3><p>地理空间索引、文本索引、哈希索引</p>
+<h3 id="13-4、索引的查看"><a href="#13-4、索引的查看" class="headerlink" title="13.4、索引的查看"></a>13.4、索引的查看</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看数据库索引</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">getIndexes</span>()</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="索引的创建"><a href="#索引的创建" class="headerlink" title="索引的创建"></a>索引的创建</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// keys &#123;索引字段:索引类型&#125;  options:&#123;name:&quot;&quot;,unique:Boolean,background:Boollean&#125; name 索引名称 unique 是否为唯一索引 background 后台创建索引 默认为false</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">createIndex</span>(keys,options)</span><br></pre></td></tr></table></figure>
+<h3 id="13-5、索引的创建"><a href="#13-5、索引的创建" class="headerlink" title="13.5、索引的创建"></a>13.5、索引的创建</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// keys &#123;索引字段:索引类型&#125;  options:&#123;name:&quot;&quot;,unique:Boolean,background:Boollean&#125; name 索引名称 unique 是否为唯一索引 background 后台创建索引 默认为false</span></span><br><span class="line">db.<span class="property">collection</span>.<span class="title function_">createIndex</span>(keys,options)</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="property">collection</span>.<span class="title function_">dropIndex</span>(index)</span><br></pre></td></tr></table></figure>
+<h3 id="13-6、删除索引"><a href="#13-6、删除索引" class="headerlink" title="13.6、删除索引"></a>13.6、删除索引</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="property">collection</span>.<span class="title function_">dropIndex</span>(index)</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="索引的使用"><a href="#索引的使用" class="headerlink" title="索引的使用"></a>索引的使用</h3><h4 id="执行计划"><a href="#执行计划" class="headerlink" title="执行计划"></a>执行计划</h4><p>用来分析查询性能，如查询耗费的时间、是否基于索引查询、建立的索引是否有效、效果如何。</p>
+<h3 id="13-7、索引的使用"><a href="#13-7、索引的使用" class="headerlink" title="13.7、索引的使用"></a>13.7、索引的使用</h3><h4 id="13-7-1、执行计划"><a href="#13-7-1、执行计划" class="headerlink" title="13.7.1、执行计划"></a>13.7.1、执行计划</h4><p>用来分析查询性能，如查询耗费的时间、是否基于索引查询、建立的索引是否有效、效果如何。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="property">collection</span>.<span class="title function_">find</span>(query,options).<span class="title function_">explain</span>(options)</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="覆盖查询"><a href="#覆盖查询" class="headerlink" title="覆盖查询"></a>覆盖查询</h4><p>当查询条件和查询的投影仅包含索引字段时，MongoDB直接从索引返回结果，而不扫描任何文档或将文档带入内存。</p>
-<h2 id="高级聚合查询"><a href="#高级聚合查询" class="headerlink" title="高级聚合查询"></a>高级聚合查询</h2><table>
+<h4 id="13-7-2、覆盖查询"><a href="#13-7-2、覆盖查询" class="headerlink" title="13.7.2、覆盖查询"></a>13.7.2、覆盖查询</h4><p>当查询条件和查询的投影仅包含索引字段时，MongoDB直接从索引返回结果，而不扫描任何文档或将文档带入内存。</p>
+<h2 id="14、高级聚合查询"><a href="#14、高级聚合查询" class="headerlink" title="14、高级聚合查询"></a>14、高级聚合查询</h2><table>
 <thead>
 <tr>
 <th>SQL 操作&#x2F;函数</th>
@@ -467,7 +467,7 @@
 <p>pipeline有很多stage，但这里我只记录我经常用到的几个，如果后续用到再补充。stage详见<a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/aggregation/group/">官网</a>。</p>
 <p>接下来介绍这几个常用的stage:</p>
 <p>$count , $group,  $match, $project, $unwind, $limit, $skip, $sort, $sortByCount, $lookup, $out, $addFields</p>
-<h3 id="aggregate常用pipeline-stage介绍"><a href="#aggregate常用pipeline-stage介绍" class="headerlink" title="aggregate常用pipeline stage介绍"></a>aggregate常用pipeline stage介绍</h3><h3 id="count"><a href="#count" class="headerlink" title="$count"></a>$count</h3><p>释义：</p>
+<h3 id="14-1、aggregate常用pipeline-stage介绍"><a href="#14-1、aggregate常用pipeline-stage介绍" class="headerlink" title="14.1、aggregate常用pipeline stage介绍"></a>14.1、aggregate常用pipeline stage介绍</h3><h3 id="14-2、-count"><a href="#14-2、-count" class="headerlink" title="14.2、$count"></a>14.2、$count</h3><p>释义：</p>
 <p>返回包含输入到stage的文档的计数，理解为返回与表或视图的find()查询匹配的文档的计数。</p>
 <p>db.collection.count()方法不执行find()操作，而是计数并返回与查询匹配的结果数。</p>
 <p>语法：</p>
@@ -483,7 +483,7 @@
 <p>执行：</p>
 <p>1）$match 阶段排除score小于等于80的文档，将大于80的文档传到下个阶段</p>
 <p>2）$count阶段返回聚合管道中剩余文档的计数，并将该值分配给名为passing_scores的字段。</p>
-<h3 id="group"><a href="#group" class="headerlink" title="$group"></a>$group</h3><p>释义：</p>
+<h3 id="14-3、-group"><a href="#14-3、-group" class="headerlink" title="14.3、$group"></a>14.3、$group</h3><p>释义：</p>
 <p>按指定的表达式对文档进行分组，并将每个不同分组的文档输出到下一个阶段。输出文档包含一个_id字段，该字段按键包含不同的组。</p>
 <p>输出文档还可以包含计算字段，该字段保存由$group的_id字段分组的一些accumulator表达式的值。 $group不会输出具体的文档而只是统计信息。</p>
 <p>语法：</p>
@@ -494,7 +494,7 @@
 <li>剩余的计算字段是可选的，并使用<accumulator>运算符进行计算。</accumulator></li>
 <li>_id和<accumulator>表达式可以接受任何有效的<a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/meta/aggregation-quick-reference/#aggregation-expressions">表达式</a>。</accumulator></li>
 </ul>
-<h3 id="accumulator操作符"><a href="#accumulator操作符" class="headerlink" title="accumulator操作符"></a>accumulator操作符</h3><table>
+<h3 id="14-4、accumulator操作符"><a href="#14-4、accumulator操作符" class="headerlink" title="14.4、accumulator操作符"></a>14.4、accumulator操作符</h3><table>
 <thead>
 <tr>
 <th>名称</th>
@@ -587,12 +587,12 @@
 
 
 
-<h3 id="match"><a href="#match" class="headerlink" title="$match"></a>$match</h3><p>释义：</p>
+<h3 id="14-5、-match"><a href="#14-5、-match" class="headerlink" title="14.5、$match"></a>14.5、$match</h3><p>释义：</p>
 <p>过滤文档，仅将符合指定条件的文档传递到下一个管道阶段。<br>$match接受一个指定查询条件的文档。查询语法与读操作查询语法相同。</p>
 <p>语法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">$match</span>: &#123; &lt;query&gt; &#125; &#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="管道优化："><a href="#管道优化：" class="headerlink" title="管道优化："></a>管道优化：</h3><p>$match用于对文档进行筛选，之后可以在得到的文档子集上做聚合，$match可以使用除了地理空间之外的所有常规查询操作符，<strong>在实际应用中尽可能将$match放在管道的前面位置</strong>。这样有两个好处：一是可以快速将不需要的文档过滤掉，以<strong>减少管道的工作量</strong>；二是如果再投射和分组之前执行$match，<strong>查询可以使用索引</strong>。</p>
+<h3 id="14-6、管道优化："><a href="#14-6、管道优化：" class="headerlink" title="14.6、管道优化："></a>14.6、管道优化：</h3><p>$match用于对文档进行筛选，之后可以在得到的文档子集上做聚合，$match可以使用除了地理空间之外的所有常规查询操作符，<strong>在实际应用中尽可能将$match放在管道的前面位置</strong>。这样有两个好处：一是可以快速将不需要的文档过滤掉，以<strong>减少管道的工作量</strong>；二是如果再投射和分组之前执行$match，<strong>查询可以使用索引</strong>。</p>
 <p>限制：</p>
 <ul>
 <li>不能在$ match查询中使用$作为聚合管道的一部分。</li>
@@ -617,7 +617,7 @@
 <p>返回：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 1 */</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;_id&quot;</span> <span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;count&quot;</span> <span class="punctuation">:</span> <span class="number">5.0</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="unwind"><a href="#unwind" class="headerlink" title="$unwind"></a>$unwind</h3><p>释义：</p>
+<h3 id="14-7、-unwind"><a href="#14-7、-unwind" class="headerlink" title="14.7、$unwind"></a>14.7、$unwind</h3><p>释义：</p>
 <p>从输入文档解构数组字段以输出每个元素的文档。简单说就是 可以将数组拆分为单独的文档。</p>
 <p>语法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">$unwind</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">field</span> <span class="attr">path</span>&gt;</span> &#125;</span></span><br></pre></td></tr></table></figure>
@@ -664,7 +664,7 @@
 
 
 
-<h3 id="project"><a href="#project" class="headerlink" title="$project"></a>$project</h3><p>释义：</p>
+<h3 id="14-8、-project"><a href="#14-8、-project" class="headerlink" title="14.8、$project"></a>14.8、$project</h3><p>释义：</p>
 <p>$project可以从文档中选择想要的字段，和不想要的字段（指定的字段可以是来自输入文档或新计算字段的现有字段</p>
 <p>），也可以通过管道表达式进行一些复杂的操作，例如数学操作，日期操作，字符串操作，逻辑操作。</p>
 <p>语法：</p>
@@ -776,7 +776,7 @@
 <p>返回：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;_id&quot;</span> <span class="punctuation">:</span> ObjectId(<span class="string">&quot;55ad167f320c6be244eb3b95&quot;</span>)<span class="punctuation">,</span> <span class="attr">&quot;myArray&quot;</span> <span class="punctuation">:</span> <span class="punctuation">[</span> <span class="number">1</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">,</span> <span class="literal"><span class="keyword">null</span></span> <span class="punctuation">]</span> <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="limit"><a href="#limit" class="headerlink" title="$limit"></a>$limit</h3><p>限制传递到管道中下一阶段的文档数</p>
+<h3 id="14-9、-limit"><a href="#14-9、-limit" class="headerlink" title="14.9、$limit"></a>14.9、$limit</h3><p>限制传递到管道中下一阶段的文档数</p>
 <p>语法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">$limit</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">positive</span> <span class="attr">integer</span>&gt;</span> &#125;</span></span><br></pre></td></tr></table></figure>
 
@@ -786,7 +786,7 @@
 <p>此操作仅返回管道传递给它的前5个文档。 $limit对其传递的文档内容没有影响。</p>
 <p>注意：</p>
 <p>当$sort在管道中的$limit之前立即出现时，$sort操作只会在过程中维持前n个结果，其中n是指定的限制，而MongoDB只需要将n个项存储在内存中。当allowDiskUse为true并且n个项目超过聚合内存限制时，此优化仍然适用。</p>
-<h3 id="skip"><a href="#skip" class="headerlink" title="$skip"></a>$skip</h3><p>跳过进入stage的指定数量的文档，并将其余文档传递到管道中的下一个阶段</p>
+<h3 id="14-10、-skip"><a href="#14-10、-skip" class="headerlink" title="14.10、$skip"></a>14.10、$skip</h3><p>跳过进入stage的指定数量的文档，并将其余文档传递到管道中的下一个阶段</p>
 <p>语法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">$skip</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">positive</span> <span class="attr">integer</span>&gt;</span> &#125;</span></span><br></pre></td></tr></table></figure>
 
@@ -794,7 +794,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="property">article</span>.<span class="title function_">aggregate</span>(</span><br><span class="line">    &#123; $skip : <span class="number">5</span> &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <p>此操作将跳过管道传递给它的前5个文档。 $skip对沿着管道传递的文档的内容没有影响。</p>
-<h3 id="sort"><a href="#sort" class="headerlink" title="$sort"></a>$sort</h3><p>对所有输入文档进行排序，并按排序顺序将它们返回到管道。</p>
+<h3 id="14-11、-sort"><a href="#14-11、-sort" class="headerlink" title="14.11、$sort"></a>14.11、$sort</h3><p>对所有输入文档进行排序，并按排序顺序将它们返回到管道。</p>
 <p>语法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">$sort</span>: &#123; &lt;field1&gt;: &lt;sort order&gt;, &lt;field2&gt;: &lt;sort order&gt; ... &#125; &#125;</span><br></pre></td></tr></table></figure>
 
@@ -814,7 +814,7 @@
 
 
 
-<h3 id="sortByCount"><a href="#sortByCount" class="headerlink" title="$sortByCount"></a>$sortByCount</h3><p>v3.4新增。根据指定表达式的值对传入文档分组，然后计算每个不同组中文档的数量。每个输出文档都包含两个字段：包含不同分组值的_id字段和包含属于该分组或类别的文档数的计数字段，文件按降序排列。</p>
+<h3 id="14-12、-sortByCount"><a href="#14-12、-sortByCount" class="headerlink" title="14.12、$sortByCount"></a>14.12、$sortByCount</h3><p>v3.4新增。根据指定表达式的值对传入文档分组，然后计算每个不同组中文档的数量。每个输出文档都包含两个字段：包含不同分组值的_id字段和包含属于该分组或类别的文档数的计数字段，文件按降序排列。</p>
 <p>语法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">$sortByCount</span>:  &lt;expression&gt; &#125;</span><br></pre></td></tr></table></figure>
 
@@ -1128,14 +1128,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1145,6 +1137,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1184,19 +1184,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,6 +1213,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1252,10 +1252,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -1265,6 +1261,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1320,15 +1320,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1348,19 +1348,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220120093201193.png">
 <meta property="article:published_time" content="2022-09-23T06:05:02.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:05:07.738Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.158Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="FastDFS">
 <meta property="article:tag" content="分布式">
@@ -305,9 +305,9 @@
 <li>网盘：海量文件</li>
 <li>社交网站：海量图片</li>
 </ul>
-<h1 id="FastDFS"><a href="#FastDFS" class="headerlink" title="FastDFS"></a>FastDFS</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>FastDFS 是一个开源的高性能分布式文件系统（DFS），它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。主要解决了海量数据存储问题，特别适合中小文件（建议范围：4kb &lt; file_size &lt; 500 MB）为载体的在线服务</p>
+<h1 id="FastDFS"><a href="#FastDFS" class="headerlink" title="FastDFS"></a>FastDFS</h1><h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p>FastDFS 是一个开源的高性能分布式文件系统（DFS），它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。主要解决了海量数据存储问题，特别适合中小文件（建议范围：4kb &lt; file_size &lt; 500 MB）为载体的在线服务</p>
 <p>FastDFS 是设计用来存储小文件的，过大的文件处理方案是拆分为小文件，可跟踪小文件的上传情况。</p>
-<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><p>充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，并使用 FastDFS 很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务</p>
+<h2 id="2、特性"><a href="#2、特性" class="headerlink" title="2、特性"></a>2、特性</h2><p>充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，并使用 FastDFS 很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务</p>
 <p>优点：</p>
 <ul>
 <li>文件不分块存储，文件和系统中的文件一一对应</li>
@@ -328,25 +328,25 @@
 <li>缺乏多机房容灾支持</li>
 <li>静态的负载均衡机制</li>
 </ul>
-<h2 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h2><ul>
+<h2 id="3、角色"><a href="#3、角色" class="headerlink" title="3、角色"></a>3、角色</h2><ul>
 <li>Tracker Server：跟踪服务器，主要做调度工作，起到均衡的作用，负责管理所有的 storage server 和 group，每个 storage 在启动后会连接 Tracker，告知自己所有的 group 等信息，并保持周期性心跳</li>
 <li>Storage Server：存储服务器，主要提供容量和备份服务，以 group 为单位，每个 group 内可以有多台 storage server，数据互为备份</li>
 <li>Client：客户端，上传下载数据的服务器，也就是我们自己的项目所部署在的服务器</li>
 </ul>
-<h2 id="文件同步"><a href="#文件同步" class="headerlink" title="文件同步"></a>文件同步</h2><p>写文件时，客户端将文件写至 group 内一个 storage server 即认为写文件成功，storage server 写完文件后，会由后台线程将文件同步至同 group 内其它的 storage server</p>
+<h2 id="4、文件同步"><a href="#4、文件同步" class="headerlink" title="4、文件同步"></a>4、文件同步</h2><p>写文件时，客户端将文件写至 group 内一个 storage server 即认为写文件成功，storage server 写完文件后，会由后台线程将文件同步至同 group 内其它的 storage server</p>
 <p>每个 storage 写文件后，同时会写一份 binlog，binlog 里不包含文件数据，只包含文件名等元信息，这份 binlog 用于后台同步，storage 会记录向 group 内其它 storage 同步的进度，以便重启后能接上次的进度继续同步，进度以时间戳的方式进行记录，所以最好能<font color="orange">保证集群内所有 server 的时钟保持同步</font></p>
 <p>storage 的同步进度会作为元数据的一部分汇报到 tracker 上，tracker 在选择读 storage 的时候会以同步进度作为参考</p>
-<h2 id="client"><a href="#client" class="headerlink" title="client"></a>client</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fdfs/client.conf</span><br><span class="line"></span><br><span class="line">base_path=/data/fastdfs</span><br><span class="line">tracker_server=fastdfs.com:22122 <span class="comment"># tracker 服务器ip 和 端口</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传文件</span></span><br><span class="line">fdfs_upload_file /etc/fdfs/client.conf /usr/local/soft/fox.jpg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line">fdfs_delete_file /etc/fdfs/client.conf group/M00/00/00/fox.jpg</span><br></pre></td></tr></table></figure>
+<h2 id="5、client"><a href="#5、client" class="headerlink" title="5、client"></a>5、client</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fdfs/client.conf</span><br><span class="line"></span><br><span class="line">base_path=/data/fastdfs</span><br><span class="line">tracker_server=fastdfs.com:22122 <span class="comment"># tracker 服务器ip 和 端口</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传文件</span></span><br><span class="line">fdfs_upload_file /etc/fdfs/client.conf /usr/local/soft/fox.jpg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line">fdfs_delete_file /etc/fdfs/client.conf group/M00/00/00/fox.jpg</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="下载过程"><a href="#下载过程" class="headerlink" title="下载过程"></a>下载过程</h2><p>跟上传一样，在下载时客户端可以选择任务 Tracker server</p>
+<h2 id="6、下载过程"><a href="#6、下载过程" class="headerlink" title="6、下载过程"></a>6、下载过程</h2><p>跟上传一样，在下载时客户端可以选择任务 Tracker server</p>
 <p>客户端带文件名信息请求 Tracker，Tracker 从文件名中解析出文件的 group、大小、创建时间等信息，然后选择一个 storage 用来服务处理请求，返回对应文件</p>
-<h1 id="FastDFS-单机环境搭建"><a href="#FastDFS-单机环境搭建" class="headerlink" title="FastDFS 单机环境搭建"></a>FastDFS 单机环境搭建</h1><h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git gcc gcc-c++ make automake autoconf libtool pcre pcre-devel zlib zlib-devel openssl-devel wget vim -y</span><br></pre></td></tr></table></figure>
+<h1 id="FastDFS-单机环境搭建"><a href="#FastDFS-单机环境搭建" class="headerlink" title="FastDFS 单机环境搭建"></a>FastDFS 单机环境搭建</h1><h2 id="7、编译环境"><a href="#7、编译环境" class="headerlink" title="7、编译环境"></a>7、编译环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git gcc gcc-c++ make automake autoconf libtool pcre pcre-devel zlib zlib-devel openssl-devel wget vim -y</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="磁盘目录"><a href="#磁盘目录" class="headerlink" title="磁盘目录"></a>磁盘目录</h2><table>
+<h2 id="8、磁盘目录"><a href="#8、磁盘目录" class="headerlink" title="8、磁盘目录"></a>8、磁盘目录</h2><table>
 <thead>
 <tr>
 <th>说明</th>
@@ -362,61 +362,61 @@
 <td>&#x2F;data&#x2F;fastdfs&#x2F;</td>
 </tr>
 </tbody></table>
-<h2 id="安装-libfastcommon"><a href="#安装-libfastcommon" class="headerlink" title="安装 libfastcommon"></a>安装 libfastcommon</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/happyfish100/libfastcommon.git --depth 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cd libfastcommon/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译安装</span></span><br><span class="line">./make.sh &amp;&amp; ./make.sh install</span><br></pre></td></tr></table></figure>
+<h2 id="9、安装-libfastcommon"><a href="#9、安装-libfastcommon" class="headerlink" title="9、安装 libfastcommon"></a>9、安装 libfastcommon</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/happyfish100/libfastcommon.git --depth 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cd libfastcommon/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译安装</span></span><br><span class="line">./make.sh &amp;&amp; ./make.sh install</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="安装-FastDFS"><a href="#安装-FastDFS" class="headerlink" title="安装 FastDFS"></a>安装 FastDFS</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/happyfish100/fastdfs.git --depth 1</span><br><span class="line">cd fastdfs</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译安装</span></span><br><span class="line">./make.sh &amp;&amp; ./make.sh install</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">供 nginx 访问使用</span></span><br><span class="line">cp /usr/local/soft/fastdfs/conf/http.conf /etc/fdfs/</span><br><span class="line">cp /usr/local/soft/fastdfs/conf/mime.types /etc/fdfs/</span><br></pre></td></tr></table></figure>
+<h2 id="10、安装-FastDFS"><a href="#10、安装-FastDFS" class="headerlink" title="10、安装 FastDFS"></a>10、安装 FastDFS</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/happyfish100/fastdfs.git --depth 1</span><br><span class="line">cd fastdfs</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译安装</span></span><br><span class="line">./make.sh &amp;&amp; ./make.sh install</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">供 nginx 访问使用</span></span><br><span class="line">cp /usr/local/soft/fastdfs/conf/http.conf /etc/fdfs/</span><br><span class="line">cp /usr/local/soft/fastdfs/conf/mime.types /etc/fdfs/</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="安装-fastdfs-nginx-module"><a href="#安装-fastdfs-nginx-module" class="headerlink" title="安装 fastdfs-nginx-module"></a>安装 fastdfs-nginx-module</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/happyfish100/fastdfs-nginx-module.git --depth 1</span><br><span class="line">cp fastdfs-nginx-module-master/src/mod_fastdfs.conf /etc/fdfs</span><br></pre></td></tr></table></figure>
+<h2 id="11、安装-fastdfs-nginx-module"><a href="#11、安装-fastdfs-nginx-module" class="headerlink" title="11、安装 fastdfs-nginx-module"></a>11、安装 fastdfs-nginx-module</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/happyfish100/fastdfs-nginx-module.git --depth 1</span><br><span class="line">cp fastdfs-nginx-module-master/src/mod_fastdfs.conf /etc/fdfs</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.20.2.tar.gz</span><br><span class="line">tar -zxvf nginx-1.20.2.tar.gz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加 fastdfs-nginx-module 模块</span></span><br><span class="line">./configure --add-module=/usr/local/soft/fastdfs-nginx-module/src/</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h2 id="12、安装-nginx"><a href="#12、安装-nginx" class="headerlink" title="12、安装 nginx"></a>12、安装 nginx</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.20.2.tar.gz</span><br><span class="line">tar -zxvf nginx-1.20.2.tar.gz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加 fastdfs-nginx-module 模块</span></span><br><span class="line">./configure --add-module=/usr/local/soft/fastdfs-nginx-module/src/</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="单机部署"><a href="#单机部署" class="headerlink" title="单机部署"></a>单机部署</h2><p>服务器ip：192.168.174.102</p>
+<h2 id="13、单机部署"><a href="#13、单机部署" class="headerlink" title="13、单机部署"></a>13、单机部署</h2><p>服务器ip：192.168.174.102</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">vim /etc/hosts 添加一行</span></span><br><span class="line">192.168.174.102 fastdfs.com</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">本地 windows C:\Windows\System32\drivers\etc 修改hosts文件</span></span><br><span class="line">192.168.174.102 fastdfs.com</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="tracker-配置"><a href="#tracker-配置" class="headerlink" title="tracker 配置"></a>tracker 配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/fastdfs</span><br><span class="line"></span><br><span class="line">vim /etc/fdfs/tracker.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要修改的内容如下：</span></span><br><span class="line">port=22122 # tracker 服务器端口（默认 22122，一般不修改）</span><br><span class="line">base_path=/data/fastdfs # 存储日志和数据的根目录</span><br></pre></td></tr></table></figure>
+<h2 id="14、tracker-配置"><a href="#14、tracker-配置" class="headerlink" title="14、tracker 配置"></a>14、tracker 配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/fastdfs</span><br><span class="line"></span><br><span class="line">vim /etc/fdfs/tracker.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要修改的内容如下：</span></span><br><span class="line">port=22122 # tracker 服务器端口（默认 22122，一般不修改）</span><br><span class="line">base_path=/data/fastdfs # 存储日志和数据的根目录</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="storage-配置"><a href="#storage-配置" class="headerlink" title="storage 配置"></a>storage 配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fdfs/storage.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要修改的内容如下</span></span><br><span class="line">posrt=23000</span><br><span class="line">base_path=/data/fastdfs # 数据和日志文件存放目录</span><br><span class="line">store_path0=/data/fastdfs # 第一个存储目录</span><br><span class="line">tracker_server=fastdfs.com:22122</span><br><span class="line">http.server_port=8888</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">永久关闭防火墙</span></span><br><span class="line">systemctl disable firewalld.service</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动 tracker</span></span><br><span class="line">/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动 storage</span></span><br><span class="line">/usr/bin/fdfs_storaged /etc/fdfs/storage.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启 storage</span></span><br><span class="line">/usr/bin/fdfs_storaged /etc/fdfs/storage.conf restart</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="client-测试"><a href="#client-测试" class="headerlink" title="client 测试"></a>client 测试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fdfs/client.conf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要修改的内容如下</span></span><br><span class="line">base_path=/data/fastdfs</span><br><span class="line">tracker_server=fastdfs.com:22122 # tracker 服务器 ip 和端口</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">保存后测试，返回 ID 表示成功，如：group1/M00/00/00/wKiuZmHnvMaAWdC1AAQ6yuhOHcs218.jpg</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上传文件</span></span><br><span class="line">fdfs_upload_file /etc/fdfs/client.conf /usr/local/soft/fox.jpg</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除文件</span></span><br><span class="line">fdfs_delete_file /etc/fdfs/client.conf group/M00/00/00/fox.jpg</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="配置-nginx-访问"><a href="#配置-nginx-访问" class="headerlink" title="配置 nginx 访问"></a>配置 nginx 访问</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fdfs/mod_fastdfs.conf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要修改的内容如下</span></span><br><span class="line">tracker_server=fasrdfs.com:22122 # tracker 服务器 ip 和端口</span><br><span class="line">url_have_group_name=true</span><br><span class="line">store_path0=/data/fastdfs</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置 nginx.config</span></span><br><span class="line">vim /usr/local/nginx/conf/nginx.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加如下配置</span></span><br><span class="line">server&#123;</span><br><span class="line">  listen 8888; # 该端口为 storage.conf 中的 http.server_port 相同</span><br><span class="line">  server_name localhost;</span><br><span class="line">  location ~/group[0-9]/&#123;</span><br><span class="line">   ngx_fastdfs_module;</span><br><span class="line">  &#125;</span><br><span class="line">  error_page 500 502 503 504 /50x.html;</span><br><span class="line">  location = /50x.html&#123;</span><br><span class="line">   root html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nginx</span></span><br><span class="line">/usr/local/nginx/sbin/nginx # 启动nginx</span><br><span class="line">/usr/local/nginx/sbin/nginx -s reload # 重启 nginx</span><br><span class="line">/usr/local/nginx/sbin/nginx -s stop # 停止 n</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="访问效果"><a href="#访问效果" class="headerlink" title="访问效果"></a>访问效果</h2><p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220120093201193.png" alt="image-20220120093201193"></p>
-<h1 id="与-springboot-结合"><a href="#与-springboot-结合" class="headerlink" title="与 springboot 结合"></a>与 springboot 结合</h1><h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.tobato<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastdfs-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.27.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="编写配置文件"><a href="#编写配置文件" class="headerlink" title="编写配置文件"></a>编写配置文件</h2><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">8888</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 分布式文件系统 FDFS 配置</span></span><br><span class="line"><span class="comment"># 读取时间</span></span><br><span class="line"><span class="attr">fdfs.so-timeout</span>=<span class="string">1500</span></span><br><span class="line"><span class="comment"># 连接超时时间</span></span><br><span class="line"><span class="attr">fdfs.connect-timeout</span>=<span class="string">600</span></span><br><span class="line"><span class="comment"># 缩略图生成参数</span></span><br><span class="line"><span class="attr">fdfs.thumb-image.width</span>=<span class="string">150</span></span><br><span class="line"><span class="attr">fdfs.thumb-image.height</span>=<span class="string">150</span></span><br><span class="line"><span class="comment"># tracker 服务配置地址列表</span></span><br><span class="line"><span class="attr">fdfs.tracker-list</span>=<span class="string">192.168.174.102:22122</span></span><br><span class="line"><span class="comment"># 从池中借出的对象的最大数目（配置为 -1 表示不限制）</span></span><br><span class="line"><span class="attr">fdfs.pool.max-total</span>=<span class="string">-1</span></span><br><span class="line"><span class="comment"># 获取连接时的最大等待毫秒数（默认配置为 5s）</span></span><br><span class="line"><span class="attr">fdfs.pool.max-wait-millis</span>=<span class="string">5000</span></span><br><span class="line"><span class="comment"># 每个key的最大连接数</span></span><br><span class="line"><span class="attr">fdfs.pool.max-total-per-key</span>=<span class="string">50</span></span><br><span class="line"><span class="comment"># 每个key对应的连接池最大空闲连接数</span></span><br><span class="line"><span class="attr">fdfs.pool.max-idle-per-key</span>=<span class="string">10</span></span><br><span class="line"><span class="comment"># 每个key对应的连接池最小空闲连接数</span></span><br><span class="line"><span class="attr">fdfs.pool.min-idle-per-key</span>=<span class="string">5</span></span><br><span class="line"></span><br><span class="line"><span class="attr">upload.base-url</span>=<span class="string">http://fastdfs.com:8888/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring.servlet.multipart.max-file-size</span>=<span class="string">100MB</span></span><br><span class="line"><span class="attr">spring.servlet.multipart.max-request-size</span>=<span class="string">150MB</span></span><br></pre></td></tr></table></figure>
+<h2 id="15、storage-配置"><a href="#15、storage-配置" class="headerlink" title="15、storage 配置"></a>15、storage 配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fdfs/storage.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要修改的内容如下</span></span><br><span class="line">posrt=23000</span><br><span class="line">base_path=/data/fastdfs # 数据和日志文件存放目录</span><br><span class="line">store_path0=/data/fastdfs # 第一个存储目录</span><br><span class="line">tracker_server=fastdfs.com:22122</span><br><span class="line">http.server_port=8888</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h2 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> FastFileStorageClient fastFileStorageClient;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Value(&quot;$&#123;upload.base-url&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span>  String basePath;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SneakyThrows</span></span><br><span class="line"><span class="meta">@PostMapping(&quot;uploadFile&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">uploadFile</span><span class="params">(MultipartFile file)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">suffix</span> <span class="operator">=</span> FileUtil.getSuffix(file.getOriginalFilename());</span><br><span class="line">    <span class="comment">// 上传文件并生成缩略图</span></span><br><span class="line">    <span class="type">StorePath</span> <span class="variable">storePath</span> <span class="operator">=</span> fastFileStorageClient.uploadImageAndCrtThumbImage(file.getInputStream(), file.getSize(), suffix, <span class="literal">null</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> basePath + storePath.getFullPath();</span><br><span class="line">    log.info(path);</span><br><span class="line">    <span class="keyword">return</span> path;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="16、启动服务"><a href="#16、启动服务" class="headerlink" title="16、启动服务"></a>16、启动服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">永久关闭防火墙</span></span><br><span class="line">systemctl disable firewalld.service</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动 tracker</span></span><br><span class="line">/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动 storage</span></span><br><span class="line">/usr/bin/fdfs_storaged /etc/fdfs/storage.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启 storage</span></span><br><span class="line">/usr/bin/fdfs_storaged /etc/fdfs/storage.conf restart</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="17、client-测试"><a href="#17、client-测试" class="headerlink" title="17、client 测试"></a>17、client 测试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fdfs/client.conf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要修改的内容如下</span></span><br><span class="line">base_path=/data/fastdfs</span><br><span class="line">tracker_server=fastdfs.com:22122 # tracker 服务器 ip 和端口</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">保存后测试，返回 ID 表示成功，如：group1/M00/00/00/wKiuZmHnvMaAWdC1AAQ6yuhOHcs218.jpg</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上传文件</span></span><br><span class="line">fdfs_upload_file /etc/fdfs/client.conf /usr/local/soft/fox.jpg</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除文件</span></span><br><span class="line">fdfs_delete_file /etc/fdfs/client.conf group/M00/00/00/fox.jpg</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="18、配置-nginx-访问"><a href="#18、配置-nginx-访问" class="headerlink" title="18、配置 nginx 访问"></a>18、配置 nginx 访问</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fdfs/mod_fastdfs.conf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要修改的内容如下</span></span><br><span class="line">tracker_server=fasrdfs.com:22122 # tracker 服务器 ip 和端口</span><br><span class="line">url_have_group_name=true</span><br><span class="line">store_path0=/data/fastdfs</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置 nginx.config</span></span><br><span class="line">vim /usr/local/nginx/conf/nginx.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加如下配置</span></span><br><span class="line">server&#123;</span><br><span class="line">  listen 8888; # 该端口为 storage.conf 中的 http.server_port 相同</span><br><span class="line">  server_name localhost;</span><br><span class="line">  location ~/group[0-9]/&#123;</span><br><span class="line">   ngx_fastdfs_module;</span><br><span class="line">  &#125;</span><br><span class="line">  error_page 500 502 503 504 /50x.html;</span><br><span class="line">  location = /50x.html&#123;</span><br><span class="line">   root html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nginx</span></span><br><span class="line">/usr/local/nginx/sbin/nginx # 启动nginx</span><br><span class="line">/usr/local/nginx/sbin/nginx -s reload # 重启 nginx</span><br><span class="line">/usr/local/nginx/sbin/nginx -s stop # 停止 n</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="19、访问效果"><a href="#19、访问效果" class="headerlink" title="19、访问效果"></a>19、访问效果</h2><p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220120093201193.png" alt="image-20220120093201193"></p>
+<h1 id="与-springboot-结合"><a href="#与-springboot-结合" class="headerlink" title="与 springboot 结合"></a>与 springboot 结合</h1><h2 id="20、引入依赖"><a href="#20、引入依赖" class="headerlink" title="20、引入依赖"></a>20、引入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.tobato<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastdfs-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.27.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="21、编写配置文件"><a href="#21、编写配置文件" class="headerlink" title="21、编写配置文件"></a>21、编写配置文件</h2><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">8888</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 分布式文件系统 FDFS 配置</span></span><br><span class="line"><span class="comment"># 读取时间</span></span><br><span class="line"><span class="attr">fdfs.so-timeout</span>=<span class="string">1500</span></span><br><span class="line"><span class="comment"># 连接超时时间</span></span><br><span class="line"><span class="attr">fdfs.connect-timeout</span>=<span class="string">600</span></span><br><span class="line"><span class="comment"># 缩略图生成参数</span></span><br><span class="line"><span class="attr">fdfs.thumb-image.width</span>=<span class="string">150</span></span><br><span class="line"><span class="attr">fdfs.thumb-image.height</span>=<span class="string">150</span></span><br><span class="line"><span class="comment"># tracker 服务配置地址列表</span></span><br><span class="line"><span class="attr">fdfs.tracker-list</span>=<span class="string">192.168.174.102:22122</span></span><br><span class="line"><span class="comment"># 从池中借出的对象的最大数目（配置为 -1 表示不限制）</span></span><br><span class="line"><span class="attr">fdfs.pool.max-total</span>=<span class="string">-1</span></span><br><span class="line"><span class="comment"># 获取连接时的最大等待毫秒数（默认配置为 5s）</span></span><br><span class="line"><span class="attr">fdfs.pool.max-wait-millis</span>=<span class="string">5000</span></span><br><span class="line"><span class="comment"># 每个key的最大连接数</span></span><br><span class="line"><span class="attr">fdfs.pool.max-total-per-key</span>=<span class="string">50</span></span><br><span class="line"><span class="comment"># 每个key对应的连接池最大空闲连接数</span></span><br><span class="line"><span class="attr">fdfs.pool.max-idle-per-key</span>=<span class="string">10</span></span><br><span class="line"><span class="comment"># 每个key对应的连接池最小空闲连接数</span></span><br><span class="line"><span class="attr">fdfs.pool.min-idle-per-key</span>=<span class="string">5</span></span><br><span class="line"></span><br><span class="line"><span class="attr">upload.base-url</span>=<span class="string">http://fastdfs.com:8888/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring.servlet.multipart.max-file-size</span>=<span class="string">100MB</span></span><br><span class="line"><span class="attr">spring.servlet.multipart.max-request-size</span>=<span class="string">150MB</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="22、controller"><a href="#22、controller" class="headerlink" title="22、controller"></a>22、controller</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> FastFileStorageClient fastFileStorageClient;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Value(&quot;$&#123;upload.base-url&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span>  String basePath;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SneakyThrows</span></span><br><span class="line"><span class="meta">@PostMapping(&quot;uploadFile&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">uploadFile</span><span class="params">(MultipartFile file)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">suffix</span> <span class="operator">=</span> FileUtil.getSuffix(file.getOriginalFilename());</span><br><span class="line">    <span class="comment">// 上传文件并生成缩略图</span></span><br><span class="line">    <span class="type">StorePath</span> <span class="variable">storePath</span> <span class="operator">=</span> fastFileStorageClient.uploadImageAndCrtThumbImage(file.getInputStream(), file.getSize(), suffix, <span class="literal">null</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> basePath + storePath.getFullPath();</span><br><span class="line">    log.info(path);</span><br><span class="line">    <span class="keyword">return</span> path;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     
 
@@ -732,14 +732,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -749,6 +741,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,19 +788,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -825,6 +817,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -856,10 +856,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -869,6 +865,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -924,15 +924,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -952,19 +952,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

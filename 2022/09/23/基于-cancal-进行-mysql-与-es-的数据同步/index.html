@@ -18,7 +18,7 @@
 <meta property="og:description" content="基于 cancal 进行 mysql 与 elasticsearch 的数据同步  1、mysql 安装 2、建库、建表 3、elasticsearch 安装 4、canal-server 安装 5、联合测试">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-23T06:10:12.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:05:29.851Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.157Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="mysql">
@@ -318,18 +318,18 @@
 
 
 
-<h2 id="yml-配置文件修改"><a href="#yml-配置文件修改" class="headerlink" title="yml 配置文件修改"></a>yml 配置文件修改</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cluster.name:</span> <span class="string">dailyhub-es</span></span><br><span class="line"><span class="attr">network.host:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line"><span class="attr">node.name:</span> <span class="string">node-1</span></span><br><span class="line"><span class="attr">http.port:</span> <span class="number">9200</span></span><br><span class="line"><span class="attr">http.cors.enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">http.cors.allow-origin:</span> <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">node.master:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">node.data:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="1、yml-配置文件修改"><a href="#1、yml-配置文件修改" class="headerlink" title="1、yml 配置文件修改"></a>1、yml 配置文件修改</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cluster.name:</span> <span class="string">dailyhub-es</span></span><br><span class="line"><span class="attr">network.host:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line"><span class="attr">node.name:</span> <span class="string">node-1</span></span><br><span class="line"><span class="attr">http.port:</span> <span class="number">9200</span></span><br><span class="line"><span class="attr">http.cors.enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">http.cors.allow-origin:</span> <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">node.master:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">node.data:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="安装-ik-分词器"><a href="#安装-ik-分词器" class="headerlink" title="安装 ik 分词器"></a>安装 ik 分词器</h2><p>搜索 ik分词器，下载对应 elasticsearch 版本的 ik 分词器，解压置于本地目录中，便于下一步挂载 plugins 目录</p>
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除之前的镜像重新启动</span></span><br><span class="line">docker run -p 9200:9200 -p 9300:9300 -e &quot;discovery.type=single-node&quot; -v /docker/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v /docker/elasticsearch/plugins:/usr/share/elasticsearch/plugins --name=&#x27;es7162&#x27; -d elasticsearch:7.16.2</span><br></pre></td></tr></table></figure>
+<h2 id="2、安装-ik-分词器"><a href="#2、安装-ik-分词器" class="headerlink" title="2、安装 ik 分词器"></a>2、安装 ik 分词器</h2><p>搜索 ik分词器，下载对应 elasticsearch 版本的 ik 分词器，解压置于本地目录中，便于下一步挂载 plugins 目录</p>
+<h2 id="3、启动"><a href="#3、启动" class="headerlink" title="3、启动"></a>3、启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除之前的镜像重新启动</span></span><br><span class="line">docker run -p 9200:9200 -p 9300:9300 -e &quot;discovery.type=single-node&quot; -v /docker/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v /docker/elasticsearch/plugins:/usr/share/elasticsearch/plugins --name=&#x27;es7162&#x27; -d elasticsearch:7.16.2</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 测试地址 --&gt;</span></span><br><span class="line">http://localhost:9200/_mapping?pretty=true</span><br></pre></td></tr></table></figure>
+<h2 id="4、测试"><a href="#4、测试" class="headerlink" title="4、测试"></a>4、测试</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 测试地址 --&gt;</span></span><br><span class="line">http://localhost:9200/_mapping?pretty=true</span><br></pre></td></tr></table></figure>
 
 
 
@@ -337,11 +337,11 @@
 
 
 
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不和 mysql 中的 id 相同</span></span><br><span class="line"><span class="attr">canal.instance.mysql.slaveId</span>=<span class="string">10</span></span><br><span class="line"><span class="comment"># mysql5736 是 mysql 镜像的链接别名</span></span><br><span class="line"><span class="attr">canal.instance.master.address</span>=<span class="string">mysql5736:3306</span></span><br><span class="line"><span class="attr">canal.instance.dbUsername</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">canal.instance.dbPassword</span>=<span class="string">root</span></span><br></pre></td></tr></table></figure>
+<h2 id="5、修改配置文件"><a href="#5、修改配置文件" class="headerlink" title="5、修改配置文件"></a>5、修改配置文件</h2><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不和 mysql 中的 id 相同</span></span><br><span class="line"><span class="attr">canal.instance.mysql.slaveId</span>=<span class="string">10</span></span><br><span class="line"><span class="comment"># mysql5736 是 mysql 镜像的链接别名</span></span><br><span class="line"><span class="attr">canal.instance.master.address</span>=<span class="string">mysql5736:3306</span></span><br><span class="line"><span class="attr">canal.instance.dbUsername</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">canal.instance.dbPassword</span>=<span class="string">root</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="重新运行容器"><a href="#重新运行容器" class="headerlink" title="重新运行容器"></a>重新运行容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f canal115</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">挂载配置文件</span></span><br><span class="line">docker run --name canal115 -p 11111:11111 -v /docker/canal/config/instance.properties:/home/admin/canal-server/conf/example/instance.properties --link mysql5736:mysql5736 -id canal/canal-server:v1.1.5</span><br><span class="line"></span><br><span class="line">docker exec -it canal115 /bin/bash</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看日志是否连接成功</span></span><br><span class="line">tail -100f canal-server/logs/example/example.log</span><br></pre></td></tr></table></figure>
+<h2 id="6、重新运行容器"><a href="#6、重新运行容器" class="headerlink" title="6、重新运行容器"></a>6、重新运行容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f canal115</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">挂载配置文件</span></span><br><span class="line">docker run --name canal115 -p 11111:11111 -v /docker/canal/config/instance.properties:/home/admin/canal-server/conf/example/instance.properties --link mysql5736:mysql5736 -id canal/canal-server:v1.1.5</span><br><span class="line"></span><br><span class="line">docker exec -it canal115 /bin/bash</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看日志是否连接成功</span></span><br><span class="line">tail -100f canal-server/logs/example/example.log</span><br></pre></td></tr></table></figure>
 
 
 
@@ -351,7 +351,7 @@
 
 
 
-<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">jackson:</span></span><br><span class="line">    <span class="attr">date-format:</span> <span class="string">yyyy-MM-dd</span> <span class="string">HH:mm:ss</span></span><br><span class="line">    <span class="attr">time-zone:</span> <span class="string">GMT+8</span></span><br><span class="line">    <span class="attr">default-property-inclusion:</span> <span class="string">non_null</span></span><br><span class="line"></span><br><span class="line"><span class="attr">canal.conf:</span></span><br><span class="line">  <span class="attr">mode:</span> <span class="string">tcp</span> <span class="comment">#tcp kafka rocketMQ rabbitMQ</span></span><br><span class="line">  <span class="attr">flatMessage:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">zookeeperHosts:</span></span><br><span class="line">  <span class="attr">syncBatchSize:</span> <span class="number">1000</span></span><br><span class="line">  <span class="attr">retries:</span> <span class="number">0</span></span><br><span class="line">  <span class="attr">timeout:</span></span><br><span class="line">  <span class="attr">accessKey:</span></span><br><span class="line">  <span class="attr">secretKey:</span></span><br><span class="line">  <span class="attr">consumerProperties:</span></span><br><span class="line">    <span class="comment"># canal tcp consumer</span></span><br><span class="line">    <span class="attr">canal.tcp.server.host:</span> <span class="string">canal115:11111</span></span><br><span class="line">    <span class="attr">canal.tcp.zookeeper.hosts:</span></span><br><span class="line">    <span class="attr">canal.tcp.batch.size:</span> <span class="number">500</span></span><br><span class="line">    <span class="attr">canal.tcp.username:</span></span><br><span class="line">    <span class="attr">canal.tcp.password:</span></span><br><span class="line">  <span class="attr">srcDataSources:</span></span><br><span class="line">    <span class="attr">defaultDS:</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">jdbc:mysql://mysql5736:3306/dailyhub?useUnicode=true</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">  <span class="attr">canalAdapters:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">instance:</span> <span class="string">example</span> <span class="comment"># canal instance Name or mq topic name</span></span><br><span class="line">    <span class="attr">groups:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">groupId:</span> <span class="string">g1</span></span><br><span class="line">      <span class="attr">outerAdapters:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">logger</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">es7</span></span><br><span class="line">        <span class="attr">hosts:</span> <span class="string">es7162:9200</span> <span class="comment"># 127.0.0.1:9200 for rest mode 127.0.0.1:9300 for transport mode</span></span><br><span class="line">        <span class="attr">properties:</span></span><br><span class="line">          <span class="attr">mode:</span> <span class="string">rest</span> <span class="comment">#transport or rest</span></span><br><span class="line">          <span class="comment"># security.auth: test:123456 #  only used for rest mode</span></span><br><span class="line">          <span class="attr">cluster.name:</span> <span class="string">dailyhub-es</span></span><br></pre></td></tr></table></figure>
+<h2 id="7、修改配置"><a href="#7、修改配置" class="headerlink" title="7、修改配置"></a>7、修改配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">jackson:</span></span><br><span class="line">    <span class="attr">date-format:</span> <span class="string">yyyy-MM-dd</span> <span class="string">HH:mm:ss</span></span><br><span class="line">    <span class="attr">time-zone:</span> <span class="string">GMT+8</span></span><br><span class="line">    <span class="attr">default-property-inclusion:</span> <span class="string">non_null</span></span><br><span class="line"></span><br><span class="line"><span class="attr">canal.conf:</span></span><br><span class="line">  <span class="attr">mode:</span> <span class="string">tcp</span> <span class="comment">#tcp kafka rocketMQ rabbitMQ</span></span><br><span class="line">  <span class="attr">flatMessage:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">zookeeperHosts:</span></span><br><span class="line">  <span class="attr">syncBatchSize:</span> <span class="number">1000</span></span><br><span class="line">  <span class="attr">retries:</span> <span class="number">0</span></span><br><span class="line">  <span class="attr">timeout:</span></span><br><span class="line">  <span class="attr">accessKey:</span></span><br><span class="line">  <span class="attr">secretKey:</span></span><br><span class="line">  <span class="attr">consumerProperties:</span></span><br><span class="line">    <span class="comment"># canal tcp consumer</span></span><br><span class="line">    <span class="attr">canal.tcp.server.host:</span> <span class="string">canal115:11111</span></span><br><span class="line">    <span class="attr">canal.tcp.zookeeper.hosts:</span></span><br><span class="line">    <span class="attr">canal.tcp.batch.size:</span> <span class="number">500</span></span><br><span class="line">    <span class="attr">canal.tcp.username:</span></span><br><span class="line">    <span class="attr">canal.tcp.password:</span></span><br><span class="line">  <span class="attr">srcDataSources:</span></span><br><span class="line">    <span class="attr">defaultDS:</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">jdbc:mysql://mysql5736:3306/dailyhub?useUnicode=true</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">  <span class="attr">canalAdapters:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">instance:</span> <span class="string">example</span> <span class="comment"># canal instance Name or mq topic name</span></span><br><span class="line">    <span class="attr">groups:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">groupId:</span> <span class="string">g1</span></span><br><span class="line">      <span class="attr">outerAdapters:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">logger</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">es7</span></span><br><span class="line">        <span class="attr">hosts:</span> <span class="string">es7162:9200</span> <span class="comment"># 127.0.0.1:9200 for rest mode 127.0.0.1:9300 for transport mode</span></span><br><span class="line">        <span class="attr">properties:</span></span><br><span class="line">          <span class="attr">mode:</span> <span class="string">rest</span> <span class="comment">#transport or rest</span></span><br><span class="line">          <span class="comment"># security.auth: test:123456 #  only used for rest mode</span></span><br><span class="line">          <span class="attr">cluster.name:</span> <span class="string">dailyhub-es</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -360,11 +360,11 @@
 
 
 
-<h2 id="重新运行容器-1"><a href="#重新运行容器-1" class="headerlink" title="重新运行容器"></a>重新运行容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除原来的容器重新运行容器</span></span><br><span class="line">docker run --name adapter115 -p 8081:8081 --link mysql5736:mysql5736 --link canal115:canal115 --link es7162:es7162 -v /docker/canaladapter/config/application.yml:/opt/canal-adapter/conf/application.yml -v /docker/canaladapter/es7:/opt/canal-adapter/conf/es7 -d slpcat/canal-adapter:v1.1.5</span><br></pre></td></tr></table></figure>
+<h2 id="8、重新运行容器"><a href="#8、重新运行容器" class="headerlink" title="8、重新运行容器"></a>8、重新运行容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除原来的容器重新运行容器</span></span><br><span class="line">docker run --name adapter115 -p 8081:8081 --link mysql5736:mysql5736 --link canal115:canal115 --link es7162:es7162 -v /docker/canaladapter/config/application.yml:/opt/canal-adapter/conf/application.yml -v /docker/canaladapter/es7:/opt/canal-adapter/conf/es7 -d slpcat/canal-adapter:v1.1.5</span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="联合测试"><a href="#联合测试" class="headerlink" title="联合测试"></a>联合测试</h1><h2 id="新建索引"><a href="#新建索引" class="headerlink" title="新建索引"></a>新建索引</h2><blockquote>
+<h1 id="联合测试"><a href="#联合测试" class="headerlink" title="联合测试"></a>联合测试</h1><h2 id="9、新建索引"><a href="#9、新建索引" class="headerlink" title="9、新建索引"></a>9、新建索引</h2><blockquote>
 <p>使用 postman 发送请求到 es 新建索引</p>
 <p>PUT <a target="_blank" rel="noopener" href="http://192.168.31.21:9200/dailyhub_collect">http://192.168.31.21:9200/dailyhub_collect</a></p>
 </blockquote>
@@ -373,7 +373,7 @@
 
 
 
-<h2 id="同步数据测试"><a href="#同步数据测试" class="headerlink" title="同步数据测试"></a>同步数据测试</h2><blockquote>
+<h2 id="10、同步数据测试"><a href="#10、同步数据测试" class="headerlink" title="10、同步数据测试"></a>10、同步数据测试</h2><blockquote>
 <p>数据库对相应的表插入字段</p>
 </blockquote>
 <blockquote>
@@ -712,14 +712,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -729,6 +721,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,19 +768,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,6 +797,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,10 +836,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -849,6 +845,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,15 +904,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,19 +932,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

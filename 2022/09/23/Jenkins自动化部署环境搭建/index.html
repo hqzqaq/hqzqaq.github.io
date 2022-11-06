@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/7a8c40d42a5d4b1ba721213e9a98ed86_2022-07-01_23-37-27.png">
 <meta property="og:image" content="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/7b2fe92831a74e61a76f29756d3c1075_%E7%9C%8B%E5%9B%BE%E7%8E%8B.png">
 <meta property="article:published_time" content="2022-09-23T05:43:07.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:09:48.006Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.156Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="jenkins">
 <meta property="article:tag" content="运维">
@@ -317,11 +317,11 @@
     <h1 id="Jenkins自动化部署环境搭建"><a href="#Jenkins自动化部署环境搭建" class="headerlink" title="Jenkins自动化部署环境搭建"></a>Jenkins自动化部署环境搭建</h1><p>本文的目的是将多模块的项目利用 jenkins 实现自动化的部署，再将代码推送到 gitlab 时，jenkins 通过轮询的方式查看 gitlab 的代码是否有变化，有变化则拉取仓库的代码，使用 maven 打包，而我的项目各个子模块又集成了 docker-mavne 插件，会将各模块的服务打包为 docker 镜像推送到服务器，在服务器编写好对应 docker-compose.yml 编排文件启动项目，所以 jenkind 需要在 maven 打包完成后，向服务器发送编排启动项目的命令，即可达到自动化部署项目的目的。</p>
 <span id="more"></span>
 
-<h2 id="1-拉取镜像"><a href="#1-拉取镜像" class="headerlink" title="1.拉取镜像"></a>1.拉取镜像</h2><p>有很多的 jenkins 镜像，我们选择 jdk8 这一个</p>
+<h2 id="1、1-拉取镜像"><a href="#1、1-拉取镜像" class="headerlink" title="1、1.拉取镜像"></a>1、1.拉取镜像</h2><p>有很多的 jenkins 镜像，我们选择 jdk8 这一个</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull jenkins/jenkins:latest-jdk8</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-准备-maven-和-jdk"><a href="#2-准备-maven-和-jdk" class="headerlink" title="2.准备 maven 和 jdk"></a>2.准备 maven 和 jdk</h2><p>自行前往官网下载对应的版本，这里采用的 maven3.6.3 和 jdk8</p>
-<h2 id="3-编写编排文件"><a href="#3-编写编排文件" class="headerlink" title="3.编写编排文件"></a>3.编写编排文件</h2><ol>
+<h2 id="2、2-准备-maven-和-jdk"><a href="#2、2-准备-maven-和-jdk" class="headerlink" title="2、2.准备 maven 和 jdk"></a>2、2.准备 maven 和 jdk</h2><p>自行前往官网下载对应的版本，这里采用的 maven3.6.3 和 jdk8</p>
+<h2 id="3、3-编写编排文件"><a href="#3、3-编写编排文件" class="headerlink" title="3、3.编写编排文件"></a>3、3.编写编排文件</h2><ol>
 <li>准备一个目录放置挂载文件和 docker-compose.yml 文件</li>
 <li>新建一个名为 hudson.model.UpdateCenter.xml 的文件,填入一下内容</li>
 </ol>
@@ -335,7 +335,7 @@
 <ol start="4">
 <li>启动项目：docker-compose up -d</li>
 </ol>
-<h2 id="4-初始化-Jenkins"><a href="#4-初始化-Jenkins" class="headerlink" title="4.初始化 Jenkins"></a>4.初始化 Jenkins</h2><ol>
+<h2 id="4、4-初始化-Jenkins"><a href="#4、4-初始化-Jenkins" class="headerlink" title="4、4.初始化 Jenkins"></a>4、4.初始化 Jenkins</h2><ol>
 <li>第一次登录需要在服务模块下获取密码，因为已经将 jenkins_home 目录挂载出来了，直接去对应的目录下找即可。</li>
 </ol>
 <img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220701150215096.png" alt="登录" style="zoom:80%;">
@@ -394,7 +394,7 @@
 <li><p>配置 Publish over SSH，增加一个 ssh server，方便使用 ssh 连接服务器执行一些命令，或者传输文件</p>
 <img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220701173338580.png" alt="Publish over SSH配置ssh server" style="zoom:80%;"></li>
 </ol>
-<h2 id="5-gitlab配置ssh"><a href="#5-gitlab配置ssh" class="headerlink" title="5.gitlab配置ssh"></a>5.gitlab配置ssh</h2><ol>
+<h2 id="5、5-gitlab配置ssh"><a href="#5、5-gitlab配置ssh" class="headerlink" title="5、5.gitlab配置ssh"></a>5、5.gitlab配置ssh</h2><ol>
 <li><p>安装 gitlab 插件</p>
 <p>系统管理 -&gt; 插件管理 -&gt; 可选插件 搜索 gitlab<br><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220701161450251.png" alt="gitlab安装"></p>
 </li>
@@ -434,10 +434,10 @@
 </ul>
 </li>
 </ol>
-<h2 id="6-git-plugins-配置"><a href="#6-git-plugins-配置" class="headerlink" title="6.git plugins 配置"></a>6.git plugins 配置</h2><p>系统管理 -&gt; 系统设置 -&gt; git plugin 配置姓名和邮箱</p>
+<h2 id="6、6-git-plugins-配置"><a href="#6、6-git-plugins-配置" class="headerlink" title="6、6.git plugins 配置"></a>6、6.git plugins 配置</h2><p>系统管理 -&gt; 系统设置 -&gt; git plugin 配置姓名和邮箱</p>
 <img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220701170852191.png" alt="git plugin配置" style="zoom:80%;">
 
-<h2 id="7-新建任务"><a href="#7-新建任务" class="headerlink" title="7.新建任务"></a>7.新建任务</h2><p>首页 -&gt; 新建任务 -&gt; 构建一个 maven 项目</p>
+<h2 id="7、7-新建任务"><a href="#7、7-新建任务" class="headerlink" title="7、7.新建任务"></a>7、7.新建任务</h2><p>首页 -&gt; 新建任务 -&gt; 构建一个 maven 项目</p>
 <ul>
 <li><p>在源码管理中选择 Git，复制仓库的 ssh 连接地址，此时提示无法连接仓库，点击添加</p>
 <img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20220701171306733.png" alt="复制仓库地址" style="zoom:80%;">
@@ -811,14 +811,6 @@ jenkins job默认对master分支进行构建，也可以自定义分支。
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -828,6 +820,14 @@ jenkins job默认对master分支进行构建，也可以自定义分支。
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -867,19 +867,11 @@ jenkins job默认对master分支进行构建，也可以自定义分支。
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,6 +896,14 @@ jenkins job默认对master分支进行构建，也可以自定义分支。
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -935,10 +935,6 @@ jenkins job默认对master分支进行构建，也可以自定义分支。
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -948,6 +944,10 @@ jenkins job默认对master分支进行构建，也可以自定义分支。
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1003,15 +1003,15 @@ jenkins job默认对master分支进行构建，也可以自定义分支。
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1031,19 +1031,19 @@ jenkins job默认对master分支进行构建，也可以自定义分支。
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

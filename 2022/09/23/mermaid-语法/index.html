@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cbegin%7Barray%7D%5Bb%5D+%7B%7Cc%7Cc%7C%7D++%5Chline+%E8%AF%AD%E6%B3%95+&+%E9%87%8A%E4%B9%89%5C++%5Chline+%3C%3Cinterface%3E%3E+&+%E6%8E%A5%E5%8F%A3%E7%B1%BB+++%5C++%5Chline+%3C%3Cabstract%3E%3E++&+%E6%8A%BD%E8%B1%A1%E7%B1%BB++%5C++%5Chline+%3C%3CService%3E%3E+++&+%E4%BB%A3%E8%A1%A8%E6%9C%8D%E5%8A%A1%E7%AD%89%E7%BA%A7+%5C++%5Chline+%3C%3Cenumeration%3E%3E++&+%E6%9E%9A%E4%B8%BE+++%5C+%5Chline+%5Cend%7Barray%7D++%5C+">
 <meta property="og:image" content="https://i.loli.net/2021/01/30/Eoz36MphAQ29Org.jpg">
 <meta property="article:published_time" content="2022-09-23T05:47:27.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:09:57.272Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.157Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="markdown">
 <meta property="article:tag" content="mermaid">
@@ -302,7 +302,7 @@
     <h1 id="mermaid-语法"><a href="#mermaid-语法" class="headerlink" title="mermaid 语法"></a>mermaid 语法</h1><p>官网地址:<a target="_blank" rel="noopener" href="http://knsv.github.io/mermaid/index.html">http://knsv.github.io/mermaid/index.html</a></p>
 <span id="more"></span>
 
-<h2 id="图"><a href="#图" class="headerlink" title="图"></a><strong>图</strong></h2><p>例如从左到右的一个有向图</p>
+<h2 id="1、图"><a href="#1、图" class="headerlink" title="1、图"></a>1、<strong>图</strong></h2><p>例如从左到右的一个有向图</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">A[aa bb]--&gt;B(wo);</span><br><span class="line">A--&gt;C((我是C));</span><br><span class="line">B--&gt;D&gt;我是D];</span><br><span class="line">C--&gt;D;</span><br><span class="line">D--&gt;E&#123;我是E&#125;;</span><br><span class="line">C--&gt;E;</span><br><span class="line">2--&gt;E;</span><br><span class="line"><span class="emphasis">_--&gt;E;</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2021/01/30/ZJqR4jarVL1ugcn.png" alt="img"></p>
@@ -354,7 +354,7 @@
 <p>或者使用如下方式修改<code>class</code></p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class nodeId1 className;</span><br><span class="line">class nodeId1,nodeId2 className;</span><br><span class="line">classDef default fill:#f9f,stroke:#333,stroke-width:4px;</span><br></pre></td></tr></table></figure>
 
-<h2 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a><strong>时序图</strong></h2><p>如下是一个基本的时序图</p>
+<h2 id="2、时序图"><a href="#2、时序图" class="headerlink" title="2、时序图"></a>2、<strong>时序图</strong></h2><p>如下是一个基本的时序图</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">    participant Alice</span></span><br><span class="line"><span class="code">    participant Bob</span></span><br><span class="line"><span class="code">    Alice-&gt;John: Hello John, how are you?</span></span><br><span class="line"><span class="code">    loop Healthcheck</span></span><br><span class="line"><span class="code">        John-&gt;John: Fight against hypochondria</span></span><br><span class="line"><span class="code">    end</span></span><br><span class="line"><span class="code">    Note right of John: Rational thoughts &lt;br/&gt;prevail...</span></span><br><span class="line"><span class="code">    John--&gt;Alice: Great!</span></span><br><span class="line"><span class="code">    John-&gt;Bob: How about you?</span></span><br><span class="line"><span class="code">    Bob--&gt;&gt;John: Jolly good!</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2021/01/30/dZkqsHD9XhT4yaU.png" alt="img"></p>
@@ -387,7 +387,7 @@
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">    Alice-&gt;&gt;Bob: Hello Bob, how are you?</span></span><br><span class="line"><span class="code">    alt is sick</span></span><br><span class="line"><span class="code">        Bob-&gt;&gt;Alice: Not so good :(</span></span><br><span class="line"><span class="code">    else is well</span></span><br><span class="line"><span class="code">        Bob-&gt;&gt;Alice: Feeling fresh like a daisy</span></span><br><span class="line"><span class="code">    end</span></span><br><span class="line"><span class="code">    opt Extra response</span></span><br><span class="line"><span class="code">        Bob-&gt;&gt;Alice: Thanks for asking</span></span><br><span class="line"><span class="code">    end</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2021/01/30/P9Inwj2MA4HF5EV.png" alt="img"></p>
-<h2 id="甘特图"><a href="#甘特图" class="headerlink" title="甘特图"></a><strong>甘特图</strong></h2><p>示例:</p>
+<h2 id="3、甘特图"><a href="#3、甘特图" class="headerlink" title="3、甘特图"></a>3、<strong>甘特图</strong></h2><p>示例:</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line"><span class="code">        dateFormat  YYYY-MM-DD</span></span><br><span class="line"><span class="code">        title Adding GANTT diagram functionality to mermaid</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">        section A section</span></span><br><span class="line"><span class="code">        Completed task            :done,    des1, 2014-01-06,2014-01-08</span></span><br><span class="line"><span class="code">        Active task               :active,  des2, 2014-01-09, 3d</span></span><br><span class="line"><span class="code">        Future task               :         des3, after des2, 5d</span></span><br><span class="line"><span class="code">        Future task2               :         des4, after des3, 5d</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">        section Critical tasks</span></span><br><span class="line"><span class="code">        Completed task in the critical line :crit, done, 2014-01-06,24h</span></span><br><span class="line"><span class="code">        Implement parser and jison          :crit, done, after des1, 2d</span></span><br><span class="line"><span class="code">        Create tests for parser             :crit, active, 3d</span></span><br><span class="line"><span class="code">        Future task in critical line        :crit, 5d</span></span><br><span class="line"><span class="code">        Create tests for renderer           :2d</span></span><br><span class="line"><span class="code">        Add to mermaid                      :1d</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">        section Documentation</span></span><br><span class="line"><span class="code">        Describe gantt syntax               :active, a1, after des1, 3d</span></span><br><span class="line"><span class="code">        Add gantt diagram to demo page      :after a1  , 20h</span></span><br><span class="line"><span class="code">        Add another diagram to demo page    :doc1, after a1  , 48h</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">        section Last section</span></span><br><span class="line"><span class="code">        Describe gantt syntax               :after doc1, 3d</span></span><br><span class="line"><span class="code">        Add gantt diagram to demo page      : 20h</span></span><br><span class="line"><span class="code">        Add another diagram to demo page    : 48h</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2021/01/30/rmTgSXWj4G8DZHb.png" alt="img"></p>
@@ -502,10 +502,10 @@
 <td align="left">Offset from UTC as +-HH:mm, +-HHmm, or Z</td>
 </tr>
 </tbody></table>
-<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p>同样先来一个示例</p>
+<h2 id="4、类图"><a href="#4、类图" class="headerlink" title="4、类图"></a>4、类图</h2><p>同样先来一个示例</p>
 <p><img src="https://i.loli.net/2021/01/30/husAHdVri4LMexI.jpg" alt="img"></p>
 <p>类图是用来描述类属性、方法以及类指向问题的工具，通过类图可以直观的了解类有哪些属性、哪些方法，遵循怎样的关系（继承、组合……）。类图由三部分构成，顶部区域是类的名称、中间区域是类的属性、底部区域是类的方法。</p>
-<h3 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a><em>类定义</em></h3><p>定义一个类有三种方法，隐式定义、使用<code>:</code>定义、使用<code>&#123;&#125;</code>定义</p>
+<h3 id="4-1、类定义"><a href="#4-1、类定义" class="headerlink" title="4.1、类定义"></a>4.1、<em>类定义</em></h3><p>定义一个类有三种方法，隐式定义、使用<code>:</code>定义、使用<code>&#123;&#125;</code>定义</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%% 隐式定义</span><br><span class="line">classDiagram</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Animal</span></span><br><span class="line">    Vehicle &lt;|-- Car</span><br></pre></td></tr></table></figure>
 
 
@@ -517,14 +517,14 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%% 使用&#123;&#125;定义</span><br><span class="line">classDiagram</span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">BankAccount</span>&#123;</span><br><span class="line">  		+String owner</span><br><span class="line">  		+BigDecimal balance</span><br><span class="line">  		+deposit(amount) <span class="built_in">bool</span></span><br><span class="line">  		+withdrawl(amount)</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2021/01/30/8L2VXCxlDK75dZc.jpg" alt="img"></p>
-<h3 id="类属性、方法"><a href="#类属性、方法" class="headerlink" title="类属性、方法"></a><em>类属性、方法</em></h3><p>类的属性和方法通过判断<code>()</code>是否存在加以区分</p>
+<h3 id="4-2、方法"><a href="#4-2、方法" class="headerlink" title="4.2、方法*"></a>4.2、方法*</h3><p>类的属性和方法通过判断<code>()</code>是否存在加以区分</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">classDiagram</span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">BankAccount</span>&#123;</span><br><span class="line">  		+String owner	%% 属性</span><br><span class="line">  		+BigDecimal balance</span><br><span class="line">  		+deposit(amount) <span class="built_in">bool</span>	%% 方法 <span class="built_in">bool</span>返回类型</span><br><span class="line">  		+withdrawl(amount)	%% 方法 参数为amount</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2021/01/30/xJkDvOWdgu86lij.jpg" alt="img"></p>
-<h3 id="类间关系"><a href="#类间关系" class="headerlink" title="类间关系"></a><em>类间关系</em></h3><p>类间关系有继承、实现、组合、依赖等，在类图中以连接形式的不同加以区分。</p>
+<h3 id="4-3、类间关系"><a href="#4-3、类间关系" class="headerlink" title="4.3、类间关系"></a>4.3、<em>类间关系</em></h3><p>类间关系有继承、实现、组合、依赖等，在类图中以连接形式的不同加以区分。</p>
 <p><img src="https://www.zhihu.com/equation?tex=%5Cbegin%7Barray%7D%5Bb%5D+%7B%7Cc%7Cc%7C%7D++%5Chline+%E7%AC%A6%E5%8F%B7+&+%E9%87%8A%E4%B9%89%5C++%5Chline+..%3E+&+%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB+++%5C++%5Chline+--%7C%3E++&+%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB++%5C++%5Chline+..%7C%3E+++&+%E5%AE%9E%E7%8E%B0%E5%85%B3%E7%B3%BB+%5C++%5Chline+--%3E++&+%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB++++%5C++%5Chline+--o++&+%E8%81%9A%E5%90%88%E5%85%B3%E7%B3%BB++++%5C++%5Chline+--*++&+%E7%BB%84%E5%90%88%E5%85%B3%E7%B3%BB+++%5C+%5Chline+%5Cend%7Barray%7D++%5C++" alt="[公式]"></p>
 <p><img src="https://i.loli.net/2021/01/30/aQnIFAPucyfXrhD.jpg" alt="img"></p>
-<h3 id="类注释"><a href="#类注释" class="headerlink" title="类注释"></a><em>类注释</em></h3><p>类注释使用<code>&lt;&lt;&gt;&gt;</code>定义，注释放在尖括号中间，用于指示类的性质，有如下四种性质</p>
+<h3 id="4-4、类注释"><a href="#4-4、类注释" class="headerlink" title="4.4、类注释"></a>4.4、<em>类注释</em></h3><p>类注释使用<code>&lt;&lt;&gt;&gt;</code>定义，注释放在尖括号中间，用于指示类的性质，有如下四种性质</p>
 <p><img src="https://www.zhihu.com/equation?tex=%5Cbegin%7Barray%7D%5Bb%5D+%7B%7Cc%7Cc%7C%7D++%5Chline+%E8%AF%AD%E6%B3%95+&+%E9%87%8A%E4%B9%89%5C++%5Chline+%3C%3Cinterface%3E%3E+&+%E6%8E%A5%E5%8F%A3%E7%B1%BB+++%5C++%5Chline+%3C%3Cabstract%3E%3E++&+%E6%8A%BD%E8%B1%A1%E7%B1%BB++%5C++%5Chline+%3C%3CService%3E%3E+++&+%E4%BB%A3%E8%A1%A8%E6%9C%8D%E5%8A%A1%E7%AD%89%E7%BA%A7+%5C++%5Chline+%3C%3Cenumeration%3E%3E++&+%E6%9E%9A%E4%B8%BE+++%5C+%5Chline+%5Cend%7Barray%7D++%5C+" alt="[公式]"></p>
 <p>类注释的定义方法有两种，单独定义或者与类定义一起放在嵌套结构<code>&#123;&#125;</code>中</p>
 <p><strong>单独定义</strong></p>
@@ -849,14 +849,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -866,6 +858,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -905,19 +905,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -942,6 +934,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,10 +973,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -986,6 +982,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1041,15 +1041,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1069,19 +1069,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

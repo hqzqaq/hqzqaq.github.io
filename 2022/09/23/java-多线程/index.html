@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="java多线程Process与Thread 程序是指令和数据的有序集合，其本身没有任何运行的含义，是一个静态的概念 进程是执行程序的一次执行过程，是一个动态概念。是系统资源分配的单位 一个进程中可以包含若干个线程，一个进程中至少有一个线程。线程是CPU调度和执行的单位  注意：很多多线程都是模拟出来的，真正的多线程是指有多个CPU，即多核，如服务器。如果是模拟出来的多线程，即在一个CPU的情况下，">
+  <meta name="description" content="java多线程1、Process与Thread 程序是指令和数据的有序集合，其本身没有任何运行的含义，是一个静态的概念 进程是执行程序的一次执行过程，是一个动态概念。是系统资源分配的单位 一个进程中可以包含若干个线程，一个进程中至少有一个线程。线程是CPU调度和执行的单位  注意：很多多线程都是模拟出来的，真正的多线程是指有多个CPU，即多核，如服务器。如果是模拟出来的多线程，即在一个CPU的情况">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java 多线程">
 <meta property="og:url" content="https://hqzqaq.github.io/2022/09/23/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
 <meta property="og:site_name" content="hqz的博客">
-<meta property="og:description" content="java多线程Process与Thread 程序是指令和数据的有序集合，其本身没有任何运行的含义，是一个静态的概念 进程是执行程序的一次执行过程，是一个动态概念。是系统资源分配的单位 一个进程中可以包含若干个线程，一个进程中至少有一个线程。线程是CPU调度和执行的单位  注意：很多多线程都是模拟出来的，真正的多线程是指有多个CPU，即多核，如服务器。如果是模拟出来的多线程，即在一个CPU的情况下，">
+<meta property="og:description" content="java多线程1、Process与Thread 程序是指令和数据的有序集合，其本身没有任何运行的含义，是一个静态的概念 进程是执行程序的一次执行过程，是一个动态概念。是系统资源分配的单位 一个进程中可以包含若干个线程，一个进程中至少有一个线程。线程是CPU调度和执行的单位  注意：很多多线程都是模拟出来的，真正的多线程是指有多个CPU，即多核，如服务器。如果是模拟出来的多线程，即在一个CPU的情况">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-23T05:40:07.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:07:12.318Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.156Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="多线程">
@@ -284,7 +284,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="java多线程"><a href="#java多线程" class="headerlink" title="java多线程"></a>java多线程</h1><h2 id="Process与Thread"><a href="#Process与Thread" class="headerlink" title="Process与Thread"></a>Process与Thread</h2><ul>
+    <h1 id="java多线程"><a href="#java多线程" class="headerlink" title="java多线程"></a>java多线程</h1><h2 id="1、Process与Thread"><a href="#1、Process与Thread" class="headerlink" title="1、Process与Thread"></a>1、Process与Thread</h2><ul>
 <li>程序是指令和数据的有序集合，其本身没有任何运行的含义，是一个静态的概念</li>
 <li>进程是执行程序的一次执行过程，是一个动态概念。是<code>系统资源分配的单位</code></li>
 <li>一个进程中可以包含若干个线程，一个进程中至少有一个线程。线程是<code>CPU调度和执行的单位</code></li>
@@ -292,7 +292,7 @@
 <p><strong>注意：</strong>很多多线程都是模拟出来的，真正的多线程是指有<code>多个CPU</code>，即<font color="orange">多核</font>，如服务器。如果是模拟出来的多线程，即在一个CPU的情况下，在统一时间点，CPU只能执行一个代码，因为切换的很快，所以就有同时执行的错觉</p>
 <span id="more"></span>
 
-<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><ul>
+<h2 id="2、核心概念"><a href="#2、核心概念" class="headerlink" title="2、核心概念"></a>2、核心概念</h2><ul>
 <li>线程就是独立的执行路径</li>
 <li>在程序运行时，即使自己没有创建线程，后台也会有多个线程，如主线程，gc线程</li>
 <li><code>main()</code> 称之为<code>主线程</code>，为系统的入口，用于执行整个程序</li>
@@ -301,11 +301,11 @@
 <li>线程会带来额外的开销，如<font color="red">CPU调度时间</font>，<font color="red">并发控制开销</font></li>
 <li>每个线程在自己的工作内存交互，内存控制不当会造成数据不一致</li>
 </ul>
-<h2 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h2><ul>
+<h2 id="3、并发与并行"><a href="#3、并发与并行" class="headerlink" title="3、并发与并行"></a>3、并发与并行</h2><ul>
 <li>并发（concurrent）：是同一时间应对（dealing with）多件事情的能力（<font color="orange">轮流交替</font>）</li>
 <li>并行（parallel）：是同一时间动手做（doing）多件事情的能力（<font color="orange">同时</font>）</li>
 </ul>
-<h2 id="三种创建方式"><a href="#三种创建方式" class="headerlink" title="三种创建方式"></a><strong>三种创建方式</strong></h2><ul>
+<h2 id="4、三种创建方式"><a href="#4、三种创建方式" class="headerlink" title="4、三种创建方式"></a>4、<strong>三种创建方式</strong></h2><ul>
 <li><p>继承<strong>Thread</strong>类<font color="orange">（不建议使用：避免OOP单继承局限性）</font></p>
 <ul>
 <li><p>自定义线程类继承<code>Thread</code>类</p>
@@ -349,7 +349,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><blockquote>
+<h2 id="5、静态代理"><a href="#5、静态代理" class="headerlink" title="5、静态代理"></a>5、静态代理</h2><blockquote>
 <p>概念</p>
 </blockquote>
 <ul>
@@ -361,7 +361,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="Lamda表达式"><a href="#Lamda表达式" class="headerlink" title="Lamda表达式"></a>Lamda表达式</h2><blockquote>
+<h2 id="6、Lamda表达式"><a href="#6、Lamda表达式" class="headerlink" title="6、Lamda表达式"></a>6、Lamda表达式</h2><blockquote>
 <p>定义</p>
 </blockquote>
 <ul>
@@ -391,7 +391,7 @@
 <li><p>多个参数也可以去掉参数类型，要去掉就都去掉，必须加上括号</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LambdaDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">ILove</span> <span class="variable">iLove</span> <span class="operator">=</span> (a, b) -&gt; &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;I love you &quot;</span> + a + b);</span><br><span class="line">        &#125;;</span><br><span class="line">        iLove.love(<span class="number">13</span>, <span class="number">14</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">interface</span> <span class="title class_">ILove</span> &#123;</span><br><span class="line">        <span class="keyword">void</span> <span class="title function_">love</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><blockquote>
+<h2 id="7、线程状态"><a href="#7、线程状态" class="headerlink" title="7、线程状态"></a>7、线程状态</h2><blockquote>
 <p>停止线程</p>
 </blockquote>
 <ul>
@@ -453,7 +453,7 @@
 </li>
 </ul>
 <p>一个线程可以在给定时间点处于一个状态，这些状态是不反映任何操作系统线程状态的虚拟机状态</p>
-<h3 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h3><ul>
+<h3 id="7-1、线程优先级"><a href="#7-1、线程优先级" class="headerlink" title="7.1、线程优先级"></a>7.1、线程优先级</h3><ul>
 <li>Java提供一个线程调度器来监控程序中启动后进入就绪状态的所有线程，线程调度器按照优先级决定应该调度哪个线程来执行</li>
 <li>线程的优先级用数字表示，范围从1~10<ul>
 <li>Thread.MIN_PRIORITY &#x3D; 1</li>
@@ -469,7 +469,7 @@
 </ul>
 <p><strong>优先级的设定建议在start()调度前</strong></p>
 <p><code>优先级低只是意味着获得调度的概率低，并不是优先级低就不会被调用了，这都是看CPU的调度</code></p>
-<h3 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h3><ul>
+<h3 id="7-2、守护线程"><a href="#7-2、守护线程" class="headerlink" title="7.2、守护线程"></a>7.2、守护线程</h3><ul>
 <li>线程分为<strong>用户线程</strong>和<strong>守护线程</strong></li>
 <li>虚拟机必须确保用户线程执行完毕</li>
 <li>虚拟机不用等待守护线程执行完毕，如：后台记录操作日志，监控内存，垃圾回收等待</li>
@@ -478,7 +478,7 @@
 
 
 
-<h2 id="线程的同步"><a href="#线程的同步" class="headerlink" title="线程的同步"></a><strong>线程的同步</strong></h2><p><font color="orange">多个线程操作同一个资源</font></p>
+<h2 id="8、线程的同步"><a href="#8、线程的同步" class="headerlink" title="8、线程的同步"></a>8、<strong>线程的同步</strong></h2><p><font color="orange">多个线程操作同一个资源</font></p>
 <p>处理多线程问题时，多个线程访问同一个对象，并且某些线程还想修改这个对象，这时候需要线程同步。</p>
 <p>线程同步其实就是一直<code>等待机制</code>，多个需要同时访问此对象的线程进入这个<font color="red">对象的等待池</font>形成队列，等待前面的线程使用完毕，下一个线程再使用</p>
 <blockquote>
@@ -492,7 +492,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p>synchronized 方法和synchronized 块</p>
+<h3 id="8-1、同步方法"><a href="#8-1、同步方法" class="headerlink" title="8.1、同步方法"></a>8.1、同步方法</h3><p>synchronized 方法和synchronized 块</p>
 <blockquote>
 <p>同步方法</p>
 </blockquote>
@@ -528,7 +528,7 @@
 
 
 
-<h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><p>多个线程各自占有一些共享资源，并且互相等待其它线程占有的资源才能运行，而导致两个或者多个线程都在等待对方释放锁，都停止执行的情况，某一个同步块同时拥有“<font color="red">两个以上对象的锁</font>”时，就可能会发生“<font color="red">死锁</font>”的问题，<font color="red">避免 synchronized 嵌套</font></p>
+<h2 id="9、死锁"><a href="#9、死锁" class="headerlink" title="9、死锁"></a>9、死锁</h2><p>多个线程各自占有一些共享资源，并且互相等待其它线程占有的资源才能运行，而导致两个或者多个线程都在等待对方释放锁，都停止执行的情况，某一个同步块同时拥有“<font color="red">两个以上对象的锁</font>”时，就可能会发生“<font color="red">死锁</font>”的问题，<font color="red">避免 synchronized 嵌套</font></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//死锁：多个线程互相抱着对方需要的资源，然后形成僵持</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeadLockDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Makeup</span> <span class="variable">g1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Makeup</span>(<span class="number">0</span>, <span class="string">&quot;灰姑娘&quot;</span>);</span><br><span class="line">        <span class="type">Makeup</span> <span class="variable">g2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Makeup</span>(<span class="number">1</span>, <span class="string">&quot;白雪公主&quot;</span>);</span><br><span class="line"></span><br><span class="line">        g1.start();</span><br><span class="line">        g2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//口红</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Lipstick</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//镜子</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Mirror</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Makeup</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">    <span class="comment">//    需要的资源只有一份，用static来保证只有一份</span></span><br><span class="line">    <span class="keyword">static</span> <span class="type">Lipstick</span> <span class="variable">lipstick</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lipstick</span>();</span><br><span class="line">    <span class="keyword">static</span> <span class="type">Mirror</span> <span class="variable">mirror</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Mirror</span>();</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> choice;<span class="comment">//选择</span></span><br><span class="line">    String girlName;<span class="comment">//使用化妆品的人</span></span><br><span class="line"></span><br><span class="line">    Makeup(<span class="type">int</span> choice, String girlName) &#123;</span><br><span class="line">        <span class="built_in">this</span>.choice = choice;</span><br><span class="line">        <span class="built_in">this</span>.girlName = girlName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//  化妆</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            makeup();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    化妆，互相持有对方的锁，就是需要拿到对方的资源</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">makeup</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="keyword">if</span> (choice == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (lipstick) &#123;<span class="comment">//获得口红的锁</span></span><br><span class="line">                System.out.println(<span class="built_in">this</span>.girlName + <span class="string">&quot;获得口红的锁&quot;</span>);</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line"><span class="comment">//                synchronized (mirror) &#123;//一秒钟后想获得镜子</span></span><br><span class="line"><span class="comment">//                    System.out.println(this.getName() + &quot;获得镜子的锁&quot;);</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">synchronized</span> (mirror) &#123;<span class="comment">//一秒钟后想获得镜子</span></span><br><span class="line">                System.out.println(<span class="built_in">this</span>.getName() + <span class="string">&quot;获得镜子的锁&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mirror) &#123;<span class="comment">//获得镜子的锁</span></span><br><span class="line">                System.out.println(<span class="built_in">this</span>.girlName + <span class="string">&quot;获得镜子的锁&quot;</span>);</span><br><span class="line">                Thread.sleep(<span class="number">2000</span>);</span><br><span class="line"><span class="comment">//                synchronized (lipstick) &#123;//一秒钟后想获得口红</span></span><br><span class="line"><span class="comment">//                    System.out.println(this.getName() + &quot;获得口红的锁&quot;);</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">synchronized</span> (lipstick) &#123;<span class="comment">//一秒钟后想获得口红</span></span><br><span class="line">                System.out.println(<span class="built_in">this</span>.getName() + <span class="string">&quot;获得口红的锁&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -541,7 +541,7 @@
 <li>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系</li>
 </ol>
 <p><strong>上面列出了死锁的四个必要条件，只要破除其中任意一个或多个条件就可以避免死锁发生</strong></p>
-<h2 id="Lock（锁）"><a href="#Lock（锁）" class="headerlink" title="Lock（锁）"></a>Lock（锁）</h2><ul>
+<h2 id="10、Lock（锁）"><a href="#10、Lock（锁）" class="headerlink" title="10、Lock（锁）"></a>10、Lock（锁）</h2><ul>
 <li><p>显示定义同步锁对象来实现同步，同步锁对象使用Lock对象充当</p>
 </li>
 <li><p>java.util.concurrent.locks.Lock接口是控制多个线程对共享资源进行访问的工具。<code>锁提供了对共享资源的独占访问，每次只能有一个线程对Lock对象加锁</code>，线程开始访问共享资源之前应先获得Lock对象</p>
@@ -610,7 +610,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="线程协作"><a href="#线程协作" class="headerlink" title="线程协作"></a>线程协作</h2><p><strong>生产者消费者问题</strong></p>
+<h2 id="11、线程协作"><a href="#11、线程协作" class="headerlink" title="11、线程协作"></a>11、线程协作</h2><p><strong>生产者消费者问题</strong></p>
 <blockquote>
 <p>线程通信</p>
 </blockquote>
@@ -656,7 +656,7 @@
 
 
 <p>并发协作模型”生产者&#x2F;消费者模式” –&gt; 信号灯法</p>
-<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><p>提前创建好多个线程,放入线程池中,使用时直接获取,使用完放回池中.可以避免频繁创建销毁,实现重复利用.</p>
+<h2 id="12、线程池"><a href="#12、线程池" class="headerlink" title="12、线程池"></a>12、线程池</h2><p>提前创建好多个线程,放入线程池中,使用时直接获取,使用完放回池中.可以避免频繁创建销毁,实现重复利用.</p>
 <p>好处:</p>
 <ul>
 <li>提高响应速度(减少了创建新线程的时间)</li>
@@ -987,14 +987,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1004,6 +996,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1043,19 +1043,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,6 +1072,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1111,10 +1111,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -1124,6 +1120,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1179,15 +1179,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1207,19 +1207,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

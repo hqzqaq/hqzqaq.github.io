@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/11/13/3oDmJlYFtSd62kc.png">
 <meta property="og:image" content="https://i0.hdslb.com/bfs/article/f22c51c4b1cee212114455cf05fca27122597d89.png@942w_242h_progressive.webp">
 <meta property="article:published_time" content="2022-09-23T05:42:09.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:07:36.598Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.156Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="注解">
@@ -293,7 +293,7 @@
 </ul>
 <span id="more"></span>
 
-<h2 id="注解的类型"><a href="#注解的类型" class="headerlink" title="注解的类型"></a>注解的类型</h2><ol>
+<h2 id="1、注解的类型"><a href="#1、注解的类型" class="headerlink" title="1、注解的类型"></a>1、注解的类型</h2><ol>
 <li><p>元注解</p>
 <ul>
 <li><p>是用于定义注解的注解，包括：</p>
@@ -305,7 +305,7 @@
 </ul>
 </li>
 <li><p>&#96;&#96;&#96;java<br>public enum RetentionPolicy {<br>  &#x2F;&#x2F; 此注解类型的信息只会记录在源文件中，编译时将被编译器丢弃，也就是说不会保存在编译好的 class 文件中<br>&#x2F;&#x2F; 例如：@SuppressWarnings<br>SOURCE,<br><br>&#x2F;&#x2F; 编译器将注解记录在 class 文件中，但不会加载到 JVM 中。如果一个注解声明没指定范围，则系统默认值就是 Class<br>&#x2F;&#x2F; 例如：@Override<br>CLASS,<br><br><br>&#x2F;&#x2F;注解信息会保留在源文件、类文件中，在执行的时候也会加载到 java 的 jvm 中，因此可以通过反射进行读取<br>&#x2F;&#x2F;例如：Deprecated<br>RUNTIME<br>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. java 自带的标准注解，使用这些注解后编译器就会进行检查</span><br><span class="line"></span><br><span class="line">   - @Override：标明重写某个方法</span><br><span class="line">   - @Deprecated：标明某个类或方法过时</span><br><span class="line">   - @SuppressWarnings：标明要忽略的警告</span><br><span class="line"></span><br><span class="line">3. 自定义注解，可以根据自己的需求定义注解</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 注解配置和 xml 配置的关系</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 可以认为 xml 和注解都是元数据</span><br><span class="line">  - xml：是一种集中式的元数据，与源代码无绑定</span><br><span class="line">  - 注解：是一种分散式的元数据，与源代码紧绑定</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 注解的作用</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1. 生成文档，通过代码里标识的元数据生成 javadoc 文档</span><br><span class="line">2. 编译检查，通过代码里标识的元数据让编译器在编译期间进行检查验证</span><br><span class="line">3. 编译时动态处理，编译时通过代码里标识的元数据动态处理，例如动态生成代码</span><br><span class="line">4. &lt;font color=&#x27;orange&#x27;&gt;运行时动态处理&lt;/font&gt;font&gt;，运行时通过代码里标识的元数据动态处理，例如使用反射注入实例</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 注解实现</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 注解实现的步骤</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1. 声明注解</span><br><span class="line">2. 添加注解</span><br><span class="line">3. 获取添加了注解的目标，通常是 Class 对象，Method 对象，Field 对象，还有 Constructor 对象，Parameter 对象，Annotation 对象等</span><br><span class="line">   1. 通过已知对象，获取 Class 对象</span><br><span class="line">   2. 通过全类路径，获取 Class 对象</span><br><span class="line">   3. 扫描包路径，获取 Class 对象</span><br><span class="line">   4. 实现注解处理器，借助反射，获取注解对象，读取注解属性值，然后根据注解及属性值做相应处理</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 不基于 Spring 容器实现</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1. 已知 Class 直接反射</span><br><span class="line"></span><br><span class="line">   1. 声明注解</span><br><span class="line"></span><br><span class="line">      ```java</span><br><span class="line">      // 运行时</span><br><span class="line">      @Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">      // 作用在字段上</span><br><span class="line">      @Target(ElementType.FIELD)</span><br><span class="line">      public @interface Person &#123;</span><br><span class="line">          // 支持基本数据类型，枚举</span><br><span class="line">          String name() default &quot;&quot;;</span><br><span class="line">      </span><br><span class="line">          SexEnum sex() default SexEnum.UNKNOWN;</span><br><span class="line">      </span><br><span class="line">          int age() default 18;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. java 自带的标准注解，使用这些注解后编译器就会进行检查</span><br><span class="line"></span><br><span class="line">   - @Override：标明重写某个方法</span><br><span class="line">   - @Deprecated：标明某个类或方法过时</span><br><span class="line">   - @SuppressWarnings：标明要忽略的警告</span><br><span class="line"></span><br><span class="line">3. 自定义注解，可以根据自己的需求定义注解</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 2、注解配置和 xml 配置的关系</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 可以认为 xml 和注解都是元数据</span><br><span class="line">  - xml：是一种集中式的元数据，与源代码无绑定</span><br><span class="line">  - 注解：是一种分散式的元数据，与源代码紧绑定</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 3、注解的作用</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1. 生成文档，通过代码里标识的元数据生成 javadoc 文档</span><br><span class="line">2. 编译检查，通过代码里标识的元数据让编译器在编译期间进行检查验证</span><br><span class="line">3. 编译时动态处理，编译时通过代码里标识的元数据动态处理，例如动态生成代码</span><br><span class="line">4. &lt;font color=&#x27;orange&#x27;&gt;运行时动态处理&lt;/font&gt;font&gt;，运行时通过代码里标识的元数据动态处理，例如使用反射注入实例</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 4、注解实现</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 5、注解实现的步骤</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1. 声明注解</span><br><span class="line">2. 添加注解</span><br><span class="line">3. 获取添加了注解的目标，通常是 Class 对象，Method 对象，Field 对象，还有 Constructor 对象，Parameter 对象，Annotation 对象等</span><br><span class="line">   1. 通过已知对象，获取 Class 对象</span><br><span class="line">   2. 通过全类路径，获取 Class 对象</span><br><span class="line">   3. 扫描包路径，获取 Class 对象</span><br><span class="line">   4. 实现注解处理器，借助反射，获取注解对象，读取注解属性值，然后根据注解及属性值做相应处理</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 6、不基于 Spring 容器实现</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1. 已知 Class 直接反射</span><br><span class="line"></span><br><span class="line">   1. 声明注解</span><br><span class="line"></span><br><span class="line">      ```java</span><br><span class="line">      // 运行时</span><br><span class="line">      @Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">      // 作用在字段上</span><br><span class="line">      @Target(ElementType.FIELD)</span><br><span class="line">      public @interface Person &#123;</span><br><span class="line">          // 支持基本数据类型，枚举</span><br><span class="line">          String name() default &quot;&quot;;</span><br><span class="line">      </span><br><span class="line">          SexEnum sex() default SexEnum.UNKNOWN;</span><br><span class="line">      </span><br><span class="line">          int age() default 18;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="2">
 <li><p>定义一个普通实体类</p>
@@ -323,7 +323,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="基于-Spring-容器"><a href="#基于-Spring-容器" class="headerlink" title="基于 Spring 容器"></a>基于 Spring 容器</h2><p><img src="https://i.loli.net/2021/11/13/3oDmJlYFtSd62kc.png" alt="spring模块结构"></p>
+<h2 id="7、基于-Spring-容器"><a href="#7、基于-Spring-容器" class="headerlink" title="7、基于 Spring 容器"></a>7、基于 Spring 容器</h2><p><img src="https://i.loli.net/2021/11/13/3oDmJlYFtSd62kc.png" alt="spring模块结构"></p>
 <p>整个 Spring IOC 容器，核心模块包括构造 Bean 定义，实例化 BeanFactory，注册 Bean 定义，实例化 Bean 并完成依赖注入，提法 Bean 获取。核心组件包括 BeanDefinition 实例对象，BeanFactory 实例对象，Bean 实例对象。</p>
 <p><img src="https://i0.hdslb.com/bfs/article/f22c51c4b1cee212114455cf05fca27122597d89.png@942w_242h_progressive.webp" alt="img"></p>
 <p>加入钩子后流程：</p>
@@ -341,7 +341,7 @@
 <p>12.<strong>Bean初始化后置处理</strong>，实现 <code>BeanPostProcessor.postProcessBeforeInitialization</code></p>
 <p>13.<strong>所有普通单例Bean实例化完成</strong></p>
 <p>14.<strong>所有普通单例bean实例化后置处理</strong>，实现 <code>SmartInitializingSingleton.afterSingletonsInstantiated</code> </p>
-<h3 id="基于BeanDefinitionRegistryPostProcessor接口"><a href="#基于BeanDefinitionRegistryPostProcessor接口" class="headerlink" title="基于BeanDefinitionRegistryPostProcessor接口"></a>基于BeanDefinitionRegistryPostProcessor接口</h3><ul>
+<h3 id="7-1、基于BeanDefinitionRegistryPostProcessor接口"><a href="#7-1、基于BeanDefinitionRegistryPostProcessor接口" class="headerlink" title="7.1、基于BeanDefinitionRegistryPostProcessor接口"></a>7.1、基于BeanDefinitionRegistryPostProcessor接口</h3><ul>
 <li>这个接口一般用来<font color="orange">注册bean定义</font>，当然也可以<font color="orange">修改bean定义信息</font>，触发时机在BeanFactory实例化后，注册了一些系统内置的bean定义之后</li>
 </ul>
 <p><code>ConfigurationClassPostProcessor</code> 就是基于<code> BeanDefinitionRegistryPostProcessor</code>接口实现<code> @Configuration</code>、<code>@Bean</code>、<code>@Import</code>、<code>@ImportResource</code>、<code>@ComponentScan</code>、<code>@PropertySource</code>、<code>@Conditional</code> 等注解的。 </p>
@@ -355,23 +355,23 @@
 <li><p>注解实现</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AnnotationBeanDefinitionRegistryPostProcessor</span> <span class="keyword">implements</span> <span class="title class_">BeanDefinitionRegistryPostProcessor</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">postProcessBeanDefinitionRegistry</span><span class="params">(BeanDefinitionRegistry registry)</span> <span class="keyword">throws</span> BeansException &#123;</span><br><span class="line">        <span class="type">ClassPathScanningCandidateComponentProvider</span> <span class="variable">classPathScanningCandidateComponentProvider</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassPathScanningCandidateComponentProvider</span>(<span class="literal">false</span>);</span><br><span class="line">        classPathScanningCandidateComponentProvider.addIncludeFilter(<span class="keyword">new</span> <span class="title class_">AnnotationTypeFilter</span>(Registry.class));</span><br><span class="line">        Set&lt;BeanDefinition&gt; beanDefinitions = classPathScanningCandidateComponentProvider.findCandidateComponents(<span class="string">&quot;com.dblones.java.annotation.example05&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(BeanDefinition beanDefinition : beanDefinitions)&#123;</span><br><span class="line">            registry.registerBeanDefinition(beanDefinition.getBeanClassName(), beanDefinition);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">postProcessBeanFactory</span><span class="params">(ConfigurableListableBeanFactory beanFactory)</span> <span class="keyword">throws</span> BeansException &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="基于-BeanFactoryPostProcessor-接口"><a href="#基于-BeanFactoryPostProcessor-接口" class="headerlink" title="基于 BeanFactoryPostProcessor 接口"></a>基于 BeanFactoryPostProcessor 接口</h3><ul>
+<h3 id="7-2、基于-BeanFactoryPostProcessor-接口"><a href="#7-2、基于-BeanFactoryPostProcessor-接口" class="headerlink" title="7.2、基于 BeanFactoryPostProcessor 接口"></a>7.2、基于 BeanFactoryPostProcessor 接口</h3><ul>
 <li>这个接口一般<font color="orange">修改bean定义信息</font>，触发时机在<code>BeanFactory</code>实例化后，注册了<code>bean</code>定义之后，<code>BeanDefinitionRegistryPostProcessor</code>接口的<code>postProcessBeanDefinitionRegistry</code>方法之后</li>
 </ul>
 <p>@<code>Configuration</code>注解的代理实现就是在这个阶段通过<code>ConfigurationClassPostProcessor</code>类实现的</p>
-<h3 id="基于-InstantiationAwareBeanPostProcessor-接口"><a href="#基于-InstantiationAwareBeanPostProcessor-接口" class="headerlink" title="基于 InstantiationAwareBeanPostProcessor 接口"></a>基于 InstantiationAwareBeanPostProcessor 接口</h3><ul>
+<h3 id="7-3、基于-InstantiationAwareBeanPostProcessor-接口"><a href="#7-3、基于-InstantiationAwareBeanPostProcessor-接口" class="headerlink" title="7.3、基于 InstantiationAwareBeanPostProcessor 接口"></a>7.3、基于 InstantiationAwareBeanPostProcessor 接口</h3><ul>
 <li>是<code>BeanPostProcessor</code>的子接口，通过接口字面意思翻译该接口的作用是<font color="orange">感知Bean实例化的处理器</font>。就是全面干预Bean实例化过程，包括Bean<code>实例化前后</code>，<code>设置属性</code>，<code>初始化前后</code></li>
 </ul>
 <p><code>@Autowired</code>、<code>@Value</code>、<code>@Inject</code>、<code>@Resource</code>、<code>@PostConstruct</code>、<code>@PreDestroy</code>、<code>@WebServiceRef</code>、<code>@EJB</code>、<code>@Required</code>就是借助<font color="orange">InstantiationAwareBeanPostProcessor</font>接口实现的，其中<code>@Autowired</code>、<code>@Value</code>、<code>@Inject</code>是<code>AutowiredAnnotationBeanPostProcessor</code>类实现的，<code>@Resource</code>、<code>@PostConstruct</code>、<code>@PreDestroy</code>、<code>@WebServiceRef</code>、<code>@EJB</code>是<font color="orange">CommonAnnotationBeanPostProcessor</font> 类实现的，<code>@Required</code>是<font color="orange">RequiredAnnotationBeanPostProcessor</font>类实现的。</p>
-<h3 id="基于-BeanPostProcessor-接口"><a href="#基于-BeanPostProcessor-接口" class="headerlink" title="基于 BeanPostProcessor 接口"></a>基于 BeanPostProcessor 接口</h3><ul>
+<h3 id="7-4、基于-BeanPostProcessor-接口"><a href="#7-4、基于-BeanPostProcessor-接口" class="headerlink" title="7.4、基于 BeanPostProcessor 接口"></a>7.4、基于 BeanPostProcessor 接口</h3><ul>
 <li>对实例Bean进行后置处理, Bean初始化方法<code>调用前</code>被调用或Bean初始化方法<code>调用后</code>被调用</li>
 </ul>
 <p><code>@PostConstruct</code>、<code>@PreDestroy</code>就是借助<font color="orange">BeanPostProcessor </font>接口实现的，具体是通过<font color="orange">InitDestroyAnnotationBeanPostProcessor</font>类实现的。</p>
-<h3 id="基于-SmartInitializingSingleton-接口"><a href="#基于-SmartInitializingSingleton-接口" class="headerlink" title="基于 SmartInitializingSingleton 接口"></a>基于 SmartInitializingSingleton 接口</h3><ul>
+<h3 id="7-5、基于-SmartInitializingSingleton-接口"><a href="#7-5、基于-SmartInitializingSingleton-接口" class="headerlink" title="7.5、基于 SmartInitializingSingleton 接口"></a>7.5、基于 SmartInitializingSingleton 接口</h3><ul>
 <li>对全体实例bean进行后置处理。</li>
 </ul>
 <p>Spring Cloud中的<code>@LoadBalanced</code>就是借助<font color="orange">SmartInitializingSingleton</font>接口实现的。</p>
-<h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><ul>
+<h3 id="7-6、AOP"><a href="#7-6、AOP" class="headerlink" title="7.6、AOP"></a>7.6、AOP</h3><ul>
 <li>对方法进行拦截。</li>
 </ul>
 <p>常见权限，加解密，日志，方法调用等处理可以借助AOP完成</p>
@@ -686,14 +686,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -703,6 +695,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -742,19 +742,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,6 +771,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,10 +810,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -823,6 +819,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -878,15 +878,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -906,19 +906,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

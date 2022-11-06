@@ -18,7 +18,7 @@
 <meta property="og:description" content="springboot2配置文件  见到很多 spring-boot-starter-* ； * 就表示某种场景  只要引入 starter ，这个场景的所有常规需要的依赖都会自动注入    123456  &lt;!-- 所有场景最底层的依赖 --&gt; &lt;parent&gt;       &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupI">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-23T06:13:55.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:30:24.058Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.157Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="springboot">
@@ -264,7 +264,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">3.3k字</span>
+      <span class="post-count">3.4k字</span>
     </span>
   </span>
 
@@ -308,7 +308,7 @@
 </li>
 <li>按需加载所有配置项</li>
 </ul>
-<h1 id="web-开发"><a href="#web-开发" class="headerlink" title="web 开发"></a>web 开发</h1><h2 id="容器功能"><a href="#容器功能" class="headerlink" title="容器功能"></a>容器功能</h2><h3 id="组件添加"><a href="#组件添加" class="headerlink" title="组件添加"></a>组件添加</h3><ol>
+<h1 id="web-开发"><a href="#web-开发" class="headerlink" title="web 开发"></a>web 开发</h1><h2 id="1、容器功能"><a href="#1、容器功能" class="headerlink" title="1、容器功能"></a>1、容器功能</h2><h3 id="1-1、组件添加"><a href="#1-1、组件添加" class="headerlink" title="1.1、组件添加"></a>1.1、组件添加</h3><ol>
 <li><code>@Configuration</code><ul>
 <li>基本使用 类上添加 <code>@Configuration</code> 表示该类为配置类，方法上加上 <code>@Bean</code> 将返回对象注入容器，方法名为 Bean 的名字</li>
 <li><code>Full</code> 模式 和 <code>Lite</code> 模式<ul>
@@ -321,14 +321,14 @@
 </ul>
 </li>
 </ol>
-<h2 id="原生配置文件引入"><a href="#原生配置文件引入" class="headerlink" title="原生配置文件引入"></a>原生配置文件引入</h2><ol>
+<h2 id="2、原生配置文件引入"><a href="#2、原生配置文件引入" class="headerlink" title="2、原生配置文件引入"></a>2、原生配置文件引入</h2><ol>
 <li>@ImportResource(“”) 导入 spring 配置文件</li>
 </ol>
-<h2 id="配置绑定"><a href="#配置绑定" class="headerlink" title="配置绑定"></a>配置绑定</h2><ol>
+<h2 id="3、配置绑定"><a href="#3、配置绑定" class="headerlink" title="3、配置绑定"></a>3、配置绑定</h2><ol>
 <li>@ConfigurationProperties(prefix&#x3D;””)，prefix 中值要小写</li>
 <li>配置类上添加 @EnableConfigurationProperties</li>
 </ol>
-<h2 id="自动配置管理"><a href="#自动配置管理" class="headerlink" title="自动配置管理"></a>自动配置管理</h2><ul>
+<h2 id="4、自动配置管理"><a href="#4、自动配置管理" class="headerlink" title="4、自动配置管理"></a>4、自动配置管理</h2><ul>
 <li><p>@SpringBootConfiguration，代表当前是一个配置类</p>
 </li>
 <li><p>@ComponentScan，指定扫描哪些 spring 注解</p>
@@ -341,7 +341,7 @@
 <li><p><code>@Import(AutoConfigurationImportSelector.class)</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、 利用 getAutoConfigurationEntry(AnnotationMetadata annotationMetadata) 给容器中批量导入一些组件</span><br><span class="line"><span class="number">2</span>、 调用 List&lt;String&gt; <span class="title function_">getCandidateConfigurations</span><span class="params">(AnnotationMetadata metadata, AnnotationAttributes attributes)</span> 获取所有需要导入到容器中的组件</span><br><span class="line"><span class="number">3</span>、 利用工厂加载 Map&lt;String, List&lt;String&gt;&gt; <span class="title function_">loadSpringFactories</span><span class="params">(<span class="meta">@Nullable</span> ClassLoader classLoader)</span> 得到所有的组件</span><br><span class="line"><span class="number">4</span>、 从 META-INF/spring.factories 位置来加载一个文件</span><br><span class="line">    默认扫描当前系统里面所有 META-INF/spring.factories 位置的文件</span><br><span class="line">    spring-boot-autoconfigure-<span class="number">2.3</span><span class="number">.2</span>.RELEASE.jar 包里面也有 META-INF/spring.factories</span><br><span class="line">    文件里面写死了 springboot 一启动就要给容器中加载的所有配置类</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="按需开启配置项"><a href="#按需开启配置项" class="headerlink" title="按需开启配置项"></a>按需开启配置项</h2><p>按照条件装配规则，按需装配</p>
+<h2 id="5、按需开启配置项"><a href="#5、按需开启配置项" class="headerlink" title="5、按需开启配置项"></a>5、按需开启配置项</h2><p>按照条件装配规则，按需装配</p>
 <ul>
 <li>springboot 先加载所有的自动配置类 xxxAutoConfiguration</li>
 <li>每个自动配置类按条件生效，默认都会绑定配置文件指定的值，从 xxxProperties 里面拿，而 xxxProperties 和配置文件进行了绑定</li>
@@ -355,16 +355,16 @@
 <li>自定义器 xxxCustomizer</li>
 </ul>
 <p>xxxAutoConfiguration -&gt; 组件 -&gt; xxxProperties 获取值 -&gt; application.properties</p>
-<h2 id="简单功能分析"><a href="#简单功能分析" class="headerlink" title="简单功能分析"></a>简单功能分析</h2><h3 id="静态资源访问"><a href="#静态资源访问" class="headerlink" title="静态资源访问"></a>静态资源访问</h3><h4 id="静态资源目录"><a href="#静态资源目录" class="headerlink" title="静态资源目录"></a>静态资源目录</h4><p>类路径下：&#x2F;static（or &#x2F;public or &#x2F;resources or &#x2F;META-INF&#x2F;resources）</p>
+<h2 id="6、简单功能分析"><a href="#6、简单功能分析" class="headerlink" title="6、简单功能分析"></a>6、简单功能分析</h2><h3 id="6-1、静态资源访问"><a href="#6-1、静态资源访问" class="headerlink" title="6.1、静态资源访问"></a>6.1、静态资源访问</h3><h4 id="6-1-1、静态资源目录"><a href="#6-1-1、静态资源目录" class="headerlink" title="6.1.1、静态资源目录"></a>6.1.1、静态资源目录</h4><p>类路径下：&#x2F;static（or &#x2F;public or &#x2F;resources or &#x2F;META-INF&#x2F;resources）</p>
 <p>访问：当前项目根路径&#x2F; + 静态资源名</p>
 <p>原理：静态映射&#x2F;**</p>
 <p>请求进来，先去找 controller 看能不能处理，不能处理的所有请求又都交给静态资源处理器。静态资源处理也没找到就是 404</p>
-<h4 id="访问前缀"><a href="#访问前缀" class="headerlink" title="访问前缀"></a>访问前缀</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方便拦截器拦截</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">   <span class="attr">static-path-pattern:</span> <span class="string">/res/**</span></span><br><span class="line">  <span class="attr">resources:</span> <span class="comment">#指定静态资源目录</span></span><br><span class="line">   <span class="attr">static-location:</span> [<span class="string">classpath:/index</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="6-1-2、访问前缀"><a href="#6-1-2、访问前缀" class="headerlink" title="6.1.2、访问前缀"></a>6.1.2、访问前缀</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方便拦截器拦截</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">   <span class="attr">static-path-pattern:</span> <span class="string">/res/**</span></span><br><span class="line">  <span class="attr">resources:</span> <span class="comment">#指定静态资源目录</span></span><br><span class="line">   <span class="attr">static-location:</span> [<span class="string">classpath:/index</span>]</span><br></pre></td></tr></table></figure>
 
-<h3 id="请求参数处理"><a href="#请求参数处理" class="headerlink" title="请求参数处理"></a>请求参数处理</h3><h4 id="请求映射"><a href="#请求映射" class="headerlink" title="请求映射"></a>请求映射</h4><p>@xxxMapping</p>
+<h3 id="6-2、请求参数处理"><a href="#6-2、请求参数处理" class="headerlink" title="6.2、请求参数处理"></a>6.2、请求参数处理</h3><h4 id="6-2-1、请求映射"><a href="#6-2-1、请求映射" class="headerlink" title="6.2.1、请求映射"></a>6.2.1、请求映射</h4><p>@xxxMapping</p>
 <p>RequestMappingHandlerMapping：保存了所有 @RequestMapping 和 handler 的映射规则</p>
 <p>可以自定义 HandlerMapping 放入容器中</p>
-<h4 id="普通参数与基本注解"><a href="#普通参数与基本注解" class="headerlink" title="普通参数与基本注解"></a>普通参数与基本注解</h4><ol>
+<h4 id="6-2-2、普通参数与基本注解"><a href="#6-2-2、普通参数与基本注解" class="headerlink" title="6.2.2、普通参数与基本注解"></a>6.2.2、普通参数与基本注解</h4><ol>
 <li><p>注解：</p>
 <p>@PathVariable、@RequestHeader、@RequestAttribute、@ModelAttribute（矩阵变量 ）、@RequestParam、@MatrixVariable、@CookieValue、@RequestBody</p>
 </li>
@@ -386,7 +386,7 @@
 <li>参数解析器，InvocableHandlerMethod</li>
 <li>返回值解析器</li>
 </ul>
-<h3 id="内容协商"><a href="#内容协商" class="headerlink" title="内容协商"></a>内容协商</h3><p>根据客户端接收能力不同，返回不同媒体类型的数据（调整请求头中 <code>Accept </code>属性）。</p>
+<h3 id="6-3、内容协商"><a href="#6-3、内容协商" class="headerlink" title="6.3、内容协商"></a>6.3、内容协商</h3><p>根据客户端接收能力不同，返回不同媒体类型的数据（调整请求头中 <code>Accept </code>属性）。</p>
 <ol>
 <li>判断当前响应头中是否已经有确定的媒体类型，MediaType</li>
 <li>获取客户端（postman、浏览器）支持接受的内容类型。（获取客户端 Accept 请求头字段）<ul>
@@ -408,7 +408,7 @@
 </blockquote>
 <p>自定义 MessageConverter，WebMavConfigurer 类中重写 extendMessageConverters 方法</p>
 <p><font color="orange">有可能添加的自定义功能会覆盖默认的很多功能，导致一些默认功能失效</font></p>
-<h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><p>新建类实现 <code>HandlerInterceptor</code> 接口，再新建类实现 <code>WebMvcConfigurer </code>接口，在 <code>addInterceptors </code>方法中将拦截器添加到容器中，并配置拦截哪些路径和放行哪些路径。</p>
+<h3 id="6-4、拦截器"><a href="#6-4、拦截器" class="headerlink" title="6.4、拦截器"></a>6.4、拦截器</h3><p>新建类实现 <code>HandlerInterceptor</code> 接口，再新建类实现 <code>WebMvcConfigurer </code>接口，在 <code>addInterceptors </code>方法中将拦截器添加到容器中，并配置拦截哪些路径和放行哪些路径。</p>
 <blockquote>
 <p>流程</p>
 </blockquote>
@@ -425,7 +425,7 @@
 <li>前面步骤有任何异常都会直接执行 <code>afterCompletion</code></li>
 <li>页面成功渲染之后，也会倒序触发 <code>afterCompletion</code></li>
 </ol>
-<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p>文件上传自动配置类：MultipartAutoConfiguration - MultipartProperties</p>
+<h3 id="6-5、文件上传"><a href="#6-5、文件上传" class="headerlink" title="6.5、文件上传"></a>6.5、文件上传</h3><p>文件上传自动配置类：MultipartAutoConfiguration - MultipartProperties</p>
 <ul>
 <li>自动配置好了 StandardServletMultipartResolver（文件上传解析器）</li>
 <li>原理：<ol>
@@ -435,14 +435,14 @@
 </ol>
 </li>
 </ul>
-<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><ul>
+<h3 id="6-6、异常处理"><a href="#6-6、异常处理" class="headerlink" title="6.6、异常处理"></a>6.6、异常处理</h3><h4 id="6-6-1、错误处理"><a href="#6-6-1、错误处理" class="headerlink" title="6.6.1、错误处理"></a>6.6.1、错误处理</h4><ul>
 <li>默认情况下，Springboot 提供 &#x2F;error 处理所有错误的映射</li>
 <li>对于机器客户端，它将生成 JSON 响应，其中包含错误，Http 状态和异常消息的详细信息，对于浏览器客户端，响应一个错误视图，以 HTML 格式呈现相同的数据</li>
 <li>要对其进行自定义，添加 View 解析为 error</li>
 <li>要完全替换默认行为，可以实现 ErrorController 并注册该类型的 Bean 定义，或添加 ErrorAttributes 类型的组件以使用现有机制但替换其内容</li>
 <li>error&#x2F; 下的 4xx，5xx 页面会被自动解析</li>
 </ul>
-<h4 id="定制错误处理逻辑"><a href="#定制错误处理逻辑" class="headerlink" title="定制错误处理逻辑"></a>定制错误处理逻辑</h4><ul>
+<h4 id="6-6-2、定制错误处理逻辑"><a href="#6-6-2、定制错误处理逻辑" class="headerlink" title="6.6.2、定制错误处理逻辑"></a>6.6.2、定制错误处理逻辑</h4><ul>
 <li>自定义错误页<ul>
 <li>error&#x2F;404.html error&#x2F;5xx.html</li>
 </ul>
@@ -451,12 +451,12 @@
 <li>ErrorViewResolver 实现自定义处理异常</li>
 <li>实现 HandlerExceptionResolver 处理异常</li>
 </ul>
-<h3 id="web-原生组件注入"><a href="#web-原生组件注入" class="headerlink" title="web 原生组件注入"></a>web 原生组件注入</h3><p>集成 servlet、filter、listener</p>
+<h3 id="6-7、web-原生组件注入"><a href="#6-7、web-原生组件注入" class="headerlink" title="6.7、web 原生组件注入"></a>6.7、web 原生组件注入</h3><p>集成 servlet、filter、listener</p>
 <ul>
 <li>主类添加 @ServletComponentScan 注解扫描包</li>
 <li>新建类添加 @WebServlet 注解</li>
 </ul>
-<h3 id="嵌入式-servlet-容器"><a href="#嵌入式-servlet-容器" class="headerlink" title="嵌入式 servlet 容器"></a>嵌入式 servlet 容器</h3><ol>
+<h3 id="6-8、嵌入式-servlet-容器"><a href="#6-8、嵌入式-servlet-容器" class="headerlink" title="6.8、嵌入式 servlet 容器"></a>6.8、嵌入式 servlet 容器</h3><ol>
 <li>切换嵌入式 Servlet 容器<ul>
 <li>默认支持的 webServer<ul>
 <li>tomcat，jetty，undertow</li>
@@ -479,7 +479,7 @@
 <li>JUnit Jupiter：提供了 JUnit5 的心的编程模型，是 JUnit5 新特性的核心，内部包含一个测试引擎，用于在 Junit Platform 上运行</li>
 <li>JUnit Vintage：提供了兼容 JUnit4.x Junit 3.x 的测试引擎</li>
 </ul>
-<h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h2><ul>
+<h2 id="7、常用注解"><a href="#7、常用注解" class="headerlink" title="7、常用注解"></a>7、常用注解</h2><ul>
 <li>@Test：表示方法是测试方法，它的职责非常单一，不能声明任何属性，拓展的测试将会由 Jupiter 提供额外的测试</li>
 <li>@ParameterizedTest：表示方法是参数化测试</li>
 <li>@RepeatedTest：表示方法可重复执行</li>
@@ -493,7 +493,7 @@
 <li>@Timeout：表示测试方法运行如果超过了指定时间将会返回错误</li>
 <li>@ExtendWith：为测试类或测试方法提供扩展类引用</li>
 </ul>
-<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><p>断言（assertions）是测试方法中的核心部分，用来对测试需要满足的条件进行验证。</p>
+<h2 id="8、单元测试"><a href="#8、单元测试" class="headerlink" title="8、单元测试"></a>8、单元测试</h2><p>断言（assertions）是测试方法中的核心部分，用来对测试需要满足的条件进行验证。</p>
 <ul>
 <li>检查业务逻辑返回的数据是否合理</li>
 <li>所有的测试运行结束以后，会有一个详细的测试报告</li>
@@ -538,8 +538,8 @@
 <td>判断给定的对象引用是否不为 null</td>
 </tr>
 </tbody></table>
-<h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>前置条件（assumptions【假设】）类似于断言，不同之处在于不满足的断言会使得测试方法失效，而不满足前置条件只会使得测试方法的执行终止，前置条件可以看成是测试方法执行的前提，当该前提不满足时，就没有继续执行的必要了。</p>
-<h2 id="参数化测试"><a href="#参数化测试" class="headerlink" title="参数化测试"></a>参数化测试</h2><p>不同的参数多次进行单元测试，可以使用不同的参数进行多次单元测试，而不需要每新增一个参数就要新增一个单元测试</p>
+<h2 id="9、前置条件"><a href="#9、前置条件" class="headerlink" title="9、前置条件"></a>9、前置条件</h2><p>前置条件（assumptions【假设】）类似于断言，不同之处在于不满足的断言会使得测试方法失效，而不满足前置条件只会使得测试方法的执行终止，前置条件可以看成是测试方法执行的前提，当该前提不满足时，就没有继续执行的必要了。</p>
+<h2 id="10、参数化测试"><a href="#10、参数化测试" class="headerlink" title="10、参数化测试"></a>10、参数化测试</h2><p>不同的参数多次进行单元测试，可以使用不同的参数进行多次单元测试，而不需要每新增一个参数就要新增一个单元测试</p>
 <p>@ValueSource：为参数化测试指定入参来源，支持八大基础类型以及 String 类型，Class 类型</p>
 <p>@NullSource：表示为参数化测试提供一个 null 的入参</p>
 <p>@EnumSource：表示为参数化测试提供一个枚举入参</p>
@@ -598,8 +598,8 @@
 </ul>
 </li>
 </ul>
-<h1 id="虚拟化技术"><a href="#虚拟化技术" class="headerlink" title="虚拟化技术"></a>虚拟化技术</h1><h1 id="安全控制"><a href="#安全控制" class="headerlink" title="安全控制"></a>安全控制</h1><h1 id="缓存技术"><a href="#缓存技术" class="headerlink" title="缓存技术"></a>缓存技术</h1><h1 id="消息中间件"><a href="#消息中间件" class="headerlink" title="消息中间件"></a>消息中间件</h1><h1 id="分布式入门"><a href="#分布式入门" class="headerlink" title="分布式入门"></a>分布式入门</h1><h1 id="响应式编程基础"><a href="#响应式编程基础" class="headerlink" title="响应式编程基础"></a>响应式编程基础</h1><h1 id="webflux开发web应用"><a href="#webflux开发web应用" class="headerlink" title="webflux开发web应用"></a>webflux开发web应用</h1><h2 id="同步-servlet"><a href="#同步-servlet" class="headerlink" title="同步 servlet"></a>同步 servlet</h2><p>一个请求进来，服务器启用一个 servlet 线程来进行处理，业务代码执行时，整个线程处于阻塞状态</p>
-<h2 id="异步-servlet"><a href="#异步-servlet" class="headerlink" title="异步 servlet"></a>异步 servlet</h2><p>一个请求进来，业务代码交给线程池处理，servlet 线程可以去处理下一个请求，从而达到高的并发量 </p>
+<h1 id="虚拟化技术"><a href="#虚拟化技术" class="headerlink" title="虚拟化技术"></a>虚拟化技术</h1><h1 id="安全控制"><a href="#安全控制" class="headerlink" title="安全控制"></a>安全控制</h1><h1 id="缓存技术"><a href="#缓存技术" class="headerlink" title="缓存技术"></a>缓存技术</h1><h1 id="消息中间件"><a href="#消息中间件" class="headerlink" title="消息中间件"></a>消息中间件</h1><h1 id="分布式入门"><a href="#分布式入门" class="headerlink" title="分布式入门"></a>分布式入门</h1><h1 id="响应式编程基础"><a href="#响应式编程基础" class="headerlink" title="响应式编程基础"></a>响应式编程基础</h1><h1 id="webflux开发web应用"><a href="#webflux开发web应用" class="headerlink" title="webflux开发web应用"></a>webflux开发web应用</h1><h2 id="11、同步-servlet"><a href="#11、同步-servlet" class="headerlink" title="11、同步 servlet"></a>11、同步 servlet</h2><p>一个请求进来，服务器启用一个 servlet 线程来进行处理，业务代码执行时，整个线程处于阻塞状态</p>
+<h2 id="12、异步-servlet"><a href="#12、异步-servlet" class="headerlink" title="12、异步 servlet"></a>12、异步 servlet</h2><p>一个请求进来，业务代码交给线程池处理，servlet 线程可以去处理下一个请求，从而达到高的并发量 </p>
 <h1 id="响应式访问持久化层"><a href="#响应式访问持久化层" class="headerlink" title="响应式访问持久化层"></a>响应式访问持久化层</h1><h1 id="响应式安全开发"><a href="#响应式安全开发" class="headerlink" title="响应式安全开发"></a>响应式安全开发</h1><h1 id="响应式原理"><a href="#响应式原理" class="headerlink" title="响应式原理"></a>响应式原理</h1>
     
 
@@ -911,14 +911,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -928,6 +920,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -967,19 +967,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1004,6 +996,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1035,10 +1035,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -1048,6 +1044,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1103,15 +1103,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1131,19 +1131,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">

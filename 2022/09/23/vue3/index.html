@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="vue3主函数 main.ts1234567&#x2F;&#x2F; 程序的主入口文件，ts文件&#x2F;&#x2F; 引入 createApp 函数，创建对应的应用，产生应用的实例对象import &amp;#123; createApp &amp;#125; from &amp;#x27;vue&amp;#x27;&#x2F;&#x2F; 引入 App 组件（所有组件的父组件import App from &amp;#x27;.&#x2F;App.vue&amp;#x27;&#x2F;&#x2F; 创建 App 应用返回对应的">
+  <meta name="description" content="vue31、主函数 main.ts1234567&#x2F;&#x2F; 程序的主入口文件，ts文件&#x2F;&#x2F; 引入 createApp 函数，创建对应的应用，产生应用的实例对象import &amp;#123; createApp &amp;#125; from &amp;#x27;vue&amp;#x27;&#x2F;&#x2F; 引入 App 组件（所有组件的父组件import App from &amp;#x27;.&#x2F;App.vue&amp;#x27;&#x2F;&#x2F; 创建 App 应用返回对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue3">
 <meta property="og:url" content="https://hqzqaq.github.io/2022/09/23/vue3/index.html">
 <meta property="og:site_name" content="hqz的博客">
-<meta property="og:description" content="vue3主函数 main.ts1234567&#x2F;&#x2F; 程序的主入口文件，ts文件&#x2F;&#x2F; 引入 createApp 函数，创建对应的应用，产生应用的实例对象import &amp;#123; createApp &amp;#125; from &amp;#x27;vue&amp;#x27;&#x2F;&#x2F; 引入 App 组件（所有组件的父组件import App from &amp;#x27;.&#x2F;App.vue&amp;#x27;&#x2F;&#x2F; 创建 App 应用返回对应的">
+<meta property="og:description" content="vue31、主函数 main.ts1234567&#x2F;&#x2F; 程序的主入口文件，ts文件&#x2F;&#x2F; 引入 createApp 函数，创建对应的应用，产生应用的实例对象import &amp;#123; createApp &amp;#125; from &amp;#x27;vue&amp;#x27;&#x2F;&#x2F; 引入 App 组件（所有组件的父组件import App from &amp;#x27;.&#x2F;App.vue&amp;#x27;&#x2F;&#x2F; 创建 App 应用返回对">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-23T06:03:26.000Z">
-<meta property="article:modified_time" content="2022-09-23T09:30:45.375Z">
+<meta property="article:modified_time" content="2022-11-06T02:05:25.157Z">
 <meta property="article:author" content="hqz">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="js">
@@ -273,7 +273,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">25分</span>
+      <span class="post-count">26分</span>
     </span>
   </span>
 </div>
@@ -284,19 +284,19 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><h2 id="主函数-main-ts"><a href="#主函数-main-ts" class="headerlink" title="主函数 main.ts"></a>主函数 main.ts</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 程序的主入口文件，ts文件</span></span><br><span class="line"><span class="comment">// 引入 createApp 函数，创建对应的应用，产生应用的实例对象</span></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="comment">// 引入 App 组件（所有组件的父组件</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="comment">// 创建 App 应用返回对应的实例对象，调用 mount 方法进行挂载</span></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+    <h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><h2 id="1、主函数-main-ts"><a href="#1、主函数-main-ts" class="headerlink" title="1、主函数 main.ts"></a>1、主函数 main.ts</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 程序的主入口文件，ts文件</span></span><br><span class="line"><span class="comment">// 引入 createApp 函数，创建对应的应用，产生应用的实例对象</span></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="comment">// 引入 App 组件（所有组件的父组件</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="comment">// 创建 App 应用返回对应的实例对象，调用 mount 方法进行挂载</span></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <span id="more"></span>
 
-<h2 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;!--  Vue2 中的 html 模板中必须有一对根标签，Vue3组件的模板中可以没有根标签--&gt;</span><br><span class="line">  &lt;img alt=&quot;Vue logo&quot; src=&quot;./assets/logo.png&quot;&gt;</span><br><span class="line">  &lt;HelloWorld msg=&quot;Welcome to Your Vue.js + TypeScript App&quot;/&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">// 这里可以使用 ts 的代码</span><br><span class="line">// defineComponent 函数，目的是定义一个组件，内部可以传入一个配置对象</span><br><span class="line">import &#123; defineComponent &#125; from &#x27;vue&#x27;;</span><br><span class="line">// 引入一个子级组件</span><br><span class="line">import HelloWorld from &#x27;./components/HelloWorld.vue&#x27;;</span><br><span class="line"></span><br><span class="line">// 暴露出去一个定义好的组件</span><br><span class="line">export default defineComponent(&#123;</span><br><span class="line">  // 组件名</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  // 注册组件</span><br><span class="line">  components: &#123;</span><br><span class="line">    // 注册一个子级组件</span><br><span class="line">    HelloWorld</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">#app &#123;</span><br><span class="line">  font-family: Avenir, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">  margin-top: 60px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2、App-vue"><a href="#2、App-vue" class="headerlink" title="2、App.vue"></a>2、App.vue</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;!--  Vue2 中的 html 模板中必须有一对根标签，Vue3组件的模板中可以没有根标签--&gt;</span><br><span class="line">  &lt;img alt=&quot;Vue logo&quot; src=&quot;./assets/logo.png&quot;&gt;</span><br><span class="line">  &lt;HelloWorld msg=&quot;Welcome to Your Vue.js + TypeScript App&quot;/&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">// 这里可以使用 ts 的代码</span><br><span class="line">// defineComponent 函数，目的是定义一个组件，内部可以传入一个配置对象</span><br><span class="line">import &#123; defineComponent &#125; from &#x27;vue&#x27;;</span><br><span class="line">// 引入一个子级组件</span><br><span class="line">import HelloWorld from &#x27;./components/HelloWorld.vue&#x27;;</span><br><span class="line"></span><br><span class="line">// 暴露出去一个定义好的组件</span><br><span class="line">export default defineComponent(&#123;</span><br><span class="line">  // 组件名</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  // 注册组件</span><br><span class="line">  components: &#123;</span><br><span class="line">    // 注册一个子级组件</span><br><span class="line">    HelloWorld</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">#app &#123;</span><br><span class="line">  font-family: Avenir, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">  margin-top: 60px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="Composition-API-常用部分"><a href="#Composition-API-常用部分" class="headerlink" title="Composition API(常用部分)"></a>Composition API(常用部分)</h2><h3 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h3><ul>
+<h2 id="3、Composition-API-常用部分"><a href="#3、Composition-API-常用部分" class="headerlink" title="3、Composition API(常用部分)"></a>3、Composition API(常用部分)</h2><h3 id="3-1、setup"><a href="#3-1、setup" class="headerlink" title="3.1、setup"></a>3.1、setup</h3><ul>
 <li>新的option, 所有的组合API函数都在此使用, 只在初始化时执行一次</li>
 <li>函数如果返回对象, 对象中的属性或方法, 模板中可以直接使用</li>
 </ul>
-<h3 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h3><ul>
+<h3 id="3-2、ref"><a href="#3-2、ref" class="headerlink" title="3.2、ref"></a>3.2、ref</h3><ul>
 <li>作用: 定义一个数据的响应式</li>
 <li>语法: const xxx &#x3D; ref(initValue):<ul>
 <li>创建一个包含响应式数据的引用(reference)对象</li>
@@ -310,7 +310,7 @@
 
 
 
-<h3 id="reactive"><a href="#reactive" class="headerlink" title="reactive"></a>reactive</h3><ul>
+<h3 id="3-3、reactive"><a href="#3-3、reactive" class="headerlink" title="3.3、reactive"></a>3.3、reactive</h3><ul>
 <li>作用: 定义多个数据的响应式</li>
 <li>const proxy &#x3D; reactive(obj): 接收一个普通对象然后返回该普通对象的响应式代理对象</li>
 <li>响应式转换是“深层的”：会影响对象内部所有嵌套的属性</li>
@@ -320,7 +320,7 @@
 
 
 
-<h3 id="Vue3响应式核心"><a href="#Vue3响应式核心" class="headerlink" title="Vue3响应式核心"></a>Vue3响应式核心</h3><ul>
+<h3 id="3-4、Vue3响应式核心"><a href="#3-4、Vue3响应式核心" class="headerlink" title="3.4、Vue3响应式核心"></a>3.4、Vue3响应式核心</h3><ul>
 <li>通过Proxy(代理): 拦截对data任意属性的任意(13种)操作, 包括属性值的读写, 属性的添加, 属性的删除等…</li>
 <li>通过 Reflect(反射): 动态对被代理对象的相应属性进行特定的操作</li>
 </ul>
@@ -328,7 +328,7 @@
 
 
 
-<h3 id="setup-执行时机"><a href="#setup-执行时机" class="headerlink" title="setup 执行时机"></a>setup 执行时机</h3><ul>
+<h3 id="3-5、setup-执行时机"><a href="#3-5、setup-执行时机" class="headerlink" title="3.5、setup 执行时机"></a>3.5、setup 执行时机</h3><ul>
 <li>setup执行的时机<ul>
 <li>在beforeCreate之前执行(一次), 此时组件对象还没有创建</li>
 <li>this是undefined, 不能通过this来访问data&#x2F;computed&#x2F;methods &#x2F; props</li>
@@ -354,7 +354,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="reactive与ref-细节"><a href="#reactive与ref-细节" class="headerlink" title="reactive与ref-细节"></a>reactive与ref-细节</h3><ul>
+<h3 id="3-6、reactive与ref-细节"><a href="#3-6、reactive与ref-细节" class="headerlink" title="3.6、reactive与ref-细节"></a>3.6、reactive与ref-细节</h3><ul>
 <li>是Vue3的 composition API中2个最重要的响应式API</li>
 <li>ref用来处理基本类型数据, reactive用来处理对象(递归深度响应式)</li>
 <li>如果用ref对象&#x2F;数组, 内部会自动将对象&#x2F;数组转换为reactive的代理对象</li>
@@ -362,7 +362,7 @@
 <li>reactive内部: 通过使用Proxy来实现对对象内部所有数据的劫持, 并通过Reflect操作对象内部数据</li>
 <li>ref的数据操作: 在js中要.value, 在模板中不需要(内部解析模板时会自动添加.value)</li>
 </ul>
-<h3 id="计算属性与监视"><a href="#计算属性与监视" class="headerlink" title="计算属性与监视"></a>计算属性与监视</h3><ul>
+<h3 id="3-7、计算属性与监视"><a href="#3-7、计算属性与监视" class="headerlink" title="3.7、计算属性与监视"></a>3.7、计算属性与监视</h3><ul>
 <li>computed函数:<ul>
 <li>与computed配置功能一致</li>
 <li>只有getter(函数中传入一个回调函数)</li>
@@ -387,7 +387,7 @@
 
 
 
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p><strong>与 2.x 版本生命周期相对应的组合式 API</strong></p>
+<h3 id="3-8、生命周期"><a href="#3-8、生命周期" class="headerlink" title="3.8、生命周期"></a>3.8、生命周期</h3><p><strong>与 2.x 版本生命周期相对应的组合式 API</strong></p>
 <ul>
 <li><del><code>beforeCreate</code></del> -&gt; 使用 <code>setup()</code></li>
 <li><del><code>created</code></del> -&gt; 使用 <code>setup()</code></li>
@@ -405,7 +405,7 @@
 <li>onRenderTracked</li>
 <li>onRenderTriggered</li>
 </ul>
-<h3 id="自定义hook函数"><a href="#自定义hook函数" class="headerlink" title="自定义hook函数"></a>自定义hook函数</h3><ul>
+<h3 id="3-9、自定义hook函数"><a href="#3-9、自定义hook函数" class="headerlink" title="3.9、自定义hook函数"></a>3.9、自定义hook函数</h3><ul>
 <li><p>使用Vue3的组合API封装的可复用的功能函数</p>
 </li>
 <li><p>自定义hook的作用类似于vue2中的mixin技术</p>
@@ -434,7 +434,7 @@
 
 
 
-<h3 id="toRefs"><a href="#toRefs" class="headerlink" title="toRefs"></a>toRefs</h3><p>把一个响应式对象转换成普通对象，该普通对象的每个 property 都是一个 ref</p>
+<h3 id="3-10、toRefs"><a href="#3-10、toRefs" class="headerlink" title="3.10、toRefs"></a>3.10、toRefs</h3><p>把一个响应式对象转换成普通对象，该普通对象的每个 property 都是一个 ref</p>
 <p>应用: 当从合成函数返回响应式对象时，toRefs 非常有用，这样消费组件就可以在不丢失响应式的情况下对返回的对象进行分解使用</p>
 <p>问题: reactive 对象取出的所有属性值都是非响应式的</p>
 <p>解决: 利用 toRefs 可以将一个响应式 reactive 对象的所有原始属性转换为响应式的 ref 属性</p>
@@ -442,13 +442,13 @@
 
 
 
-<h3 id="ref获取元素"><a href="#ref获取元素" class="headerlink" title="ref获取元素"></a>ref获取元素</h3><p>利用ref函数获取组件中的标签元素</p>
+<h3 id="3-11、ref获取元素"><a href="#3-11、ref获取元素" class="headerlink" title="3.11、ref获取元素"></a>3.11、ref获取元素</h3><p>利用ref函数获取组件中的标签元素</p>
 <p>功能需求: 让输入框自动获取焦点</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h2&gt;App&lt;/h2&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot;&gt;---</span><br><span class="line">  &lt;input type=&quot;text&quot; ref=&quot;inputRef&quot;&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; onMounted, ref &#125; from &#x27;vue&#x27;</span><br><span class="line">/* </span><br><span class="line">ref获取元素: 利用ref函数获取组件中的标签元素</span><br><span class="line">功能需求: 让输入框自动获取焦点</span><br><span class="line">*/</span><br><span class="line">export default &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    const inputRef = ref&lt;HTMLElement|null&gt;(null)</span><br><span class="line"></span><br><span class="line">    onMounted(() =&gt; &#123;</span><br><span class="line">      inputRef.value &amp;&amp; inputRef.value.focus()</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">      inputRef</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="Composition-API-其它部分"><a href="#Composition-API-其它部分" class="headerlink" title="Composition API(其它部分)"></a>Composition API(其它部分)</h2><h3 id="shallowReactive-与-shallowRef"><a href="#shallowReactive-与-shallowRef" class="headerlink" title="shallowReactive 与 shallowRef"></a>shallowReactive 与 shallowRef</h3><ul>
+<h2 id="4、-Composition-API-其它部分"><a href="#4、-Composition-API-其它部分" class="headerlink" title="4、 Composition API(其它部分)"></a>4、 Composition API(其它部分)</h2><h3 id="4-1、-shallowReactive-与-shallowRef"><a href="#4-1、-shallowReactive-与-shallowRef" class="headerlink" title="4.1、 shallowReactive 与 shallowRef"></a>4.1、 shallowReactive 与 shallowRef</h3><ul>
 <li>shallowReactive : 只处理了对象内最外层属性的响应式(也就是浅响应式)</li>
 <li>shallowRef: 只处理了value的响应式, 不进行对象的reactive处理</li>
 <li>什么时候用浅响应式呢?<ul>
@@ -458,7 +458,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="readonly-与-shallowReadonly"><a href="#readonly-与-shallowReadonly" class="headerlink" title="readonly 与 shallowReadonly"></a>readonly 与 shallowReadonly</h3><ul>
+<h3 id="4-2、-readonly-与-shallowReadonly"><a href="#4-2、-readonly-与-shallowReadonly" class="headerlink" title="4.2、 readonly 与 shallowReadonly"></a>4.2、 readonly 与 shallowReadonly</h3><ul>
 <li>readonly:<ul>
 <li>深度只读数据</li>
 <li>获取一个对象 (响应式或纯对象) 或 ref 并返回原始代理的只读代理。</li>
@@ -475,7 +475,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="toRaw-与-markRaw"><a href="#toRaw-与-markRaw" class="headerlink" title="toRaw 与 markRaw"></a>toRaw 与 markRaw</h3><ul>
+<h3 id="4-3、-toRaw-与-markRaw"><a href="#4-3、-toRaw-与-markRaw" class="headerlink" title="4.3、 toRaw 与 markRaw"></a>4.3、 toRaw 与 markRaw</h3><ul>
 <li>toRaw<ul>
 <li>返回由 <code>reactive</code> 或 <code>readonly</code> 方法转换成响应式代理的普通对象。</li>
 <li>这是一个还原方法，可用于临时读取，访问不会被代理&#x2F;跟踪，写入时也不会触发界面更新。</li>
@@ -491,12 +491,12 @@
 </ul>
 </li>
 </ul>
-<h3 id="toRef"><a href="#toRef" class="headerlink" title="toRef"></a>toRef</h3><ul>
+<h3 id="4-4、toRef"><a href="#4-4、toRef" class="headerlink" title="4.4、toRef"></a>4.4、toRef</h3><ul>
 <li>为源响应式对象上的某个属性创建一个 ref对象, 二者内部操作的是同一个数据值, 更新时二者是同步的</li>
 <li>区别ref: 拷贝了一份新的数据值单独操作, 更新时相互不影响</li>
 <li>应用: 当要将 某个prop 的 ref 传递给复合函数时，toRef 很有用</li>
 </ul>
-<h3 id="customRef"><a href="#customRef" class="headerlink" title="customRef"></a>customRef</h3><ul>
+<h3 id="4-5、customRef"><a href="#4-5、customRef" class="headerlink" title="4.5、customRef"></a>4.5、customRef</h3><ul>
 <li>创建一个自定义的 ref，并对其依赖项跟踪和更新触发进行显式控制</li>
 <li>需求: 使用 customRef 实现 debounce 的示例</li>
 </ul>
@@ -504,7 +504,7 @@
 
 
 
-<h3 id="provide-与-inject"><a href="#provide-与-inject" class="headerlink" title="provide 与 inject"></a>provide 与 inject</h3><ul>
+<h3 id="4-6、provide-与-inject"><a href="#4-6、provide-与-inject" class="headerlink" title="4.6、provide 与 inject"></a>4.6、provide 与 inject</h3><ul>
 <li>provide<code>和</code>inject<code>提供依赖注入，功能类似 2.x 的</code>provide&#x2F;inject</li>
 <li>实现跨层级组件(祖孙)间通信</li>
 </ul>
@@ -512,13 +512,13 @@
 
 
 
-<h3 id="响应式数据的判断"><a href="#响应式数据的判断" class="headerlink" title="响应式数据的判断"></a>响应式数据的判断</h3><ul>
+<h3 id="4-7、响应式数据的判断"><a href="#4-7、响应式数据的判断" class="headerlink" title="4.7、响应式数据的判断"></a>4.7、响应式数据的判断</h3><ul>
 <li>isRef: 检查一个值是否为一个 ref 对象</li>
 <li>isReactive: 检查一个对象是否是由 <code>reactive</code> 创建的响应式代理</li>
 <li>isReadonly: 检查一个对象是否是由 <code>readonly</code> 创建的只读代理</li>
 <li>isProxy: 检查一个对象是否是由 <code>reactive</code> 或者 <code>readonly</code> 方法创建的代理</li>
 </ul>
-<h2 id="其它新组件和api"><a href="#其它新组件和api" class="headerlink" title="其它新组件和api"></a>其它新组件和api</h2><h3 id="Fragment-片断"><a href="#Fragment-片断" class="headerlink" title="Fragment(片断)"></a>Fragment(片断)</h3><ul>
+<h2 id="5、其它新组件和api"><a href="#5、其它新组件和api" class="headerlink" title="5、其它新组件和api"></a>5、其它新组件和api</h2><h3 id="5-1、Fragment-片断"><a href="#5-1、Fragment-片断" class="headerlink" title="5.1、Fragment(片断)"></a>5.1、Fragment(片断)</h3><ul>
 <li>在Vue2中: 组件必须有一个根标签</li>
 <li>在Vue3中: 组件可以没有根标签, 内部会将多个标签包含在一个Fragment虚拟元素中</li>
 <li>好处: 减少标签层级, 减小内存占用</li>
@@ -538,7 +538,7 @@
 
 
 
-<h2 id="Suspense-不确定的"><a href="#Suspense-不确定的" class="headerlink" title="Suspense(不确定的)"></a>Suspense(不确定的)</h2><ul>
+<h2 id="6、Suspense-不确定的"><a href="#6、Suspense-不确定的" class="headerlink" title="6、Suspense(不确定的)"></a>6、Suspense(不确定的)</h2><ul>
 <li>它们允许我们的应用程序在等待异步组件时渲染一些后备内容，可以让我们创建一个平滑的用户体验</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;Suspense&gt;</span><br><span class="line">    &lt;template v-slot:default&gt;</span><br><span class="line">      &lt;AsyncComp/&gt;</span><br><span class="line">      &lt;!-- &lt;AsyncAddress/&gt; --&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">    &lt;template v-slot:fallback&gt;</span><br><span class="line">      &lt;h1&gt;LOADING...&lt;/h1&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">  &lt;/Suspense&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">/* </span><br><span class="line">异步组件 + Suspense组件</span><br><span class="line">*/</span><br><span class="line">// import AsyncComp from &#x27;./AsyncComp.vue&#x27;</span><br><span class="line">import AsyncAddress from &#x27;./AsyncAddress.vue&#x27;</span><br><span class="line">import &#123; defineAsyncComponent &#125; from &#x27;vue&#x27;</span><br><span class="line">const AsyncComp = defineAsyncComponent(() =&gt; import(&#x27;./AsyncComp.vue&#x27;))</span><br><span class="line">export default &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">     </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  components: &#123;</span><br><span class="line">    AsyncComp,</span><br><span class="line">    AsyncAddress</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
@@ -865,14 +865,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -882,6 +874,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -921,19 +921,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基石</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">optional</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -958,6 +950,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基石</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -989,10 +989,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -1002,6 +998,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">画图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">常用设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1057,15 +1057,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">spring security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1085,19 +1085,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTeX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排版</a>
               </li>
              
               <li class="article-tag-list-item">
