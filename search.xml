@@ -15061,4 +15061,174 @@ ENV FLASK_RUN_HOST 0.0.0.0
         <tag>机器学习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>基于FMM算法的地图匹配</title>
+    <url>/2023/04/08/%E5%9F%BA%E4%BA%8EFMM%E7%AE%97%E6%B3%95%E7%9A%84%E5%9C%B0%E5%9B%BE%E5%8C%B9%E9%85%8D/</url>
+    <content><![CDATA[<h1 id="基于FMM算法的地图匹配"><a href="#基于FMM算法的地图匹配" class="headerlink" title="基于FMM算法的地图匹配"></a>基于FMM算法的地图匹配</h1><h2 id="1、FMM是什么？"><a href="#1、FMM是什么？" class="headerlink" title="1、FMM是什么？"></a>1、FMM是什么？</h2><p>FMM算法是一种将<strong>隐马尔可夫模型</strong>与<strong>预计算</strong>相结合的<strong>快速地图匹配（FMM）算法</strong>。通过预先计算指定上限的“起点-终点表”，以存储道路网络中特定长度内的所有最短路径对。通过预计算，使用<strong>哈希表搜索替代被称为MM性能瓶颈的重复路由的查询</strong>。此外，在FMM中识别并解决了几个退化情况和反向运动问题。对大量真实出租车出行轨迹的实验表明，FMM已实现了25000–45000点&#x2F;秒的相当大的单处理器MM速度，随输出模式而变化。对FMM中不同步骤的运行时间的研究表明，在采用预计算后，新的瓶颈位于候选搜索中，更具体地说，是GPS点到道路边缘折线的投影。通过施加抑制措施，也可以有效地减少结果中的反向移动。下图为FMM算法的执行流程：</p>
+<span id="more"></span>
+
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230405222119043.png" alt="FMM算法流程"></p>
+<h2 id="2、数据介绍"><a href="#2、数据介绍" class="headerlink" title="2、数据介绍"></a>2、数据介绍</h2><p>本文所获取的数据为深圳市2019年5月20日至26日7天的数据，其中23日的数据文件损坏。每一日的数据由288个以5分钟为时间切片组成的txt文件。文件中的字段值以逗号分隔，其值含义如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+<th>字段命名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>20190519</td>
+<td>日期，年月日</td>
+<td>loc_date</td>
+</tr>
+<tr>
+<td>235922</td>
+<td>时间，时分秒</td>
+<td>time</td>
+</tr>
+<tr>
+<td>H</td>
+<td>出租车颜色</td>
+<td>vehicle_color</td>
+</tr>
+<tr>
+<td>粤BDK6032</td>
+<td>车牌号，也可以作为车辆的唯一ID</td>
+<td>vehicle_num</td>
+</tr>
+<tr>
+<td>113.931465</td>
+<td>经度</td>
+<td>lng</td>
+</tr>
+<tr>
+<td>22.522152</td>
+<td>纬度</td>
+<td>lat</td>
+</tr>
+<tr>
+<td>0.0</td>
+<td>出租车的瞬时速度</td>
+<td>speed</td>
+</tr>
+<tr>
+<td>6</td>
+<td>出租车的瞬时方向角</td>
+<td>angle</td>
+</tr>
+<tr>
+<td>0</td>
+<td>出租车的载客状态，0为空载，1为重载</td>
+<td>open_status</td>
+</tr>
+<tr>
+<td>1</td>
+<td>数据有效性</td>
+<td>is_validate</td>
+</tr>
+</tbody></table>
+<h2 id="3、数据处理"><a href="#3、数据处理" class="headerlink" title="3、数据处理"></a>3、数据处理</h2><p>不同的数据处理工具的适用性如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230405220854715.png" alt="image-20230405220854715"></p>
+<p>根据数据量的大小，使用python进行数据的处理，并利用数据处理相关的包如<strong>pandas、geopandas、transbigdata</strong>等。以一天的数据处理为例，为了方便数据的处理，首先需要将所有的小文件合并为一个大文件。使用<strong>pandas</strong>将读取的文件转为<strong>dataframe</strong>的格式，数据文件约为三千万行，之后利用<strong>transbigdata</strong>进行数据的可视化，其结果如下图所示：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230405220137611.png" alt="数据可视化"></p>
+<p>经可视化以及数据的探查，发现有些字段的值不符合要求，如日期不对、出租车的瞬时速度异常、经纬度超出研究范围等，需要将这些数据剔除。利用<strong>pandas、transbigdata</strong>等包的一些方法对原始数据中的异常数据进行剔除，得到的结果可视化如下图：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230405221030612.png" alt="数据处理之后的可视化"></p>
+<p>其中数据的分布基本都在研究区的范围之内，一些异常的数据值也被剔除，相比原始数据，其数据质量有了很大的提升。然后对其进行<strong>OD数据和轨迹点数据</strong>的获取，轨迹点数据约有一千万个点，轨迹点的数据在QGIS中的可视化如下图所示，将得到的轨迹点保存为.csv文件，为后续的地图匹配做准备。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230405221155843.png" alt="轨迹点数据可视化"></p>
+<h2 id="4、路网数据获取"><a href="#4、路网数据获取" class="headerlink" title="4、路网数据获取"></a>4、路网数据获取</h2><p>通过python的<strong>osmnx</strong>包下载深圳市的路网，<strong>osmnx</strong>是python拓展包，构建在geopandas，networkx和matplotlib之上，可从<strong>openstreetmap</strong>的下载地理数据资源，并进行建模，投影，可视化和分析等。通过osmnx下载的深圳市的路网地图如下图所示：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230405221242632.png" alt="深圳市路网"></p>
+<h2 id="5、基于FMM的路网匹配"><a href="#5、基于FMM的路网匹配" class="headerlink" title="5、基于FMM的路网匹配"></a>5、基于FMM的路网匹配</h2><p>将<strong>FMM算法封装为docker镜像</strong>，docker 是一个开源的应用容器引擎，基于Go语言并遵从Apache2.0协议开源。docker可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器是完全使用沙盒机制，相互之间不会有任何接口（类似于iphone的app）, 更重要的是容器性能开销极低，这意味着一台机器可以运行更多的容器。 在容器中首先通过UBODT的命令，先对路网进行预处理，获取5km以下的所有OD对的最短路径，以加速地图匹配的处理。然后，使用fmm的命令，加载预处理结果，对所有的轨迹点数据与深圳市的路网进行匹配，将其中一条地图匹配的轨迹数据以及相应轨迹点和深圳市的路网在QGIS中的可视化如下图所示。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230405221337196.png" alt="路网匹配结果"></p>
+<p>从可视化的结果来看，其轨迹点与路网匹配的结果符合人认知的常理。一天的轨迹点数据的地图匹配结果中，地图匹配的成功率在96%以上，容器处理的速度为约1500个点每秒，且地图匹配的效果较好。</p>
+<h2 id="6、总结与展望"><a href="#6、总结与展望" class="headerlink" title="6、总结与展望"></a>6、总结与展望</h2><p>本文首先对现有的地图匹配算法进行介绍比较，最终选用FMM算法对2019年5月20日至26日的深圳市出租车的GPS数据进行地图匹配。首先对出租车的GPS数据进行去重、异常数据剔除和研究区范围外数据剔除等数据处理操作提升数据质量，之后将数据处理之后的数据提取为轨迹点数据，然后使用docker的容器化技术将FMM算法封装为docker镜像，在容器中运行FMM算法，将轨迹点数据与深圳市路网进行地图匹配，其匹配的成功率在96%以上，且匹配的效果较好。现有的地图匹配算法发展较为成熟，后续可以使用其它不同的采样间隔出租车GPS数据，尤其是采样间隔更大的数据进行路网匹配，也可以使用其它类型的GPS数据，如共享单车GPS数据，公交车GPS数据等。</p>
+<h2 id="7、参考"><a href="#7、参考" class="headerlink" title="7、参考"></a>7、参考</h2><ol>
+<li>YANG C, GIDOFALVI G. Fast map matching, an algorithm integrating hidden Markov model with precomputation[J&#x2F;OL]. International Journal of Geographical Information Science, 2018, 32(3): 547-570. <a href="https://doi.org/10.1080/13658816.2017.1400548">https://doi.org/10.1080/13658816.2017.1400548</a>.</li>
+<li>fmm官方文档：<a href="https://fmm-wiki.github.io/">Home - FMM (fmm-wiki.github.io)</a></li>
+<li>fmm docker镜像：<a href="https://hub.docker.com/r/hqzqaq/fmm">hqzqaq&#x2F;fmm - Docker Image | Docker Hub</a></li>
+<li>交通大数据处理工具包：transbigdata官方文档：<a href="https://transbigdata.readthedocs.io/zh_CN/latest/index.html">TransBigData 为交通时空大数据而生 — TransBigData 0.4.10 文档</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>academic</category>
+      </categories>
+      <tags>
+        <tag>FMM</tag>
+        <tag>地图匹配</tag>
+        <tag>出租车轨迹</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>禅道部署及使用</title>
+    <url>/2023/04/08/%E7%A6%85%E9%81%93%E9%83%A8%E7%BD%B2%E5%8F%8A%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="禅道部署及使用"><a href="#禅道部署及使用" class="headerlink" title="禅道部署及使用"></a>禅道部署及使用</h1><h2 id="1、禅道"><a href="#1、禅道" class="headerlink" title="1、禅道"></a>1、禅道</h2><p>禅道是一款开源的项目管理软件，可以帮助团队实现敏捷开发和项目管理，具有任务跟踪、BUG管理、文档管理、团队协作等功能。同时禅道还可以通过插件扩展功能，如集成SVN&#x2F;Git、邮件提醒等等。</p>
+<ol>
+<li><p>对团队而言</p>
+<p>通过禅道，可以把所有的工作拆分成任务并在线上分配给开发人员，再结合一些统计报表，管理者对团队执行力可以有一个数据化的感知。可以作为团队是否需要扩张的参考依据。</p>
+</li>
+<li><p>对个人而言</p>
+<p>通过禅道，把工作拆分成一个一个的最细粒度任务，可以详细到小时的单位，并分配给开发人员。任务分配者（比如迭代负责人）注意每个任务难度、复杂度相近。管理者可以通过任务的完成数量，完成时间，对开发者有一个量化的工作量评估。通过所完成任务的bug的率的统计，可以对开发人员的代码质量有一个大概的评估。</p>
+</li>
+</ol>
+<span id="more"></span>
+
+<h3 id="1-1、禅道的优势"><a href="#1-1、禅道的优势" class="headerlink" title="1.1、禅道的优势"></a>1.1、禅道的优势</h3><ol>
+<li>管理思想简洁实效，可以帮助企业实现快速敏捷开发。</li>
+<li>功能完备，无需再费心整合若干系统在一起使用。</li>
+<li>源代码开源开放，有灵活的扩展机制，方便使用并二次开发。</li>
+<li>国产软件，本地支持，操作习惯更符合国人。</li>
+<li>自主开发的底层框架和前端UI框架，界面美观，交互友好。</li>
+<li>完善的社区机制，可以获得及时的技术支持和帮助。</li>
+<li>支持多种部署方式，可以私有部署，也可以选择云端服务。</li>
+</ol>
+<h3 id="1-2、禅道的功能"><a href="#1-2、禅道的功能" class="headerlink" title="1.2、禅道的功能"></a>1.2、禅道的功能</h3><ol>
+<li>产品管理：包括产品、需求、计划、发布、路线图等功能。</li>
+<li>项目管理：包括项目、任务、团队、版本、燃尽图等功能。</li>
+<li>质量管理：包括bug、测试用例、测试任务、测试结果等功能。</li>
+<li>文档管理：包括产品文档库、项目文档库、自定义文档库等功能。</li>
+<li>事务管理：包括todo管理，我的任务、我的Bug、我的需求、我的项目等个人事务管理功能。</li>
+<li>组织管理：包括部门、用户、分组、权限等功能。</li>
+<li>统计功能：丰富的统计表。</li>
+<li>搜索功能：强大搜索功能，可快速找到相应数据。</li>
+<li>扩展机制：可以对任何地方进行扩展。</li>
+<li>api机制：所见皆API，方便与其他系统集成。</li>
+</ol>
+<h2 id="2、部署"><a href="#2、部署" class="headerlink" title="2、部署"></a>2、部署</h2><p>禅道使用docker部署，新建docker-compose.yml文件，在文件中写入以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line">services:</span><br><span class="line">  zentao:</span><br><span class="line">    container_name: zentao</span><br><span class="line">    image: easysoft/zentao:latest</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;8010:80&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - ./pms:/www/zentaopms</span><br><span class="line">      - ./mysql/data:/var/lib/mysql</span><br><span class="line">    environment:</span><br><span class="line">      MYSQL_ROOT_PASSWORD: &quot;root&quot;</span><br><span class="line">    restart: always</span><br></pre></td></tr></table></figure>
+
+<p>运行命令 <strong>docker-compose up -d</strong> 即可部署成功，然后登录系统（http:&#x2F;&#x2F;[ip]:8010）,进行系统的配置。</p>
+<h2 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h2><p>登录系统后，显示如下界面：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230331201206709.png" alt="首页"></p>
+<h3 id="3-1、基础流程"><a href="#3-1、基础流程" class="headerlink" title="3.1、基础流程"></a>3.1、基础流程</h3><p>禅道使用的基础流程如下：</p>
+<ol>
+<li>产品经理创建产品</li>
+<li>产品经理创建需求</li>
+<li>项目经理创建项目</li>
+<li>项目经理确定项目要做的需求</li>
+<li>项目经理分解任务，指派到人</li>
+<li>开发人员实现需求</li>
+<li>测试人员测试，提交bug。</li>
+</ol>
+<p>我们一般在使用上需要关注的部分：</p>
+<ol>
+<li>左侧侧边栏，【地盘】、【产品】、【项目】</li>
+<li>剩余工作总计，看以看到指定给自己的【任务】、【bug】、【研发需求】</li>
+<li>项目统计，总体查看项目的情况</li>
+</ol>
+<p>新手第一次进入系统可以点击橙色的<strong>新手教程按钮</strong>,帮助你快速了解禅道的使用：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230331094842386.png" alt="新手教程"></p>
+<h3 id="3-2、提交bug"><a href="#3-2、提交bug" class="headerlink" title="3.2、提交bug"></a>3.2、提交bug</h3><p>在系统中，点击左侧侧边栏【项目】，找到项目，再点击顶部栏的【测试】，出现bug列表，可以点击【提bug】按钮来提交系统的bug。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230331201411513.png" alt="bug提交"></p>
+<p>需要注意的是在提交bug页面中，需要注重重现步骤的填写，以减少沟通成本。重现步骤中的【步骤】，即测试人员在系统中一步一步的操作，必要时应辅以相应的图片&#x2F;录屏&#x2F;文字说明等；【结果】，即通过通过操作产生的结果（bug）；【期望】，即在系统中的操作得到的不是测试人员想要的结果（bug），则测试人员需要表示自己的操作应该产生什么样的结果。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230331201453647.png" alt="bug描述"></p>
+<p>bug提交可以指派给对应的开发人员解决，双方也可以在禅道上对bug进行沟通、处理。 </p>
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+        <tag>项目管理系统</tag>
+      </tags>
+  </entry>
 </search>
