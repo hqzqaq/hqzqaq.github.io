@@ -102,6 +102,87 @@
   </div>
 </article>
       
+  
+  
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2022/09/23/GIS%E7%83%AD%E7%82%B9/" class="archive-article-date">
+  <time datetime="2022-09-23T05:24:44.000Z" itemprop="datePublished">09/23</time>
+</a>
+       
+<h2 itemprop="name">
+  <a class="archive-article-title" href="/2022/09/23/GIS%E7%83%AD%E7%82%B9/"
+    >GIS热点</a> 
+</h2>
+ 
+
+    </header>
+    
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/gis/">gis</a>
+  </div>
+
+    
+    
+  </div>
+</article>
+      
+  
+  
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2022/09/23/ENVI%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  <time datetime="2022-09-23T05:23:34.000Z" itemprop="datePublished">09/23</time>
+</a>
+       
+<h2 itemprop="name">
+  <a class="archive-article-title" href="/2022/09/23/ENVI%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/"
+    >ENVI操作笔记</a> 
+</h2>
+ 
+
+    </header>
+    
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/gis/">gis</a>
+  </div>
+
+    
+    
+  </div>
+</article>
+      
+  
+  
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2022/09/23/%E5%9C%B0%E7%90%86%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%92%8C%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  <time datetime="2022-09-23T01:25:22.000Z" itemprop="datePublished">09/23</time>
+</a>
+       
+<h2 itemprop="name">
+  <a class="archive-article-title" href="/2022/09/23/%E5%9C%B0%E7%90%86%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%92%8C%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/"
+    >地理信息系统的科学和技术基础</a> 
+</h2>
+ 
+
+    </header>
+    
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/gis/">gis</a>
+  </div>
+
+    
+    
+  </div>
+</article>
+      
       
     </div>
   </div>
@@ -447,56 +528,6 @@
         let $btn = $(e.trigger);
         $btn.addClass('copied');
         let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-checkbox-circle-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPIED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-checkbox-circle-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-      clipboard.on('error', function(e) {
-        e.clearSelection();
-        let $btn = $(e.trigger);
-        $btn.addClass('copy-failed');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-time-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPY FAILED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-time-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-    }
-    initCopyCode();
-  }(window, document);
-</script>
- 
-<!-- CanvasBackground -->
- 
-<script src="/js/dz.js"></script>
- 
-<script>
-  if (window.mermaid) {
-    mermaid.initialize({ theme: "forest" });
-  }
-</script>
-
-
-    
-    
-
-  </div>
-</body>
-
-</html>        let $icon = $($btn.find('i'));
         $icon.removeClass('ri-file-copy-2-line');
         $icon.addClass('ri-checkbox-circle-line');
         let $span = $($btn.find('span'));
