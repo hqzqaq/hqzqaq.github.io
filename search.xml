@@ -502,7 +502,7 @@
 <p>手机APP、web地图、VR和AR、三维建模</p>
 ]]></content>
       <categories>
-        <category>gis</category>
+        <category>hellogis</category>
       </categories>
       <tags>
         <tag>GIS热点前沿</tag>
@@ -2400,7 +2400,7 @@ ENV FLASK_RUN_HOST 0.0.0.0
 <p><code>Spectral Math</code></p>
 ]]></content>
       <categories>
-        <category>gis</category>
+        <category>hellogis</category>
       </categories>
       <tags>
         <tag>ENVI</tag>
@@ -13622,7 +13622,7 @@ ENV FLASK_RUN_HOST 0.0.0.0
 </ul>
 ]]></content>
       <categories>
-        <category>gis</category>
+        <category>hellogis</category>
       </categories>
       <tags>
         <tag>gis</tag>
@@ -13907,7 +13907,7 @@ ENV FLASK_RUN_HOST 0.0.0.0
 </ol>
 ]]></content>
       <categories>
-        <category>gis</category>
+        <category>hellogis</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
@@ -15229,6 +15229,42 @@ ENV FLASK_RUN_HOST 0.0.0.0
       <tags>
         <tag>php</tag>
         <tag>项目管理系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>免科学上网，免费使用GPT4</title>
+    <url>/2023/04/26/%E5%85%8D%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%8C%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A8GPT4/</url>
+    <content><![CDATA[<h1 id="免科学上网，免费使用GPT4"><a href="#免科学上网，免费使用GPT4" class="headerlink" title="免科学上网，免费使用GPT4"></a>免科学上网，免费使用GPT4</h1><p>随着chatgpt的大火，大语言模型浪潮袭来，但是不管时chatgpt还是newbing都需要科学上网，而国内的如：百度的文心一言、阿里通义千问等都难以通过候补名单，今天给大家介绍一个可以免科学上网而且可以免费使用GPT4的办法——bito。</p>
+<span id="more"></span>
+
+<h2 id="1、bito"><a href="#1、bito" class="headerlink" title="1、bito"></a>1、bito</h2><p>bito 是 Bito AI 推出的一款 IDE 插件，支持常用的 IDE 环境，如 vs code，Jetbrains等，以GPT4为内核，支持对话模式和保存历史对话记录，它提出的口号是：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Bito AI - Be a 100x dev and save an hour a day!</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、bito-能做什么"><a href="#2、bito-能做什么" class="headerlink" title="2、bito 能做什么"></a>2、bito 能做什么</h2><h3 id="2-1、开发者"><a href="#2-1、开发者" class="headerlink" title="2.1、开发者"></a>2.1、开发者</h3><p>Bito是一个能够将GPT-4和ChatGPT模型集成到IDE和CLI中的工具，可以帮助开发者大大提高开发效率。使用该工具可以无需OpenAI的密钥，就能够使用OpenAI的模型。使用Bito人工智能工具，您可以轻松编写代码、理解语法、编写测试用例、解释代码、注释代码、检查安全性甚至解释复杂的高层概念。使用Bito，每天都能为您节省大约一个小时的时间！</p>
+<h3 id="2-2、普通使用者"><a href="#2-2、普通使用者" class="headerlink" title="2.2、普通使用者"></a>2.2、普通使用者</h3><p>就当成chatgpt使用就好了，在功能上会比chatgpt更加强大，相应也更快！</p>
+<h2 id="3、安装"><a href="#3、安装" class="headerlink" title="3、安装"></a>3、安装</h2><h3 id="3-1、开发者"><a href="#3-1、开发者" class="headerlink" title="3.1、开发者"></a>3.1、开发者</h3><p>在IDE的扩展商店中搜索bito即可，在vscode中如下所示：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230424162929748.png" alt="vscode中搜索bito"></p>
+<p>该插件只需要提供邮箱，接受一个验证码就能免费使用，现在在内测阶段，之后应该是要收费的。</p>
+<h3 id="3-2、非开发者"><a href="#3-2、非开发者" class="headerlink" title="3.2、非开发者"></a>3.2、非开发者</h3><p>对于没有太多计算机开发知识的人，也没有科学上网办法或者openai的账号，可以体验一下bito，就当普通的对话机器人使用就好。</p>
+<h4 id="3-2-1、安装步骤1"><a href="#3-2-1、安装步骤1" class="headerlink" title="3.2.1、安装步骤1"></a>3.2.1、安装步骤1</h4><p>首先下载vscode，下载地址如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">https://code.visualstudio.com/Download</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230424163323805.png" alt="vscode下载"></p>
+<p>选择对应的系统版本下载即可，一般都是windows吧。安装的话，除了修改默认安装位置，其它都默认就好。</p>
+<h4 id="3-2-2、安装步骤2"><a href="#3-2-2、安装步骤2" class="headerlink" title="3.2.2、安装步骤2"></a>3.2.2、安装步骤2</h4><p>打开vs code ，打开侧边栏的扩展商店，搜索bito安装下载即可</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230424163520889.png" alt="扩展商店搜索"></p>
+<h2 id="4、使用体验"><a href="#4、使用体验" class="headerlink" title="4、使用体验"></a>4、使用体验</h2><h3 id="4-1、主界面"><a href="#4-1、主界面" class="headerlink" title="4.1、主界面"></a>4.1、主界面</h3><p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230424163629322.png" alt="主界面"></p>
+<h3 id="4-2、翻译"><a href="#4-2、翻译" class="headerlink" title="4.2、翻译"></a>4.2、翻译</h3><p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230424163741638.png" alt="翻译"></p>
+<h3 id="4-3、提问"><a href="#4-3、提问" class="headerlink" title="4.3、提问"></a>4.3、提问</h3><p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230424163826321.png" alt="提问"></p>
+<h3 id="4-4、写代码"><a href="#4-4、写代码" class="headerlink" title="4.4、写代码"></a>4.4、写代码</h3><p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230424164107805.png" alt="写代码"></p>
+<h3 id="4-5、润色"><a href="#4-5、润色" class="headerlink" title="4.5、润色"></a>4.5、润色</h3><p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230424164319259.png" alt="润色"></p>
+<p>4.5、润色</p>
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+      <tags>
+        <tag>GPT4</tag>
       </tags>
   </entry>
 </search>
