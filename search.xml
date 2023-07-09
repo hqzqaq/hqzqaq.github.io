@@ -15267,4 +15267,59 @@ ENV FLASK_RUN_HOST 0.0.0.0
         <tag>GPT4</tag>
       </tags>
   </entry>
+  <entry>
+    <title>局域网内共享网络的一次实践——以校园网为例</title>
+    <url>/2023/07/09/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E5%85%B1%E4%BA%AB%E7%BD%91%E7%BB%9C%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5%E2%80%94%E2%80%94%E4%BB%A5%E6%A0%A1%E5%9B%AD%E7%BD%91%E4%B8%BA%E4%BE%8B/</url>
+    <content><![CDATA[<h1 id="局域网内共享网络的一次实践——以校园网为例"><a href="#局域网内共享网络的一次实践——以校园网为例" class="headerlink" title="局域网内共享网络的一次实践——以校园网为例"></a>局域网内共享网络的一次实践——以校园网为例</h1><p>本文将分享一个校园网的白嫖思路（服务端：基于 UDP 53 端口的Wg Server for Windows，客户端：WireGuard VPN），也就是不花一分钱就和一般用户一样使用校园网。</p>
+<h2 id="1、前提条件"><a href="#1、前提条件" class="headerlink" title="1、前提条件"></a>1、前提条件</h2><p>此思路要求使用<strong>一个校园网的服务器</strong>作为中转，因此，需要能够在不需要付费、认证后就能上网的网络环境（一般为办公区或实验室网络）下放一个电脑（树莓派也行）；或者有任意学校服务器的使用权。</p>
+<span id="more"></span>
+
+<p>整体思路是给在学校中接入了校园网的电脑搭建服务器，中转流量。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/%E5%8E%9F%E7%90%86%E5%9B%BE.png" alt="原理图"></p>
+<h2 id="2、开始"><a href="#2、开始" class="headerlink" title="2、开始"></a>2、开始</h2><h3 id="2-1、准备"><a href="#2-1、准备" class="headerlink" title="2.1、准备"></a>2.1、准备</h3><ol>
+<li>校内可以上网的电脑，系统可以是windows或者linux，下面的内容以windows为例</li>
+<li>Wg Server for Windows 服务端软件，下载地址：<a href="https://github.com/micahmo/WgServerforWindows/releases/tag/v2.0.10">https://github.com/micahmo/WgServerforWindows/releases/tag/v2.0.10</a></li>
+<li>wireguard VPN 客户端软件，windows、ios、android等系统都有适配的软件，下载地址：<a href="https://www.wireguard.com/install/">https://www.wireguard.com/install/</a></li>
+</ol>
+<p>注：如果访问不了，需要解决科学上网的问题</p>
+<h3 id="2-2、步骤"><a href="#2-2、步骤" class="headerlink" title="2.2、步骤"></a>2.2、步骤</h3><p>wireguard 是几乎无状态的VPN协议，切换网络零感知，不需要重新连接VPN，对于经常睡眠-唤醒的电脑特别有用。睡眠唤醒后可以立刻上网。此外 WireGuard 在 Linux 和 Windows 操作系统上均是纯内核态的实现，性能极其高。</p>
+<p>方法：搭建一个 wireguard 服务端，然后端口监听在 53 上</p>
+<h4 id="2-2-1、服务端配置"><a href="#2-2-1、服务端配置" class="headerlink" title="2.2.1、服务端配置"></a>2.2.1、服务端配置</h4><p>安装Wg Server for Windows后的界面如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/%E9%A6%96%E9%A1%B5.png" alt="首页"></p>
+<p>需要从上到下一步一步将<strong>红叉变成绿勾</strong></p>
+<ol>
+<li><p>第一步是按照wireguard，可以自己安装也可以点击上面的Download and install WireGuard，需要合适的网络环境。。。</p>
+</li>
+<li><p>第二步是服务端配置，核心是要监听53端口，其它内容如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708142141964.png" alt="服务端配置"></p>
+</li>
+<li><p>客户端配置，配置文件名称随便起，按照以下三步点下来就行了</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708142607612.png" alt="客户端配置"></p>
+<p>最终生成的客户端配置文件如下所示：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708142542079.png" alt="配置完成内容"></p>
+<p><strong>如果配置之后还是上不了网，可以考虑更换DNS，如：8.8.8.8、1.1.1.1</strong></p>
+<p>客户端的配置文件可以通过二维码或者导出为文件分享，手机、平板就适合用二维码分享，电脑就适合用导出的文件分享</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708142840400.png" alt="配置分享"></p>
+</li>
+<li><p>其它的配置一路往下点就行了，都配置好的界面如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708145129371.png" alt="配置好的界面"></p>
+</li>
+</ol>
+<h4 id="2-2-2、客户端配置"><a href="#2-2-2、客户端配置" class="headerlink" title="2.2.2、客户端配置"></a>2.2.2、客户端配置</h4><p>windows界面的wireguard如下所示，导入配置文件后，连接校园网wifi点击连接就可直接上网，而不需要在浏览器界面进行校园网认证，相当于打开了VPN。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708164401820.png" alt="wireguard界面"></p>
+<p>这是手机客户端的界面</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/android-app.jpg" alt="android-app"></p>
+<p>通过扫描二维码之后，将会自动导入配置文件，点击连接，手机会出现VPN的标志</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/android-%E8%BF%9E%E6%8E%A5.jpg" alt="android-连接"></p>
+<h2 id="3、限制"><a href="#3、限制" class="headerlink" title="3、限制"></a>3、限制</h2><p>首先需要保证所有的设备都是在一个校园网这个局域网内的，还需要一台几乎不关机的电脑作为服务器，其次，因为占用了一个53端口，可能导致本机会有一些问题，比如<strong>windows上的WSL2无法使用，无法启动linux子系统</strong>。</p>
+<p>总体来说体验还是不错的，实验室的电脑的网速比连校园网快，打LOL的延迟都下降了三分之二 ^_^</p>
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>校园网</tag>
+      </tags>
+  </entry>
 </search>

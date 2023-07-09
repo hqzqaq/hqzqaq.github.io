@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>other |  hqz的博客</title>
+      <title>局域网内共享网络的一次实践——以校园网为例 |  hqz的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,117 +57,192 @@
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-局域网内共享网络的一次实践——以校园网为例"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">other</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  局域网内共享网络的一次实践——以校园网为例
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/09/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E5%85%B1%E4%BA%AB%E7%BD%91%E7%BB%9C%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5%E2%80%94%E2%80%94%E4%BB%A5%E6%A0%A1%E5%9B%AD%E7%BD%91%E4%B8%BA%E4%BE%8B/" class="article-date">
+  <time datetime="2023-07-09T14:06:27.000Z" itemprop="datePublished">2023-07-09</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/other/">other</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2022" class="archive-year">2022</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">862</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">3 分钟</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/09/23/smart-doc%E9%9B%86%E6%88%90torna/" class="archive-article-date">
-  <time datetime="2022-09-23T05:58:36.000Z" itemprop="datePublished">09/23</time>
-</a>
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/09/23/smart-doc%E9%9B%86%E6%88%90torna/"
-    >smart-doc集成torna</a> 
-</h2>
+  <h1 id="局域网内共享网络的一次实践——以校园网为例"><a href="#局域网内共享网络的一次实践——以校园网为例" class="headerlink" title="局域网内共享网络的一次实践——以校园网为例"></a>局域网内共享网络的一次实践——以校园网为例</h1><p>本文将分享一个校园网的白嫖思路（服务端：基于 UDP 53 端口的Wg Server for Windows，客户端：WireGuard VPN），也就是不花一分钱就和一般用户一样使用校园网。</p>
+<h2 id="1、前提条件"><a href="#1、前提条件" class="headerlink" title="1、前提条件"></a>1、前提条件</h2><p>此思路要求使用<strong>一个校园网的服务器</strong>作为中转，因此，需要能够在不需要付费、认证后就能上网的网络环境（一般为办公区或实验室网络）下放一个电脑（树莓派也行）；或者有任意学校服务器的使用权。</p>
+<span id="more"></span>
+
+<p>整体思路是给在学校中接入了校园网的电脑搭建服务器，中转流量。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/%E5%8E%9F%E7%90%86%E5%9B%BE.png" alt="原理图"></p>
+<h2 id="2、开始"><a href="#2、开始" class="headerlink" title="2、开始"></a>2、开始</h2><h3 id="2-1、准备"><a href="#2-1、准备" class="headerlink" title="2.1、准备"></a>2.1、准备</h3><ol>
+<li>校内可以上网的电脑，系统可以是windows或者linux，下面的内容以windows为例</li>
+<li>Wg Server for Windows 服务端软件，下载地址：<a target="_blank" rel="noopener" href="https://github.com/micahmo/WgServerforWindows/releases/tag/v2.0.10">https://github.com/micahmo/WgServerforWindows/releases/tag/v2.0.10</a></li>
+<li>wireguard VPN 客户端软件，windows、ios、android等系统都有适配的软件，下载地址：<a target="_blank" rel="noopener" href="https://www.wireguard.com/install/">https://www.wireguard.com/install/</a></li>
+</ol>
+<p>注：如果访问不了，需要解决科学上网的问题</p>
+<h3 id="2-2、步骤"><a href="#2-2、步骤" class="headerlink" title="2.2、步骤"></a>2.2、步骤</h3><p>wireguard 是几乎无状态的VPN协议，切换网络零感知，不需要重新连接VPN，对于经常睡眠-唤醒的电脑特别有用。睡眠唤醒后可以立刻上网。此外 WireGuard 在 Linux 和 Windows 操作系统上均是纯内核态的实现，性能极其高。</p>
+<p>方法：搭建一个 wireguard 服务端，然后端口监听在 53 上</p>
+<h4 id="2-2-1、服务端配置"><a href="#2-2-1、服务端配置" class="headerlink" title="2.2.1、服务端配置"></a>2.2.1、服务端配置</h4><p>安装Wg Server for Windows后的界面如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/%E9%A6%96%E9%A1%B5.png" alt="首页"></p>
+<p>需要从上到下一步一步将<strong>红叉变成绿勾</strong></p>
+<ol>
+<li><p>第一步是按照wireguard，可以自己安装也可以点击上面的Download and install WireGuard，需要合适的网络环境。。。</p>
+</li>
+<li><p>第二步是服务端配置，核心是要监听53端口，其它内容如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708142141964.png" alt="服务端配置"></p>
+</li>
+<li><p>客户端配置，配置文件名称随便起，按照以下三步点下来就行了</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708142607612.png" alt="客户端配置"></p>
+<p>最终生成的客户端配置文件如下所示：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708142542079.png" alt="配置完成内容"></p>
+<p><strong>如果配置之后还是上不了网，可以考虑更换DNS，如：8.8.8.8、1.1.1.1</strong></p>
+<p>客户端的配置文件可以通过二维码或者导出为文件分享，手机、平板就适合用二维码分享，电脑就适合用导出的文件分享</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708142840400.png" alt="配置分享"></p>
+</li>
+<li><p>其它的配置一路往下点就行了，都配置好的界面如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708145129371.png" alt="配置好的界面"></p>
+</li>
+</ol>
+<h4 id="2-2-2、客户端配置"><a href="#2-2-2、客户端配置" class="headerlink" title="2.2.2、客户端配置"></a>2.2.2、客户端配置</h4><p>windows界面的wireguard如下所示，导入配置文件后，连接校园网wifi点击连接就可直接上网，而不需要在浏览器界面进行校园网认证，相当于打开了VPN。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20230708164401820.png" alt="wireguard界面"></p>
+<p>这是手机客户端的界面</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/android-app.jpg" alt="android-app"></p>
+<p>通过扫描二维码之后，将会自动导入配置文件，点击连接，手机会出现VPN的标志</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/android-%E8%BF%9E%E6%8E%A5.jpg" alt="android-连接"></p>
+<h2 id="3、限制"><a href="#3、限制" class="headerlink" title="3、限制"></a>3、限制</h2><p>首先需要保证所有的设备都是在一个校园网这个局域网内的，还需要一台几乎不关机的电脑作为服务器，其次，因为占用了一个53端口，可能导致本机会有一些问题，比如<strong>windows上的WSL2无法使用，无法启动linux子系统</strong>。</p>
+<p>总体来说体验还是不错的，实验室的电脑的网速比连校园网快，打LOL的延迟都下降了三分之二 ^_^</p>
  
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/other/">other</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/09/23/mermaid-%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  <time datetime="2022-09-23T05:47:27.000Z" itemprop="datePublished">09/23</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/09/23/mermaid-%E8%AF%AD%E6%B3%95/"
-    >mermaid 语法</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/other/">other</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/09/20/Hexo%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  <time datetime="2022-09-20T04:59:06.330Z" itemprop="datePublished">09/20</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/09/20/Hexo%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
-    >Gitee + Hexo 搭建个人博客页面</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/other/">other</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/categories/other/">上一页</a><a class="page-number" href="/categories/other/">1</a><span class="page-number current">2</span>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hqzqaq.github.io/2023/07/09/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E5%85%B1%E4%BA%AB%E7%BD%91%E7%BB%9C%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5%E2%80%94%E2%80%94%E4%BB%A5%E6%A0%A1%E5%9B%AD%E7%BD%91%E4%B8%BA%E4%BE%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%A1%E5%9B%AD%E7%BD%91/" rel="tag">校园网</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2023/04/26/%E5%85%8D%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%8C%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A8GPT4/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">免科学上网，免费使用GPT4</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -325,6 +400,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
