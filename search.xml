@@ -15322,4 +15322,121 @@ ENV FLASK_RUN_HOST 0.0.0.0
         <tag>校园网</tag>
       </tags>
   </entry>
+  <entry>
+    <title>科研工具分享</title>
+    <url>/2023/12/03/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/</url>
+    <content><![CDATA[<h1 id="科研工具分享"><a href="#科研工具分享" class="headerlink" title="科研工具分享"></a>科研工具分享</h1><p>[toc]</p>
+<h2 id="1、浏览器"><a href="#1、浏览器" class="headerlink" title="1、浏览器"></a>1、浏览器</h2><p>市面上主流的浏览器内核分别是<strong>ie内核、Firefox内核、Safari内核、chromium内核</strong>。所谓的Chromium内核其实是基于webkit内核改进和开发的，是目前公认的最快的网页浏览方式。现在有很多浏览器采用Chromium内核，大家都知道chromium内核的浏览器市场份额最高，对于<strong>标准的适配最省心省事</strong>。<span id="more"></span></p>
+<p><strong>使用Chromium开源代码（基于webkit内核）的浏览器有Chrome浏览器、Edge浏览器、360极速浏览器、Cent Browser百分浏览器、Vivaldi浏览器、Yandex浏览器等。</strong> </p>
+<p>推荐<font color="red">谷歌浏览器</font>和系统自带的<font color="red">Edge浏览器</font>（<font color="orange">更推荐</font>，结合微软账号多端同步，newbing支持）</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113164811940.png" alt="edge浏览器"></p>
+<h3 id="1-1、浏览器拓展"><a href="#1-1、浏览器拓展" class="headerlink" title="1.1、浏览器拓展"></a>1.1、浏览器拓展</h3><p>扩展是一种可以增加浏览器功能的软件，它们可以通过浏览器的扩展商店或者第三方网站下载安装。使用chromium内核的浏览器，如谷歌浏览器、微软Edge浏览器、Opera浏览器等，拥有丰富的扩展生态，可以安装许多扩展插件来提升浏览器的功能。例如，有些扩展可以帮助用户屏蔽广告、翻译网页、管理密码、截图、下载视频等。<strong>Chromium内核的浏览器扩展可以让用户根据自己的需求和喜好定制自己的浏览体验，丰富和优化其功能。</strong></p>
+<p>谷歌扩展商店：<a href="https://chromewebstore.google.com/">https://chromewebstore.google.com</a></p>
+<p>微软扩展商店：<a href="https://microsoftedge.microsoft.com/addons?hl=zh-CN">https://microsoftedge.microsoft.com/addons?hl=zh-CN</a></p>
+<h4 id="1-1-1、easyScholar"><a href="#1-1-1、easyScholar" class="headerlink" title="1.1.1、easyScholar"></a>1.1.1、easyScholar</h4><p>easyScholar可以在主流论文搜索网站上，<font color="yellow">显示各种期刊等级，包含索引、sci分区、影响因子</font>等，可以方便我们对一篇文章做大概的评价。如下图：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231112123142899.png" alt="显示期刊等级"></p>
+<h4 id="1-1-2、篡改猴"><a href="#1-1-2、篡改猴" class="headerlink" title="1.1.2、篡改猴"></a>1.1.2、篡改猴</h4><p>篡改猴，也叫Tampermonkey，是一种可以<font color="cyan">安装和运行用户户脚本</font>的浏览器扩展。用户户脚本是一种可以修改或增强网页功能的js代码，比如去除广告、优化界面（CSDN页面优化）、自动填写表单等。</p>
+<p>脚本网站：<a href="https://greasyfork.org/zh-CN">https://greasyfork.org/zh-CN</a></p>
+<p>可以自行探索可以提高自己效率的脚本，推荐一些页面优化的脚本、去除搜索结果中的广告和<font color="yellow">Github高速下载脚本</font>（使用Github原链接下载一般都很慢，提供的镜像地址下载可以大大加快下载速度）</p>
+<h2 id="2、论文搜索"><a href="#2、论文搜索" class="headerlink" title="2、论文搜索"></a>2、论文搜索</h2><h3 id="2-1、知网"><a href="#2-1、知网" class="headerlink" title="2.1、知网"></a>2.1、知网</h3><p>中国知网：<a href="https://www.cnki.net/">https://www.cnki.net/</a></p>
+<h3 id="2-2、谷歌学术"><a href="#2-2、谷歌学术" class="headerlink" title="2.2、谷歌学术"></a>2.2、谷歌学术</h3><p>我最常用的论文搜索方式，搜索质量较好，不少学者都有在其建立个人学术档案</p>
+<p>谷歌学术：<a href="https://scholar.google.com/">https://scholar.google.com/</a></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113100417651.png" alt="谷歌学术搜索"></p>
+<h3 id="2-3、web-of-science"><a href="#2-3、web-of-science" class="headerlink" title="2.3、web of science"></a>2.3、web of science</h3><p>Web of Science是获取全球学术信息的重要数据库，它收录了多种权威的、高影响力的学术期刊。SCI(E)数据库是Web of Science当中一个子库，全球最权威的自然科学引文数据库，目前收录自然科学8500+种国际性、高影响力的学术期刊。<strong>学校购买数据可以访问到1995年</strong>。</p>
+<p>推荐从校图书馆提供的站点进行访问：<a href="https://lib.scnu.edu.cn/">https://lib.scnu.edu.cn/</a></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231112125536686.png" alt="web of science 访问"></p>
+<p><strong>论文搜索：</strong></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113100620680.png" alt="web of science搜索"></p>
+<h2 id="3、文献管理软件"><a href="#3、文献管理软件" class="headerlink" title="3、文献管理软件"></a>3、文献管理软件</h2><p>当文献越来越多，如何管理文献就成了一个大问题。目前的文献管理软件至少有几十种，其中主流的有：<strong>Endnote</strong>、<strong>NoteExpress</strong>、<strong>Zotero</strong>等。</p>
+<h3 id="3-1、Zotero"><a href="#3-1、Zotero" class="headerlink" title="3.1、Zotero"></a>3.1、Zotero</h3><p>这里推荐我使用的文献管理软件Zotero：<a href="https://www.zotero.org/%E3%80%82">https://www.zotero.org/。</a></p>
+<p><img src="https://www.zotero.org/static/images/home/screenshot-1.4.png" alt="zotero文献管理"></p>
+<p><strong>优点：</strong></p>
+<p>1）数据的组织形式采用树形目录结构，并且是无限层级。</p>
+<p>2）可以配置为，Zotero 服务器仅同步数据库，文档通过软链接指向本地或者网络服务器，数据库同步可以使用 Zotero 的服务器，而数据文档可以使用第三方的网络存储功能，如：<strong>百度盘、dropbox，google driver，iCloud</strong> 等，甚至是 NAS。</p>
+<p>3）编辑文档使用外部工具，不存在编辑功能不够强大的问题。</p>
+<p>4）开源，插件丰富。</p>
+<h4 id="3-1-1、插件"><a href="#3-1-1、插件" class="headerlink" title="3.1.1、插件"></a>3.1.1、插件</h4><p>zotero 非官方中文小组：<a href="https://plugins.zotero-chinese.com/#/">https://plugins.zotero-chinese.com/#/</a></p>
+<h5 id="3-1-1-1、zotero-connector"><a href="#3-1-1-1、zotero-connector" class="headerlink" title="3.1.1.1、zotero connector"></a>3.1.1.1、zotero connector</h5><p>首先当属安装<strong>zotero connector</strong>。zotero connector是安装在浏览器上的插件，能够从网页中提取文献条目和PDF文献数据，并保存到文献库中。</p>
+<h5 id="3-1-1-2、支持中文CNKI的茉莉花插件和translators-CN"><a href="#3-1-1-2、支持中文CNKI的茉莉花插件和translators-CN" class="headerlink" title="3.1.1.2、支持中文CNKI的茉莉花插件和translators_CN"></a>3.1.1.2、支持中文CNKI的茉莉花插件和translators_CN</h5><p>支持中文知网文献</p>
+<h5 id="3-1-1-3、zotero-pdf-translate-PDF"><a href="#3-1-1-3、zotero-pdf-translate-PDF" class="headerlink" title="3.1.1.3、zotero-pdf-translate-PDF"></a>3.1.1.3、zotero-pdf-translate-PDF</h5><p>pdf内容选中翻译</p>
+<h5 id="3-1-1-4、sci-hub文献自动下载"><a href="#3-1-1-4、sci-hub文献自动下载" class="headerlink" title="3.1.1.4、sci-hub文献自动下载"></a>3.1.1.4、sci-hub文献自动下载</h5><p>根据文献doi自动从scihub下载对应的文献。</p>
+<p>文献自动下载需要两个插件共同完成，<strong>doi-manage</strong>r和<strong>scihub</strong></p>
+<p>doi-manager用于获取doi，scihub插件根据doi查询获取文献。</p>
+<p>插件教程：</p>
+<ul>
+<li><p><a href="https://www.zhihu.com/question/402589277">https://www.zhihu.com/question/402589277</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/499398620">https://zhuanlan.zhihu.com/p/499398620</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/551841177">https://zhuanlan.zhihu.com/p/551841177</a></p>
+</li>
+</ul>
+<h4 id="3-1-2、文献同步"><a href="#3-1-2、文献同步" class="headerlink" title="3.1.2、文献同步"></a>3.1.2、文献同步</h4><p>常见的同步工具有onedrive、坚果云、dropbox等等，方法都是相同的，这里使用onedrive来举例。</p>
+<p><strong>onedrive 学生认证</strong>：<a href="https://zhuanlan.zhihu.com/p/347730850">https://zhuanlan.zhihu.com/p/347730850</a></p>
+<p>此外还需要zotero的一款<strong>zotfile</strong>插件来辅助管理pdf，可以实现pdf的自动分类、命名等管理。</p>
+<p><strong>zotfile插件</strong>：<a href="https://github.com/jlegewie/zotfile">https://github.com/jlegewie/zotfile</a></p>
+<h4 id="3-1-3、参考文献引用"><a href="#3-1-3、参考文献引用" class="headerlink" title="3.1.3、参考文献引用"></a>3.1.3、参考文献引用</h4><p>搭配word使用，安装zotero后，word顶部栏会出现zotero菜单，在文中点击<strong>Add&#x2F;EditCitation</strong>会弹出zoteo窗口，首先选择引用样式，包含在文中的样式和文献列表菜单样式。样式文件支持自定义，可以构建适合的参考文献样式。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113191544070.png" alt="word中使用zotero"></p>
+<p>引用参考文献之后，自动进行参考文献序号的更新，避免手动更新的麻烦，显示的效果如下：</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113191859880.png" alt="文献引用"></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113191910052.png" alt="参考文献列表"></p>
+<h2 id="4、AI工具"><a href="#4、AI工具" class="headerlink" title="4、AI工具"></a>4、AI工具</h2><p>每个AI都有各自的特点，可以输入多个AI对比得出综合的结果。</p>
+<h3 id="4-1、ChatGPT"><a href="#4-1、ChatGPT" class="headerlink" title="4.1、ChatGPT"></a>4.1、ChatGPT</h3><p>ChatGPT：<a href="https://chat.openai.com/">https://chat.openai.com/</a></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113141805271.png" alt="ChatGPT"></p>
+<h3 id="4-2、newbing"><a href="#4-2、newbing" class="headerlink" title="4.2、newbing"></a>4.2、newbing</h3><p>newbing：<a href="https://www.bing.com/chat">https://www.bing.com/chat</a></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113144632596.png" alt="newbing"></p>
+<h3 id="4-3、Claude-AI"><a href="#4-3、Claude-AI" class="headerlink" title="4.3、Claude AI"></a>4.3、Claude AI</h3><p>Claude ai：<a href="https://claude.ai/chat">https://claude.ai/chat</a></p>
+<p>个人觉得比chatgpt 3.5好用，一次可以输入的数据量很大，可以上次10MB以内的文件</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113141640080.png" alt="Claude AI"></p>
+<h3 id="4-4、github-copilot"><a href="#4-4、github-copilot" class="headerlink" title="4.4、github copilot"></a>4.4、github copilot</h3><p>专门用于处理代码问题的AI，可以使用教育网邮箱进行认证从而免费使用，需要搭配vs code使用，作为vs code的一个插件。</p>
+<p>认证教程1：<a href="https://zhuanlan.zhihu.com/p/618772237">https://zhuanlan.zhihu.com/p/618772237</a></p>
+<p>认证教程2：<a href="https://zhuanlan.zhihu.com/p/618772237">https://zhuanlan.zhihu.com/p/618772237</a></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113113909585.png" alt="github copilot"></p>
+<h2 id="5、效率工具"><a href="#5、效率工具" class="headerlink" title="5、效率工具"></a>5、效率工具</h2><h3 id="5-1、jupyter"><a href="#5-1、jupyter" class="headerlink" title="5.1、jupyter"></a>5.1、jupyter</h3><p>Jupyter Notebook是一个基于网页的用于交互计算的应用程序。它<strong>可以应用于全过程计算：开发、文档编写、运行代码和展示结果</strong>。</p>
+<p>jupyter使用教程：<a href="https://zhuanlan.zhihu.com/p/33105153">https://zhuanlan.zhihu.com/p/33105153</a></p>
+<h3 id="5-2、markdown"><a href="#5-2、markdown" class="headerlink" title="5.2、markdown"></a>5.2、markdown</h3><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，介于简单的txt和复杂的word之间的一种文档形式。</p>
+<p>markdown 教程：<a href="https://www.runoob.com/markdown/md-tutorial.html">https://www.runoob.com/markdown/md-tutorial.html</a></p>
+<h3 id="5-3、Typora"><a href="#5-3、Typora" class="headerlink" title="5.3、Typora"></a>5.3、Typora</h3><p>Typora是一款支持<font color="orange">实时预览</font>的MarkDown文本编译器，使用简单、颜值高。</p>
+<p>Typora官网：<a href="https://typora.io/">https://typora.io/</a></p>
+<p>Typora使用教程1：<a href="https://zhuanlan.zhihu.com/p/510453486">https://zhuanlan.zhihu.com/p/510453486</a></p>
+<p>Typora使用教程2：<a href="https://hqzqaq.github.io/2022/09/23/typora%E5%85%A5%E9%97%A8/">https://hqzqaq.github.io/2022/09/23/typora%E5%85%A5%E9%97%A8/</a></p>
+<p>主题商店：<a href="https://theme.typora.io/">https://theme.typora.io/</a></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113193109437.png" alt="丰富的主题样式"></p>
+<h4 id="5-3-1、图片"><a href="#5-3-1、图片" class="headerlink" title="5.3.1、图片"></a>5.3.1、图片</h4><p>直接复制进来的图片添加的是本地图片文件的引用，不适合传播，一般会配置一个图床用来存储图片，提供在线地址访问。</p>
+<p><strong>PicGo: 一个用于快速上传图片并获取图片 URL 链接的工具：</strong><a href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a></p>
+<p>可以使用github、gitee、阿里云oss等作为图床</p>
+<p>Typora+PicGo配置图床：<a href="https://juejin.cn/post/7089308017266524197">https://juejin.cn/post/7089308017266524197</a></p>
+<h4 id="5-3-2、代码块"><a href="#5-3-2、代码块" class="headerlink" title="5.3.2、代码块"></a>5.3.2、代码块</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义一个函数，用辗转相除法求两个数的最大公约数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gcd</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="comment"># 如果b为0，返回a</span></span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    <span class="comment"># 否则，递归调用函数，用b和a对b的余数作为参数</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> gcd(b, a % b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试一下函数</span></span><br><span class="line"><span class="built_in">print</span>(gcd(<span class="number">12</span>, <span class="number">18</span>)) <span class="comment"># 输出6</span></span><br><span class="line"><span class="built_in">print</span>(gcd(<span class="number">25</span>, <span class="number">15</span>)) <span class="comment"># 输出5</span></span><br><span class="line"><span class="built_in">print</span>(gcd(<span class="number">17</span>, <span class="number">13</span>)) <span class="comment"># 输出1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-3-3、数学公式"><a href="#5-3-3、数学公式" class="headerlink" title="5.3.3、数学公式"></a>5.3.3、数学公式</h4><p>支持latex语法，数学公式实时预览<br>$$<br>\large<br>||x||<em>1 &#x3D; \sum\limits</em>{i &#x3D; 1}^n|x_i|<br>$$<br>typora 数学公式：<a href="https://hqzqaq.github.io/2022/09/23/typora%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">https://hqzqaq.github.io/2022/09/23/typora%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</a></p>
+<h3 id="5-4、md文件推送到wiki"><a href="#5-4、md文件推送到wiki" class="headerlink" title="5.4、md文件推送到wiki"></a>5.4、md文件推送到wiki</h3><p>使用markdown写的md文件可以推送到wiki中。</p>
+<p>github 开源项目 md2cf：<a href="https://github.com/iamjackg/md2cf">https://github.com/iamjackg/md2cf</a></p>
+<p>方法总结：<a href="http://139.159.148.93:8090/pages/viewpage.action?pageId=328141">http://139.159.148.93:8090/pages/viewpage.action?pageId=328141</a></p>
+<h3 id="5-5、utools"><a href="#5-5、utools" class="headerlink" title="5.5、utools"></a>5.5、utools</h3><p>uTools 是一个极简、插件化、跨平台的现代桌面软件。它是新一代效率工具平台，可以自由组合插件应用，打造专属你的趁手工具集。当你熟悉它后，能够为你节约大量时间，让你可以更加专注地改变世界。可以减少对鼠标的使用，尽量使用键盘操作。<br>utools 官网：<a href="https://www.u.tools/">https://www.u.tools/</a></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113163037821.png" alt="image-20231113163037821"></p>
+<h4 id="5-5-1、插件"><a href="#5-5-1、插件" class="headerlink" title="5.5.1、插件"></a>5.5.1、插件</h4><p>同样有丰富的插件生态，文件查找、翻译、图片OCR、去除粘贴内容格式等等</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113163110488.png" alt="image-20231113163110488"></p>
+<p>如果插件市场没有满足自己需求的插件，也可以自己进行开发。</p>
+<p>utools 插件开发：<a href="https://www.u.tools/docs/developer/welcome.html#plugin-json">https://www.u.tools/docs/developer/welcome.html#plugin-json</a></p>
+<p>简单的一些需求，可以通过自动化脚本进行建立简单的脚本，比如<strong>使用AI的时候，自定义prompt前缀</strong>，节省重复打字的时间、对复制出来的内容进行处理，比如从pdf中复制出来的内容有多余的空格、英文逗号、英文分号，可以写脚本进行批量替换等。</p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113164314080.png" alt="image-20231113164314080"></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113164228406.png" alt="image-20231113164228406"></p>
+<h2 id="6、b站up主推荐"><a href="#6、b站up主推荐" class="headerlink" title="6、b站up主推荐"></a>6、b站up主推荐</h2><p>up主推荐这一位：<strong>西红柿学长呀</strong> 会分享一些简单、基础、比较实用的内容。</p>
+<p>主页：<a href="https://space.bilibili.com/384121683">https://space.bilibili.com/384121683</a></p>
+<p><img src="https://gis-visualization.oss-cn-beijing.aliyuncs.com/typoraImg/image-20231113161716894.png" alt="主页"></p>
+<h2 id="7、网站导航"><a href="#7、网站导航" class="headerlink" title="7、网站导航"></a>7、网站导航</h2><ul>
+<li><a href="https://dagshub.com/datasets/">https://dagshub.com/datasets/</a></li>
+<li><a href="https://paperswithcode.com/">https://paperswithcode.com/</a></li>
+<li><a href="https://www.kaggle.com/datasets">https://www.kaggle.com/datasets</a></li>
+<li><a href="https://huggingface.co/">https://huggingface.co/</a></li>
+<li><a href="https://modelscope.cn/home">https://modelscope.cn/home</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>academic</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
 </search>
